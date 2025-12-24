@@ -101,8 +101,14 @@
             font-weight: 800;
             margin-bottom: 2rem;
             cursor: pointer;
-            display: inline-block;
+            display: inline-flex;
+            flex-direction: column;
+            line-height: 1.1;
+            align-items: center;
         }
+        
+        #logo .logo-top { font-size: 1.5rem; font-weight: 400; }
+        #logo .logo-bottom { font-size: 2.8rem; }
 
         .search-area {
             max-width: 600px;
@@ -430,7 +436,10 @@
     </div>
 
     <header>
-        <div id="logo" onclick="app.init()">Pépins de t<span>🍅</span>mates</div>
+        <div id="logo" onclick="app.init()">
+            <span class="logo-top">Pépins de</span>
+            <span class="logo-bottom">T🍅mates</span>
+        </div>
         <div class="search-area" id="search-box">
             <div class="search-container">
                 <input type="text" id="search-input" placeholder="Rechercher une variété...">
@@ -532,9 +541,10 @@
             <div id="sort-options">
                 <div class="sort-option selected" onclick="app.setSort('nom', this)">Nom (A - Z)</div>
                 <div class="sort-option" onclick="app.setSort('nom_desc', this)">Nom (Z - A)</div>
+                <div class="sort-option" onclick="app.setSort('couleur', this)">Par Couleur</div>
                 <div class="sort-option" onclick="app.setSort('note_desc', this)">Les mieux notées ★</div>
                 <div class="sort-option" onclick="app.setSort('note_asc', this)">Les moins bien notées ★</div>
-                <div class="sort-option" onclick="app.setSort('poids_desc', this)">Poids (Plus gros fruits)</div>
+                <div class="sort-option" onclick="app.setSort('poids_desc', this)">Taille / Poids (Gros fruits)</div>
                 <div class="sort-option" onclick="app.setSort('origine', this)">Par Origine</div>
             </div>
         </div>
@@ -570,6 +580,7 @@
         descriptionLongue: "L'Emerald Brocade est une variété de type 'Dwarf' (naine) remarquable. Ses fruits offrent une robe vert émeraude marbrée de teintes plus sombres à maturité. \n\nSa chair est incroyablement fondante, équilibrant parfaitement douceur et acidité. Idéale pour les petits jardins ou la culture en pot grâce à son port compact.\n\n1€40 le sachet de 12 graines",
         origine: "Australie",
         poids: "100-180g",
+        couleur: "Verte",
         note: 4.8,
         images: [
             "https://i.postimg.cc/Cx2CGLYZ/IMG-20250914-WA0141.jpg",
@@ -585,6 +596,7 @@
         descriptionLongue: "La Kryptonite est une variété moderne à fruits verts à maturité. Sa chair dense et juteuse développe une saveur riche et équilibrée, mêlant douceur et légère acidité.\n\nElle séduit les amateurs de tomates originales par sa couleur inhabituelle.\n\n1€40 le sachet de 12 graines",
         origine: "États-Unis 🇺🇸",
         poids: "150-250g",
+        couleur: "Verte",
         note: 4.6,
         images: [
             "https://i.postimg.cc/vmsQ4fkH/IMG_20250914_WA0142.jpg",
@@ -592,13 +604,14 @@
             "https://i.postimg.cc/Y0w4vXvR/IMG-20251224-WA0088.jpg"
         ]
     },
-    {
+	{
         id: 2,
         nom: "Vecherny Almaty",
         descriptionCourte: "Variété ancienne aux fruits sombres et charnus.",
         descriptionLongue: "Vecherny Almaty est une tomate traditionnelle originaire de la région d'Almaty. Elle produit des fruits foncés à la chair dense et savoureuse.\n\nTrès appréciée pour sa profondeur aromatique.\n\n1€40 le sachet de 12 graines",
         origine: "Kazakhstan 🇰🇿",
         poids: "180-300g",
+        couleur: "Noire",
         note: 4.7,
         images: [
             "https://i.postimg.cc/LspHJLwH/IMG_20250914_WA0143.jpg",
@@ -613,6 +626,7 @@
         descriptionLongue: "Candy Sweet Icicle produit de nombreux fruits allongés, croquants et extrêmement sucrés.\n\nParfaite pour l'apéritif et le grignotage.\n\n1€40 le sachet de 12 graines",
         origine: "États-Unis 🇺🇸",
         poids: "30-60g",
+        couleur: "Rose bigarrée",
         note: 4.8,
         images: [
             "https://i.postimg.cc/FKVh31XX/IMG_20250914_WA0144.jpg",
@@ -627,6 +641,7 @@
         descriptionLongue: "Chio Chio San est une tomate élégante et peu commune offrant des fruits réguliers à la saveur douce et équilibrée.\n\nAppréciée pour son port harmonieux.\n\n1€40 le sachet de 12 graines",
         origine: "Japon 🇯🇵",
         poids: "120-180g",
+        couleur: "Rose",
         note: 4.5,
         images: [
             "https://i.postimg.cc/cJBdw6G1/IMG_20250914_WA0145.jpg",
@@ -641,6 +656,7 @@
         descriptionLongue: "Florida Pink est une variété reconnue pour ses fruits charnus à la chair tendre et peu acide.\n\nIdéale en salade.\n\n1€40 le sachet de 12 graines",
         origine: "États-Unis 🇺🇸",
         poids: "250-400g",
+        couleur: "Rose",
         note: 4.6,
         images: [
             "https://i.postimg.cc/0Ns8zDF5/IMG_20250914_WA0146.jpg",
@@ -654,6 +670,7 @@
         descriptionLongue: "Mahogany Dwarf (parfois appelée Mattogany) est une tomate de type 'Dwarf' produisant des fruits sombres aux reflets acajou.\n\nParfaite pour la culture en pot.\n\n1€40 le sachet de 12 graines",
         origine: "Australie 🇦🇺",
         poids: "120-200g",
+        couleur: "Noire / Acajou",
         note: 4.7,
         images: [
             "https://i.postimg.cc/d3BW9PtR/IMG_20250914_WA0147.jpg",
@@ -668,6 +685,7 @@
         descriptionLongue: "Issue du Dwarf Tomato Project, Mélanie's Ballet Dwarf combine port compact et fruits savoureux.\n\nChair fondante et équilibrée.\n\n1€40 le sachet de 12 graines",
         origine: "Australie 🇦🇺",
         poids: "140-220g",
+        couleur: "Rose",
         note: 4.8,
         images: [
             "https://i.postimg.cc/RhRPT5VL/IMG_20250914_WA0148.jpg",
@@ -682,6 +700,7 @@
         descriptionLongue: "Cette variété produit de gros fruits jaunes striés de rouge, à la chair dense et douce.\n\nAussi belle que savoureuse.\n\n1€40 le sachet de 12 graines",
         origine: "États-Unis 🇺🇸",
         poids: "300-500g",
+        couleur: "Jaune bigarrée",
         note: 4.7,
         images: [
             "https://i.postimg.cc/gjDMKFk8/IMG_20250914_WA0149.jpg",
@@ -697,6 +716,7 @@
         descriptionLongue: "Spectrum's Surprise est connue pour ses fruits multicolores et son goût doux et fruité.\n\nChaque récolte est unique.\n\n1€40 le sachet de 12 graines",
         origine: "États-Unis 🇺🇸",
         poids: "150-250g",
+        couleur: "Bigarrée",
         note: 4.6,
         images: [
             "https://i.postimg.cc/2ywHxR8F/IMG_20250914_WA0150.jpg",
@@ -710,6 +730,7 @@
         descriptionLongue: "Shadow Boxing Dwarf est une variété compacte produisant des fruits foncés et savoureux.\n\nTrès robuste.\n\n1€40 le sachet de 12 graines",
         origine: "Australie 🇦🇺",
         poids: "120-200g",
+        couleur: "Bleue / Noire",
         note: 4.7,
         images: [
             "https://i.postimg.cc/0jftCR2f/IMG_20250914_WA0151.jpg",
@@ -724,6 +745,7 @@
         descriptionLongue: "Mint Streak Dwarf se distingue par ses fruits verts striés de jaune.\n\nSaveur douce et fraîche.\n\n1€40 le sachet de 12 graines",
         origine: "Australie 🇦🇺",
         poids: "130-200g",
+        couleur: "Verte",
         note: 4.8,
         images: [
             "https://i.postimg.cc/brT6RcNL/IMG_20250914_WA0152.jpg",
@@ -739,6 +761,7 @@
         descriptionLongue: "Issue des communautés Amish, cette tomate offre une chair dense et parfumée.\n\nGoût authentique.\n\n1€40 le sachet de 12 graines",
         origine: "États-Unis 🇺🇸",
         poids: "200-350g",
+        couleur: "Rouge bigarrée",
         note: 4.7,
         images: [
             "https://i.postimg.cc/XvSwX14H/IMG_20250914_WA0153.jpg",
@@ -752,6 +775,7 @@
         descriptionLongue: "Tomate rouge élégante à la chair équilibrée.\n\nRustique et fiable.\n\n1€40 le sachet de 12 graines",
         origine: "Kazakhstan 🇰🇿",
         poids: "150-250g",
+        couleur: "Rouge",
         note: 4.5,
         images: [
             "https://i.postimg.cc/YCm6rBBw/IMG_20250914_WA0154.jpg",
@@ -765,6 +789,7 @@
         descriptionLongue: "Yelena's Ibiza produit des fruits savoureux et parfumés.\n\nIdéale pour l'été.\n\n1€40 le sachet de 12 graines",
         origine: "Espagne 🇪🇸",
         poids: "160-240g",
+        couleur: "Jaune bigarrée",
         note: 4.6,
         images: [
             "https://i.postimg.cc/CKTjdrSr/IMG_20250914_WA0155.jpg",
@@ -781,6 +806,7 @@
         descriptionLongue: "Renegade est une variété récente offrant une bonne régularité.\n\nSaveur douce et équilibrée.\n\n1€40 le sachet de 12 graines",
         origine: "États-Unis 🇺🇸",
         poids: "150-220g",
+        couleur: "Verte",
         note: 4.6,
         images: [
             "https://i.postimg.cc/7L8gbtwj/IMG_20250914_WA0156.jpg",
@@ -796,6 +822,7 @@
         descriptionLongue: "Mirabelle Jaune produit de petits fruits ronds et doux.\n\nIdéale à grignoter.\n\n1€40 le sachet de 12 graines",
         origine: "France 🇫🇷",
         poids: "20-40g",
+        couleur: "Jaune",
         note: 4.8,
         images: [
             "https://i.postimg.cc/CKTjdrSW/IMG_20250914_WA0157.jpg",
@@ -809,6 +836,7 @@
         descriptionLongue: "Création paysanne française à la chair douce et peu acide.\n\nTrès originale.\n\n1€40 le sachet de 12 graines",
         origine: "France 🇫🇷",
         poids: "180-300g",
+        couleur: "Blanche",
         note: 4.9,
         images: [
             "https://i.postimg.cc/JzBNrCCw/IMG_20250914_WA0158.jpg",
@@ -826,6 +854,7 @@
         descriptionLongue: "Clémentine séduit par sa couleur vive et sa douceur.\n\nParfaite en salade.\n\n1€40 le sachet de 12 graines",
         origine: "France 🇫🇷",
         poids: "120-180g",
+        couleur: "Orange",
         note: 4.6,
         images: [
             "https://i.postimg.cc/pr4m4ydw/IMG_20250914_WA0159.jpg",
@@ -839,6 +868,7 @@
         descriptionLongue: "Variété riche en anthocyanes aux reflets bleus.\n\nSaveur douce et complexe.\n\n1€40 le sachet de 12 graines",
         origine: "États-Unis 🇺🇸",
         poids: "100-160g",
+        couleur: "Bleue",
         note: 4.7,
         images: [
             "https://i.postimg.cc/brWZWdJj/IMG_20250914_WA0161.jpg",
@@ -854,6 +884,7 @@
         descriptionLongue: "DSA est reconnue pour sa fiabilité et sa bonne production.\n\nFruits savoureux.\n\n1€40 le sachet de 12 graines",
         origine: "États-Unis 🇺🇸",
         poids: "150-250g",
+        couleur: "Rouge",
         note: 4.5,
         images: [
             "https://i.postimg.cc/nrgXgMzf/IMG_20250914_WA0162.jpg",
@@ -869,6 +900,7 @@
         descriptionLongue: "Sunshine Blue Natalis développe une belle coloration bleue au soleil et distingue par ses reflets dus à l’anthocyane.\n\nSa chair reste douce et équilibrée, idéale pour apporter couleur et originalité au potager.\n\n1€40 le sachet de 12 graines",
         origine: "États-Unis 🇺🇸",
         poids: "120-200g",
+        couleur: "Bleue",
         note: 4.8,
         images: [
             "https://i.postimg.cc/Zn2W20RS/IMG_20250914_WA0163.jpg",
@@ -886,6 +918,7 @@
         descriptionLongue: "Awesome Dwarf combine port compact et fruits généreux.\n\nIdéale pour petits espaces.\n\n1€40 le sachet de 12 graines",
         origine: "Australie 🇦🇺",
         poids: "150-230g",
+        couleur: "Jaune bigarrée",
         note: 4.7,
         images: [
             "https://i.postimg.cc/cC2v26HW/IMG_20250914_WA0164.jpg",
@@ -902,6 +935,7 @@
         descriptionLongue: "Brandywine Black est une référence parmi les tomates foncées.\n\nChair riche et intense.\n\n1€40 le sachet de 12 graines",
         origine: "États-Unis 🇺🇸",
         poids: "300-500g",
+        couleur: "Noire",
         note: 4.8,
         images: [
             "https://i.postimg.cc/T1FKFhwT/IMG_20250914_WA0166.jpg",
@@ -916,6 +950,7 @@
         descriptionLongue: "Clare Valley Dwarf offre des fruits savoureux sur un plant compact.\n\nTrès régulière.\n\n1€40 le sachet de 12 graines",
         origine: "Australie 🇦🇺",
         poids: "140-220g",
+        couleur: "Rouge",
         note: 4.7,
         images: [
             "https://i.postimg.cc/90KDKzMX/IMG_20250914_WA0169.jpg",
@@ -929,6 +964,7 @@
         descriptionLongue: "Grosse de Bernay est une tomate traditionnelle aux fruits volumineux.\n\nChair dense et parfumée.\n\n1€40 le sachet de 12 graines",
         origine: "France 🇫🇷",
         poids: "300-500g",
+        couleur: "Rouge",
         note: 4.6,
         images: [
             "https://i.postimg.cc/8c979s5j/IMG_20250914_WA0172.jpg",
@@ -939,9 +975,10 @@
         id: 26,
         nom: "Prune verte",
         descriptionCourte: "Une variété ancienne aux fruits verts et savoureux.",
-        descriptionLongue: "La Prune verte est une variété traditionnelle appréciée pour ses fruits ronds à la robe verte et à la chair juteuse. \n\nSa saveur douce et légèrement acidulée en fait une excellente tomate de table, idéale en salade ou en dégustation nature.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "La Prune verte est une variété traditionnelle appréciée pour ses fruits ronds à la robe verte et à la chair juteuse.\n\nSa saveur douce et légèrement acidulée en fait une excellente tomate de table, idéale en salade ou en dégustation nature.\n\n1€40 le sachet de 12 graines",
         origine: "France 🇫🇷",
         poids: "80-150g",
+        couleur: "Verte",
         note: 4.3,
         images: [
             "https://i.postimg.cc/VNsqpHs1/IMG_20250914_WA0117.jpg",
@@ -953,9 +990,10 @@
         id: 27,
         nom: "Bendigo Moon Dwarf",
         descriptionCourte: "Une variété naine productive aux fruits équilibrés.",
-        descriptionLongue: "Le Bendigo Moon Dwarf est une variété naine issue du Dwarf Tomato Project. \n\nElle produit des fruits savoureux, bien équilibrés, sur un plant compact et robuste, parfaitement adapté aux petits espaces.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Le Bendigo Moon Dwarf est une variété naine issue du Dwarf Tomato Project.\n\nElle produit des fruits savoureux, bien équilibrés, sur un plant compact et robuste, parfaitement adapté aux petits espaces.\n\n1€40 le sachet de 12 graines",
         origine: "Australie 🇦🇺",
         poids: "150-250g",
+        couleur: "Blanche",
         note: 4.6,
         images: [
             "https://i.postimg.cc/Ls4tw04M/IMG_20250914_WA0118.jpg",
@@ -967,9 +1005,10 @@
         id: 28,
         nom: "Kozula 203",
         descriptionCourte: "Une tomate bigarrée spectaculaire et riche en goût.",
-        descriptionLongue: "La Kozula 203 est une variété rare aux fruits marbrés de vert, jaune et rouge. \n\nSa chair dense offre une explosion de saveurs complexes, très appréciée des amateurs de tomates originales.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "La Kozula 203 est une variété rare aux fruits marbrés de vert, jaune et rouge.\n\nSa chair dense offre une explosion de saveurs complexes, très appréciée des amateurs de tomates originales.\n\n1€40 le sachet de 12 graines",
         origine: "Croatie 🇭🇷",
         poids: "200-350g",
+        couleur: "Bigarrée",
         note: 4.7,
         images: [
             "https://i.postimg.cc/6Q6rg16X/IMG_20250914_WA0119.jpg",
@@ -982,9 +1021,10 @@
         id: 29,
         nom: "Kalvados",
         descriptionCourte: "Une tomate charnue et parfumée.",
-        descriptionLongue: "Kalvados est une variété vigoureuse produisant de beaux fruits charnus. \n\nSa saveur franche et légèrement sucrée la rend idéale pour les sauces, coulis et plats cuisinés.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Kalvados est une variété vigoureuse produisant de beaux fruits charnus.\n\nSa saveur franche et légèrement sucrée la rend idéale pour les sauces, coulis et plats cuisinés.\n\n1€40 le sachet de 12 graines",
         origine: "France 🇫🇷",
         poids: "180-300g",
+        couleur: "Rouge",
         note: 4.4,
         images: [
             "https://i.postimg.cc/8CkR9nkG/IMG_20250914_WA0120.jpg",
@@ -996,9 +1036,10 @@
         id: 31,
         nom: "Ronde Hâtive de Sévigné",
         descriptionCourte: "Une variété précoce et fiable.",
-        descriptionLongue: "La Ronde Hâtive de Sévigné est connue pour sa précocité et sa régularité. \n\nElle produit rapidement des fruits ronds et savoureux, parfaits pour les régions à saisons courtes.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "La Ronde Hâtive de Sévigné est connue pour sa précocité et sa régularité.\n\nElle produit rapidement des fruits ronds et savoureux, parfaits pour les régions à saisons courtes.\n\n1€40 le sachet de 12 graines",
         origine: "France 🇫🇷",
         poids: "90-140g",
+        couleur: "Rouge",
         note: 4.2,
         images: [
             "https://i.postimg.cc/HLWwRPWY/IMG_20250914_WA0123.jpg",
@@ -1009,9 +1050,10 @@
         id: 32,
         nom: "Lilian Marie",
         descriptionCourte: "Une variété délicate aux saveurs douces.",
-        descriptionLongue: "Lilian Marie produit des fruits harmonieux à la chair fondante. \n\nElle est appréciée pour sa douceur et sa polyvalence en cuisine.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Lilian Marie produit des fruits harmonieux à la chair fondante.\n\nElle est appréciée pour sa douceur et sa polyvalence en cuisine.\n\n1€40 le sachet de 12 graines",
         origine: "France 🇫🇷",
         poids: "120-200g",
+        couleur: "Blanche",
         note: 4.3,
         images: [
             "https://i.postimg.cc/4346qF4y/IMG_20250914_WA0124.jpg",
@@ -1022,9 +1064,10 @@
         id: 33,
         nom: "Scarlet Starfire",
         descriptionCourte: "Une tomate lumineuse et intensément colorée.",
-        descriptionLongue: "Scarlet Starfire séduit par sa couleur rouge éclatante et sa chair juteuse. \n\nSon goût vif et légèrement acidulé est parfait pour relever les salades estivales.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Scarlet Starfire séduit par sa couleur rouge éclatante et sa chair juteuse.\n\nSon goût vif et légèrement acidulé est parfait pour relever les salades estivales.\n\n1€40 le sachet de 12 graines",
         origine: "États-Unis 🇺🇸",
         poids: "150-250g",
+        couleur: "Rouge",
         note: 4.5,
         images: [
             "https://i.postimg.cc/bvYxWFYG/IMG_20250914_WA0125.jpg",
@@ -1035,9 +1078,10 @@
         id: 34,
         nom: "Mila's Heart",
         descriptionCourte: "Une tomate en forme de cœur, douce et charnue.",
-        descriptionLongue: "Mila's Heart est une variété généreuse produisant de gros fruits en forme de cœur. \n\nSa chair dense et sucrée est idéale pour les plats cuisinés et les sauces.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Mila's Heart est une variété généreuse produisant de gros fruits en forme de cœur.\n\nSa chair dense et sucrée est idéale pour les plats cuisinés et les sauces.\n\n1€40 le sachet de 12 graines",
         origine: "Europe de l'Est 🇪🇺",
         poids: "250-400g",
+        couleur: "Rouge",
         note: 4.6,
         images: [
             "https://i.postimg.cc/DzfrHYf4/IMG_20250914_WA0126.jpg",
@@ -1050,9 +1094,10 @@
         id: 35,
         nom: "Dwarf Lemon Ice",
         descriptionCourte: "Une variété naine jaune pâle très décorative.",
-        descriptionLongue: "Dwarf Lemon Ice produit des fruits jaune clair à la chair douce et rafraîchissante. \n\nSon port compact la rend parfaite pour la culture en pot.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Dwarf Lemon Ice produit des fruits jaune clair à la chair douce et rafraîchissante.\n\nSon port compact la rend parfaite pour la culture en pot.\n\n1€40 le sachet de 12 graines",
         origine: "Australie 🇦🇺",
         poids: "120-180g",
+        couleur: "Jaune",
         note: 4.7,
         images: [
             "https://i.postimg.cc/4346qF4h/IMG_20250914_WA0127.jpg",
@@ -1063,9 +1108,10 @@
         id: 36,
         nom: "Velvet Night Dwarf",
         descriptionCourte: "Une tomate sombre aux reflets veloutés.",
-        descriptionLongue: "Velvet Night Dwarf est une variété naine remarquable par sa couleur foncée. \n\nElle offre une saveur profonde et légèrement fumée, très appréciée des connaisseurs.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Velvet Night Dwarf est une variété naine remarquable par sa couleur foncée.\n\nElle offre une saveur profonde et légèrement fumée, très appréciée des connaisseurs.\n\n1€40 le sachet de 12 graines",
         origine: "Australie 🇦🇺",
         poids: "150-220g",
+        couleur: "Noire",
         note: 4.8,
         images: [
             "https://i.postimg.cc/DzfrHYfX/IMG_20250914_WA0128.jpg",
@@ -1076,9 +1122,10 @@
         id: 37,
         nom: "Cookie Select",
         descriptionCourte: "Une variété originale et savoureuse.",
-        descriptionLongue: "Cookie Select se distingue par son goût équilibré et sa belle production. \n\nElle est idéale pour une culture familiale polyvalente.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Cookie Select se distingue par son goût équilibré et sa belle production.\n\nElle est idéale pour une culture familiale polyvalente.\n\n1€40 le sachet de 12 graines",
         origine: "États-Unis 🇺🇸",
         poids: "140-220g",
+        couleur: "Bigarrée",
         note: 4.4,
         images: [
             "https://i.postimg.cc/BvhT0ct6/IMG_20250914_WA0129.jpg",
@@ -1089,9 +1136,10 @@
         id: 38,
         nom: "Round Robin Dwarf",
         descriptionCourte: "Une variété naine très productive.",
-        descriptionLongue: "Round Robin Dwarf produit une abondance de fruits ronds et savoureux. \n\nSon port compact et sa robustesse en font une valeur sûre.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Round Robin Dwarf produit une abondance de fruits ronds et savoureux.\n\nSon port compact et sa robustesse en font une valeur sûre.\n\n1€40 le sachet de 12 graines",
         origine: "Australie 🇦🇺",
         poids: "130-200g",
+        couleur: "Rouge",
         note: 4.6,
         images: [
             "https://i.postimg.cc/KY9P2r4Y/IMG_20250914_WA0130.jpg",
@@ -1102,9 +1150,10 @@
         id: 39,
         nom: "Duckling",
         descriptionCourte: "Une variété atypique et rustique.",
-        descriptionLongue: "Duckling est une tomate originale, appréciée pour sa robustesse et son goût franc. \n\nElle s’adapte bien à des conditions de culture variées.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Duckling est une tomate originale, appréciée pour sa robustesse et son goût franc.\n\nElle s’adapte bien à des conditions de culture variées.\n\n1€40 le sachet de 12 graines",
         origine: "Europe 🇪🇺",
         poids: "100-160g",
+        couleur: "Orange",
         note: 4.2,
         images: [
             "https://i.postimg.cc/hGCLBbhh/IMG_20250914_WA0131.jpg",
@@ -1116,9 +1165,10 @@
         id: 40,
         nom: "Jipaulia",
         descriptionCourte: "Une variété rare et savoureuse.",
-        descriptionLongue: "Jipaulia est appréciée pour ses fruits équilibrés et sa belle régularité. \n\nElle offre une chair juteuse, idéale pour la consommation fraîche.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Jipaulia est appréciée pour ses fruits équilibrés et sa belle régularité.\n\nElle offre une chair juteuse, idéale pour la consommation fraîche.\n\n1€40 le sachet de 12 graines",
         origine: "Europe de l'Est 🇪🇺",
         poids: "150-250g",
+        couleur: "Rose",
         note: 4.3,
         images: [
             "https://i.postimg.cc/HLSwg4jr/IMG_20250914_WA0132.jpg",
@@ -1130,9 +1180,10 @@
         id: 41,
         nom: "Polish Dwarf",
         descriptionCourte: "Une variété naine robuste et productive.",
-        descriptionLongue: "Polish Dwarf est une tomate compacte produisant des fruits savoureux. \n\nElle est idéale pour les cultures en espace réduit.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Polish Dwarf est une tomate compacte produisant des fruits savoureux.\n\nElle est idéale pour les cultures en espace réduit.\n\n1€40 le sachet de 12 graines",
         origine: "Pologne 🇵🇱",
         poids: "120-200g",
+        couleur: "Rouge",
         note: 4.5,
         images: [
             "https://i.postimg.cc/0NtYsdrK/IMG_20250914_WA0133.jpg",
@@ -1143,9 +1194,10 @@
         id: 42,
         nom: "Bulgarie (Alifirov)",
         descriptionCourte: "Une variété traditionnelle aux saveurs riches.",
-        descriptionLongue: "Cette variété bulgare est réputée pour son goût intense et authentique. \n\nElle produit des fruits charnus parfaits pour la cuisine.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Cette variété bulgare est réputée pour son goût intense et authentique.\n\nElle produit des fruits charnus parfaits pour la cuisine.\n\n1€40 le sachet de 12 graines",
         origine: "Bulgarie 🇧🇬",
         poids: "180-300g",
+        couleur: "Rouge",
         note: 4.6,
         images: [
             "https://i.postimg.cc/TPkV6qhW/IMG_20250914_WA0134.jpg"
@@ -1155,9 +1207,10 @@
         id: 43,
         nom: "Silvery Fir Tree",
         descriptionCourte: "Une tomate au feuillage unique et décoratif.",
-        descriptionLongue: "Silvery Fir Tree est reconnaissable à son feuillage fin et argenté. \n\nSes fruits sont doux et équilibrés, parfaits pour une culture ornementale et gourmande.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Silvery Fir Tree est reconnaissable à son feuillage fin et argenté.\n\nSes fruits sont doux et équilibrés, parfaits pour une culture ornementale et gourmande.\n\n1€40 le sachet de 12 graines",
         origine: "Russie 🇷🇺",
         poids: "100-160g",
+        couleur: "Rouge",
         note: 4.4,
         images: [
             "https://i.postimg.cc/bv6xhHdt/IMG_20250914_WA0135.jpg",
@@ -1168,9 +1221,10 @@
         id: 44,
         nom: "Mar Azul",
         descriptionCourte: "Une variété bleutée rare et originale.",
-        descriptionLongue: "Mar Azul se distingue par ses reflets bleu foncé et sa chair savoureuse. \n\nElle apporte une touche unique au potager et à l’assiette.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Mar Azul se distingue par ses reflets bleu foncé et sa chair savoureuse.\n\nElle apporte une touche unique au potager et à l’assiette.\n\n1€40 le sachet de 12 graines",
         origine: "Amérique du Sud 🇨🇱",
         poids: "150-250g",
+        couleur: "Bleue",
         note: 4.7,
         images: [
             "https://i.postimg.cc/1zWGQc4F/IMG_20250914_WA0136.jpg",
@@ -1181,9 +1235,10 @@
         id: 45,
         nom: "Bleu Feu",
         descriptionCourte: "Tomate spectaculaire aux reflets 'feu'.",
-        descriptionLongue: "Bleu Feu porte bien son nom avec des nuances rouges et bleues intenses. Sa chair est marbrée, offrant une saveur fruitée et sucrée.\n\nUne variété visuellement époustouflante.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Bleu Feu porte bien son nom avec des nuances rouges et bleues intenses.Sa chair est marbrée, offrant une saveur fruitée et sucrée.\n\nUne variété visuellement époustouflante.\n\n1€40 le sachet de 12 graines",
         origine: "France 🇫🇷",
         poids: "80-150g",
+        couleur: "Bleue / Rouge",
         note: 4.6,
         images: [
             "https://i.postimg.cc/gcR8Ghxs/IMG-20251224-WA0004.jpg"
@@ -1193,9 +1248,10 @@
         id: 46,
         nom: "Reinhard's Chocolate Heart",
         descriptionCourte: "Cœur chocolat à la saveur riche.",
-        descriptionLongue: "Une variété en forme de cœur à la peau couleur chocolat. La chair est dense, riche et possède une saveur douce et complexe typique des tomates noires.\n\nIdéale pour les sauces foncées.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Une variété en forme de cœur à la peau couleur chocolat.La chair est dense, riche et possède une saveur douce et complexe typique des tomates noires.\n\nIdéale pour les sauces foncées.\n\n1€40 le sachet de 12 graines",
         origine: "Allemagne 🇩🇪",
         poids: "150-300g",
+        couleur: "Noire / Chocolat",
         note: 4.7,
         images: [
             "https://i.postimg.cc/44tVXcYw/IMG-20251224-WA0005.jpg"
@@ -1205,9 +1261,10 @@
         id: 47,
         nom: "Ruby Slippers Dwarf",
         descriptionCourte: "Naine productive aux petits fruits rouges.",
-        descriptionLongue: "Ruby Slippers Dwarf produit une abondance de petits fruits rouges brillants sur un plant compact. La saveur est douce et acidulée.\n\nParfaite pour les pots et bacs.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Ruby Slippers Dwarf produit une abondance de petits fruits rouges brillants sur un plant compact.La saveur est douce et acidulée.\n\nParfaite pour les pots et bacs.\n\n1€40 le sachet de 12 graines",
         origine: "Australie 🇦🇺",
         poids: "40-80g",
+        couleur: "Rouge",
         note: 4.5,
         images: [
             "https://i.postimg.cc/wxJL9NtY/IMG-20251224-WA0011.jpg"
@@ -1217,9 +1274,10 @@
         id: 48,
         nom: "Krasnyi Komar",
         descriptionCourte: "Tomate rouge intense rare.",
-        descriptionLongue: "Une variété rare produisant des fruits d'un rouge profond et intense. Sa chair est charnue avec une saveur de tomate ancienne bien prononcée.\n\nRustique et vigoureuse.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Une variété rare produisant des fruits d'un rouge profond et intense.Sa chair est charnue avec une saveur de tomate ancienne bien prononcée.\n\nRustique et vigoureuse.\n\n1€40 le sachet de 12 graines",
         origine: "Russie 🇷🇺",
         poids: "120-200g",
+        couleur: "Rouge",
         note: 4.4,
         images: [
             "https://i.postimg.cc/44tVXcKT/IMG-20251224-WA0012.jpg"
@@ -1229,9 +1287,10 @@
         id: 49,
         nom: "Red Robin Dwarf",
         descriptionCourte: "Micro-naine idéale pour l'intérieur.",
-        descriptionLongue: "Red Robin est une variété micro-naine très précoce. Elle produit des tomates cerises rouges douces.\n\nSa petite taille la rend parfaite pour la culture sur rebord de fenêtre.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Red Robin est une variété micro-naine très précoce.Elle produit des tomates cerises rouges douces.\n\nSa petite taille la rend parfaite pour la culture sur rebord de fenêtre.\n\n1€40 le sachet de 12 graines",
         origine: "États-Unis 🇺🇸",
         poids: "15-25g",
+        couleur: "Rouge",
         note: 4.5,
         images: [
             "https://i.postimg.cc/zXrWvfW5/IMG-20251224-WA0017.jpg"
@@ -1241,9 +1300,10 @@
         id: 50,
         nom: "Black Banana Costa",
         descriptionCourte: "Tomate allongée sombre et riche.",
-        descriptionLongue: "Une variété originale de type prune allongée, à la peau sombre. La chair est ferme, idéale pour la cuisine ou le séchage, avec un goût riche.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Une variété originale de type prune allongée, à la peau sombre.La chair est ferme, idéale pour la cuisine ou le séchage, avec un goût riche.\n\n1€40 le sachet de 12 graines",
         origine: "Inconnue",
         poids: "80-120g",
+        couleur: "Noire",
         note: 4.3,
         images: [
             "https://i.postimg.cc/L6pf5sfq/IMG-20251224-WA0022.jpg"
@@ -1253,9 +1313,10 @@
         id: 51,
         nom: "Mama Cassanellibi",
         descriptionCourte: "Tomate rouge de type pâte.",
-        descriptionLongue: "Une excellente tomate pour les conserves et les sauces. Elle offre une chair dense avec peu de graines et une saveur très douce.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Une excellente tomate pour les conserves et les sauces.Elle offre une chair dense avec peu de graines et une saveur très douce.\n\n1€40 le sachet de 12 graines",
         origine: "Inconnue",
         poids: "100-160g",
+        couleur: "Rouge",
         note: 4.4,
         images: [
             "https://i.postimg.cc/VL8MvNMr/IMG-20251224-WA0023.jpg",
@@ -1267,9 +1328,10 @@
         id: 52,
         nom: "Sweet Baby Jade Dwarf",
         descriptionCourte: "Naine aux petits fruits verts sucrés.",
-        descriptionLongue: "Une variété naine produisant de petites tomates qui restent vertes à maturité. Elles sont incroyablement sucrées et juteuses.\n\nUn bonbon végétal.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Une variété naine produisant de petites tomates qui restent vertes à maturité.Elles sont incroyablement sucrées et juteuses.\n\nUn bonbon végétal.\n\n1€40 le sachet de 12 graines",
         origine: "Australie 🇦🇺",
         poids: "30-60g",
+        couleur: "Verte",
         note: 4.8,
         images: [
             "https://i.postimg.cc/5NVvytvF/IMG-20251224-WA0024.jpg",
@@ -1280,9 +1342,10 @@
         id: 53,
         nom: "Sweet Caramel Sofia",
         descriptionCourte: "Tomate cocktail crème très sucrée.",
-        descriptionLongue: "Une tomate cocktail de couleur jaune crème à caramel. Elle est réputée pour son taux de sucre élevé et sa production abondante.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Une tomate cocktail de couleur jaune crème à caramel.Elle est réputée pour son taux de sucre élevé et sa production abondante.\n\n1€40 le sachet de 12 graines",
         origine: "Bulgarie 🇧🇬",
         poids: "40-80g",
+        couleur: "Jaune",
         note: 4.7,
         images: [
             "https://i.postimg.cc/J45XkWcT/IMG-20251224-WA0034.jpg",
@@ -1293,9 +1356,10 @@
         id: 54,
         nom: "Purpura Ritz",
         descriptionCourte: "Tomate pourpre à la saveur complexe.",
-        descriptionLongue: "Purpura Ritz offre des fruits d'une belle couleur pourpre foncé. La chair est juteuse avec un équilibre sucre/acide parfait.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Purpura Ritz offre des fruits d'une belle couleur pourpre foncé.La chair est juteuse avec un équilibre sucre/acide parfait.\n\n1€40 le sachet de 12 graines",
         origine: "États-Unis 🇺🇸",
         poids: "100-180g",
+        couleur: "Pourpre",
         note: 4.6,
         images: [
             "https://i.postimg.cc/RVLtHzQs/IMG-20251224-WA0035.jpg",
@@ -1306,9 +1370,10 @@
         id: 55,
         nom: "Scoresby Dwarf",
         descriptionCourte: "Naine rouge robuste et fiable.",
-        descriptionLongue: "Une variété naine australienne produisant des fruits rouges de taille moyenne. Plant vigoureux et très productif.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Une variété naine australienne produisant des fruits rouges de taille moyenne.Plant vigoureux et très productif.\n\n1€40 le sachet de 12 graines",
         origine: "Australie 🇦🇺",
         poids: "100-150g",
+        couleur: "Rouge",
         note: 4.5,
         images: [
             "https://i.postimg.cc/BQBFKGcr/IMG-20251224-WA0037.jpg"
@@ -1318,9 +1383,10 @@
         id: 56,
         nom: "Favorie de Bretagne",
         descriptionCourte: "Sélection rustique et savoureuse.",
-        descriptionLongue: "Une variété adaptée aux climats frais, produisant des fruits rouges savoureux. Rustique et fiable au potager.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Une variété adaptée aux climats frais, produisant des fruits rouges savoureux.Rustique et fiable au potager.\n\n1€40 le sachet de 12 graines",
         origine: "France 🇫🇷",
         poids: "120-180g",
+        couleur: "Rouge",
         note: 4.4,
         images: [
             "https://i.postimg.cc/rwyrGYQY/IMG-20251224-WA0041.jpg"
@@ -1330,9 +1396,10 @@
         id: 57,
         nom: "Purple Sunrise",
         descriptionCourte: "Bicolore jaune et violet spectaculaire.",
-        descriptionLongue: "Purple Sunrise est une tomate magnifique jaune d'or avec des épaules violettes (anthocyane). Saveur douce et fruitée.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Purple Sunrise est une tomate magnifique jaune d'or avec des épaules violettes (anthocyane).Saveur douce et fruitée.\n\n1€40 le sachet de 12 graines",
         origine: "Europe 🇪🇺",
         poids: "150-250g",
+        couleur: "Jaune / Bleue",
         note: 4.9,
         images: [
             "https://i.postimg.cc/4x49vFWZ/IMG-20251224-WA0047.jpg",
@@ -1343,9 +1410,10 @@
         id: 58,
         nom: "Rebel Alliance",
         descriptionCourte: "Multiflora aux fruits pourpres en cœur.",
-        descriptionLongue: "Une variété fascinante produisant des grappes énormes (multiflora) de petites tomates pourpres en forme de cœur. Très productive.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Une variété fascinante produisant des grappes énormes (multiflora) de petites tomates pourpres en forme de cœur.Très productive.\n\n1€40 le sachet de 12 graines",
         origine: "Canada 🇨🇦",
         poids: "20-40g",
+        couleur: "Pourpre",
         note: 4.8,
         images: [
             "https://i.postimg.cc/SxQMLtgj/IMG-20251224-WA0051.jpg",
@@ -1358,9 +1426,10 @@
         id: 59,
         nom: "Mille Fleurs",
         descriptionCourte: "Grappes géantes de tomates jaunes.",
-        descriptionLongue: "Une variété de type multiflora produisant des centaines de petites tomates jaunes par grappe. Très décorative et productive.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Une variété de type multiflora produisant des centaines de petites tomates jaunes par grappe.Très décorative et productive.\n\n1€40 le sachet de 12 graines",
         origine: "États-Unis 🇺🇸",
         poids: "10-20g",
+        couleur: "Jaune",
         note: 4.7,
         images: [
             "https://i.postimg.cc/htC72bYP/IMG-20251224-WA0054.jpg"
@@ -1370,9 +1439,10 @@
         id: 60,
         nom: "Hazy's Dream Dwarf",
         descriptionCourte: "Naine aux fruits pourpres doux.",
-        descriptionLongue: "Une variété naine produisant des fruits ronds de couleur pourpre. La saveur est douce et agréable.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Une variété naine produisant des fruits ronds de couleur pourpre.La saveur est douce et agréable.\n\n1€40 le sachet de 12 graines",
         origine: "Australie 🇦🇺",
         poids: "80-120g",
+        couleur: "Pourpre",
         note: 4.5,
         images: [
             "https://i.postimg.cc/ZRNBKk5Q/IMG-20251224-WA0084.jpg",
@@ -1383,9 +1453,10 @@
         id: 61,
         nom: "Riccio di Parma",
         descriptionCourte: "Tomate côtelée italienne ancienne.",
-        descriptionLongue: "Une tomate rouge traditionnelle de Parme, fortement côtelée. Chair dense, idéale pour les sauces et coulis.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Une tomate rouge traditionnelle de Parme, fortement côtelée.Chair dense, idéale pour les sauces et coulis.\n\n1€40 le sachet de 12 graines",
         origine: "Italie 🇮🇹",
         poids: "200-400g",
+        couleur: "Rouge",
         note: 4.6,
         images: [
             "https://i.postimg.cc/BbG8jhj7/IMG-20251224-WA0091.jpg",
@@ -1396,9 +1467,10 @@
         id: 62,
         nom: "Bananas Noire",
         descriptionCourte: "Tomate allongée noire originale.",
-        descriptionLongue: "Une variété produisant des fruits allongés de couleur foncée. Texture dense et charnue, goût fumé.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Une variété produisant des fruits allongés de couleur foncée.Texture dense et charnue, goût fumé.\n\n1€40 le sachet de 12 graines",
         origine: "Inconnue",
         poids: "80-120g",
+        couleur: "Noire",
         note: 4.4,
         images: [
             "https://i.postimg.cc/prt9m0m4/IMG-20251224-WA0093.jpg",
@@ -1412,6 +1484,7 @@
         descriptionLongue: "Cowboy est une variété vigoureuse offrant des fruits d'un rouge profond, très charnus et excellents en salade.\n\n1€40 le sachet de 12 graines",
         origine: "États-Unis 🇺🇸",
         poids: "150-250g",
+        couleur: "Rouge",
         note: 4.5,
         images: [
             "https://i.postimg.cc/NFwyKNK3/IMG-20251224-WA0094.jpg",
@@ -1422,9 +1495,10 @@
         id: 64,
         nom: "Elgum's Red Cherry",
         descriptionCourte: "Cerise rouge classique très sucrée.",
-        descriptionLongue: "Une tomate cerise fiable, produisant de nombreux fruits rouges très sucrés. Parfaite pour le grignotage.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Une tomate cerise fiable, produisant de nombreux fruits rouges très sucrés.Parfaite pour le grignotage.\n\n1€40 le sachet de 12 graines",
         origine: "Inconnue",
         poids: "15-25g",
+        couleur: "Rouge",
         note: 4.6,
         images: [
             "https://i.postimg.cc/KjyK19Kb/IMG-20251224-WA0096.jpg"
@@ -1434,9 +1508,10 @@
         id: 65,
         nom: "Striped Wax",
         descriptionCourte: "Tomate jaune striée ferme.",
-        descriptionLongue: "Une variété aux fruits jaunes cireux, parfois striés. Chair ferme et saveur douce.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Une variété aux fruits jaunes cireux, parfois striés.Chair ferme et saveur douce.\n\n1€40 le sachet de 12 graines",
         origine: "Inconnue",
         poids: "80-150g",
+        couleur: "Jaune",
         note: 4.3,
         images: [
             "https://i.postimg.cc/6qN78H7t/IMG-20251224-WA0097.jpg"
@@ -1446,9 +1521,10 @@
         id: 66,
         nom: "Piprakujuline Tribuline",
         descriptionCourte: "Tomate allongée en forme de poivron.",
-        descriptionLongue: "Curieuse tomate rouge allongée rappelant un piment ou un poivron. Chair dense avec peu de jus, idéale à farcir.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Curieuse tomate rouge allongée rappelant un piment ou un poivron.Chair dense avec peu de jus, idéale à farcir.\n\n1€40 le sachet de 12 graines",
         origine: "Estonie 🇪🇪",
         poids: "100-150g",
+        couleur: "Rouge",
         note: 4.4,
         images: [
             "https://i.postimg.cc/2yfq1Hqk/IMG-20251224-WA0098.jpg"
@@ -1458,9 +1534,10 @@
         id: 67,
         nom: "Beauty King",
         descriptionCourte: "Grosse tomate bicolore jaune et rouge.",
-        descriptionLongue: "Une superbe tomate bigarrée jaune striée de rouge. Chair juteuse, douce et fruitée. Un régal visuel et gustatif.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Une superbe tomate bigarrée jaune striée de rouge.Chair juteuse, douce et fruitée. Un régal visuel et gustatif.\n\n1€40 le sachet de 12 graines",
         origine: "États-Unis 🇺🇸",
         poids: "250-500g",
+        couleur: "Bigarrée",
         note: 4.8,
         images: [
             "https://i.postimg.cc/NF7Km1Tc/IMG-20251224-WA0102.jpg"
@@ -1470,9 +1547,10 @@
         id: 68,
         nom: "Starburst Nebula",
         descriptionCourte: "Explosion de couleurs cosmiques.",
-        descriptionLongue: "Une variété récente aux couleurs fascinantes mêlant jaune, rouge et violet. Saveur complexe et fruitée.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Une variété récente aux couleurs fascinantes mêlant jaune, rouge et violet.Saveur complexe et fruitée.\n\n1€40 le sachet de 12 graines",
         origine: "États-Unis 🇺🇸",
         poids: "100-180g",
+        couleur: "Bigarrée / Bleue",
         note: 4.7,
         images: [
             "https://i.postimg.cc/kGF2Kx85/IMG-20251224-WA0105.jpg",
@@ -1483,9 +1561,10 @@
         id: 69,
         nom: "Président Garfield",
         descriptionCourte: "Grosse tomate rouge ancienne.",
-        descriptionLongue: "Une variété héritage nommée d'après le président américain. Produit de gros fruits rouges robustes et savoureux.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Une variété héritage nommée d'après le président américain.Produit de gros fruits rouges robustes et savoureux.\n\n1€40 le sachet de 12 graines",
         origine: "États-Unis 🇺🇸",
         poids: "300-600g",
+        couleur: "Rouge",
         note: 4.5,
         images: [
             "https://i.postimg.cc/fyjVmxXy/IMG-20251224-WA0107.jpg",
@@ -1496,9 +1575,10 @@
         id: 70,
         nom: "Mila",
         descriptionCourte: "Tomate orange/rouge douce.",
-        descriptionLongue: "Variété produisant des fruits de taille moyenne, aux tons orangés. Chair douce et parfumée.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Variété produisant des fruits de taille moyenne, aux tons orangés.Chair douce et parfumée.\n\n1€40 le sachet de 12 graines",
         origine: "Inconnue",
         poids: "100-150g",
+        couleur: "Orange",
         note: 4.4,
         images: [
             "https://i.postimg.cc/J0csZbJy/IMG-20251224-WA0108.jpg",
@@ -1509,9 +1589,10 @@
         id: 71,
         nom: "Moliagul Moon Dwarf",
         descriptionCourte: "Naine aux fruits blanc ivoire.",
-        descriptionLongue: "Une variété naine produisant des fruits ronds de couleur blanc crémeux à jaune pâle. Saveur douce.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Une variété naine produisant des fruits ronds de couleur blanc crémeux à jaune pâle.Saveur douce.\n\n1€40 le sachet de 12 graines",
         origine: "Australie 🇦🇺",
         poids: "50-100g",
+        couleur: "Blanche",
         note: 4.5,
         images: [
             "https://i.postimg.cc/zvSyKnWg/IMG-20251224-WA0111.jpg"
@@ -1521,9 +1602,10 @@
         id: 72,
         nom: "Ladoshka",
         descriptionCourte: "Tomate rouge en forme de cœur plat.",
-        descriptionLongue: "Ladoshka produit des fruits rouges originaux, aplatis et légèrement cordiformes. Chair dense et bonne saveur.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Ladoshka produit des fruits rouges originaux, aplatis et légèrement cordiformes.Chair dense et bonne saveur.\n\n1€40 le sachet de 12 graines",
         origine: "Russie 🇷🇺",
         poids: "150-250g",
+        couleur: "Rouge",
         note: 4.5,
         images: [
             "https://i.postimg.cc/6qL8ndRh/IMG-20251224-WA0114.jpg",
@@ -1534,9 +1616,10 @@
         id: 73,
         nom: "Jarson 13 Ochre Pear",
         descriptionCourte: "Poire ocre unique et épicée.",
-        descriptionLongue: "Une tomate en forme de poire à la couleur ocre rare. Saveur distinctive, riche et légèrement épicée.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Une tomate en forme de poire à la couleur ocre rare.Saveur distinctive, riche et légèrement épicée.\n\n1€40 le sachet de 12 graines",
         origine: "Pologne 🇵🇱",
         poids: "80-150g",
+        couleur: "Ocre",
         note: 4.7,
         images: [
             "https://i.postimg.cc/jqzwpr1F/IMG-20251224-WA0116.jpg",
@@ -1548,9 +1631,10 @@
         id: 74,
         nom: "Dwarf Purple Reign",
         descriptionCourte: "Naine pourpre au goût intense.",
-        descriptionLongue: "Dwarf Purple Reign offre de magnifiques fruits pourpres sur un plant compact. La saveur est riche et typée tomate noire.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Dwarf Purple Reign offre de magnifiques fruits pourpres sur un plant compact.La saveur est riche et typée tomate noire.\n\n1€40 le sachet de 12 graines",
         origine: "Australie 🇦🇺",
         poids: "150-250g",
+        couleur: "Pourpre",
         note: 4.8,
         images: [
             "https://i.postimg.cc/jqzwpr9V/IMG-20251224-WA0118.jpg"
@@ -1563,6 +1647,7 @@
         descriptionLongue: "Une variété naine spectaculaire par son feuillage vert clair (chartreuse) et ses fruits rouges savoureux.\n\n1€40 le sachet de 12 graines",
         origine: "États-Unis 🇺🇸",
         poids: "80-150g",
+        couleur: "Rouge",
         note: 4.6,
         images: [
             "https://i.postimg.cc/ZYrBGhg5/IMG-20251224-WA0128.jpg"
@@ -1575,6 +1660,7 @@
         descriptionLongue: "Une variante multiflora produisant des grappes énormes de petites tomates jaunes rondes et sucrées.\n\n1€40 le sachet de 12 graines",
         origine: "France 🇫🇷",
         poids: "10-20g",
+        couleur: "Jaune",
         note: 4.7,
         images: [
             "https://i.postimg.cc/2j4bsfJy/IMG-20251224-WA0129.jpg"
@@ -1584,15 +1670,17 @@
         id: 77,
         nom: "Terracotta Cherry",
         descriptionCourte: "Cerise couleur terre cuite.",
-        descriptionLongue: "Tomate cerise originale à la couleur brique/terre cuite. Saveur douce avec une pointe fumée.\n\n1€40 le sachet de 12 graines",
+        descriptionLongue: "Tomate cerise originale à la couleur brique/terre cuite.Saveur douce avec une pointe fumée.\n\n1€40 le sachet de 12 graines",
         origine: "Allemagne 🇩🇪",
         poids: "15-25g",
+        couleur: "Terre cuite",
         note: 4.5,
         images: [
             "https://i.postimg.cc/qB8hPdY6/IMG-20251224-WA0130.jpg",
             "https://i.postimg.cc/VsjrxcTb/IMG-20251224-WA0131.jpg"
         ]
     },
+
     {
         id: 78,
         nom: "Ananas Rouge",
@@ -1600,6 +1688,7 @@
         descriptionLongue: "Une variante rouge de la célèbre tomate Ananas. Chair dense, marbrée, très parfumée et sucrée.\n\n1€40 le sachet de 12 graines",
         origine: "États-Unis 🇺🇸",
         poids: "300-600g",
+        couleur: "Rouge",
         note: 4.9,
         images: [
             "https://i.postimg.cc/hPczg5W4/IMG-20251224-WA0133.jpg"
@@ -1692,6 +1781,7 @@
                         case 'note_asc': return a.note - b.note;
                         case 'poids_desc': return parseInt(b.poids) - parseInt(a.poids);
                         case 'origine': return a.origine.localeCompare(b.origine);
+                        case 'couleur': return (a.couleur || "").localeCompare(b.couleur || "");
                         default: return a.nom.localeCompare(b.nom);
                     }
                 });
@@ -1851,7 +1941,7 @@
                                             ${liked ? '❤️ Aimé' : '❤️ Like'}
                                         </button>
                                     </div>
-                                    <button class="btn btn-order" onclick="app.checkout('${t.nom.replace(/'/g, "\\'")}')">Commander</button>
+                                    <button class="btn btn-order" onclick="app.addToCart(${t.id}); app.renderCartPage()">Commander</button>
                                 </div>
                             </div>
                         </div>
@@ -1920,6 +2010,7 @@
                 const num = await this.generateOrderNumber();
                 const items = await this.getCartItems();
                 const varietiesNames = items.map(i => i.nom).join(' • ');
+                const total = (items.length * 1.40).toFixed(2).replace('.', ',');
 
                 document.getElementById('order-display-area').innerHTML = `
                     <div class="order-summary-box">
@@ -1932,7 +2023,7 @@
                     </div>
                     <div class="action-row" style="margin-top:1rem; gap:10px; flex-wrap:wrap;">
                         <button class="btn btn-like" style="flex:1; min-width:200px" onclick="app.showQRCode()">QR code de la commande</button>
-                        <button class="btn btn-order" style="flex:1; min-width:200px" onclick="window.open('${GOOGLE_ORDER_FORM}', '_blank')">Envoyer par un formulaire</button>
+                        <button class="btn btn-order" style="flex:1; min-width:200px" onclick="window.open('https://m.me/votre.profil', '_blank')">Payer (${total}€)</button>
                     </div>
                     
                     <div class="pdf-form-container">
@@ -1958,6 +2049,7 @@
                 const orderNum = document.getElementById('order-num-text').innerText;
                 const items = await this.getCartItems();
                 const date = new Date().toLocaleString('fr-FR');
+                const total = (items.length * 1.40).toFixed(2).replace('.', ',');
 
                 // Design du PDF
                 doc.setFillColor(214, 48, 49);
@@ -1989,14 +2081,17 @@
                     doc.text(`${index + 1}. ${item.nom} (${item.origine})`, 25, y);
                     y += 8;
                 });
+                
+                doc.setFont("helvetica", "bold");
+                doc.text(`Total à régler : ${total}€`, 150, y + 5);
 
                 doc.setDrawColor(200, 200, 200);
-                doc.rect(20, y + 5, 170, 45);
+                doc.rect(20, y + 15, 170, 45);
                 doc.setFont("helvetica", "bold");
-                doc.text("Numéro de commande unique :", 105, y + 15, { align: "center" });
+                doc.text("Numéro de commande unique :", 105, y + 25, { align: "center" });
                 doc.setFontSize(16);
                 doc.setTextColor(214, 48, 49);
-                doc.text(orderNum, 105, y + 25, { align: "center" });
+                doc.text(orderNum, 105, y + 35, { align: "center" });
 
                 // Ajout du QR Code dans le PDF via l'API (Conversion Image)
                 const qrUrl = `https://quickchart.io/qr?text=${encodeURIComponent(orderNum)}&size=150`;
@@ -2005,10 +2100,10 @@
                 img.crossOrigin = "Anonymous";
                 img.src = qrUrl;
                 img.onload = function() {
-                    doc.addImage(img, 'PNG', 80, y + 60, 50, 50);
+                    doc.addImage(img, 'PNG', 80, y + 70, 50, 50);
                     doc.setTextColor(100, 100, 100);
                     doc.setFontSize(9);
-                    doc.text("Présentez ce QR code pour valider votre commande.", 105, y + 115, { align: "center" });
+                    doc.text("Présentez ce QR code pour valider votre commande.", 105, y + 125, { align: "center" });
                     doc.save(`Commande_Tomates_${prenom}.pdf`);
                 };
             },

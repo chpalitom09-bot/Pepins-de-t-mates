@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pépins de t🍅mates | Bibliothèque de variétés</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfc;
+            --text-main: #2d3436;
+            --text-light: #636e72;
+            --accent: #d63031;
+            --card-bg: #ffffff;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --dwarf-color: #6c5ce7;
+        }
+
+        body.dark-mode {
+            --bg-color: #121212;
+            --text-main: #e0e0e0;
+            --text-light: #a0a0a0;
+            --card-bg: #1e1e1e;
+            --shadow: 0 10px 30px rgba(0,0,0,0.4);
+            --dwarf-color: #a29bfe;
+        }
+
+        body.reduce-animations * { animation: none !important; transition: none !important; }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.3s;
+        }
+
+        .top-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: flex-end;
+            padding: 1.5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .settings-btn, .cart-trigger-btn {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.2rem;
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .settings-btn:hover, .cart-trigger-btn:hover { transform: scale(1.1); color: var(--accent); }
+        .settings-btn svg, .cart-trigger-btn svg { width: 20px; height: 20px; fill: currentColor; transition: var(--transition); }
+        .settings-btn:hover svg { transform: rotate(90deg); }
+
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--accent);
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-weight: 800;
+        }
+
+        header { padding: 1rem 2rem 0; text-align: center; }
+
+        #logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .search-area {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .search-container { flex: 1; position: relative; }
+
+        #search-input {
+            width: 100%;
+            padding: 1.1rem 1.5rem;
+            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 16px;
+            font-size: 1rem;
+            outline: none;
+            background: var(--card-bg);
+            color: var(--text-main);
+            box-shadow: var(--shadow);
+        }
+
+        .sort-btn {
+            width: 55px;
+            height: 55px;
+            background: var(--card-bg);
+            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+
+        .filters-container {
+            max-width: 1200px;
+            margin: 1.5rem auto 0;
+            padding: 0 1rem;
+            overflow-x: auto;
+            white-space: nowrap;
+            display: flex;
+            gap: 10px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding-bottom: 10px;
+        }
+        .filters-container::-webkit-scrollbar { display: none; }
+
+        .filter-chip {
+            padding: 8px 16px;
+            background: var(--card-bg);
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-light);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .filter-chip:hover { transform: translateY(-2px); }
+
+        .filter-chip.active {
+            background: var(--text-main);
+            color: var(--bg-color);
+            border-color: var(--text-main);
+        }
+
+        .filter-count {
+            font-size: 0.75rem;
+            opacity: 0.7;
+            background: rgba(128,128,128,0.2);
+            padding: 2px 6px;
+            border-radius: 10px;
+        }
+
+        .tomatoes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            animation: slideUp 0.5s ease-out;
+            position: relative;
+        }
+
+        .card:hover { transform: translateY(-8px); }
+        .card:hover .card-img { transform: scale(1.05); }
+
+        .card-img-container { width: 100%; aspect-ratio: 1 / 1; overflow: hidden; position: relative; }
+        .card-img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+
+        .card-content { padding: 1.5rem; }
+        .card-content h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+        
+        .card-desc-short {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            border-top: 1px solid rgba(0,0,0,0.05);
+            padding-top: 1rem;
+            margin-top: 1rem;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .modal-content {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 28px;
+            width: 95%;
+            max-width: 450px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .setting-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .setting-select {
+            padding: 8px 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(0,0,0,0.1);
+            background: var(--bg-color);
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 0.9rem;
+        }
+
+        .team-section {
+            margin-top: 2rem;
+            border-top: 2px solid rgba(0,0,0,0.05);
+            padding-top: 1.5rem;
+        }
+        .team-header { font-size: 1.1rem; font-weight: 800; margin-bottom: 1rem; }
+        .team-member {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            background: rgba(0,0,0,0.02);
+            padding: 10px;
+            border-radius: 16px;
+        }
+        .team-badge {
+            width: 45px;
+            height: 45px;
+            border-radius: 14px;
+            background: var(--text-main);
+            color: var(--bg-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1rem;
+        }
+        .team-info { display: flex; flex-direction: column; }
+        .team-role { font-size: 0.8rem; color: var(--text-light); }
+
+        .sort-option {
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            background: rgba(0,0,0,0.02);
+        }
+
+        .sort-option.selected { border: 2px solid var(--accent); color: var(--accent); font-weight: 800; }
+
+        .details-view { max-width: 1100px; margin: 0 auto 5rem; padding: 0 2rem; }
+        .btn-back { background: none; border: none; color: var(--text-light); cursor: pointer; margin-bottom: 2rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+        .details-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; }
+        .gallery-main { width: 100%; aspect-ratio: 1/1; border-radius: 24px; object-fit: cover; }
+        .thumbnails { display: flex; gap: 10px; margin-top: 1rem; }
+        .thumb { width: 70px; height: 70px; object-fit: cover; border-radius: 10px; cursor: pointer; opacity: 0.4; }
+        .thumb.active { opacity: 1; border: 2px solid var(--accent); }
+        .info-title { font-size: 2.8rem; font-weight: 800; }
+        .full-desc { font-size: 1rem; color: var(--text-light); margin: 1.5rem 0; white-space: pre-line; }
+
+        .action-btns { display: flex; flex-direction: column; gap: 1rem; }
+        .action-row { display: flex; gap: 1rem; width: 100%; }
+        .btn { padding: 1rem 1.5rem; border-radius: 50px; border: none; font-weight: 700; cursor: pointer; font-family: inherit; transition: var(--transition); }
+        .btn:active { transform: scale(0.95); }
+        .btn-order { background: var(--accent); color: white; flex: 2; }
+        .btn-cart { background: var(--text-main); color: white; flex: 2; }
+        .btn-like { background: rgba(214, 48, 49, 0.1); color: var(--accent); flex: 1; }
+        .btn-like.active { background: var(--accent); color: white; }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(0,0,0,0.02);
+            border-radius: 16px;
+            margin-bottom: 1rem;
+        }
+        .cart-item img { width: 60px; height: 60px; border-radius: 10px; object-fit: cover; }
+        .cart-item-info { flex: 1; }
+        .cart-item-info strong { display: block; font-size: 0.9rem; }
+        .cart-item-info span { font-size: 0.8rem; color: var(--text-light); }
+        .btn-remove { background: none; border: none; color: var(--accent); cursor: pointer; font-size: 1.2rem; }
+
+        footer { padding: 3rem; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); margin-top: 4rem; font-weight: 600; color: var(--text-light); }
+
+        /* Nouvaux styles pour la page panier dédiée */
+        .order-id-display {
+            background: rgba(0,0,0,0.05);
+            padding: 1rem;
+            border-radius: 12px;
+            font-family: monospace;
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn-copy {
+            background: var(--text-main);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+        .qr-container {
+            text-align: center;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: white;
+            border-radius: 16px;
+            display: none;
+        }
+        .qr-container.visible { display: block; }
+
+        /* Styles supplémentaires pour les nouveautés */
+        .order-summary-box {
+            background: rgba(214, 48, 49, 0.05);
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+        .pdf-form-container {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 16px;
+        }
+        .pdf-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(0,0,0,0.1);
+            font-family: inherit;
+        }
+
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 850px) { .details-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <div class="top-nav">
+        <div class="settings-btn" onclick="app.toggleModal('settings-modal')" title="Paramètres">
+            <svg viewBox="0 0 24 24"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.81,11.69,4.81,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></svg>
+        </div>
+        <div class="cart-trigger-btn" onclick="app.renderCartPage()" title="Panier">
+            <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+            <span id="cart-count" class="cart-badge" style="display:none">0</span>
+        </div>
+    </div>
+
+    <header>
+        <div id="logo" onclick="app.init()">Pépins de t<span>🍅</span>mates</div>
+        <div class="search-area" id="search-box">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Rechercher une variété...">
+            </div>
+            <button class="sort-btn" onclick="app.toggleModal('sort-modal')">📑</button>
+        </div>
+        <div id="filters-container" class="filters-container"></div>
+    </header>
+
+    <main id="view-port"></main>
+
+    <div id="settings-modal" class="modal" onclick="if(event.target == this) app.toggleModal('settings-modal')">
+        <div class="modal-content">
+            <h2 style="margin-bottom:2rem">Paramètres de l'application</h2>
+            
+            <div class="setting-row">
+                <div>
+                    <strong>Mode Sombre</strong><br>
+                    <small>Réduit la fatigue oculaire</small>
+                </div>
+                <input type="checkbox" id="theme-toggle" onchange="app.toggleTheme()" style="width:22px; height:22px;">
+            </div>
+
+            <div class="setting-row">
+                <div>
+                    <strong>Animations réduites</strong><br>
+                    <small>Pour plus de rapidité</small>
+                </div>
+                <input type="checkbox" id="anim-toggle" onchange="app.toggleAnim()" style="width:22px; height:22px;">
+            </div>
+
+            <div class="setting-row">
+                <div>
+                    <strong>Compact Mode</strong><br>
+                    <small>Affiche plus de cartes (Auto)</small>
+                </div>
+                <input type="checkbox" id="compact-toggle" onchange="app.updateGrid()" style="width:22px; height:22px;">
+            </div>
+
+            <div class="setting-row">
+                <div>
+                    <strong>Largeur de Grille</strong><br>
+                    <small>Colonnes forcées</small>
+                </div>
+                <select id="grid-cols" class="setting-select" onchange="app.updateGrid()">
+                    <option value="auto">Auto (Défaut)</option>
+                    <option value="1">1 Colonne</option>
+                    <option value="2">2 Colonnes</option>
+                    <option value="3">3 Colonnes</option>
+                    <option value="4">4 Colonnes</option>
+                </select>
+            </div>
+
+            <div class="setting-row" style="border-bottom:none">
+                <button class="btn btn-cart" style="width:100%" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLScTtprM--v4bhtzgIGKnv2JoGiJNK69XAj19IEIbsEN-09j_A/viewform?usp=publish-editor', '_blank')">
+                    💡 Avis et suggestions
+                </button>
+            </div>
+
+            <div class="team-section">
+                <div class="team-header">Contributions / Équipe</div>
+                <div class="team-member">
+                    <div class="team-badge">CD</div>
+                    <div class="team-info">
+                        <strong>Christophe Duval</strong>
+                        <span class="team-role">Administrateur</span>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="team-badge">TD</div>
+                    <div class="team-info">
+                        <strong>Tom Duval</strong>
+                        <span class="team-role">Développeur</span>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-order" style="width:100%; margin-top: 1.5rem;" onclick="app.toggleModal('settings-modal')">Fermer</button>
+        </div>
+    </div>
+
+    <div id="cart-modal" class="modal" onclick="if(event.target == this) app.toggleModal('cart-modal')">
+        <div class="modal-content">
+            <h2 style="margin-bottom:1.5rem">Mon Panier 🧺</h2>
+            <div id="cart-items-list" style="margin-bottom: 2rem;"></div>
+            <div id="cart-empty-msg" style="text-align:center; padding: 2rem; display:none;">
+                Votre panier est vide.
+            </div>
+            <div id="cart-actions" style="display:flex; flex-direction:column; gap:10px;">
+                <button class="btn btn-order" id="btn-checkout" onclick="app.checkout()">Passer commande</button>
+                <button class="btn btn-like" onclick="app.toggleModal('cart-modal')">Continuer mes visites</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="sort-modal" class="modal" onclick="if(event.target == this) app.toggleModal('sort-modal')">
+        <div class="modal-content">
+            <h2 style="margin-bottom:1.5rem">Trier les variétés</h2>
+            <div id="sort-options">
+                <div class="sort-option selected" onclick="app.setSort('nom', this)">Nom (A - Z)</div>
+                <div class="sort-option" onclick="app.setSort('nom_desc', this)">Nom (Z - A)</div>
+                <div class="sort-option" onclick="app.setSort('note_desc', this)">Les mieux notées ★</div>
+                <div class="sort-option" onclick="app.setSort('note_asc', this)">Les moins bien notées ★</div>
+                <div class="sort-option" onclick="app.setSort('poids_desc', this)">Poids (Plus gros fruits)</div>
+                <div class="sort-option" onclick="app.setSort('origine', this)">Par Origine</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Pépins de t🍅mates</p>
+    </footer>
+
+    <script>
+        const dbName = "TomatoDB";
+        let db;
+
+        const GOOGLE_ORDER_FORM = "https://docs.google.com/forms/d/e/1FAIpQLSci4D60ZDRPsN8EVhFiZeTmWyJHq5gXCUz6Ahm1d6ZFxfgVzQ/viewform?usp=pp_url&entry.1384065666=";
+
+        const request = indexedDB.open(dbName, 1);
+        request.onupgradeneeded = (e) => {
+            db = e.target.result;
+            if (!db.objectStoreNames.contains("likes")) db.createObjectStore("likes");
+            if (!db.objectStoreNames.contains("cart")) db.createObjectStore("cart", { keyPath: "id" });
+        };
+        request.onsuccess = (e) => { 
+            db = e.target.result; 
+            app.init(); 
+            app.updateCartBadge(); 
+        };
+
+        const DATA = [
+            {
+                id: 0,
+                nom: "Emerald Brocade",
+                descriptionCourte: "Une variété naine aux magnifiques reflets vert émeraude.",
+                descriptionLongue: "L'Emerald Brocade est une variété de type 'Dwarf' (naine) remarquable. Ses fruits offrent une robe vert émeraude marbrée de teintes plus sombres à maturité. \n\nSa chair est incroyablement fondante, équilibrant parfaitement douceur et acidité. Idéale pour les petits jardins ou la culture en pot grâce à son port compact.",
+                origine: "Australie",
+                poids: "100-180g",
+                note: 4.8,
+                images: ["https://i.postimg.cc/Cx2CGLYZ/IMG-20250914-WA0141.jpg", "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=800"]
+            },
+            {
+                id: 1,
+                nom: "Kryptonite",
+                descriptionCourte: "Tomate verte intense au caractère affirmé.",
+                descriptionLongue: "La Kryptonite est une variété moderne à fruits verts à maturité. Sa chair dense et juteuse développe une saveur riche et équilibrée, mêlant douceur et légère acidité.\n\nElle séduit les amateurs de tomates originales par sa couleur inhabituelle.",
+                origine: "États-Unis 🇺🇸",
+                poids: "150-250g",
+                note: 4.6,
+                images: ["https://i.postimg.cc/vmsQ4fkH/IMG_20250914_WA0142.jpg"]
+            },
+			{
+    id: 2,
+    nom: "Vecherny Almaty",
+    descriptionCourte: "Variété ancienne aux fruits sombres et charnus.",
+    descriptionLongue: "Vecherny Almaty est une tomate traditionnelle originaire de la région d'Almaty. Elle produit des fruits foncés à la chair dense et savoureuse.\n\nTrès appréciée pour sa profondeur aromatique.",
+    origine: "Kazakhstan 🇰🇿",
+    poids: "180-300g",
+    note: 4.7,
+    images: [
+        "https://i.postimg.cc/LspHJLwH/IMG_20250914_WA0143.jpg"
+    ]
+},
+{
+    id: 3,
+    nom: "Candy Sweet Icicle",
+    descriptionCourte: "Petite tomate allongée très sucrée.",
+    descriptionLongue: "Candy Sweet Icicle produit de nombreux fruits allongés, croquants et extrêmement sucrés.\n\nParfaite pour l'apéritif et le grignotage.",
+    origine: "États-Unis 🇺🇸",
+    poids: "30-60g",
+    note: 4.8,
+    images: [
+        "https://i.postimg.cc/FKVh31XX/IMG_20250914_WA0144.jpg"
+    ]
+},
+{
+    id: 4,
+    nom: "Chio Chio San",
+    descriptionCourte: "Variété rare à la chair juteuse.",
+    descriptionLongue: "Chio Chio San est une tomate élégante et peu commune offrant des fruits réguliers à la saveur douce et équilibrée.\n\nAppréciée pour son port harmonieux.",
+    origine: "Japon 🇯🇵",
+    poids: "120-180g",
+    note: 4.5,
+    images: [
+        "https://i.postimg.cc/cJBdw6G1/IMG_20250914_WA0145.jpg"
+    ]
+},
+{
+    id: 5,
+    nom: "Florida Pink",
+    descriptionCourte: "Grosse tomate rose douce et fondante.",
+    descriptionLongue: "Florida Pink est une variété reconnue pour ses fruits charnus à la chair tendre et peu acide.\n\nIdéale en salade.",
+    origine: "États-Unis 🇺🇸",
+    poids: "250-400g",
+    note: 4.6,
+    images: [
+        "https://i.postimg.cc/0Ns8zDF5/IMG_20250914_WA0146.jpg"
+    ]
+},
+{
+    id: 6,
+    nom: "Mattogany Dwarf",
+    descriptionCourte: "Variété naine aux fruits foncés.",
+    descriptionLongue: "Mattogany Dwarf est une tomate de type 'Dwarf' produisant des fruits sombres aux reflets acajou.\n\nParfaite pour la culture en pot.",
+    origine: "Australie 🇦🇺",
+    poids: "120-200g",
+    note: 4.7,
+    images: [
+        "https://i.postimg.cc/d3BW9PtR/IMG_20250914_WA0147.jpg"
+    ]
+},
+{
+    id: 7,
+    nom: "Mélanie's Ballet Dwarf",
+    descriptionCourte: "Dwarf élégante et productive.",
+    descriptionLongue: "Issue du Dwarf Tomato Project, Mélanie's Ballet Dwarf combine port compact et fruits savoureux.\n\nChair fondante et équilibrée.",
+    origine: "Australie 🇦🇺",
+    poids: "140-220g",
+    note: 4.8,
+    images: [
+        "https://i.postimg.cc/RhRPT5VL/IMG_20250914_WA0148.jpg"
+    ]
+},
+{
+    id: 8,
+    nom: "Patty's Yellow Striped Beefsteak",
+    descriptionCourte: "Beefsteak jaune striée très décorative.",
+    descriptionLongue: "Cette variété produit de gros fruits jaunes striés de rouge, à la chair dense et douce.\n\nAussi belle que savoureuse.",
+    origine: "États-Unis 🇺🇸",
+    poids: "300-500g",
+    note: 4.7,
+    images: [
+        "https://i.postimg.cc/gjDMKFk8/IMG_20250914_WA0149.jpg",
+        "https://i.postimg.cc/nrgXgMzj/IMG_20250914_WA0174.jpg"
+    ]
+},
+{
+    id: 9,
+    nom: "Spectrum's Surprise",
+    descriptionCourte: "Tomate colorée aux saveurs variées.",
+    descriptionLongue: "Spectrum's Surprise est connue pour ses fruits multicolores et son goût doux et fruité.\n\nChaque récolte est unique.",
+    origine: "États-Unis 🇺🇸",
+    poids: "150-250g",
+    note: 4.6,
+    images: [
+        "https://i.postimg.cc/2ywHxR8F/IMG_20250914_WA0150.jpg"
+    ]
+},
+{
+    id: 10,
+    nom: "Shadow Boxing Dwarf",
+    descriptionCourte: "Dwarf sombre au goût intense.",
+    descriptionLongue: "Shadow Boxing Dwarf est une variété compacte produisant des fruits foncés et savoureux.\n\nTrès robuste.",
+    origine: "Australie 🇦🇺",
+    poids: "120-200g",
+    note: 4.7,
+    images: [
+        "https://i.postimg.cc/0jftCR2f/IMG_20250914_WA0151.jpg"
+    ]
+},
+{
+    id: 11,
+    nom: "Mint Streak Dwarf",
+    descriptionCourte: "Dwarf verte striée originale.",
+    descriptionLongue: "Mint Streak Dwarf se distingue par ses fruits verts striés de jaune.\n\nSaveur douce et fraîche.",
+    origine: "Australie 🇦🇺",
+    poids: "130-200g",
+    note: 4.8,
+    images: [
+        "https://i.postimg.cc/brT6RcNL/IMG_20250914_WA0152.jpg",
+        "https://i.postimg.cc/rs3D3zmd/IMG_20250914_WA0173.jpg"
+    ]
+},
+{
+    id: 12,
+    nom: "Eva's Amish Stripe",
+    descriptionCourte: "Variété ancienne striée et savoureuse.",
+    descriptionLongue: "Issue des communautés Amish, cette tomate offre une chair dense et parfumée.\n\nGoût authentique.",
+    origine: "États-Unis 🇺🇸",
+    poids: "200-350g",
+    note: 4.7,
+    images: [
+        "https://i.postimg.cc/XvSwX14H/IMG_20250914_WA0153.jpg"
+    ]
+},
+{
+    id: 13,
+    nom: "Tulipe Rouge d'Almaty",
+    descriptionCourte: "Variété traditionnelle d'Asie centrale.",
+    descriptionLongue: "Tomate rouge élégante à la chair équilibrée.\n\nRustique et fiable.",
+    origine: "Kazakhstan 🇰🇿",
+    poids: "150-250g",
+    note: 4.5,
+    images: [
+        "https://i.postimg.cc/YCm6rBBw/IMG_20250914_WA0154.jpg"
+    ]
+},
+{
+    id: 14,
+    nom: "Yelena's Ibiza",
+    descriptionCourte: "Tomate douce aux arômes méditerranéens.",
+    descriptionLongue: "Yelena's Ibiza produit des fruits savoureux et parfumés.\n\nIdéale pour l'été.",
+    origine: "Espagne 🇪🇸",
+    poids: "160-240g",
+    note: 4.6,
+    images: [
+        "https://i.postimg.cc/CKTjdrSr/IMG_20250914_WA0155.jpg",
+		"https://i.postimg.cc/HLWwRPWp/IMG_20250914_WA0121.jpg"
+    ]
+},
+{
+    id: 15,
+    nom: "Renegade",
+    descriptionCourte: "Tomate moderne et polyvalente.",
+    descriptionLongue: "Renegade est une variété récente offrant une bonne régularité.\n\nSaveur douce et équilibrée.",
+    origine: "États-Unis 🇺🇸",
+    poids: "150-220g",
+    note: 4.6,
+    images: [
+        "https://i.postimg.cc/7L8gbtwj/IMG_20250914_WA0156.jpg",
+        "https://i.postimg.cc/gjQxQrJF/IMG_20250914_WA0160.jpg"
+    ]
+},
+{
+    id: 16,
+    nom: "Mirabelle Jaune",
+    descriptionCourte: "Petite tomate jaune très sucrée.",
+    descriptionLongue: "Mirabelle Jaune produit de petits fruits ronds et doux.\n\nIdéale à grignoter.",
+    origine: "France 🇫🇷",
+    poids: "20-40g",
+    note: 4.8,
+    images: [
+        "https://i.postimg.cc/CKTjdrSW/IMG_20250914_WA0157.jpg"
+    ]
+},
+{
+    id: 17,
+    nom: "Maé du Clos de Lavaud Blanche",
+    descriptionCourte: "Tomate blanche artisanale française.",
+    descriptionLongue: "Création paysanne française à la chair douce et peu acide.\n\nTrès originale.",
+    origine: "France 🇫🇷",
+    poids: "180-300g",
+    note: 4.9,
+    images: [
+        "https://i.postimg.cc/JzBNrCCw/IMG_20250914_WA0158.jpg",
+        "https://i.postimg.cc/qqSNSgR0/IMG_20250914_WA0165.jpg"
+    ]
+},
+{
+    id: 18,
+    nom: "Clémentine",
+    descriptionCourte: "Tomate orangée douce et fruitée.",
+    descriptionLongue: "Clémentine séduit par sa couleur vive et sa douceur.\n\nParfaite en salade.",
+    origine: "France 🇫🇷",
+    poids: "120-180g",
+    note: 4.6,
+    images: [
+        "https://i.postimg.cc/pr4m4ydw/IMG_20250914_WA0159.jpg"
+    ]
+},
+{
+    id: 19,
+    nom: "Blue's Suede Shoes",
+    descriptionCourte: "Tomate bleutée originale.",
+    descriptionLongue: "Variété riche en anthocyanes aux reflets bleus.\n\nSaveur douce et complexe.",
+    origine: "États-Unis 🇺🇸",
+    poids: "100-160g",
+    note: 4.7,
+    images: [
+        "https://i.postimg.cc/brWZWdJj/IMG_20250914_WA0161.jpg"
+    ]
+},
+{
+    id: 20,
+    nom: "DSA",
+    descriptionCourte: "Variété robuste et productive.",
+    descriptionLongue: "DSA est reconnue pour sa fiabilité et sa bonne production.\n\nFruits savoureux.",
+    origine: "États-Unis 🇺🇸",
+    poids: "150-250g",
+    note: 4.5,
+    images: [
+        "https://i.postimg.cc/nrgXgMzf/IMG_20250914_WA0162.jpg",
+        "https://i.postimg.cc/Kjw1w4zj/IMG_20250914_WA0170.jpg"
+    ]
+},
+{
+    id: 21,
+    nom: "Sunshine Blue Natalis",
+    descriptionCourte: "Tomate bleutée lumineuse.",
+    descriptionLongue: "Sunshine Blue Natalis développe une belle coloration bleue au soleil.\n\nSaveur douce et équilibrée.",
+    origine: "États-Unis 🇺🇸",
+    poids: "120-200g",
+    note: 4.8,
+    images: [
+        "https://i.postimg.cc/Zn2W20RS/IMG_20250914_WA0163.jpg",
+        "https://i.postimg.cc/d3phpD1t/IMG_20250914_WA0168.jpg"
+    ]
+},
+{
+    id: 22,
+    nom: "Awesome Dwarf",
+    descriptionCourte: "Dwarf productive et polyvalente.",
+    descriptionLongue: "Awesome Dwarf combine port compact et fruits généreux.\n\nIdéale pour petits espaces.",
+    origine: "Australie 🇦🇺",
+    poids: "150-230g",
+    note: 4.7,
+    images: [
+        "https://i.postimg.cc/cC2v26HW/IMG_20250914_WA0164.jpg",
+        "https://i.postimg.cc/3NVkVWRR/IMG_20250914_WA0171.jpg"
+    ]
+},
+{
+    id: 23,
+    nom: "Brandywine Black",
+    descriptionCourte: "Tomate noire ancienne très savoureuse.",
+    descriptionLongue: "Brandywine Black est une référence parmi les tomates foncées.\n\nChair riche et intense.",
+    origine: "États-Unis 🇺🇸",
+    poids: "300-500g",
+    note: 4.8,
+    images: [
+        "https://i.postimg.cc/T1FKFhwT/IMG_20250914_WA0166.jpg"
+    ]
+},
+{
+    id: 24,
+    nom: "Clare Valley Dwarf",
+    descriptionCourte: "Dwarf australienne équilibrée.",
+    descriptionLongue: "Clare Valley Dwarf offre des fruits savoureux sur un plant compact.\n\nTrès régulière.",
+    origine: "Australie 🇦🇺",
+    poids: "140-220g",
+    note: 4.7,
+    images: [
+        "https://i.postimg.cc/90KDKzMX/IMG_20250914_WA0169.jpg"
+    ]
+},
+{
+    id: 25,
+    nom: "Grosse de Bernay",
+    descriptionCourte: "Ancienne variété française charnue.",
+    descriptionLongue: "Grosse de Bernay est une tomate traditionnelle aux fruits volumineux.\n\nChair dense et parfumée.",
+    origine: "France 🇫🇷",
+    poids: "300-500g",
+    note: 4.6,
+    images: [
+        "https://i.postimg.cc/8c979s5j/IMG_20250914_WA0172.jpg"
+    ]
+},
+{
+    id: 26,
+    nom: "Prune verte",
+    descriptionCourte: "Une variété ancienne aux fruits verts et savoureux.",
+    descriptionLongue: "La Prune verte est une variété traditionnelle appréciée pour ses fruits ronds à la robe verte et à la chair juteuse. \n\nSa saveur douce et légèrement acidulée en fait une excellente tomate de table, idéale en salade ou en dégustation nature.",
+    origine: "France 🇫🇷",
+    poids: "80-150g",
+    note: 4.3,
+    images: ["https://i.postimg.cc/VNsqpHs1/IMG_20250914_WA0117.jpg"]
+},
+{
+    id: 27,
+    nom: "Bendigo Moon Dwarf",
+    descriptionCourte: "Une variété naine productive aux fruits équilibrés.",
+    descriptionLongue: "Le Bendigo Moon Dwarf est une variété naine issue du Dwarf Tomato Project. \n\nElle produit des fruits savoureux, bien équilibrés, sur un plant compact et robuste, parfaitement adapté aux petits espaces.",
+    origine: "Australie 🇦🇺",
+    poids: "150-250g",
+    note: 4.6,
+    images: ["https://i.postimg.cc/Ls4tw04M/IMG_20250914_WA0118.jpg"]
+},
+{
+    id: 28,
+    nom: "Kozula 203",
+    descriptionCourte: "Une tomate bigarrée spectaculaire et riche en goût.",
+    descriptionLongue: "La Kozula 203 est une variété rare aux fruits marbrés de vert, jaune et rouge. \n\nSa chair dense offre une explosion de saveurs complexes, très appréciée des amateurs de tomates originales.",
+    origine: "Croatie 🇭🇷",
+    poids: "200-350g",
+    note: 4.7,
+    images: ["https://i.postimg.cc/6Q6rg16X/IMG_20250914_WA0119.jpg"]
+},
+{
+    id: 29,
+    nom: "Kalvados",
+    descriptionCourte: "Une tomate charnue et parfumée.",
+    descriptionLongue: "Kalvados est une variété vigoureuse produisant de beaux fruits charnus. \n\nSa saveur franche et légèrement sucrée la rend idéale pour les sauces, coulis et plats cuisinés.",
+    origine: "France 🇫🇷",
+    poids: "180-300g",
+    note: 4.4,
+    images: ["https://i.postimg.cc/8CkR9nkG/IMG_20250914_WA0120.jpg"]
+},
+{
+    id: 30,
+    nom: "Sunshine Blue Natalis",
+    descriptionCourte: "Une variété bleutée à la saveur douce.",
+    descriptionLongue: "Sunshine Blue Natalis se distingue par ses reflets bleutés dus à l’anthocyane. \n\nSa chair reste douce et équilibrée, idéale pour apporter couleur et originalité au potager.",
+    origine: "États-Unis 🇺🇸",
+    poids: "120-200g",
+    note: 4.5,
+    images: ["https://i.postimg.cc/TP2VFH2w/IMG_20250914_WA0122.jpg"]
+},
+{
+    id: 31,
+    nom: "Ronde Hâtive de Sévigné",
+    descriptionCourte: "Une variété précoce et fiable.",
+    descriptionLongue: "La Ronde Hâtive de Sévigné est connue pour sa précocité et sa régularité. \n\nElle produit rapidement des fruits ronds et savoureux, parfaits pour les régions à saisons courtes.",
+    origine: "France 🇫🇷",
+    poids: "90-140g",
+    note: 4.2,
+    images: ["https://i.postimg.cc/HLWwRPWY/IMG_20250914_WA0123.jpg"]
+},
+{
+    id: 32,
+    nom: "Lilian Marie",
+    descriptionCourte: "Une variété délicate aux saveurs douces.",
+    descriptionLongue: "Lilian Marie produit des fruits harmonieux à la chair fondante. \n\nElle est appréciée pour sa douceur et sa polyvalence en cuisine.",
+    origine: "France 🇫🇷",
+    poids: "120-200g",
+    note: 4.3,
+    images: ["https://i.postimg.cc/4346qF4y/IMG_20250914_WA0124.jpg"]
+},
+{
+    id: 33,
+    nom: "Scarlet Starfire",
+    descriptionCourte: "Une tomate lumineuse et intensément colorée.",
+    descriptionLongue: "Scarlet Starfire séduit par sa couleur rouge éclatante et sa chair juteuse. \n\nSon goût vif et légèrement acidulé est parfait pour relever les salades estivales.",
+    origine: "États-Unis 🇺🇸",
+    poids: "150-250g",
+    note: 4.5,
+    images: ["https://i.postimg.cc/bvYxWFYG/IMG_20250914_WA0125.jpg"]
+},
+{
+    id: 34,
+    nom: "Mila's Heart",
+    descriptionCourte: "Une tomate en forme de cœur, douce et charnue.",
+    descriptionLongue: "Mila's Heart est une variété généreuse produisant de gros fruits en forme de cœur. \n\nSa chair dense et sucrée est idéale pour les plats cuisinés et les sauces.",
+    origine: "Europe de l'Est 🇪🇺",
+    poids: "250-400g",
+    note: 4.6,
+    images: ["https://i.postimg.cc/DzfrHYf4/IMG_20250914_WA0126.jpg"]
+},
+{
+    id: 35,
+    nom: "Dwarf Lemon Ice",
+    descriptionCourte: "Une variété naine jaune pâle très décorative.",
+    descriptionLongue: "Dwarf Lemon Ice produit des fruits jaune clair à la chair douce et rafraîchissante. \n\nSon port compact la rend parfaite pour la culture en pot.",
+    origine: "Australie 🇦🇺",
+    poids: "120-180g",
+    note: 4.7,
+    images: ["https://i.postimg.cc/4346qF4h/IMG_20250914_WA0127.jpg"]
+},
+{
+    id: 36,
+    nom: "Velvet Night Dwarf",
+    descriptionCourte: "Une tomate sombre aux reflets veloutés.",
+    descriptionLongue: "Velvet Night Dwarf est une variété naine remarquable par sa couleur foncée. \n\nElle offre une saveur profonde et légèrement fumée, très appréciée des connaisseurs.",
+    origine: "Australie 🇦🇺",
+    poids: "150-220g",
+    note: 4.8,
+    images: ["https://i.postimg.cc/DzfrHYfX/IMG_20250914_WA0128.jpg"]
+},
+{
+    id: 37,
+    nom: "Cookie Select",
+    descriptionCourte: "Une variété originale et savoureuse.",
+    descriptionLongue: "Cookie Select se distingue par son goût équilibré et sa belle production. \n\nElle est idéale pour une culture familiale polyvalente.",
+    origine: "États-Unis 🇺🇸",
+    poids: "140-220g",
+    note: 4.4,
+    images: ["https://i.postimg.cc/BvhT0ct6/IMG_20250914_WA0129.jpg"]
+},
+{
+    id: 38,
+    nom: "Round Robin Dwarf",
+    descriptionCourte: "Une variété naine très productive.",
+    descriptionLongue: "Round Robin Dwarf produit une abondance de fruits ronds et savoureux. \n\nSon port compact et sa robustesse en font une valeur sûre.",
+    origine: "Australie 🇦🇺",
+    poids: "130-200g",
+    note: 4.6,
+    images: ["https://i.postimg.cc/KY9P2r4Y/IMG_20250914_WA0130.jpg"]
+},
+{
+    id: 39,
+    nom: "Duckling",
+    descriptionCourte: "Une variété atypique et rustique.",
+    descriptionLongue: "Duckling est une tomate originale, appréciée pour sa robustesse et son goût franc. \n\nElle s’adapte bien à des conditions de culture variées.",
+    origine: "Europe 🇪🇺",
+    poids: "100-160g",
+    note: 4.2,
+    images: ["https://i.postimg.cc/hGCLBbhh/IMG_20250914_WA0131.jpg"]
+},
+{
+    id: 40,
+    nom: "Jipaulia",
+    descriptionCourte: "Une variété rare et savoureuse.",
+    descriptionLongue: "Jipaulia est appréciée pour ses fruits équilibrés et sa belle régularité. \n\nElle offre une chair juteuse, idéale pour la consommation fraîche.",
+    origine: "Europe de l'Est 🇪🇺",
+    poids: "150-250g",
+    note: 4.3,
+    images: ["https://i.postimg.cc/HLSwg4jr/IMG_20250914_WA0132.jpg"]
+},
+{
+    id: 41,
+    nom: "Polish Dwarf",
+    descriptionCourte: "Une variété naine robuste et productive.",
+    descriptionLongue: "Polish Dwarf est une tomate compacte produisant des fruits savoureux. \n\nElle est idéale pour les cultures en espace réduit.",
+    origine: "Pologne 🇵🇱",
+    poids: "120-200g",
+    note: 4.5,
+    images: ["https://i.postimg.cc/0NtYsdrK/IMG_20250914_WA0133.jpg"]
+},
+{
+    id: 42,
+    nom: "Bulgarie (Alifirov)",
+    descriptionCourte: "Une variété traditionnelle aux saveurs riches.",
+    descriptionLongue: "Cette variété bulgare est réputée pour son goût intense et authentique. \n\nElle produit des fruits charnus parfaits pour la cuisine.",
+    origine: "Bulgarie 🇧🇬",
+    poids: "180-300g",
+    note: 4.6,
+    images: ["https://i.postimg.cc/TPkV6qhW/IMG_20250914_WA0134.jpg"]
+},
+{
+    id: 43,
+    nom: "Silvery Fir Tree",
+    descriptionCourte: "Une tomate au feuillage unique et décoratif.",
+    descriptionLongue: "Silvery Fir Tree est reconnaissable à son feuillage fin et argenté. \n\nSes fruits sont doux et équilibrés, parfaits pour une culture ornementale et gourmande.",
+    origine: "Russie 🇷🇺",
+    poids: "100-160g",
+    note: 4.4,
+    images: ["https://i.postimg.cc/bv6xhHdt/IMG_20250914_WA0135.jpg"]
+},
+            {
+                id: 44,
+                nom: "Mar Azul",
+                descriptionCourte: "Une variété bleutée rare et originale.",
+                descriptionLongue: "Mar Azul se distingue par ses reflets bleu foncé et sa chair savoureuse. \n\nElle apporte une touche unique au potager et à l’assiette.",
+                origine: "Amérique du Sud 🇨🇱",
+                poids: "150-250g",
+                note: 4.7,
+                images: ["https://i.postimg.cc/1zWGQc4F/IMG_20250914_WA0136.jpg"]
+            },
+
+            {
+                id: 10000,
+                nom: "Green Zebra",
+                descriptionCourte: "Originale, zébrée et légèrement acidulée.",
+                descriptionLongue: "Une tomate qui reste verte à maturité ! Ses zébrures jaune citron indiquent qu'elle est prête.",
+                origine: "USA",
+                poids: "80-120g",
+                note: 4.3,
+                images: ["https://images.unsplash.com/photo-1566843972142-a7fcb70de55a?w=800"]
+            }
+        ];
+
+        const app = {
+            viewport: document.getElementById('view-port'),
+            searchInput: document.getElementById('search-input'),
+            filtersContainer: document.getElementById('filters-container'),
+            currentSort: 'nom',
+            currentCategory: 'Tous',
+
+            init() {
+                this.renderFilters();
+                this.handleFilter();
+                this.searchInput.oninput = () => this.handleFilter();
+                this.loadSettings();
+                this.updateCartBadge();
+            },
+
+            loadSettings() {
+                if(localStorage.getItem('darkMode') === 'true') { document.body.classList.add('dark-mode'); document.getElementById('theme-toggle').checked = true; }
+                if(localStorage.getItem('noAnim') === 'true') { document.body.classList.add('reduce-animations'); document.getElementById('anim-toggle').checked = true; }
+                if(localStorage.getItem('compact') === 'true') { document.getElementById('compact-toggle').checked = true; }
+                const gridCols = localStorage.getItem('gridCols');
+                if(gridCols) { document.getElementById('grid-cols').value = gridCols; }
+                this.updateGrid(true);
+            },
+
+            toggleTheme() { let dark = document.body.classList.toggle('dark-mode'); localStorage.setItem('darkMode', dark); },
+            toggleAnim() { let anim = document.body.classList.toggle('reduce-animations'); localStorage.setItem('noAnim', anim); },
+            updateGrid(init = false) {
+                const grid = document.querySelector('.tomatoes-grid');
+                if(!grid) return;
+                const isCompact = document.getElementById('compact-toggle').checked;
+                const colsVal = document.getElementById('grid-cols').value;
+                if (!init) { localStorage.setItem('compact', isCompact); localStorage.setItem('gridCols', colsVal); }
+                if (colsVal !== 'auto') { grid.style.gridTemplateColumns = `repeat(${colsVal}, 1fr)`; } 
+                else { grid.style.gridTemplateColumns = isCompact ? 'repeat(auto-fill, minmax(180px, 1fr))' : ''; }
+            },
+
+            toggleModal(id) {
+                const m = document.getElementById(id);
+                const isOpen = m.style.display === 'flex';
+                m.style.display = isOpen ? 'none' : 'flex';
+                if (!isOpen && id === 'cart-modal') this.renderCart();
+            },
+
+            setSort(c, el) {
+                this.currentSort = c;
+                document.querySelectorAll('.sort-option').forEach(o => o.classList.remove('selected'));
+                el.classList.add('selected');
+                this.handleFilter();
+                this.toggleModal('sort-modal');
+            },
+
+            setCategory(cat) {
+                this.currentCategory = cat;
+                this.renderFilters();
+                this.handleFilter();
+            },
+
+            renderFilters() {
+                const counts = { 'Tous': DATA.length };
+                const origins = new Set();
+                DATA.forEach(t => { origins.add(t.origine); });
+                origins.forEach(org => { counts[org] = DATA.filter(t => t.origine === org).length; });
+                const filters = ['Tous', ...Array.from(origins).sort()];
+                this.filtersContainer.innerHTML = filters.map(f => `
+                    <button class="filter-chip ${this.currentCategory === f ? 'active' : ''}" onclick="app.setCategory('${f}')">
+                        ${f} <span class="filter-count">${counts[f] || 0}</span>
+                    </button>
+                `).join('');
+            },
+
+            handleFilter() {
+                const q = this.searchInput.value.toLowerCase();
+                let f = DATA.filter(t => {
+                    const matchesSearch = t.nom.toLowerCase().includes(q);
+                    let matchesCategory = this.currentCategory === 'Tous' ? true : t.origine === this.currentCategory;
+                    return matchesSearch && matchesCategory;
+                });
+                f.sort((a, b) => {
+                    switch(this.currentSort) {
+                        case 'nom_desc': return b.nom.localeCompare(a.nom);
+                        case 'note_desc': return b.note - a.note;
+                        case 'note_asc': return a.note - b.note;
+                        case 'poids_desc': return parseInt(b.poids) - parseInt(a.poids);
+                        case 'origine': return a.origine.localeCompare(b.origine);
+                        default: return a.nom.localeCompare(b.nom);
+                    }
+                });
+                this.renderList(f);
+            },
+
+            async getLike(id) {
+                return new Promise(res => {
+                    const trans = db.transaction("likes", "readonly");
+                    const req = trans.objectStore("likes").get(id);
+                    req.onsuccess = () => res(req.result || false);
+                });
+            },
+
+            async toggleLike(id, btn) {
+                const current = await this.getLike(id);
+                const trans = db.transaction("likes", "readwrite");
+                trans.objectStore("likes").put(!current, id);
+                btn.classList.toggle('active');
+                btn.innerText = !current ? '❤️ Aimé' : '❤️ Like';
+            },
+
+            async addToCart(id) {
+                const t = DATA.find(item => item.id === id);
+                const trans = db.transaction("cart", "readwrite");
+                const store = trans.objectStore("cart");
+                store.put({ id: t.id, nom: t.nom, image: t.images[0], origine: t.origine });
+                trans.oncomplete = () => {
+                    this.updateCartBadge();
+                    this.renderCart();
+                    const btn = document.querySelector('.btn-cart');
+                    if(btn) {
+                        btn.innerText = "✅ Ajouté !";
+                        setTimeout(() => btn.innerText = "🛒 Ajouter au panier", 1500);
+                    }
+                };
+            },
+
+            async removeFromCart(id) {
+                const trans = db.transaction("cart", "readwrite");
+                trans.objectStore("cart").delete(id);
+                trans.oncomplete = () => {
+                    // Si on est sur la page panier dédiée, on rafraîchit la page
+                    if(document.querySelector('.details-view h1')?.innerText === "Mon Panier 🧺") {
+                        this.renderCartPage();
+                    } else {
+                        this.renderCart();
+                    }
+                    this.updateCartBadge();
+                };
+            },
+
+            async getCartItems() {
+                return new Promise(res => {
+                    if (!db) return res([]);
+                    const trans = db.transaction("cart", "readonly");
+                    const req = trans.objectStore("cart").getAll();
+                    req.onsuccess = () => res(req.result);
+                });
+            },
+
+            async renderCart() {
+                const items = await this.getCartItems();
+                const list = document.getElementById('cart-items-list');
+                const empty = document.getElementById('cart-empty-msg');
+                const actions = document.getElementById('cart-actions');
+                if (!list) return;
+                if (items.length === 0) {
+                    list.innerHTML = "";
+                    empty.style.display = "block";
+                    actions.style.display = "none";
+                } else {
+                    empty.style.display = "none";
+                    actions.style.display = "flex";
+                    list.innerHTML = items.map(item => `
+                        <div class="cart-item">
+                            <img src="${item.image}">
+                            <div class="cart-item-info">
+                                <strong>${item.nom}</strong>
+                                <span>${item.origine}</span>
+                            </div>
+                            <button class="btn-remove" onclick="app.removeFromCart(${item.id})">✕</button>
+                        </div>
+                    `).join('');
+                }
+            },
+
+            async updateCartBadge() {
+                const items = await this.getCartItems();
+                const badge = document.getElementById('cart-count');
+                if (!badge) return;
+                if (items.length > 0) {
+                    badge.innerText = items.length;
+                    badge.style.display = "block";
+                } else {
+                    badge.style.display = "none";
+                }
+            },
+
+            async checkout(singleVarietyName = null) {
+                let varietyString = "";
+                if (singleVarietyName) {
+                    varietyString = singleVarietyName;
+                } else {
+                    const items = await this.getCartItems();
+                    varietyString = items.map(i => i.nom).join(', ');
+                }
+                const url = GOOGLE_ORDER_FORM + encodeURIComponent(varietyString);
+                window.open(url, '_blank');
+            },
+
+            async renderList(items) {
+                document.getElementById('search-box').style.display = 'flex';
+                document.getElementById('filters-container').style.display = 'flex';
+                let html = '<div class="tomatoes-grid">';
+                for(let t of items) {
+                    html += `
+                        <article class="card" onclick="app.renderDetail(${t.id})">
+                            <div class="card-img-container">
+                                <img src="${t.images[0]}" class="card-img">
+                            </div>
+                            <div class="card-content">
+                                <h3>${t.nom}</h3>
+                                <p class="card-desc-short">${t.descriptionCourte}</p>
+                                <div class="meta"><span>📍 ${t.origine}</span><span>⚖️ ${t.poids}</span></div>
+                            </div>
+                        </article>`;
+                }
+                this.viewport.innerHTML = html + '</div>';
+                this.updateGrid(true);
+            },
+
+            async renderDetail(id) {
+                const t = DATA.find(i => i.id === id);
+                document.getElementById('search-box').style.display = 'none';
+                document.getElementById('filters-container').style.display = 'none';
+                const liked = await this.getLike(id);
+                this.viewport.innerHTML = `
+                    <div class="details-view">
+                        <button class="btn-back" onclick="app.init()">← Retour</button>
+                        <div class="details-grid">
+                            <div>
+                                <img src="${t.images[0]}" id="main-frame" class="gallery-main">
+                                <div class="thumbnails">
+                                    ${t.images.map((img, i) => `<img src="${img}" class="thumb ${i===0?'active':''}" onclick="app.switchImg(this, '${img}')">`).join('')}
+                                </div>
+                            </div>
+                            <div>
+                                <h1 class="info-title">${t.nom}</h1>
+                                <p style="color:var(--accent); font-weight:800; font-size:1.2rem; margin-bottom:1rem;">${t.note} / 5 ★</p>
+                                <p><strong>Origine:</strong> ${t.origine} | <strong>Poids:</strong> ${t.poids}</p>
+                                <p class="full-desc">${t.descriptionLongue}</p>
+                                <div class="action-btns">
+                                    <div class="action-row">
+                                        <button class="btn btn-cart" onclick="app.addToCart(${t.id})">🛒 Ajouter au panier</button>
+                                        <button class="btn btn-like ${liked ? 'active' : ''}" onclick="app.toggleLike(${t.id}, this)">
+                                            ${liked ? '❤️ Aimé' : '❤️ Like'}
+                                        </button>
+                                    </div>
+                                    <button class="btn btn-order" onclick="app.checkout('${t.nom.replace(/'/g, "\\'")}')">Commander</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+            },
+
+            switchImg(el, src) {
+                document.getElementById('main-frame').src = src;
+                document.querySelectorAll('.thumb').forEach(img => img.classList.remove('active'));
+                el.classList.add('active');
+            },
+
+            /* --- NOUVELLES FONCTIONS PANIER DÉDIÉ --- */
+
+            async generateOrderNumber() {
+                const items = await this.getCartItems();
+                if(items.length === 0) return "";
+                const alphabet = "abcdefghijklmnopqrstuvwxyz";
+                const num = items.map(item => item.id).join(alphabet[Math.floor(Math.random() * alphabet.length)]);
+                localStorage.setItem('lastOrderNumber', num);
+                return num;
+            },
+
+            copyOrderNumber(btn) {
+                const num = document.getElementById('order-num-text').innerText;
+                
+                // Méthode moderne
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(num).then(() => {
+                        const originalText = btn.innerText;
+                        btn.innerText = "Copié ✔";
+                        setTimeout(() => btn.innerText = originalText, 2000);
+                    });
+                } else {
+                    // Méthode de repli (Fallback) pour Mobile/Vieux navigateurs
+                    const textArea = document.createElement("textarea");
+                    textArea.value = num;
+                    textArea.style.position = "fixed";
+                    textArea.style.left = "-9999px";
+                    textArea.style.top = "0";
+                    document.body.appendChild(textArea);
+                    textArea.focus();
+                    textArea.select();
+                    try {
+                        document.execCommand('copy');
+                        const originalText = btn.innerText;
+                        btn.innerText = "Copié ✔";
+                        setTimeout(() => btn.innerText = originalText, 2000);
+                    } catch (err) {
+                        console.error('Erreur de copie', err);
+                    }
+                    document.body.removeChild(textArea);
+                }
+            },
+
+            showQRCode() {
+                const num = document.getElementById('order-num-text').innerText;
+                const container = document.getElementById('qr-container');
+                const img = document.getElementById('qr-img');
+                // Utilisation de l'API QuickChart pour un QR Code fonctionnel et fiable
+                img.src = `https://quickchart.io/qr?text=${encodeURIComponent(num)}&size=200&margin=1`;
+                container.classList.add('visible');
+            },
+
+            async processOrder() {
+                const num = await this.generateOrderNumber();
+                const items = await this.getCartItems();
+                const varietiesNames = items.map(i => i.nom).join(' • ');
+
+                document.getElementById('order-display-area').innerHTML = `
+                    <div class="order-summary-box">
+                        <strong>Commande : ${items.length} variétés</strong><br>
+                        • ${varietiesNames}
+                    </div>
+                    <div class="order-id-display">
+                        <span id="order-num-text">${num}</span>
+                        <button class="btn-copy" onclick="app.copyOrderNumber(this)">📋 Copier</button>
+                    </div>
+                    <div class="action-row" style="margin-top:1rem; gap:10px; flex-wrap:wrap;">
+                        <button class="btn btn-like" style="flex:1; min-width:200px" onclick="app.showQRCode()">QR code de la commande</button>
+                        <button class="btn btn-order" style="flex:1; min-width:200px" onclick="window.open('${GOOGLE_ORDER_FORM}', '_blank')">Envoyer par un formulaire</button>
+                    </div>
+                    
+                    <div class="pdf-form-container">
+                        <h3 style="margin-bottom:1rem">📄 Exporter ma commande</h3>
+                        <input type="text" id="pdf-nom" class="pdf-input" placeholder="Votre Nom">
+                        <input type="text" id="pdf-prenom" class="pdf-input" placeholder="Votre Prénom">
+                        <button class="btn btn-cart" style="width:100%; background: #2d3436;" onclick="app.generatePDF()">Télécharger le PDF de commande</button>
+                    </div>
+
+                    <div id="qr-container" class="qr-container">
+                        <p style="margin-bottom:10px; font-weight:bold;">Votre QR Code :</p>
+                        <img id="qr-img" src="" alt="QR Code">
+                    </div>
+                `;
+            },
+
+            async generatePDF() {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                
+                const nom = document.getElementById('pdf-nom').value || "Non spécifié";
+                const prenom = document.getElementById('pdf-prenom').value || "Non spécifié";
+                const orderNum = document.getElementById('order-num-text').innerText;
+                const items = await this.getCartItems();
+                const date = new Date().toLocaleString('fr-FR');
+
+                // Design du PDF
+                doc.setFillColor(214, 48, 49);
+                doc.rect(0, 0, 210, 40, 'F');
+                
+                doc.setTextColor(255, 255, 255);
+                doc.setFontSize(24);
+                doc.setFont("helvetica", "bold");
+                doc.text("Pépins de T🍅mates", 105, 25, { align: "center" });
+
+                doc.setTextColor(45, 52, 54);
+                doc.setFontSize(12);
+                doc.setFont("helvetica", "normal");
+                doc.text(`Date : ${date}`, 20, 55);
+                doc.text(`Client : ${prenom} ${nom}`, 20, 62);
+                
+                doc.setDrawColor(214, 48, 49);
+                doc.setLineWidth(0.5);
+                doc.line(20, 70, 190, 70);
+
+                doc.setFontSize(14);
+                doc.setFont("helvetica", "bold");
+                doc.text("Récapitulatif de la commande", 20, 80);
+                
+                doc.setFontSize(11);
+                doc.setFont("helvetica", "normal");
+                let y = 90;
+                items.forEach((item, index) => {
+                    doc.text(`${index + 1}. ${item.nom} (${item.origine})`, 25, y);
+                    y += 8;
+                });
+
+                doc.setDrawColor(200, 200, 200);
+                doc.rect(20, y + 5, 170, 45);
+                doc.setFont("helvetica", "bold");
+                doc.text("Numéro de commande unique :", 105, y + 15, { align: "center" });
+                doc.setFontSize(16);
+                doc.setTextColor(214, 48, 49);
+                doc.text(orderNum, 105, y + 25, { align: "center" });
+
+                // Ajout du QR Code dans le PDF via l'API (Conversion Image)
+                const qrUrl = `https://quickchart.io/qr?text=${encodeURIComponent(orderNum)}&size=150`;
+                
+                const img = new Image();
+                img.crossOrigin = "Anonymous";
+                img.src = qrUrl;
+                img.onload = function() {
+                    doc.addImage(img, 'PNG', 80, y + 60, 50, 50);
+                    doc.setTextColor(100, 100, 100);
+                    doc.setFontSize(9);
+                    doc.text("Présentez ce QR code pour valider votre commande.", 105, y + 115, { align: "center" });
+                    doc.save(`Commande_Tomates_${prenom}.pdf`);
+                };
+            },
+
+            async reloadLastOrder() {
+                const lastNum = localStorage.getItem('lastOrderNumber');
+                if(!lastNum) {
+                    alert("Aucune commande récente trouvée.");
+                    return;
+                }
+                // Extraire les IDs (tout ce qui est numérique)
+                const ids = lastNum.split(/[a-z]/).filter(x => x !== "").map(Number);
+                
+                // Vider le panier actuel et re-remplir
+                const trans = db.transaction("cart", "readwrite");
+                const store = trans.objectStore("cart");
+                store.clear();
+                
+                ids.forEach(id => {
+                    const t = DATA.find(item => item.id === id);
+                    if(t) store.put({ id: t.id, nom: t.nom, image: t.images[0], origine: t.origine });
+                });
+
+                trans.oncomplete = () => {
+                    this.updateCartBadge();
+                    this.renderCartPage();
+                };
+            },
+
+            async renderCartPage() {
+                document.getElementById('search-box').style.display = 'none';
+                document.getElementById('filters-container').style.display = 'none';
+                
+                const items = await this.getCartItems();
+                const lastNum = localStorage.getItem('lastOrderNumber');
+
+                let html = `
+                    <div class="details-view">
+                        <button class="btn-back" onclick="app.init()">← Retour au catalogue</button>
+                        <h1 class="info-title" style="margin-bottom:2rem;">Mon Panier 🧺</h1>
+                `;
+
+                if (items.length === 0) {
+                    html += `
+                        <div style="text-align:center; padding: 3rem; background:rgba(0,0,0,0.02); border-radius:24px;">
+                            <p style="font-size:1.2rem; color:var(--text-light); margin-bottom:2rem;">Votre panier est vide.</p>
+                            ${lastNum ? `<button class="btn btn-cart" onclick="app.reloadLastOrder()">Recharger ma dernière commande</button>` : ''}
+                        </div>
+                    `;
+                } else {
+                    html += `
+                        <div id="cart-list-dedicated">
+                            ${items.map(item => `
+                                <div class="cart-item" style="padding:1.5rem">
+                                    <img src="${item.image}" style="width:80px; height:80px;">
+                                    <div class="cart-item-info">
+                                        <strong style="font-size:1.1rem">${item.nom}</strong>
+                                        <span>Origine : ${item.origine}</span>
+                                    </div>
+                                    <button class="btn-remove" style="font-size:1.5rem" onclick="app.removeFromCart(${item.id})">✕</button>
+                                </div>
+                            `).join('')}
+                        </div>
+                        
+                        <div id="order-display-area" style="margin-top:2rem; border-top:1px solid rgba(0,0,0,0.1); padding-top:2rem;">
+                            <button class="btn btn-order" style="width:100%" onclick="app.processOrder()">Passer commande</button>
+                            ${lastNum ? `<button class="btn btn-cart" style="width:100%; margin-top:10px; background:transparent; color:var(--text-main); border:1px solid var(--text-main);" onclick="app.reloadLastOrder()">Recharger ma dernière commande</button>` : ''}
+                        </div>
+                    `;
+                }
+
+                html += `</div>`;
+                this.viewport.innerHTML = html;
+            }
+        };
+    </script>
+</body>
+</html>

@@ -419,7 +419,7 @@ export const DATA = [
         descriptionCourte: "Une variété naine productive aux fruits équilibrés.",
         descriptionLongue: "Le Bendigo Moon Dwarf est une variété naine issue du Dwarf Tomato Project.\n\nElle produit des fruits savoureux, bien équilibrés, sur un plant compact et robuste, parfaitement adapté aux petits espaces.\n\n1€40 le sachet de 12 graines",
         origine: "Australie 🇦🇺",
-        poids: "150-250g",
+        poids: "50-60g",
         couleur: "Blanche",
         note: 4.6,
         images: [

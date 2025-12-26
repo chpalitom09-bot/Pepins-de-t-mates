@@ -2454,7 +2454,7 @@ export const DATA = [
     "descriptionCourte": "Variété rustique connue sous le nom de 'Coucougnettes de Vendée'.",
     "descriptionLongue": "Une tomate de forme allongée ou oblongue, extrêmement productive. Elle se prête très bien à la réalisation de sauces ou de conserves grâce à sa chair ferme et sa faible teneur en jus. Très résistante aux aléas climatiques.\n\n1€40 le sachet de 12 graines",
     "origine": "France 🇫🇷",
-    "poids": "80-120g",
+    "poids": "40-60g",
     "couleur": "Rouge",
     "note": 4.4,
     "images": [

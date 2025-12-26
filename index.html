@@ -119,11 +119,11 @@
             align-items: center;
         }
 
-        .search-container { flex: 1; position: relative; display: flex; align-items: center;}
+        .search-container { flex: 1; position: relative; }
 
         #search-input {
             width: 100%;
-            padding: 1.1rem 3rem 1.1rem 1.5rem; /* Padding right augmenté pour le micro */
+            padding: 1.1rem 1.5rem;
             border: 1px solid rgba(0,0,0,0.05);
             border-radius: 16px;
             font-size: 1rem;
@@ -132,22 +132,6 @@
             color: var(--text-main);
             box-shadow: var(--shadow);
         }
-
-        /* Style bouton micro */
-        .mic-btn {
-            position: absolute;
-            right: 15px;
-            background: none;
-            border: none;
-            font-size: 1.2rem;
-            cursor: pointer;
-            color: var(--text-light);
-            transition: var(--transition);
-        }
-        .mic-btn:hover { color: var(--accent); transform: scale(1.1); }
-        .mic-btn.listening { color: #e74c3c; animation: pulse 1s infinite; }
-        
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
 
         .sort-btn {
             width: 55px;
@@ -520,7 +504,6 @@
         <div class="search-area" id="search-box">
             <div class="search-container">
                 <input type="text" id="search-input" placeholder="Rechercher une variété...">
-                <button id="mic-btn" class="mic-btn" onclick="app.startVoiceSearch()" title="Recherche vocale">🎙️</button>
             </div>
             <button class="sort-btn" onclick="app.toggleModal('sort-modal')">📑</button>
         </div>
@@ -745,38 +728,6 @@
                 this.currentCategory = cat;
                 this.renderFilters();
                 this.handleFilter();
-            },
-
-            // --- NOUVEAU: RECHERCHE VOCALE ---
-            startVoiceSearch() {
-                const micBtn = document.getElementById('mic-btn');
-                
-                if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
-                    alert("Désolé, votre navigateur ne supporte pas la recherche vocale.");
-                    return;
-                }
-                
-                const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-                const recognition = new SpeechRecognition();
-                
-                recognition.lang = 'fr-FR';
-                recognition.interimResults = false;
-                
-                recognition.onstart = () => {
-                    micBtn.classList.add('listening');
-                };
-                
-                recognition.onend = () => {
-                    micBtn.classList.remove('listening');
-                };
-                
-                recognition.onresult = (event) => {
-                    const text = event.results[0][0].transcript;
-                    this.searchInput.value = text;
-                    this.handleFilter();
-                };
-                
-                recognition.start();
             },
 
             renderFilters() {

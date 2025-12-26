@@ -14,6 +14,7 @@
     <title>Pépins de t🍅mates | Bibliothèque de variétés</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
     
     <style>
         :root {
@@ -421,9 +422,57 @@
         @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
         @media (max-width: 850px) { .details-grid { grid-template-columns: 1fr; } }
+
+        /* --- AJOUTS CSS DEMANDÉS --- */
+        
+        /* 1. Lottie Overlay */
+        #lottie-loader-overlay {
+            position: fixed; top:0; left:0; width:100%; height:100%;
+            background: var(--bg-color); z-index: 9999;
+            display: flex; align-items: center; justify-content: center;
+            transition: opacity 0.5s; pointer-events: none;
+        }
+        #lottie-cart-feedback {
+            position: fixed; bottom: 80px; right: 20px; width: 100px; height: 100px;
+            z-index: 2000; pointer-events: none;
+        }
+
+        /* 2. Scroll to Top */
+        .scroll-top-btn {
+            position: fixed; bottom: 30px; right: 30px;
+            width: 50px; height: 50px; border-radius: 50%;
+            background: var(--text-main); color: var(--bg-color);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; opacity: 0; transform: translateY(20px);
+            transition: var(--transition); z-index: 90;
+            box-shadow: var(--shadow); border: none; font-size: 1.5rem;
+        }
+        .scroll-top-btn.visible { opacity: 1; transform: translateY(0); }
+        .scroll-top-btn:hover { background: var(--accent); }
+
+        /* 3. Button Vider */
+        .btn-clear-cart {
+            background: transparent; color: var(--text-light);
+            border: 1px dashed rgba(0,0,0,0.2);
+            padding: 5px 10px; font-size: 0.8rem;
+            border-radius: 8px; cursor: pointer; margin-left: auto;
+        }
+        .btn-clear-cart:hover { color: var(--accent); border-color: var(--accent); }
+
+        /* 4. Easter Egg Ketchup */
+        .falling-tomato {
+            position: fixed; top: -50px; font-size: 2rem; z-index: 9999;
+            animation: fall linear forwards; pointer-events: none;
+        }
+        @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
     </style>
 </head>
 <body>
+
+    <button id="scroll-top" class="scroll-top-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</button>
+
+    <div id="lottie-loader-overlay"><div style="width:200px; height:200px" id="lottie-loading-anim"></div></div>
+    <div id="lottie-cart-feedback"></div>
 
     <div class="top-nav">
         <div class="settings-btn" onclick="app.toggleModal('settings-modal')" title="Paramètres">
@@ -523,7 +572,10 @@
 
     <div id="cart-modal" class="modal" onclick="if(event.target == this) app.toggleModal('cart-modal')">
         <div class="modal-content">
-            <h2 style="margin-bottom:1.5rem">Mon Panier 🧺</h2>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem">
+                <h2 style="margin:0">Mon Panier 🧺</h2>
+                <button class="btn-clear-cart" onclick="app.clearCart()">Tout vider</button>
+            </div>
             <div id="cart-items-list" style="margin-bottom: 2rem;"></div>
             <div id="cart-empty-msg" style="text-align:center; padding: 2rem; display:none;">
                 Votre panier est vide.
@@ -581,6 +633,8 @@
             filtersContainer: document.getElementById('filters-container'),
             currentSort: 'nom',
             currentCategory: 'Tous',
+            lottieLoader: null,
+            lottieCart: null,
 
             init() {
                 this.renderFilters();
@@ -588,6 +642,36 @@
                 this.searchInput.oninput = () => this.handleFilter();
                 this.loadSettings();
                 this.updateCartBadge();
+                
+                // Init Lottie Loader
+                this.lottieLoader = lottie.loadAnimation({
+                    container: document.getElementById('lottie-loading-anim'),
+                    renderer: 'svg',
+                    loop: true,
+                    autoplay: true,
+                    path: 'https://lottie.host/99d3002a-9a99-4467-a48e-677a2846904e/PzYt7J5Z5t.json' // Animation plante/tomate
+                });
+                // Masquer le loader après chargement
+                setTimeout(() => {
+                    document.getElementById('lottie-loader-overlay').style.opacity = '0';
+                    setTimeout(() => document.getElementById('lottie-loader-overlay').style.display = 'none', 500);
+                }, 1200);
+
+                // Init Lottie Cart Feedback (Hidden by default)
+                this.lottieCart = lottie.loadAnimation({
+                    container: document.getElementById('lottie-cart-feedback'),
+                    renderer: 'svg',
+                    loop: false,
+                    autoplay: false,
+                    path: 'https://lottie.host/575a74f4-523e-4614-a384-5f560c5a3233/yW2a5v7J5t.json' // Animation Check/Panier
+                });
+
+                // Scroll to top Logic
+                window.addEventListener('scroll', () => {
+                    const btn = document.getElementById('scroll-top');
+                    if(window.scrollY > 300) btn.classList.add('visible');
+                    else btn.classList.remove('visible');
+                });
             },
 
             loadSettings() {
@@ -638,18 +722,61 @@
                 DATA.forEach(t => { origins.add(t.origine); });
                 origins.forEach(org => { counts[org] = DATA.filter(t => t.origine === org).length; });
                 const filters = ['Tous', ...Array.from(origins).sort()];
-                this.filtersContainer.innerHTML = filters.map(f => `
+                
+                // Ajout bouton Favoris + Origins
+                let html = `<button class="filter-chip ${this.currentCategory === 'Favoris' ? 'active' : ''}" onclick="app.setCategory('Favoris')">❤️ Favoris</button>`;
+                
+                html += filters.map(f => `
                     <button class="filter-chip ${this.currentCategory === f ? 'active' : ''}" onclick="app.setCategory('${f}')">
                         ${f} <span class="filter-count">${counts[f] || 0}</span>
                     </button>
                 `).join('');
+                this.filtersContainer.innerHTML = html;
             },
 
-            handleFilter() {
+            async getAllLikes() {
+                return new Promise(res => {
+                    const trans = db.transaction("likes", "readonly");
+                    const store = trans.objectStore("likes");
+                    const req = store.getAllKeys();
+                    req.onsuccess = () => {
+                        // Check values to see if true (store contains true/false)
+                        const keys = req.result;
+                        const validIds = [];
+                        let processed = 0;
+                        if(keys.length === 0) return res([]);
+                        
+                        keys.forEach(key => {
+                            const getReq = store.get(key);
+                            getReq.onsuccess = () => {
+                                if(getReq.result === true) validIds.push(key);
+                                processed++;
+                                if(processed === keys.length) res(validIds);
+                            };
+                        });
+                    };
+                });
+            },
+
+            async handleFilter() {
                 const q = this.searchInput.value.toLowerCase();
+                
+                // Easter Egg Ketchup
+                if (q === "ketchup") { this.triggerKetchup(); }
+
+                let likedIds = [];
+                if (this.currentCategory === 'Favoris') {
+                    likedIds = await this.getAllLikes();
+                }
+
                 let f = DATA.filter(t => {
                     const matchesSearch = t.nom.toLowerCase().includes(q);
-                    let matchesCategory = this.currentCategory === 'Tous' ? true : t.origine === this.currentCategory;
+                    let matchesCategory = true;
+                    if (this.currentCategory === 'Favoris') {
+                        matchesCategory = likedIds.includes(t.id);
+                    } else {
+                        matchesCategory = this.currentCategory === 'Tous' ? true : t.origine === this.currentCategory;
+                    }
                     return matchesSearch && matchesCategory;
                 });
                 f.sort((a, b) => {
@@ -664,6 +791,18 @@
                     }
                 });
                 this.renderList(f);
+            },
+
+            triggerKetchup() {
+                for(let i=0; i<30; i++) {
+                    const t = document.createElement('div');
+                    t.innerText = Math.random() > 0.5 ? '🍅' : '🥫';
+                    t.className = 'falling-tomato';
+                    t.style.left = Math.random() * 100 + 'vw';
+                    t.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                    document.body.appendChild(t);
+                    setTimeout(() => t.remove(), 4000);
+                }
             },
 
             async getLike(id) {
@@ -687,6 +826,13 @@
                 const trans = db.transaction("cart", "readwrite");
                 const store = trans.objectStore("cart");
                 store.put({ id: t.id, nom: t.nom, image: t.images[0], origine: t.origine });
+                
+                // Trigger Lottie
+                if(this.lottieCart) {
+                    this.lottieCart.stop();
+                    this.lottieCart.play();
+                }
+
                 trans.oncomplete = () => {
                     this.updateCartBadge();
                     this.renderCart();
@@ -703,6 +849,19 @@
                 trans.objectStore("cart").delete(id);
                 trans.oncomplete = () => {
                     // Si on est sur la page panier dédiée, on rafraîchit la page
+                    if(document.querySelector('.details-view h1')?.innerText === "Mon Panier 🧺") {
+                        this.renderCartPage();
+                    } else {
+                        this.renderCart();
+                    }
+                    this.updateCartBadge();
+                };
+            },
+
+            async clearCart() {
+                const trans = db.transaction("cart", "readwrite");
+                trans.objectStore("cart").clear();
+                trans.oncomplete = () => {
                     if(document.querySelector('.details-view h1')?.innerText === "Mon Panier 🧺") {
                         this.renderCartPage();
                     } else {
@@ -922,67 +1081,106 @@
                 const { jsPDF } = window.jspdf;
                 const doc = new jsPDF();
                 
-                const nom = document.getElementById('pdf-nom').value || "Non spécifié";
-                const prenom = document.getElementById('pdf-prenom').value || "Non spécifié";
+                // Helper pour supprimer les émojis
+                const stripEmojis = (str) => {
+                    return str.replace(/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{1F700}-\u{1F77F}\u{1F780}-\u{1F7FF}\u{1F800}-\u{1F8FF}\u{1F900}-\u{1F9FF}\u{1FA00}-\u{1FA6F}\u{1FA70}-\u{1FAFF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{1F1E6}-\u{1F1FF}]/gu, '');
+                };
+
+                const nom = stripEmojis(document.getElementById('pdf-nom').value || "Non spécifié");
+                const prenom = stripEmojis(document.getElementById('pdf-prenom').value || "Non spécifié");
                 const orderNum = document.getElementById('order-num-text').innerText;
                 const items = await this.getCartItems();
                 const date = new Date().toLocaleString('fr-FR');
                 const total = (items.length * 1.40).toFixed(2).replace('.', ',');
-
-                // Design du PDF
-                doc.setFillColor(214, 48, 49);
-                doc.rect(0, 0, 210, 40, 'F');
                 
-                doc.setTextColor(255, 255, 255);
-                doc.setFontSize(24);
-                doc.setFont("helvetica", "bold");
-                doc.text("Pépins de Tomates", 105, 25, { align: "center" });
+                const pageWidth = 210;
+                const pageHeight = 297;
+                const margin = 20;
 
+                // --- HEADER ---
+                const drawHeader = () => {
+                    doc.setFillColor(214, 48, 49);
+                    doc.rect(0, 0, pageWidth, 40, 'F');
+                    doc.setTextColor(255, 255, 255);
+                    doc.setFontSize(22);
+                    doc.setFont("helvetica", "bold");
+                    doc.text("Pépins de Tomates", pageWidth / 2, 25, { align: "center" });
+                };
+                drawHeader();
+
+                // --- INFO CLIENT ---
                 doc.setTextColor(45, 52, 54);
-                doc.setFontSize(12);
+                doc.setFontSize(10);
                 doc.setFont("helvetica", "normal");
-                doc.text(`Date et heure : ${date}`, 20, 55);
-                doc.text(`Client : ${prenom} ${nom}`, 20, 62);
-                
-                doc.setDrawColor(214, 48, 49);
-                doc.setLineWidth(0.5);
-                doc.line(20, 70, 190, 70);
+                doc.text(`Date : ${date}`, margin, 50);
+                doc.text(`Client : ${prenom} ${nom}`, margin, 56);
+                doc.text(`Référence : ${orderNum}`, margin, 62);
 
+                doc.setDrawColor(220, 220, 220);
+                doc.line(margin, 70, pageWidth - margin, 70);
+
+                // --- LISTE ---
                 doc.setFontSize(14);
                 doc.setFont("helvetica", "bold");
-                doc.text("Commande :", 20, 80);
-                
-                doc.setFontSize(11);
-                doc.setFont("helvetica", "normal");
-                let y = 90;
-                items.forEach((item, index) => {
-                    doc.text(`${index + 1}. ${item.nom} (${item.origine})`, 25, y);
-                    y += 8;
-                });
-                
-                doc.setFont("helvetica", "bold");
-                doc.text(`Total à régler : ${total}€`, 150, y + 5);
-
-                doc.setDrawColor(200, 200, 200);
-                doc.rect(20, y + 15, 170, 45);
-                doc.setFont("helvetica", "bold");
-                doc.text("Numéro de commande unique :", 105, y + 25, { align: "center" });
-                doc.setFontSize(16);
                 doc.setTextColor(214, 48, 49);
-                doc.text(orderNum, 105, y + 35, { align: "center" });
+                doc.text("Détail de la commande", margin, 82);
 
-                // Ajout du QR Code dans le PDF via l'API (Conversion Image)
-                const qrUrl = `https://quickchart.io/qr?text=${encodeURIComponent(orderNum)}&size=150`;
+                doc.setFontSize(11);
+                doc.setTextColor(45, 52, 54);
+                doc.setFont("helvetica", "normal");
+
+                let y = 92;
+                items.forEach((item, index) => {
+                    if (y > pageHeight - 40) {
+                        doc.addPage();
+                        drawHeader();
+                        y = 50;
+                    }
+                    const itemName = stripEmojis(item.nom);
+                    const itemOrigin = stripEmojis(item.origine);
+                    
+                    doc.setFillColor(248, 248, 248);
+                    doc.rect(margin, y - 6, pageWidth - (margin*2), 10, 'F');
+                    
+                    doc.text(`${index + 1}.`, margin + 2, y);
+                    doc.setFont("helvetica", "bold");
+                    doc.text(itemName, margin + 12, y);
+                    doc.setFont("helvetica", "normal");
+                    doc.text(`(${itemOrigin})`, pageWidth - margin - 5, y, { align: 'right' });
+                    
+                    y += 12;
+                });
+
+                // --- TOTAL & FOOTER ---
+                if (y > pageHeight - 60) {
+                    doc.addPage();
+                    drawHeader();
+                    y = 50;
+                }
+
+                y += 5;
+                doc.setDrawColor(45, 52, 54);
+                doc.setLineWidth(0.5);
+                doc.line(margin, y, pageWidth - margin, y);
                 
+                y += 10;
+                doc.setFontSize(14);
+                doc.setFont("helvetica", "bold");
+                doc.text(`Total à régler : ${total} EUR`, pageWidth - margin, y, { align: "right" });
+
+                // QR Code
+                const qrUrl = `https://quickchart.io/qr?text=${encodeURIComponent(orderNum)}&size=150`;
                 const img = new Image();
                 img.crossOrigin = "Anonymous";
                 img.src = qrUrl;
+                
                 img.onload = function() {
-                    doc.addImage(img, 'PNG', 80, y + 70, 50, 50);
-                    doc.setTextColor(100, 100, 100);
+                    doc.addImage(img, 'PNG', (pageWidth/2) - 25, y + 10, 50, 50);
                     doc.setFontSize(9);
-                    doc.text("Présentez ce QR code pour valider votre commande.", 105, y + 125, { align: "center" });
-                    doc.save(`Commande_Tomates_${prenom}.pdf`);
+                    doc.setTextColor(100, 100, 100);
+                    doc.setFont("helvetica", "italic");
+                    doc.text("Merci de votre confiance !", pageWidth/2, y + 70, { align: "center" });
+                    doc.save(`Commande_${nom.replace(/\s/g, '_')}.pdf`);
                 };
             },
 
@@ -1021,7 +1219,10 @@
                 let html = `
                     <div class="details-view">
                         <button class="btn-back" onclick="app.init()">← Retour au catalogue</button>
-                        <h1 class="info-title" style="margin-bottom:2rem;">Mon Panier 🧺</h1>
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2rem;">
+                            <h1 class="info-title" style="margin:0">Mon Panier 🧺</h1>
+                            ${items.length > 0 ? `<button class="btn-clear-cart" onclick="app.clearCart()">Tout vider</button>` : ''}
+                        </div>
                 `;
 
                 if (items.length === 0) {

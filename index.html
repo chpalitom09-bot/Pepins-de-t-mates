@@ -119,11 +119,11 @@
             align-items: center;
         }
 
-        .search-container { flex: 1; position: relative; }
+        .search-container { flex: 1; position: relative; display: flex; align-items: center;}
 
         #search-input {
             width: 100%;
-            padding: 1.1rem 1.5rem;
+            padding: 1.1rem 3rem 1.1rem 1.5rem; /* Padding right augmenté pour le micro */
             border: 1px solid rgba(0,0,0,0.05);
             border-radius: 16px;
             font-size: 1rem;
@@ -132,6 +132,22 @@
             color: var(--text-main);
             box-shadow: var(--shadow);
         }
+
+        /* Style bouton micro */
+        .mic-btn {
+            position: absolute;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+        .mic-btn:hover { color: var(--accent); transform: scale(1.1); }
+        .mic-btn.listening { color: #e74c3c; animation: pulse 1s infinite; }
+        
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
 
         .sort-btn {
             width: 55px;
@@ -419,6 +435,18 @@
             font-family: inherit;
         }
 
+        /* Style pour bouton report (nouveau) */
+        .btn-report {
+            display: inline-block;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            text-decoration: none;
+            opacity: 0.6;
+            transition: var(--transition);
+        }
+        .btn-report:hover { opacity: 1; color: var(--accent); }
+
         @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
         @media (max-width: 850px) { .details-grid { grid-template-columns: 1fr; } }
@@ -492,6 +520,7 @@
         <div class="search-area" id="search-box">
             <div class="search-container">
                 <input type="text" id="search-input" placeholder="Rechercher une variété...">
+                <button id="mic-btn" class="mic-btn" onclick="app.startVoiceSearch()" title="Recherche vocale">🎙️</button>
             </div>
             <button class="sort-btn" onclick="app.toggleModal('sort-modal')">📑</button>
         </div>
@@ -614,6 +643,7 @@
         let db;
 
         const GOOGLE_ORDER_FORM = "https://docs.google.com/forms/d/e/1FAIpQLSci4D60ZDRPsN8EVhFiZeTmWyJHq5gXCUz6Ahm1d6ZFxfgVzQ/viewform?usp=pp_url&entry.1384065666=";
+        const REPORT_FORM = "https://docs.google.com/forms/d/e/1FAIpQLSezgx91JDNljtb1TvW5YDKV_gbehMeDAqxNZaFcXrFg5d_dhw/viewform?usp=header";
 
         const request = indexedDB.open(dbName, 1);
         request.onupgradeneeded = (e) => {
@@ -635,10 +665,11 @@
             currentCategory: 'Tous',
             lottieLoader: null,
             lottieCart: null,
+            savedScroll: 0, // Ajout pour gestion scroll
 
             init() {
                 this.renderFilters();
-                this.handleFilter();
+                this.handleFilter(); // Ceci va re-render la liste
                 this.searchInput.oninput = () => this.handleFilter();
                 this.loadSettings();
                 this.updateCartBadge();
@@ -714,6 +745,38 @@
                 this.currentCategory = cat;
                 this.renderFilters();
                 this.handleFilter();
+            },
+
+            // --- NOUVEAU: RECHERCHE VOCALE ---
+            startVoiceSearch() {
+                const micBtn = document.getElementById('mic-btn');
+                
+                if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+                    alert("Désolé, votre navigateur ne supporte pas la recherche vocale.");
+                    return;
+                }
+                
+                const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+                const recognition = new SpeechRecognition();
+                
+                recognition.lang = 'fr-FR';
+                recognition.interimResults = false;
+                
+                recognition.onstart = () => {
+                    micBtn.classList.add('listening');
+                };
+                
+                recognition.onend = () => {
+                    micBtn.classList.remove('listening');
+                };
+                
+                recognition.onresult = (event) => {
+                    const text = event.results[0][0].transcript;
+                    this.searchInput.value = text;
+                    this.handleFilter();
+                };
+                
+                recognition.start();
             },
 
             renderFilters() {
@@ -949,9 +1012,18 @@
                 }
                 this.viewport.innerHTML = html + '</div>';
                 this.updateGrid(true);
+
+                // --- NOUVEAU: RESTAURATION SCROLL ---
+                if (this.savedScroll > 0) {
+                    window.scrollTo(0, this.savedScroll);
+                    this.savedScroll = 0; // Reset après utilisation
+                }
             },
 
             async renderDetail(id) {
+                // --- NOUVEAU: SAUVEGARDE SCROLL ---
+                this.savedScroll = window.scrollY;
+
                 const t = DATA.find(i => i.id === id);
                 document.getElementById('search-box').style.display = 'none';
                 document.getElementById('filters-container').style.display = 'none';
@@ -980,9 +1052,13 @@
                                     </div>
                                     <button class="btn btn-order" onclick="app.addToCart(${t.id}); app.renderCartPage()">Commander</button>
                                 </div>
+                                <div style="text-align:right;">
+                                    <a href="${REPORT_FORM}" target="_blank" class="btn-report">⚠️ Signaler une erreur sur cette fiche</a>
+                                </div>
                             </div>
                         </div>
                     </div>`;
+                    window.scrollTo(0, 0); // Force le haut de page pour le détail
             },
 
             switchImg(el, src) {

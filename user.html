@@ -6,26 +6,15 @@
     <title>Profil Utilisateur | Pépins de Tomates</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
+        /* Styles repris de index.html pour la cohérence */
         :root {
             --bg-color: #fdfdfc;
             --text-main: #2d3436;
-            --text-light: #636e72;
             --accent: #d63031;
             --card-bg: #ffffff;
             --shadow: 0 10px 30px rgba(0,0,0,0.05);
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-color: #121212;
-                --text-main: #e0e0e0;
-                --text-light: #a0a0a0;
-                --card-bg: #1e1e1e;
-                --shadow: 0 10px 30px rgba(0,0,0,0.4);
-            }
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
@@ -34,113 +23,83 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            margin: 0;
             padding: 20px;
         }
-
-        .profile-card {
+        .container {
             background: var(--card-bg);
             padding: 2.5rem;
             border-radius: 24px;
             box-shadow: var(--shadow);
             width: 100%;
-            max-width: 400px;
+            max-width: 450px;
             text-align: center;
-            animation: fadeIn 0.5s ease-out;
         }
-
-        h1 { margin-bottom: 0.5rem; font-weight: 800; }
-        p { color: var(--text-light); margin-bottom: 2rem; font-size: 0.95rem; }
-
-        .input-group {
-            margin-bottom: 1.5rem;
-            text-align: left;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
+        h1 { margin-bottom: 1.5rem; font-weight: 800; color: var(--accent); }
+        p { margin-bottom: 2rem; color: #636e72; line-height: 1.5; }
+        .input-group { margin-bottom: 1.5rem; text-align: left; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem; }
         input {
             width: 100%;
-            padding: 12px;
-            border-radius: 12px;
+            padding: 1rem;
             border: 1px solid rgba(0,0,0,0.1);
-            background: var(--bg-color);
-            color: var(--text-main);
-            font-family: inherit;
+            border-radius: 12px;
             font-size: 1rem;
-            outline: none;
-            transition: var(--transition);
+            font-family: inherit;
+            background: #fafafa;
         }
-
-        input:focus { border-color: var(--accent); }
-
-        .btn {
+        button {
             width: 100%;
             padding: 1rem;
-            border-radius: 50px;
+            background: var(--text-main);
+            color: white;
             border: none;
+            border-radius: 50px;
+            font-size: 1rem;
             font-weight: 700;
             cursor: pointer;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: var(--transition);
+            transition: transform 0.2s;
         }
-
-        .btn-primary {
-            background: var(--accent);
-            color: white;
-            margin-top: 1rem;
+        button:hover { transform: scale(1.02); }
+        .back-link {
+            display: block;
+            margin-top: 1.5rem;
+            color: #636e72;
+            text-decoration: none;
+            font-size: 0.9rem;
         }
-        
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-light);
-            margin-top: 10px;
-        }
-
-        .btn:hover { transform: translateY(-2px); opacity: 0.9; }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
-    <div class="profile-card">
-        <h1>Mon Profil 🍅</h1>
-        <p>Veuillez renseigner vos informations pour faciliter vos commandes.</p>
-
-        <form id="user-form" onsubmit="saveUser(event)">
+    <div class="container">
+        <h1>Qui êtes-vous ?</h1>
+        <p>Afin de valider votre commande et générer votre bon, merci de renseigner votre identité.</p>
+        
+        <form id="user-form">
             <div class="input-group">
                 <label for="nom">Nom</label>
-                <input type="text" id="nom" required placeholder="Ex: Dupont">
+                <input type="text" id="nom" required placeholder="Votre nom de famille">
             </div>
-
             <div class="input-group">
                 <label for="prenom">Prénom</label>
-                <input type="text" id="prenom" required placeholder="Ex: Jean">
+                <input type="text" id="prenom" required placeholder="Votre prénom">
             </div>
-
-            <button type="submit" class="btn btn-primary">Enregistrer & Continuer</button>
-            <button type="button" class="btn btn-secondary" onclick="window.location.href='index.html'">Annuler</button>
+            <button type="submit">Enregistrer et Continuer</button>
         </form>
+        <a href="index.html" class="back-link">Annuler et retourner à l'accueil</a>
     </div>
 
     <script>
-        // Charger les données existantes si disponibles
-        document.addEventListener('DOMContentLoaded', () => {
-            const nom = localStorage.getItem('user_nom');
-            const prenom = localStorage.getItem('user_prenom');
-            
-            if(nom) document.getElementById('nom').value = nom;
-            if(prenom) document.getElementById('prenom').value = prenom;
-        });
+        // AJOUT UTILISATEUR : Pré-remplissage si existant
+        window.onload = function() {
+            const savedNom = localStorage.getItem('user_nom');
+            const savedPrenom = localStorage.getItem('user_prenom');
+            if(savedNom) document.getElementById('nom').value = savedNom;
+            if(savedPrenom) document.getElementById('prenom').value = savedPrenom;
+        };
 
-        function saveUser(e) {
+        // AJOUT UTILISATEUR : Sauvegarde
+        document.getElementById('user-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const nom = document.getElementById('nom').value.trim();
             const prenom = document.getElementById('prenom').value.trim();
@@ -148,17 +107,12 @@
             if(nom && prenom) {
                 localStorage.setItem('user_nom', nom);
                 localStorage.setItem('user_prenom', prenom);
+                localStorage.setItem('user_created_at', new Date().toISOString());
                 
-                // Si la date de création n'existe pas, on la crée
-                if(!localStorage.getItem('user_created_at')) {
-                    localStorage.setItem('user_created_at', new Date().toISOString());
-                }
-
-                // Retour à l'accueil
+                // Redirection vers index.html (qui gère l'état du panier via localStorage)
                 window.location.href = 'index.html';
             }
-        }
+        });
     </script>
-
 </body>
 </html>

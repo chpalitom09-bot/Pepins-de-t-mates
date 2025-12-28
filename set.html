@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paramètres | Pépins de Tomates</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fdfdfc;
+            --text-main: #2d3436;
+            --text-light: #636e72;
+            --accent: #d63031;
+            --card-bg: #ffffff;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+            --transition: all 0.3s ease;
+        }
+
+        /* Dark Mode Handling */
+        body.dark-mode {
+            --bg-color: #121212;
+            --text-main: #e0e0e0;
+            --text-light: #a0a0a0;
+            --card-bg: #1e1e1e;
+            --shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .container {
+            width: 100%; max-width: 600px;
+            margin-top: 2rem;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        header {
+            display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;
+        }
+
+        .btn-back {
+            background: var(--card-bg); border: none;
+            width: 40px; height: 40px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; box-shadow: var(--shadow);
+            color: var(--text-main); font-size: 1.2rem;
+            text-decoration: none; transition: var(--transition);
+        }
+        .btn-back:hover { transform: scale(1.1); color: var(--accent); }
+
+        h1 { font-weight: 800; font-size: 1.8rem; }
+
+        /* TABS CATEGORIES */
+        .tabs {
+            display: flex; gap: 10px; margin-bottom: 2rem; overflow-x: auto; padding-bottom: 5px;
+            scrollbar-width: none;
+        }
+        .tab-btn {
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(0,0,0,0.1);
+            background: var(--card-bg);
+            color: var(--text-light);
+            font-weight: 600; cursor: pointer;
+            white-space: nowrap; transition: var(--transition);
+        }
+        .tab-btn.active {
+            background: var(--text-main); color: var(--bg-color); border-color: var(--text-main);
+        }
+
+        /* SECTIONS */
+        .settings-section {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            display: none; /* Hidden by default */
+            animation: slideUp 0.4s ease-out;
+        }
+        .settings-section.active { display: block; }
+
+        .setting-group {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .setting-group:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+        .setting-info h3 { font-size: 1rem; margin-bottom: 0.3rem; }
+        .setting-info p { font-size: 0.85rem; color: var(--text-light); }
+
+        /* INPUTS */
+        select {
+            padding: 8px 12px; border-radius: 8px;
+            border: 1px solid rgba(0,0,0,0.1);
+            background: var(--bg-color); color: var(--text-main);
+            font-family: inherit; font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        /* TOGGLE SWITCH */
+        .switch { position: relative; display: inline-block; width: 50px; height: 28px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider {
+            position: absolute; cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #ccc; transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute; content: "";
+            height: 20px; width: 20px;
+            left: 4px; bottom: 4px;
+            background-color: white; transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider { background-color: var(--accent); }
+        input:checked + .slider:before { transform: translateX(22px); }
+
+        /* DANGER ZONE */
+        .danger-zone {
+            margin-top: 2rem; padding: 1.5rem;
+            border: 2px solid #ff7675; border-radius: 16px;
+            background: rgba(255, 118, 117, 0.05);
+        }
+        .btn-danger {
+            width: 100%; padding: 1rem;
+            background: #d63031; color: white;
+            border: none; border-radius: 12px;
+            font-weight: 700; cursor: pointer;
+            margin-top: 1rem; transition: transform 0.2s;
+        }
+        .btn-danger:hover { transform: scale(1.02); }
+
+        @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+        @keyframes slideUp { from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <a href="index.html" class="btn-back">←</a>
+            <h1 data-i18n="settings_title">Paramètres</h1>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('interface')">🎨 Interface</button>
+            <button class="tab-btn" onclick="switchTab('display')">👁️ Affichage</button>
+            <button class="tab-btn" onclick="switchTab('privacy')">🛡️ Confidentialité</button>
+            <button class="tab-btn" onclick="switchTab('about')">ℹ️ À propos</button>
+        </div>
+
+        <div id="interface" class="settings-section active">
+            <div class="setting-group">
+                <div class="setting-info">
+                    <h3 data-i18n="dark_mode">Mode Sombre</h3>
+                    <p data-i18n="dark_mode_desc">Thème foncé pour le repos des yeux</p>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="dark-mode-toggle" onchange="saveConfig()">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="setting-group">
+                <div class="setting-info">
+                    <h3 data-i18n="anim_fluid">Animations Fluides</h3>
+                    <p data-i18n="anim_desc">Désactiver pour plus de rapidité</p>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="anim-toggle" checked onchange="saveConfig()">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="setting-group">
+                <div class="setting-info">
+                    <h3 data-i18n="grid_size">Grille de Cartes</h3>
+                    <p data-i18n="grid_desc">Nombre de colonnes</p>
+                </div>
+                <select id="grid-cols" onchange="saveConfig()">
+                    <option value="auto">Auto (Responsive)</option>
+                    <option value="1">1 Colonne</option>
+                    <option value="2">2 Colonnes</option>
+                    <option value="3">3 Colonnes</option>
+                </select>
+            </div>
+            <div class="setting-group">
+                <div class="setting-info">
+                    <h3 data-i18n="compact_mode">Mode Compact</h3>
+                    <p data-i18n="compact_desc">Cartes plus petites pour voir plus de contenu</p>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="compact-toggle" onchange="saveConfig()">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <div id="display" class="settings-section">
+            <div class="setting-group">
+                <div class="setting-info">
+                    <h3 data-i18n="language">Langue</h3>
+                    <p data-i18n="lang_desc">Choisir la langue de l'interface</p>
+                </div>
+                <select id="lang-select" onchange="saveConfig(); updateLangUI();">
+                    <option value="fr">Français 🇫🇷</option>
+                    <option value="en">English 🇬🇧</option>
+                </select>
+            </div>
+            <div class="setting-group">
+                <div class="setting-info">
+                    <h3 data-i18n="font_size">Taille de Police</h3>
+                    <p data-i18n="font_desc">Ajuster la lisibilité globale</p>
+                </div>
+                <select id="font-size-select" onchange="saveConfig(); applyFontSize();">
+                    <option value="small">Petit (Small)</option>
+                    <option value="medium" selected>Moyen (Défaut)</option>
+                    <option value="large">Grand (Large)</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="privacy" class="settings-section">
+            <p style="margin-bottom:1.5rem; font-size:0.9rem; color:var(--text-light);" data-i18n="privacy_intro">
+                Gérez vos consentements conformément au RGPD.
+            </p>
+            
+            <div class="setting-group">
+                <div class="setting-info">
+                    <h3>Cookies Fonctionnels</h3>
+                    <p>Nécessaires au fonctionnement (Panier, Préférences)</p>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" checked disabled>
+                    <span class="slider" style="background:#81ecec"></span>
+                </label>
+            </div>
+
+            <div class="setting-group">
+                <div class="setting-info">
+                    <h3>Google Analytics</h3>
+                    <p>Statistiques anonymes pour améliorer le site</p>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="consent-analytics" onchange="saveConfig()">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="danger-zone">
+                <h3 style="color:#d63031; margin-bottom:0.5rem">⚠️ Zone de Danger</h3>
+                <p style="font-size:0.85rem; color:#636e72">Supprime définitivement votre profil, votre liste et vos préférences de cet appareil.</p>
+                <button class="btn-danger" onclick="wipeData()" data-i18n="delete_btn">🗑️ Supprimer toutes mes données</button>
+            </div>
+        </div>
+
+        <div id="about" class="settings-section">
+            <div style="text-align:center; margin-bottom:1.5rem">
+                <h2 style="color:var(--accent)">Pépins de Tomates v2.1</h2>
+                <p>Développé par Christophe Duval</p>
+            </div>
+            <div class="setting-group">
+                <div class="setting-info">
+                    <h3>Contact Développeur</h3>
+                    <p>Pour les bugs ou suggestions</p>
+                </div>
+                <a href="mailto:chpalitom09@gmail.com" style="color:var(--accent); text-decoration:none; font-weight:700;">chpalitom09@gmail.com</a>
+            </div>
+            <div class="setting-group">
+                <div class="setting-info">
+                    <h3>Hébergement</h3>
+                    <p>Github Pages (USA)</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // DICTIONNAIRE DE TRADUCTION
+        const i18n = {
+            fr: {
+                settings_title: "Paramètres",
+                dark_mode: "Mode Sombre",
+                dark_mode_desc: "Thème foncé pour le repos des yeux",
+                anim_fluid: "Animations Fluides",
+                anim_desc: "Désactiver pour plus de rapidité",
+                grid_size: "Grille de Cartes",
+                grid_desc: "Nombre de colonnes",
+                compact_mode: "Mode Compact",
+                compact_desc: "Cartes plus petites",
+                language: "Langue",
+                lang_desc: "Choisir la langue de l'interface",
+                font_size: "Taille de Police",
+                font_desc: "Ajuster la lisibilité globale",
+                privacy_intro: "Gérez vos consentements conformément au RGPD.",
+                delete_btn: "🗑️ Supprimer toutes mes données"
+            },
+            en: {
+                settings_title: "Settings",
+                dark_mode: "Dark Mode",
+                dark_mode_desc: "Dark theme for eye strain",
+                anim_fluid: "Fluid Animations",
+                anim_desc: "Disable for speed",
+                grid_size: "Grid Layout",
+                grid_desc: "Number of columns",
+                compact_mode: "Compact Mode",
+                compact_desc: "Smaller cards to see more",
+                language: "Language",
+                lang_desc: "Choose interface language",
+                font_size: "Font Size",
+                font_desc: "Adjust global readability",
+                privacy_intro: "Manage consents compliant with GDPR.",
+                delete_btn: "🗑️ Delete all my data"
+            }
+        };
+
+        // CHARGEMENT INITIAL
+        window.onload = function() {
+            // Theme
+            if(localStorage.getItem('darkMode') === 'true') {
+                document.body.classList.add('dark-mode');
+                document.getElementById('dark-mode-toggle').checked = true;
+            }
+            // Anim
+            if(localStorage.getItem('noAnim') === 'true') {
+                document.getElementById('anim-toggle').checked = false;
+            }
+            // Compact & Grid
+            if(localStorage.getItem('compact') === 'true') document.getElementById('compact-toggle').checked = true;
+            document.getElementById('grid-cols').value = localStorage.getItem('gridCols') || 'auto';
+            
+            // Lang & Font
+            document.getElementById('lang-select').value = localStorage.getItem('user_lang') || 'fr';
+            document.getElementById('font-size-select').value = localStorage.getItem('user_fontSize') || 'medium';
+            
+            // Consents
+            document.getElementById('consent-analytics').checked = localStorage.getItem('consent_analytics') === 'true';
+
+            // Apply immediately
+            applyFontSize();
+            updateLangUI();
+        };
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.settings-section').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        function saveConfig() {
+            // Interface
+            const isDark = document.getElementById('dark-mode-toggle').checked;
+            const hasAnim = document.getElementById('anim-toggle').checked;
+            const isCompact = document.getElementById('compact-toggle').checked;
+            const gridCols = document.getElementById('grid-cols').value;
+            
+            localStorage.setItem('darkMode', isDark);
+            if(isDark) document.body.classList.add('dark-mode'); else document.body.classList.remove('dark-mode');
+
+            localStorage.setItem('noAnim', !hasAnim); // Attention inversion logique "noAnim"
+            
+            localStorage.setItem('compact', isCompact);
+            localStorage.setItem('gridCols', gridCols);
+
+            // Display
+            localStorage.setItem('user_lang', document.getElementById('lang-select').value);
+            localStorage.setItem('user_fontSize', document.getElementById('font-size-select').value);
+
+            // Privacy
+            localStorage.setItem('consent_analytics', document.getElementById('consent-analytics').checked);
+        }
+
+        function applyFontSize() {
+            const size = document.getElementById('font-size-select').value;
+            const root = document.documentElement;
+            if(size === 'small') root.style.fontSize = '14px';
+            if(size === 'medium') root.style.fontSize = '16px';
+            if(size === 'large') root.style.fontSize = '18px';
+        }
+
+        function updateLangUI() {
+            const lang = document.getElementById('lang-select').value;
+            const dict = i18n[lang];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if(dict[key]) el.innerText = dict[key];
+            });
+        }
+
+        function wipeData() {
+            if(confirm("Êtes-vous sûr ? \n\nCela effacera définitivement :\n- Votre profil (Nom/Prénom)\n- Votre liste en cours\n- Vos favoris\n- Vos préférences\n\nCette action est irréversible.")) {
+                localStorage.clear();
+                alert("Données effacées. Retour à l'accueil.");
+                window.location.href = "index.html";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -26,6 +26,11 @@
             --shadow: 0 10px 30px rgba(0,0,0,0.05);
             --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             --dwarf-color: #6c5ce7;
+            
+            /* Couleurs Jauge Semis */
+            --precoce: #00b894;
+            --mi-saison: #fdcb6e;
+            --tardive: #d63031;
         }
 
         body.dark-mode {
@@ -496,6 +501,51 @@
             animation: fall linear forwards; pointer-events: none;
         }
         @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+
+        /* 5. STYLE POUR LA JAUGE DE CULTURE (NOUVEAU) */
+        .culture-card { 
+            background: rgba(0,0,0,0.03); 
+            border-radius: 16px; 
+            padding: 1.2rem; 
+            margin: 1.5rem 0; 
+            border: 1px solid rgba(0,0,0,0.05); 
+        }
+        .culture-header { 
+            display: flex; 
+            justify-content: space-between; 
+            font-weight: 700; 
+            margin-bottom: 0.5rem; 
+            font-size: 0.9rem; 
+            color: var(--text-main);
+        }
+        .gauge-track { 
+            width: 100%; 
+            height: 10px; 
+            background: rgba(0,0,0,0.1); 
+            border-radius: 6px; 
+            overflow: hidden; 
+            position: relative; 
+        }
+        .gauge-bar { 
+            height: 100%; 
+            border-radius: 6px; 
+            transition: width 1s ease-out; 
+        }
+        .culture-details { 
+            display: flex; 
+            gap: 1rem; 
+            margin-top: 0.8rem; 
+            font-size: 0.85rem; 
+            color: var(--text-light); 
+            flex-wrap: wrap;
+        }
+        .culture-tag { 
+            background: var(--card-bg); 
+            padding: 4px 10px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
+            display:flex; align-items:center; gap:5px;
+        }
     </style>
 </head>
 <body>
@@ -1004,6 +1054,51 @@
                 document.getElementById('search-box').style.display = 'none';
                 document.getElementById('filters-container').style.display = 'none';
                 const liked = await this.getLike(id);
+                
+                // --- LOGIQUE D'AFFICHAGE DE LA JAUGE DE CULTURE (NOUVEAU) ---
+                let cultureHTML = '';
+                if (t.culture) {
+                    // Valeurs par défaut (si jamais)
+                    let width = '50%';
+                    let color = 'var(--accent)';
+                    let label = t.culture.type;
+                    
+                    // Logique Jauge (1, 2 ou 3)
+                    if (t.culture.jauge === 1) { 
+                        width = '33%'; 
+                        color = 'var(--precoce)';
+                        label = label || 'Précoce';
+                    } else if (t.culture.jauge === 2) {
+                        width = '66%'; 
+                        color = 'var(--mi-saison)';
+                        label = label || 'Mi-saison';
+                    } else if (t.culture.jauge === 3) {
+                        width = '100%'; 
+                        color = 'var(--tardive)';
+                        label = label || 'Tardive';
+                    } else {
+                        // Fallback sur le texte si pas de chiffre jauge
+                         if(label && label.toLowerCase().includes('précoce')) { width='33%'; color='var(--precoce)'; }
+                         else if(label && label.toLowerCase().includes('mi')) { width='66%'; color='var(--mi-saison)'; }
+                         else if(label && label.toLowerCase().includes('tard')) { width='100%'; color='var(--tardive)'; }
+                    }
+
+                    cultureHTML = `
+                    <div class="culture-card">
+                        <div class="culture-header">
+                            <span>📅 Type : ${label}</span>
+                            <span>⏱️ Cycle : ${t.culture.cycle}</span>
+                        </div>
+                        <div class="gauge-track">
+                            <div class="gauge-bar" style="width:${width}; background-color:${color};"></div>
+                        </div>
+                        <div class="culture-details">
+                            <div class="culture-tag">🌱 Semis : ${t.culture.semis}</div>
+                        </div>
+                    </div>
+                    `;
+                }
+
                 this.viewport.innerHTML = `
                     <div class="details-view">
                         <button class="btn-back" onclick="app.init()">← Retour</button>
@@ -1018,8 +1113,10 @@
                                 <h1 class="info-title">${t.nom}</h1>
                                 <p style="color:var(--accent); font-weight:800; font-size:1.2rem; margin-bottom:1rem;">${t.note} / 5 ★</p>
                                 <p><strong>Origine:</strong> ${t.origine} | <strong>Poids:</strong> ${t.poids}</p>
+                                
                                 <p class="full-desc">${t.descriptionLongue}</p>
-                                <div class="action-btns">
+                                
+                                ${cultureHTML} <div class="action-btns">
                                     <div class="action-row">
                                         <button class="btn btn-cart" onclick="app.addToCart(${t.id})">🛒 Ajouter à ma liste</button>
                                         <button class="btn btn-like ${liked ? 'active' : ''}" onclick="app.toggleLike(${t.id}, this)">

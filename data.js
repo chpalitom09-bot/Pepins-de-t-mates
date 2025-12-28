@@ -2021,7 +2021,13 @@ export const DATA = [
       "https://i.postimg.cc/9fVxNkhj/25.jpg",
       "https://i.postimg.cc/brGLtcQK/106.jpg",
       "https://i.postimg.cc/qqtQ3VsH/107.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 101,
@@ -2035,7 +2041,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/8CDynYSG/26.jpg",
       "https://i.postimg.cc/d1N43tTt/76.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 102,
@@ -2048,7 +2060,13 @@ export const DATA = [
     "note": 4.8,
     "images": [
       "https://i.postimg.cc/nLZdwWJV/27.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 103,
@@ -2064,7 +2082,13 @@ export const DATA = [
       "https://i.postimg.cc/5t1PkrV8/39.jpg",
       "https://i.postimg.cc/4yKw9kzV/92.jpg",
       "https://i.postimg.cc/wMtFm8hf/101.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 104,
@@ -2079,7 +2103,13 @@ export const DATA = [
       "https://i.postimg.cc/FKmPn64Y/31.jpg",
       "https://i.postimg.cc/FRCDzsJZ/89.jpg",
       "https://i.postimg.cc/MHh50P5K/121.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 105,
@@ -2092,7 +2122,13 @@ export const DATA = [
     "note": 4.6,
     "images": [
       "https://i.postimg.cc/wBHWbrp7/32.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 106,
@@ -2106,7 +2142,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/k59jhHmV/33.jpg",
       "https://i.postimg.cc/0NftgCkL/60.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 107,
@@ -2120,7 +2162,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/mrRd6nsz/34.jpg",
       "https://i.postimg.cc/yd8L7SxG/63.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 108,
@@ -2133,7 +2181,13 @@ export const DATA = [
     "note": 4.9,
     "images": [
       "https://i.postimg.cc/jjK8k1bn/35.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 109,
@@ -2147,7 +2201,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/bv86F5ht/36.jpg",
       "https://i.postimg.cc/xCpt8TbX/80.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 110,
@@ -2160,7 +2220,13 @@ export const DATA = [
     "note": 4.2,
     "images": [
       "https://i.postimg.cc/DzFCYNTG/37.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 111,
@@ -2173,7 +2239,13 @@ export const DATA = [
     "note": 4.6,
     "images": [
       "https://i.postimg.cc/W4j9fyvM/40.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 112,
@@ -2186,7 +2258,13 @@ export const DATA = [
     "note": 4.4,
     "images": [
       "https://i.postimg.cc/k5cjryJ2/42.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 113,
@@ -2199,7 +2277,13 @@ export const DATA = [
     "note": 4.8,
     "images": [
       "https://i.postimg.cc/tg5r0zqZ/43.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 114,
@@ -2212,7 +2296,13 @@ export const DATA = [
     "note": 4.9,
     "images": [
       "https://i.postimg.cc/3wBLMZ80/44.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 115,
@@ -2225,7 +2315,13 @@ export const DATA = [
     "note": 4.7,
     "images": [
       "https://i.postimg.cc/6Q0HshWG/45.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 116,
@@ -2238,7 +2334,13 @@ export const DATA = [
     "note": 4.5,
     "images": [
       "https://i.postimg.cc/25wHpxkZ/46.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 117,
@@ -2251,7 +2353,13 @@ export const DATA = [
     "note": 4.8,
     "images": [
       "https://i.postimg.cc/KYN9X5Gt/47.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 118,
@@ -2265,7 +2373,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/SKrZ0GS7/49.jpg",
       "https://i.postimg.cc/vT1XVFWP/100.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 119,
@@ -2278,7 +2392,13 @@ export const DATA = [
     "note": 4.7,
     "images": [
       "https://i.postimg.cc/q7LmfGJQ/51.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 120,
@@ -2291,7 +2411,13 @@ export const DATA = [
     "note": 4.6,
     "images": [
       "https://i.postimg.cc/YS3XcxrR/52.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 121,
@@ -2305,7 +2431,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/yNPfqT1f/53.jpg",
       "https://i.postimg.cc/bJwmq2rF/62.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 122,
@@ -2318,7 +2450,13 @@ export const DATA = [
     "note": 4.5,
     "images": [
       "https://i.postimg.cc/LsTydV9Q/54.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 123,
@@ -2331,7 +2469,13 @@ export const DATA = [
     "note": 4.4,
     "images": [
       "https://i.postimg.cc/CKNvy4hQ/55.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 124,
@@ -2345,7 +2489,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/BvghWCSz/56.jpg",
       "https://i.postimg.cc/BvghWCSR/59.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 125,
@@ -2359,7 +2509,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/QMb6Lq8P/57.jpg",
       "https://i.postimg.cc/x8kgzDKm/91.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 126,
@@ -2373,7 +2529,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/1zHWxKm2/58.jpg",
       "https://i.postimg.cc/2yqTZR4Z/90.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 127,
@@ -2386,7 +2548,13 @@ export const DATA = [
     "note": 4.7,
     "images": [
       "https://i.postimg.cc/NMjdQrFz/64.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 128,
@@ -2400,7 +2568,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/wvjw9sMn/66.jpg",
       "https://i.postimg.cc/5yZg573D/113.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 129,
@@ -2415,7 +2589,13 @@ export const DATA = [
       "https://i.postimg.cc/JnzpRBtV/68.jpg",
       "https://i.postimg.cc/NFybHq1d/99.jpg",
       "https://i.postimg.cc/yxwjhQP5/112.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 130,
@@ -2429,7 +2609,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/fLR8M0kN/69.jpg",
       "https://i.postimg.cc/8cq4dK4Q/115.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 131,
@@ -2442,7 +2628,13 @@ export const DATA = [
     "note": 4.5,
     "images": [
       "https://i.postimg.cc/ZR5wJy0Z/70.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 132,
@@ -2455,7 +2647,13 @@ export const DATA = [
     "note": 4.6,
     "images": [
       "https://i.postimg.cc/wvjw9s3x/71.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 133,
@@ -2468,7 +2666,13 @@ export const DATA = [
     "note": 4.9,
     "images": [
       "https://i.postimg.cc/XJYsnyXv/73.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 134,
@@ -2481,7 +2685,13 @@ export const DATA = [
     "note": 4.2,
     "images": [
       "https://i.postimg.cc/gJtNjk6d/74.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 135,
@@ -2494,7 +2704,13 @@ export const DATA = [
     "note": 4.4,
     "images": [
       "https://i.postimg.cc/QtY0CxWh/75.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 136,
@@ -2507,7 +2723,13 @@ export const DATA = [
     "note": 4.3,
     "images": [
       "https://i.postimg.cc/1t7JX5Nz/77.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 137,
@@ -2520,7 +2742,13 @@ export const DATA = [
     "note": 4.4,
     "images": [
       "https://i.postimg.cc/j53Z2dJ5/78.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 138,
@@ -2533,7 +2761,13 @@ export const DATA = [
     "note": 4.8,
     "images": [
       "https://i.postimg.cc/V6ZDvLb5/79.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 139,
@@ -2546,7 +2780,13 @@ export const DATA = [
     "note": 4.7,
     "images": [
       "https://i.postimg.cc/rmZQsFtd/81.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 140,
@@ -2559,7 +2799,13 @@ export const DATA = [
     "note": 4.5,
     "images": [
       "https://i.postimg.cc/76tmhYTT/82.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 141,
@@ -2575,7 +2821,13 @@ export const DATA = [
       "https://i.postimg.cc/W3YXzbJG/86.jpg",
       "https://i.postimg.cc/pr9kFbDJ/95.jpg",
       "https://i.postimg.cc/WzDSkLMS/98.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 142,
@@ -2590,7 +2842,13 @@ export const DATA = [
       "https://i.postimg.cc/G2gqthsY/84.jpg",
       "https://i.postimg.cc/vT1XVFWL/94.jpg",
       "https://i.postimg.cc/mkcVHfQw/97.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 143,
@@ -2603,7 +2861,13 @@ export const DATA = [
     "note": 4.8,
     "images": [
       "https://i.postimg.cc/2692y8Bn/85.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 144,
@@ -2616,7 +2880,13 @@ export const DATA = [
     "note": 4.2,
     "images": [
       "https://i.postimg.cc/W3YXzbJ6/87.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 145,
@@ -2629,7 +2899,13 @@ export const DATA = [
     "note": 4.9,
     "images": [
       "https://i.postimg.cc/VvS4CQjj/93.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 146,
@@ -2643,7 +2919,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/Bb8NK9xp/96.jpg",
       "https://i.postimg.cc/Fz2pbWp9/120.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 147,
@@ -2659,7 +2941,13 @@ export const DATA = [
       "https://i.postimg.cc/Rh3GH5ck/105.jpg",
       "https://i.postimg.cc/Vv3g9Ggd/123.jpg",
       "https://i.postimg.cc/Rhjd1sdq/124.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 148,
@@ -2673,7 +2961,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/rsdgrX1T/110.jpg",
       "https://i.postimg.cc/QCRmg4bz/111.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 149,
@@ -2687,7 +2981,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/J09x36xL/117.jpg",
       "https://i.postimg.cc/gjfsySsw/125.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 150,
@@ -2700,7 +3000,13 @@ export const DATA = [
     "note": 4.3,
     "images": [
       "https://i.postimg.cc/C5W7CP7h/119.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 151,
@@ -2713,7 +3019,13 @@ export const DATA = [
     "note": 4.6,
     "images": [
       "https://i.postimg.cc/zv97wt7y/122.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 152,
@@ -2727,7 +3039,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/QCLfCtHD/1766767755149-054956.jpg",
       "https://i.postimg.cc/0Q7ptCyM/1766767757979-061700.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 153,
@@ -2740,7 +3058,13 @@ export const DATA = [
     "note": 4.7,
     "images": [
       "https://i.postimg.cc/yxFvZHZg/1766767755176-055021.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 154,
@@ -2755,7 +3079,13 @@ export const DATA = [
       "https://i.postimg.cc/2y42ZDZQ/1766767755204-055037.jpg",
       "https://i.postimg.cc/XvGK5WMZ/1766767757604-061353.jpg",
       "https://i.postimg.cc/3Jt2bNY3/1766767758972-062828.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 155,
@@ -2771,7 +3101,13 @@ export const DATA = [
       "https://i.postimg.cc/vHbvNCnk/1766767757097-060924.jpg",
       "https://i.postimg.cc/sX5pnJgB/1766767757950-061646.jpg",
       "https://i.postimg.cc/CLhjNkTY/1766767758661-062508.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 156,
@@ -2785,7 +3121,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/mkQ8HsHC/1766767755260-055125.jpg",
       "https://i.postimg.cc/L87L2Wqh/1766767759572-063446.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 157,
@@ -2800,7 +3142,13 @@ export const DATA = [
       "https://i.postimg.cc/D0qBXTXR/1766767755288-055147.jpg",
       "https://i.postimg.cc/VLgFQ4Bs/1766767757186-061014.jpg",
       "https://i.postimg.cc/Kztn958Z/1766767757923-061630.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 158,
@@ -2813,7 +3161,13 @@ export const DATA = [
     "note": 4.5,
     "images": [
       "https://i.postimg.cc/v89PjWNm/1766767755318-055208.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 159,
@@ -2826,7 +3180,13 @@ export const DATA = [
     "note": 4.9,
     "images": [
       "https://i.postimg.cc/gcRM5vTZ/1766767755347-055227.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 160,
@@ -2841,7 +3201,13 @@ export const DATA = [
       "https://i.postimg.cc/fWXHFxrX/1766767755377-055248.jpg",
       "https://i.postimg.cc/HxMtqgBs/1766767756713-060602.jpg",
       "https://i.postimg.cc/x1qLrQdV/1766767759296-063153.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 161,
@@ -2855,7 +3221,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/FFcPqjBx/1766767755403-055313.jpg",
       "https://i.postimg.cc/rFVSJxXk/1766767758628-062453.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 162,
@@ -2868,7 +3240,13 @@ export const DATA = [
     "note": 4.5,
     "images": [
       "https://i.postimg.cc/1R6WTpjM/1766767755433-055334.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 163,
@@ -2881,7 +3259,13 @@ export const DATA = [
     "note": 4.9,
     "images": [
       "https://i.postimg.cc/MKSs8vCb/1766767755477-055353.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 164,
@@ -2896,7 +3280,13 @@ export const DATA = [
       "https://i.postimg.cc/DyTCK89x/1766767755507-055420.jpg",
       "https://i.postimg.cc/G3kQzb4Q/1766767756978-060824.jpg",
       "https://i.postimg.cc/cCZfP8v3/1766767758075-061813.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 165,
@@ -2910,7 +3300,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/15rvRyST/1766767755533-055444.jpg",
       "https://i.postimg.cc/vZmtQ93g/1766767757298-061110.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 166,
@@ -2925,7 +3321,13 @@ export const DATA = [
       "https://i.postimg.cc/X7ksNnWR/1766767755558-055508.jpg",
       "https://i.postimg.cc/GpVQg2PT/1766767756291-060253.jpg",
       "https://i.postimg.cc/Bnt2W3nc/1766767759080-062926.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 167,
@@ -2940,7 +3342,13 @@ export const DATA = [
       "https://i.postimg.cc/m2ymZTRW/1766767755585-055533.jpg",
       "https://i.postimg.cc/nLgkSzKX/1766767756263-060237.jpg",
       "https://i.postimg.cc/nhLGH705/1766767757353-061140.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 168,
@@ -2954,7 +3362,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/fTf8WMZM/1766767755622-055606.jpg",
       "https://i.postimg.cc/15mpHwht/1766767758818-062652.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 169,
@@ -2970,7 +3384,13 @@ export const DATA = [
       "https://i.postimg.cc/FK7pxcSd/1766767756179-060158.jpg",
       "https://i.postimg.cc/vmkz2B7D/1766767756235-060224.jpg",
       "https://i.postimg.cc/J7cNZKF6/1766767758327-062138.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 170,
@@ -2983,7 +3403,13 @@ export const DATA = [
     "note": 5,
     "images": [
       "https://i.postimg.cc/VLWKsz1J/1766767755678-055654.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 171,
@@ -2996,7 +3422,13 @@ export const DATA = [
     "note": 4.7,
     "images": [
       "https://i.postimg.cc/3xrndzJJ/1766767755706-055710.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 172,
@@ -3012,7 +3444,13 @@ export const DATA = [
       "https://i.postimg.cc/W4h87rZd/1766767756150-060143.jpg",
       "https://i.postimg.cc/nLC217m4/1766767756206-060211.jpg",
       "https://i.postimg.cc/KcnNQm10/1766767757009-060840.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 173,
@@ -3025,7 +3463,13 @@ export const DATA = [
     "note": 4.5,
     "images": [
       "https://i.postimg.cc/t4R2Y8C2/1766767755786-055759.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 174,
@@ -3038,7 +3482,13 @@ export const DATA = [
     "note": 4.7,
     "images": [
       "https://i.postimg.cc/mgZ8tK2j/1766767755814-055816.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 175,
@@ -3053,7 +3503,13 @@ export const DATA = [
       "https://i.postimg.cc/6p6YyF5j/1766767755840-055834.jpg",
       "https://i.postimg.cc/HnCtHhhb/1766767756740-060618.jpg",
       "https://i.postimg.cc/JhfNcFmg/1766767757774-061522.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 176,
@@ -3066,7 +3522,13 @@ export const DATA = [
     "note": 4.6,
     "images": [
       "https://i.postimg.cc/NjNbTb5p/1766767755870-055853.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 177,
@@ -3079,7 +3541,13 @@ export const DATA = [
     "note": 4.8,
     "images": [
       "https://i.postimg.cc/HkS353VN/1766767755901-055916.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 178,
@@ -3093,7 +3561,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/kgjw8w2q/1766767755927-055933.jpg",
       "https://i.postimg.cc/kgZKqH2Z/1766767759357-063228.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 179,
@@ -3108,7 +3582,13 @@ export const DATA = [
       "https://i.postimg.cc/JzTKJKsm/1766767755953-055954.jpg",
       "https://i.postimg.cc/8CJdvG87/1766767757550-061323.jpg",
       "https://i.postimg.cc/KvGnNBS4/1766767758850-062711.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 180,
@@ -3121,7 +3601,13 @@ export const DATA = [
     "note": 4.5,
     "images": [
       "https://i.postimg.cc/Z5fj3jWb/1766767755984-060015.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 181,
@@ -3134,7 +3620,13 @@ export const DATA = [
     "note": 4.8,
     "images": [
       "https://i.postimg.cc/FK7pxcSQ/1766767756012-060034.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 182,
@@ -3147,7 +3639,13 @@ export const DATA = [
     "note": 4.6,
     "images": [
       "https://i.postimg.cc/cJrhcY30/1766767756038-060047.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 183,
@@ -3161,7 +3659,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/R0NdTft9/1766767756067-060104.jpg",
       "https://i.postimg.cc/8P4bQwBG/1766767757155-060957.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 184,
@@ -3175,7 +3679,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/QMHmq57M/1766767756095-060118.jpg",
       "https://i.postimg.cc/hvgVN7Xv/1766767758009-061721.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 185,
@@ -3188,7 +3698,13 @@ export const DATA = [
     "note": 4.4,
     "images": [
       "https://i.postimg.cc/7Lf9N7zb/1766767756121-060131.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 186,
@@ -3202,7 +3718,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/0NFfXQGw/1766767756320-060307.jpg",
       "https://i.postimg.cc/hjm0kBMC/1766767756488-060423.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 187,
@@ -3215,7 +3737,13 @@ export const DATA = [
     "note": 4.5,
     "images": [
       "https://i.postimg.cc/7LdVt613/1766767756350-060320.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 188,
@@ -3229,7 +3757,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/VNpRZ69Z/1766767756379-060330.jpg",
       "https://i.postimg.cc/t4fWpcsK/1766767759421-063302.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 189,
@@ -3242,7 +3776,13 @@ export const DATA = [
     "note": 4.6,
     "images": [
       "https://i.postimg.cc/GpVQg2PS/1766767756406-060345.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 190,
@@ -3255,7 +3795,13 @@ export const DATA = [
     "note": 4.2,
     "images": [
       "https://i.postimg.cc/9fKpgMP8/1766767756434-060400.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 191,
@@ -3268,7 +3814,13 @@ export const DATA = [
     "note": 4.7,
     "images": [
       "https://i.postimg.cc/0NFfXQGV/1766767756460-060411.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 192,
@@ -3281,7 +3833,13 @@ export const DATA = [
     "note": 4.5,
     "images": [
       "https://i.postimg.cc/sXWJkrK6/1766767756515-060435.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 193,
@@ -3295,7 +3853,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/FRSxM4GC/1766767756540-060447.jpg",
       "https://i.postimg.cc/t4mt7TcT/1766767757464-061240.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 194,
@@ -3308,7 +3872,13 @@ export const DATA = [
     "note": 4.4,
     "images": [
       "https://i.postimg.cc/G2DjWCzS/1766767756569-060500.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 195,
@@ -3322,7 +3892,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/d1C9bYnf/1766767756601-060517.jpg",
       "https://i.postimg.cc/wMVDzTJd/1766767758200-061959.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 196,
@@ -3338,7 +3914,13 @@ export const DATA = [
       "https://i.postimg.cc/VkNWYMD7/1766767757326-061123.jpg",
       "https://i.postimg.cc/59qBLpr5/1766767758292-062109.jpg",
       "https://i.postimg.cc/vH05STb4/1766767759046-062906.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 197,
@@ -3353,7 +3935,13 @@ export const DATA = [
       "https://i.postimg.cc/G2DjWCzW/1766767756655-060538.jpg",
       "https://i.postimg.cc/RFtTkBXz/1766767756684-060550.jpg",
       "https://i.postimg.cc/SNSWrC0g/1766767758460-062310.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 198,
@@ -3367,7 +3955,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/ZnFxqxGr/1766767756770-060637.jpg",
       "https://i.postimg.cc/bYHxkL57/1766767758429-062249.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 199,
@@ -3380,7 +3974,13 @@ export const DATA = [
     "note": 4.8,
     "images": [
       "https://i.postimg.cc/J0c5h5fp/1766767756805-060655.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 200,
@@ -3393,7 +3993,13 @@ export const DATA = [
     "note": 4.6,
     "images": [
       "https://i.postimg.cc/tJtNgNKr/1766767756889-060739.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 201,
@@ -3408,7 +4014,13 @@ export const DATA = [
       "https://i.postimg.cc/T1qJPJzF/1766767756920-060755.jpg",
       "https://i.postimg.cc/7LG1z4vJ/1766767757631-061408.jpg",
       "https://i.postimg.cc/63CdHhps/1766767757836-061551.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 202,
@@ -3422,7 +4034,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/59w3pfXS/1766767756949-060811.jpg",
       "https://i.postimg.cc/wT2k8FcB/1766767757213-061029.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 203,
@@ -3435,7 +4053,13 @@ export const DATA = [
     "note": 4.6,
     "images": [
       "https://i.postimg.cc/yYsTb2Rj/1766767757040-060857.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 204,
@@ -3448,7 +4072,13 @@ export const DATA = [
     "note": 4.2,
     "images": [
       "https://i.postimg.cc/c40cbP3T/1766767757069-060913.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 205,
@@ -3461,7 +4091,13 @@ export const DATA = [
     "note": 4.6,
     "images": [
       "https://i.postimg.cc/NfBxzZTY/1766767757126-060939.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 206,
@@ -3474,7 +4110,13 @@ export const DATA = [
     "note": 4.4,
     "images": [
       "https://i.postimg.cc/QxmqGSkK/1766767757242-061041.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 207,
@@ -3487,7 +4129,13 @@ export const DATA = [
     "note": 4.8,
     "images": [
       "https://i.postimg.cc/GmpxcYqs/1766767757269-061056.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 208,
@@ -3500,7 +4148,13 @@ export const DATA = [
     "note": 4.7,
     "images": [
       "https://i.postimg.cc/nhLGH705/1766767757353-061140.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 209,
@@ -3513,7 +4167,13 @@ export const DATA = [
     "note": 4.5,
     "images": [
       "https://i.postimg.cc/K8sr4zHp/1766767757382-061154.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 210,
@@ -3526,7 +4186,13 @@ export const DATA = [
     "note": 4.6,
     "images": [
       "https://i.postimg.cc/bwFHdJ5j/1766767757409-061209.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 211,
@@ -3539,7 +4205,13 @@ export const DATA = [
     "note": 4.5,
     "images": [
       "https://i.postimg.cc/FHng1R67/1766767757437-061226.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 212,
@@ -3552,7 +4224,13 @@ export const DATA = [
     "note": 4.7,
     "images": [
       "https://i.postimg.cc/MprbXTLX/1766767757493-061254.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 213,
@@ -3566,7 +4244,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/TPLjbx8T/1766767757522-061308.jpg",
       "https://i.postimg.cc/DwDLnNW4/1766767759635-063531.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 214,
@@ -3579,7 +4263,13 @@ export const DATA = [
     "note": 4.3,
     "images": [
       "https://i.postimg.cc/5tY5zJcY/1766767757578-061339.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 215,
@@ -3593,7 +4283,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/QM9g7DLk/1766767757661-061419.jpg",
       "https://i.postimg.cc/t47F0b48/1766767759207-063051.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 216,
@@ -3606,7 +4302,13 @@ export const DATA = [
     "note": 4.2,
     "images": [
       "https://i.postimg.cc/5thBqr1v/1766767757691-061435.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 217,
@@ -3620,7 +4322,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/yNMmXGBj/1766767757717-061450.jpg",
       "https://i.postimg.cc/FsrjZ35h/1766767758726-062547.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 218,
@@ -3633,7 +4341,13 @@ export const DATA = [
     "note": 4.6,
     "images": [
       "https://i.postimg.cc/9f6dtkV1/1766767757747-061506.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 219,
@@ -3646,7 +4360,13 @@ export const DATA = [
     "note": 4.5,
     "images": [
       "https://i.postimg.cc/1zkGcdsx/1766767757805-061538.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 220,
@@ -3659,7 +4379,13 @@ export const DATA = [
     "note": 4.4,
     "images": [
       "https://i.postimg.cc/ZR6rfL5m/1766767757865-061603.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 221,
@@ -3672,7 +4398,13 @@ export const DATA = [
     "note": 4.3,
     "images": [
       "https://i.postimg.cc/Y9Q1XxCM/1766767757895-061619.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 222,
@@ -3686,7 +4418,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/mkR7KFPc/1766767758040-061743.jpg",
       "https://i.postimg.cc/CLhjNkTR/1766767758940-062809.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 223,
@@ -3699,7 +4437,13 @@ export const DATA = [
     "note": 4.8,
     "images": [
       "https://i.postimg.cc/Y0kQTmvx/1766767758107-061840.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 224,
@@ -3713,7 +4457,13 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/90py2F9b/1766767758138-061907.jpg",
       "https://i.postimg.cc/9Qzy32QY/1766767759115-062946.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 225,
@@ -3728,7 +4478,13 @@ export const DATA = [
       "https://i.postimg.cc/fyKYsTd5/1766767758170-061935.jpg",
       "https://i.postimg.cc/fTzxKmnJ/1766767758881-062731.jpg",
       "https://i.postimg.cc/8z3MNY7x/1766767759388-063248.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 226,
@@ -3741,7 +4497,13 @@ export const DATA = [
     "note": 4.4,
     "images": [
       "https://i.postimg.cc/brT1PNbP/1766767758233-062016.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 227,
@@ -3754,7 +4516,13 @@ export const DATA = [
     "note": 4.6,
     "images": [
       "https://i.postimg.cc/G3JFGzfG/1766767758261-062036.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 228,
@@ -3767,7 +4535,13 @@ export const DATA = [
     "note": 4.8,
     "images": [
       "https://i.postimg.cc/FFgy3G6B/1766767758362-062207.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 229,
@@ -3780,7 +4554,13 @@ export const DATA = [
     "note": 4.7,
     "images": [
       "https://i.postimg.cc/59qBLprT/1766767758394-062229.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 230,
@@ -3793,7 +4573,13 @@ export const DATA = [
     "note": 4.5,
     "images": [
       "https://i.postimg.cc/wTqhVLKb/1766767758492-062333.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 231,
@@ -3806,7 +4592,13 @@ export const DATA = [
     "note": 4.4,
     "images": [
       "https://i.postimg.cc/FsrjZ3tM/1766767758528-062352.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 232,
@@ -3819,7 +4611,13 @@ export const DATA = [
     "note": 4.3,
     "images": [
       "https://i.postimg.cc/15mpHwxb/1766767758564-062415.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 233,
@@ -3832,7 +4630,13 @@ export const DATA = [
     "note": 5,
     "images": [
       "https://i.postimg.cc/3J8gBm5H/1766767758597-062435.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 234,
@@ -3845,7 +4649,13 @@ export const DATA = [
     "note": 4.1,
     "images": [
       "https://i.postimg.cc/gkzvD8Fp/1766767758693-062526.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 235,
@@ -3858,7 +4668,13 @@ export const DATA = [
     "note": 4.9,
     "images": [
       "https://i.postimg.cc/ncFvkBbV/1766767758755-062612.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 236,
@@ -3871,7 +4687,13 @@ export const DATA = [
     "note": 4.6,
     "images": [
       "https://i.postimg.cc/BQSxgH9n/1766767758787-062633.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 237,
@@ -3884,7 +4706,13 @@ export const DATA = [
     "note": 4.5,
     "images": [
       "https://i.postimg.cc/Dyx1Y0nn/1766767758912-062750.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 238,
@@ -3897,7 +4725,13 @@ export const DATA = [
     "note": 4.4,
     "images": [
       "https://i.postimg.cc/Wb50fzTr/1766767759013-062846.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 239,
@@ -3910,7 +4744,13 @@ export const DATA = [
     "note": 4.3,
     "images": [
       "https://i.postimg.cc/NjLRhtjd/1766767759147-063005.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 240,
@@ -3923,7 +4763,13 @@ export const DATA = [
     "note": 4.6,
     "images": [
       "https://i.postimg.cc/3xW2MhxL/1766767759177-063033.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 241,
@@ -3936,7 +4782,13 @@ export const DATA = [
     "note": 4.5,
     "images": [
       "https://i.postimg.cc/FH10tvH2/1766767759235-063109.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 242,
@@ -3949,7 +4801,13 @@ export const DATA = [
     "note": 4.4,
     "images": [
       "https://i.postimg.cc/y8W0qKNq/1766767759264-063129.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 243,
@@ -3962,7 +4820,13 @@ export const DATA = [
     "note": 4.6,
     "images": [
       "https://i.postimg.cc/FH10tvKQ/1766767759329-063208.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 244,
@@ -3975,7 +4839,13 @@ export const DATA = [
     "note": 4.5,
     "images": [
       "https://i.postimg.cc/RZ8K4Y3r/1766767759452-063316.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 245,
@@ -3988,7 +4858,13 @@ export const DATA = [
     "note": 4.8,
     "images": [
       "https://i.postimg.cc/DwDLnNW7/1766767759480-063337.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 246,
@@ -4001,7 +4877,13 @@ export const DATA = [
     "note": 4.2,
     "images": [
       "https://i.postimg.cc/pL7zRS92/1766767759510-063401.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 247,
@@ -4014,7 +4896,13 @@ export const DATA = [
     "note": 4.3,
     "images": [
       "https://i.postimg.cc/cLjw0zKK/1766767759542-063426.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 248,
@@ -4027,7 +4915,13 @@ export const DATA = [
     "note": 4.6,
     "images": [
       "https://i.postimg.cc/0y3DP46M/1766767759603-063506.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 249,
@@ -4040,7 +4934,13 @@ export const DATA = [
     "note": 4.5,
     "images": [
       "https://i.postimg.cc/52GLbrHz/1766767759666-063552.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 250,
@@ -4053,7 +4953,13 @@ export const DATA = [
     "note": 4,
     "images": [
       "https://i.postimg.cc/439td1t9/1766767759698-063613.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 251,
@@ -4066,7 +4972,13 @@ export const DATA = [
     "note": 4.7,
     "images": [
       "https://i.postimg.cc/KYMLz5LL/1766767759731-063633.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 252,
@@ -4079,7 +4991,13 @@ export const DATA = [
     "note": 4.6,
     "images": [
       "https://i.postimg.cc/JhkJnQJP/1766767759761-063654.jpg"
-    ]
+    ],
+    "culture": {
+      "type": "",
+      "cycle": "",
+      "semis": "Mars à Avril",
+      "jauge": 0
+    }
   },
   {
     "id": 253,

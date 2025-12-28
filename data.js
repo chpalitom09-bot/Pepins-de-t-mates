@@ -1,6 +1,5 @@
 // data.js
 export const DATA = [
-    const tomates = [
     {
         id: 0,
         nom: "Emerald Brocade",

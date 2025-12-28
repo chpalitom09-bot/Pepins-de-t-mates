@@ -2963,10 +2963,10 @@ export const DATA = [
       "https://i.postimg.cc/QCRmg4bz/111.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "70-75 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {

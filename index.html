@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GWXLC7PKH1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-GWXLC7PKH1');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pépins de t🍅mates | Bibliothèque de variétés</title>
@@ -16,6 +8,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
     
+    <script>
+        // Fonction pour charger Analytics uniquement après consentement
+        function loadGoogleAnalytics() {
+            var script = document.createElement('script');
+            script.async = true;
+            script.src = "https://www.googletagmanager.com/gtag/js?id=G-GWXLC7PKH1";
+            document.head.appendChild(script);
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-GWXLC7PKH1');
+            console.log("Analytics chargé après consentement.");
+        }
+    </script>
+
     <style>
         :root {
             --bg-color: #fdfdfc;
@@ -53,6 +61,7 @@
             line-height: 1.6;
             overflow-x: hidden;
             transition: background-color 0.3s;
+            padding-bottom: 60px; /* Espace pour le bandeau cookies */
         }
 
         .top-nav {
@@ -546,6 +555,62 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
             display:flex; align-items:center; gap:5px;
         }
+		
+        /* Styles pour la légalité et modales */
+        .legal-footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+        .legal-link {
+            text-decoration: underline;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            padding: 20px;
+        }
+        .modal-legal-content {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 20px;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            text-align: left;
+            box-shadow: var(--shadow);
+            color: var(--text-main);
+        }
+        .modal-legal-content h3 { margin-bottom: 1rem; color: var(--accent); }
+        .modal-legal-content h4 { margin-top: 1rem; margin-bottom: 0.5rem; font-size: 1rem; }
+        .modal-legal-content p { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-light); }
+        
+        /* BANDEAU COOKIES */
+        #cookie-banner {
+            position: fixed;
+            bottom: 0; left: 0; width: 100%;
+            background: var(--card-bg);
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            z-index: 99999;
+            display: none; /* Masqué par défaut */
+            flex-direction: column;
+            gap: 1rem;
+            border-top: 1px solid var(--accent);
+        }
+        @media(min-width: 768px) {
+            #cookie-banner { flex-direction: row; align-items: center; justify-content: space-between; }
+        }
+        .cookie-btns { display: flex; gap: 10px; }
     </style>
 </head>
 <body>
@@ -557,7 +622,7 @@
 
     <div class="top-nav">
         <div class="profile-btn" onclick="window.location.href='user.html'" title="Mon Profil">
-            <svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+            <svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
         </div>
         <div class="settings-btn" onclick="app.toggleModal('settings-modal')" title="Paramètres">
             <svg viewBox="0 0 24 24"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.81,11.69,4.81,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></svg>
@@ -583,6 +648,19 @@
     </header>
 
     <main id="view-port"></main>
+
+    <div id="cookie-banner">
+        <div>
+            <strong>🍪 Cookies & Vie Privée</strong><br>
+            <span style="font-size:0.85rem; color:var(--text-light)">
+                Nous utilisons des cookies uniquement pour analyser le trafic de manière anonyme. Aucune donnée n'est vendue à des tiers.
+            </span>
+        </div>
+        <div class="cookie-btns">
+            <button class="btn btn-cart" style="font-size:0.8rem; padding: 0.5rem 1rem;" onclick="app.acceptCookies()">Accepter</button>
+            <button class="btn" style="font-size:0.8rem; padding: 0.5rem 1rem; border:1px solid var(--text-main);" onclick="app.refuseCookies()">Refuser</button>
+        </div>
+    </div>
 
     <div id="settings-modal" class="modal" onclick="if(event.target == this) app.toggleModal('settings-modal')">
         <div class="modal-content">
@@ -731,6 +809,7 @@
                 this.searchInput.oninput = () => this.handleFilter();
                 this.loadSettings();
                 this.updateCartBadge();
+                this.checkCookieConsent(); // Vérification cookies au démarrage
                 
                 // Init Lottie Loader
                 this.lottieLoader = lottie.loadAnimation({
@@ -761,6 +840,28 @@
                     if(window.scrollY > 300) btn.classList.add('visible');
                     else btn.classList.remove('visible');
                 });
+            },
+
+            /* GESTION CONSENTEMENT COOKIES (Légal) */
+            checkCookieConsent() {
+                const consent = localStorage.getItem('cookieConsent');
+                if (consent === 'true') {
+                    loadGoogleAnalytics();
+                } else if (consent === null) {
+                    document.getElementById('cookie-banner').style.display = 'flex';
+                }
+            },
+            
+            acceptCookies() {
+                localStorage.setItem('cookieConsent', 'true');
+                document.getElementById('cookie-banner').style.display = 'none';
+                loadGoogleAnalytics();
+            },
+            
+            refuseCookies() {
+                localStorage.setItem('cookieConsent', 'false');
+                document.getElementById('cookie-banner').style.display = 'none';
+                // On ne charge pas Google Analytics
             },
 
             loadSettings() {
@@ -1016,7 +1117,12 @@
                     varietyString = items.map(i => i.nom).join(', ');
                 }
                 const url = GOOGLE_ORDER_FORM + encodeURIComponent(varietyString);
-                window.open(url, '_blank');
+                
+                // MODIFICATION LEGALE : Afficher la modale d'avertissement au lieu d'ouvrir directement
+                const modal = document.getElementById('form-modal');
+                const btn = document.getElementById('confirm-redirect');
+                btn.onclick = () => window.open(url, '_blank');
+                modal.style.display = 'flex';
             },
 
             async renderList(items) {
@@ -1126,7 +1232,10 @@
                                     <button class="btn btn-order" onclick="app.addToCart(${t.id}); app.renderCartPage()">Voir ma liste</button>
                                 </div>
                                 <div style="text-align:right;">
-                                    <a href="${REPORT_FORM}" target="_blank" class="btn-report">⚠️ Signaler une erreur sur cette fiche</a>
+                                    <a href="${REPORT_FORM}" target="_blank" class="btn-report">Signaler une erreur sur cette carte</a>
+                                    <p style="font-size:0.7rem; color:var(--text-light); margin-top:5px;">
+                                        Note : Les données (origine, cycle, etc.) peuvent ne pas être correctes.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -1216,6 +1325,7 @@
                 };
                 
                 // On lance l'envoi en tâche de fond (sans await bloquant pour l'UI, mais on log l'erreur)
+                // NOTE LEGALE: L'utilisateur a été prévenu via la Politique RGPD que ces données partent vers un script externe.
                 fetch(APPS_SCRIPT_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -1233,7 +1343,7 @@
                     </div>
                     <div class="action-row" style="margin-top:1rem; gap:10px; flex-wrap:wrap;">
                         <button class="btn btn-like" style="flex:1; min-width:200px" onclick="app.showQRCode()">QR code de la liste</button>
-                        <button class="btn btn-order" style="flex:1; min-width:200px" onclick="window.open('htpps://m.me/christophe.duval.31149', '_blank')">Finaliser l'échange via Messenger</button>
+                        <button class="btn btn-order" style="flex:1; min-width:200px" onclick="window.open('https://m.me/christophe.duval.31149', '_blank')">Finaliser l'échange via Messenger</button>
                     </div>
                     
                     <div class="pdf-form-container">
@@ -1418,6 +1528,7 @@
                         </div>
                         
                         <div id="order-display-area" style="margin-top:2rem; border-top:1px solid rgba(0,0,0,0.1); padding-top:2rem;">
+                            <p style="font-size:0.8rem; color:var(--accent); margin-bottom:1rem;">⚠️ En validant cette liste, vos informations seront transmises à Google Sheets pour traiter l'échange.</p>
                             <button class="btn btn-order" style="width:100%" onclick="app.processOrder()">Valider la liste</button>
                             ${lastNum ? `<button class="btn btn-cart" style="width:100%; margin-top:10px; background:transparent; color:var(--text-main); border:1px solid var(--text-main);" onclick="app.reloadLastOrder()">Recharger ma dernière liste</button>` : ''}
                         </div>
@@ -1430,5 +1541,77 @@
         };
     window.app = app; // <--- AJOUTE CETTE LIGNE ICI
 </script>
+
+<footer class="legal-footer">
+    <p>© 2024 Pépins de Tomates - Christophe Duval - Projet amateur à but non lucratif</p>
+    <p>
+        <span class="legal-link" onclick="document.getElementById('modal-ml').style.display='flex'">Mentions Légales</span> | 
+        <span class="legal-link" onclick="document.getElementById('modal-rgpd').style.display='flex'">Politique de Confidentialité (RGPD)</span> |
+        <span class="legal-link" onclick="document.getElementById('cookie-banner').style.display='flex'">Gérer les cookies</span>
+    </p>
+</footer>
+
+<div id="modal-ml" class="modal-overlay" onclick="if(event.target == this) this.style.display='none'">
+    <div class="modal-legal-content">
+        <h3>Mentions Légales</h3>
+        <h4>1. Éditeur du site</h4>
+        <p>Le présent site est édité à titre personnel par :</p>
+        <p><strong>Monsieur Christophe Duval</strong></p>
+        <p>Adresse : [VOTRE ADRESSE POSTALE COMPLÈTE ICI - OBLIGATOIRE]</p>
+        <p>Contact : chpalito77@gmail.com</p>
+        <p>Ce site n'a pas de vocation commerciale. Il s'agit d'une liste d'échange entre amateurs.</p>
+
+        <h4>2. Hébergement</h4>
+        <p>Le site est hébergé par :</p>
+        <p><strong>GitHub Inc.</strong></p>
+        <p>88 Colin P Kelly Jr St, San Francisco, CA 94107, États-Unis.</p>
+        
+        <h4>3. Propriété Intellectuelle</h4>
+        <p>L'ensemble de ce site (images, textes, code) relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Toute reproduction est interdite sans autorisation expresse de l'auteur.</p>
+        
+        <button class="btn btn-order" style="width:100%; margin-top:20px;" onclick="document.getElementById('modal-ml').style.display='none'">Fermer</button>
+    </div>
+</div>
+
+<div id="modal-rgpd" class="modal-overlay" onclick="if(event.target == this) this.style.display='none'">
+    <div class="modal-legal-content">
+        <h3>Politique de Confidentialité & RGPD</h3>
+        
+        <h4>1. Collecte des données</h4>
+        <p>Nous collectons les informations que vous nous fournissez volontairement via le formulaire de profil (Nom, Prénom) et vos actions sur le site (constitution de liste d'échange).</p>
+        
+        <h4>2. Utilisation des données</h4>
+        <p>Ces données sont utilisées uniquement pour :</p>
+        <ul style="margin-left:20px; font-size:0.9rem; color:var(--text-light); margin-bottom:10px;">
+            <li>Générer votre liste d'échange au format PDF.</li>
+            <li>Transmettre votre demande d'échange à Christophe Duval via Google Sheets.</li>
+            <li>Analyser l'audience du site (Google Analytics) si vous l'avez accepté.</li>
+        </ul>
+
+        <h4>3. Transfert de données (Google)</h4>
+        <p>En utilisant les fonctions d'échange, vous acceptez que vos données (Nom, Prénom, Liste) soient transférées et stockées sur les serveurs de <strong>Google LLC</strong> (Google Forms et Google Sheets) situés aux États-Unis. Google adhère aux clauses contractuelles types de la Commission Européenne.</p>
+
+        <h4>4. Vos droits</h4>
+        <p>Conformément à la loi "Informatique et Libertés", vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour l'exercer, contactez l'éditeur à chpalito77@gmail.com.</p>
+        
+        <h4>5. Cookies</h4>
+        <p>Ce site utilise un cookie local ("LocalStorage") pour sauvegarder vos préférences (mode sombre, panier). Un cookie tiers (Google Analytics) est utilisé pour les statistiques uniquement si vous donnez votre consentement.</p>
+
+        <button class="btn btn-order" style="width:100%; margin-top:20px;" onclick="document.getElementById('modal-rgpd').style.display='none'">Fermer</button>
+    </div>
+</div>
+
+<div id="form-modal" class="modal-overlay">
+    <div class="modal-legal-content" style="text-align:center;">
+        <h3>🌱 Redirection vers Google Forms</h3>
+        <p>Vous allez quitter ce site pour finaliser votre liste sur un formulaire Google sécurisé.</p>
+        <p style="font-size:0.8rem; color:var(--text-light); margin-bottom:1rem;">
+            En cliquant sur "Continuer", vous acceptez les conditions d'utilisation de Google Forms. Christophe Duval ne contrôle pas l'infrastructure de Google.
+        </p>
+        <button class="btn btn-order" id="confirm-redirect" style="width:100%">Continuer vers Google Forms</button>
+        <button onclick="document.getElementById('form-modal').style.display='none'" style="margin-top:15px; background:none; border:none; cursor:pointer; text-decoration:underline;">Annuler</button>
+    </div>
+</div>
+
 </body>
 </html>

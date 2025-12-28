@@ -878,7 +878,7 @@
                     const btn = document.querySelector('.btn-cart');
                     if(btn) {
                         btn.innerText = "✅ Ajouté !";
-                        setTimeout(() => btn.innerText = "🛒 Ajouter au panier", 1500);
+                        setTimeout(() => btn.innerText = "🛒 Ajouter à la liste", 1500);
                     }
                 };
             },
@@ -1026,7 +1026,7 @@
                                             ${liked ? '❤️ Aimé' : '❤️ Like'}
                                         </button>
                                     </div>
-                                    <button class="btn btn-order" onclick="app.addToCart(${t.id}); app.renderCartPage()">Commander</button>
+                                    <button class="btn btn-order" onclick="app.addToCart(${t.id}); app.renderCartPage()">Choisir</button>
                                 </div>
                                 <div style="text-align:right;">
                                     <a href="${REPORT_FORM}" target="_blank" class="btn-report">⚠️ Signaler une erreur sur cette fiche</a>
@@ -1127,7 +1127,7 @@
 
                 document.getElementById('order-display-area').innerHTML = `
                     <div class="order-summary-box">
-                        <strong>Commande : ${items.length} variétés</strong><br>
+                        <strong>Liste de variétés : ${items.length} variétés</strong><br>
                         • ${varietiesNames}
                     </div>
                     <div class="order-id-display">
@@ -1135,15 +1135,15 @@
                         <button class="btn-copy" onclick="app.copyOrderNumber(this)">📋 Copier</button>
                     </div>
                     <div class="action-row" style="margin-top:1rem; gap:10px; flex-wrap:wrap;">
-                        <button class="btn btn-like" style="flex:1; min-width:200px" onclick="app.showQRCode()">QR code de la commande</button>
-                        <button class="btn btn-order" style="flex:1; min-width:200px" onclick="window.open('https://m.me/pepins.de.tomates.2023', '_blank')">Payer (${total}€)</button>
+                        <button class="btn btn-like" style="flex:1; min-width:200px" onclick="app.showQRCode()">QR code de la Liste</button>
+                        <button class="btn btn-order" style="flex:1; min-width:200px" onclick="window.open('https://m.me/pepins.de.tomates.2023', '_blank')">Valider</button>
                     </div>
                     
                     <div class="pdf-form-container">
-                        <h3 style="margin-bottom:1rem">📄 Exporter ma commande</h3>
+                        <h3 style="margin-bottom:1rem">📄 Exporter ma Liste</h3>
                         <input type="text" id="pdf-nom" class="pdf-input" placeholder="Votre Nom" value="${userNom}">
                         <input type="text" id="pdf-prenom" class="pdf-input" placeholder="Votre Prénom" value="${userPrenom}">
-                        <button class="btn btn-cart" style="width:100%; background: #2d3436;" onclick="app.generatePDF()">Télécharger le PDF de commande</button>
+                        <button class="btn btn-cart" style="width:100%; background: #2d3436;" onclick="app.generatePDF()">Télécharger le PDF de ma Liste</button>
                     </div>
 
                     <div id="qr-container" class="qr-container">
@@ -1189,8 +1189,8 @@
                 doc.setFontSize(10);
                 doc.setFont("helvetica", "normal");
                 doc.text(`Date : ${date}`, margin, 50);
-                doc.text(`Client : ${prenom} ${nom}`, margin, 56);
-                doc.text(`Référence : ${orderNum}`, margin, 62);
+                doc.text(`Nom et Prénom : ${prenom} ${nom}`, margin, 56);
+                doc.text(`Id de la liste: ${orderNum}`, margin, 62);
 
                 doc.setDrawColor(220, 220, 220);
                 doc.line(margin, 70, pageWidth - margin, 70);
@@ -1199,7 +1199,7 @@
                 doc.setFontSize(14);
                 doc.setFont("helvetica", "bold");
                 doc.setTextColor(214, 48, 49);
-                doc.text("Détail de la commande", margin, 82);
+                doc.text("Détail de la Liste", margin, 82);
 
                 doc.setFontSize(11);
                 doc.setTextColor(45, 52, 54);
@@ -1239,10 +1239,6 @@
                 doc.setLineWidth(0.5);
                 doc.line(margin, y, pageWidth - margin, y);
                 
-                y += 10;
-                doc.setFontSize(14);
-                doc.setFont("helvetica", "bold");
-                doc.text(`Total à régler : ${total} EUR`, pageWidth - margin, y, { align: "right" });
 
                 // QR Code
                 const qrUrl = `https://quickchart.io/qr?text=${encodeURIComponent(orderNum)}&size=150`;
@@ -1296,7 +1292,7 @@
                     <div class="details-view">
                         <button class="btn-back" onclick="app.init()">← Retour au catalogue</button>
                         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2rem;">
-                            <h1 class="info-title" style="margin:0">Mon Panier 🧺</h1>
+                            <h1 class="info-title" style="margin:0">Ma Liste 📋</h1>
                             ${items.length > 0 ? `<button class="btn-clear-cart" onclick="app.clearCart()">Tout vider</button>` : ''}
                         </div>
                 `;
@@ -1324,8 +1320,8 @@
                         </div>
                         
                         <div id="order-display-area" style="margin-top:2rem; border-top:1px solid rgba(0,0,0,0.1); padding-top:2rem;">
-                            <button class="btn btn-order" style="width:100%" onclick="app.processOrder()">Passer commande</button>
-                            ${lastNum ? `<button class="btn btn-cart" style="width:100%; margin-top:10px; background:transparent; color:var(--text-main); border:1px solid var(--text-main);" onclick="app.reloadLastOrder()">Recharger ma dernière commande</button>` : ''}
+                            <button class="btn btn-order" style="width:100%" onclick="app.processOrder()">Valider la liste</button>
+                            ${lastNum ? `<button class="btn btn-cart" style="width:100%; margin-top:10px; background:transparent; color:var(--text-main); border:1px solid var(--text-main);" onclick="app.reloadLastOrder()">Recharger ma dernière liste 📋</button>` : ''}
                         </div>
                     `;
                 }

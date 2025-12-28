@@ -893,8 +893,8 @@ export const DATA = [
     {
         id: 62,
         nom: "Bananas Noire",
-        descriptionCourte: "Tomate allongée noire originale.",
-        descriptionLongue: "Une variété produisant des fruits allongés de couleur foncée.Texture dense et charnue, goût fumé. ",
+        descriptionCourte: "Tomate bicolore charnue au goût doux et sucré, parfaite pour colorer vos plats.",
+        descriptionLongue: "La Bananas Noire est une variété de tomate originale aux nuances de vert, de jaune et de pourpre. Sa chair charnue et fondante offre une saveur douce et sucrée, idéale pour apporter de la couleur et de l'exotisme à vos salades d'été.",
         origine: "Inconnue",
         poids: "80-120g",
         couleur: "Noire",

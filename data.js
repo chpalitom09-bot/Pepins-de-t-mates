@@ -361,7 +361,7 @@ export const DATA = [
     {
         id: 17,
         nom: "Maé du Clos de Lavaud Blanche",
-        descriptionCourte: "Tomate blanche artisanale française.",
+        descriptionCourte: "Tomate rouge artisanale française.",
         descriptionLongue: "Création paysanne française à la chair douce et peu acide.\n\nTrès originale. ",
         origine: "France 🇫🇷",
         poids: "180-300g",
@@ -2930,7 +2930,7 @@ export const DATA = [
   },
   {
     "id": 167,
-    "nom": "Arcobaleno Bicolor",
+    "nom": "Big Arcobaleno Bicolor",
     "descriptionCourte": "Tomate bicolore spectaculaire aux nuances d'arc-en-ciel.",
     "descriptionLongue": "L'Arcobaleno (arc-en-ciel en italien) porte bien son nom avec ses dégradés de jaune, orange et rouge. À la coupe, la chair marbrée est un régal pour les yeux. Saveur douce et aromatique, peu acide. ",
     "origine": "Italie 🇮🇹",

@@ -1,5 +1,6 @@
 // data.js
 export const DATA = [
+    const tomates = [
     {
         id: 0,
         nom: "Emerald Brocade",
@@ -9,6 +10,12 @@ export const DATA = [
         poids: "100-180g",
         couleur: "Verte",
         note: 4.8,
+        culture: {
+            type: "Dwarf / Mi-saison",
+            cycle: "70-75 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/Cx2CGLYZ/IMG-20250914-WA0141.jpg",
             "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=800",
@@ -25,13 +32,19 @@ export const DATA = [
         poids: "150-250g",
         couleur: "Verte",
         note: 4.6,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/vmsQ4fkH/IMG_20250914_WA0142.jpg",
             "https://i.postimg.cc/tCN6xHNQ/IMG-20251224-WA0039.jpg",
             "https://i.postimg.cc/Y0w4vXvR/IMG-20251224-WA0088.jpg"
         ]
     },
-	{
+    {
         id: 2,
         nom: "Vecherny Almaty",
         descriptionCourte: "Variété ancienne aux fruits sombres et charnus.",
@@ -40,6 +53,12 @@ export const DATA = [
         poids: "180-300g",
         couleur: "Noire",
         note: 4.7,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/LspHJLwH/IMG_20250914_WA0143.jpg",
             "https://i.postimg.cc/GhxDy1x0/IMG-20251224-WA0038.jpg",
@@ -55,6 +74,12 @@ export const DATA = [
         poids: "30-60g",
         couleur: "Rose bigarrée",
         note: 4.8,
+        culture: {
+            type: "Précoce",
+            cycle: "65-70 jours",
+            semis: "Mars à Avril",
+            jauge: 1
+        },
         images: [
             "https://i.postimg.cc/FKVh31XX/IMG_20250914_WA0144.jpg",
             "https://i.postimg.cc/HnCJrSr3/IMG-20251224-WA0089.jpg",
@@ -70,6 +95,12 @@ export const DATA = [
         poids: "120-180g",
         couleur: "Rose",
         note: 4.5,
+        culture: {
+            type: "Mi-saison",
+            cycle: "70-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/cJBdw6G1/IMG_20250914_WA0145.jpg",
             "https://i.postimg.cc/QN51j7Fw/IMG-20251224-WA0008.jpg",
@@ -85,6 +116,12 @@ export const DATA = [
         poids: "250-400g",
         couleur: "Rose",
         note: 4.6,
+        culture: {
+            type: "Tardive",
+            cycle: "80-90 jours",
+            semis: "Mars à Avril",
+            jauge: 3
+        },
         images: [
             "https://i.postimg.cc/0Ns8zDF5/IMG_20250914_WA0146.jpg",
             "https://i.postimg.cc/wvNyTKj5/IMG-20251224-WA0079.jpg"
@@ -99,6 +136,12 @@ export const DATA = [
         poids: "120-200g",
         couleur: "Noire / Acajou",
         note: 4.7,
+        culture: {
+            type: "Dwarf / Mi-saison",
+            cycle: "70-75 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/d3BW9PtR/IMG_20250914_WA0147.jpg",
             "https://i.postimg.cc/0y5wGHVN/IMG-20251224-WA0050.jpg",
@@ -114,6 +157,12 @@ export const DATA = [
         poids: "140-220g",
         couleur: "Rose",
         note: 4.8,
+        culture: {
+            type: "Dwarf / Mi-saison",
+            cycle: "70-75 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/RhRPT5VL/IMG_20250914_WA0148.jpg",
             "https://i.postimg.cc/RFt6VrZQ/IMG-20251224-WA0080.jpg",
@@ -124,11 +173,17 @@ export const DATA = [
         id: 8,
         nom: "Patty's Yellow Striped Beefsteak",
         descriptionCourte: "Beefsteak jaune striée très décorative.",
-        descriptionLongue: "Cette variété produit de gros fruits jaunes striés de rouge, à la chair dense et douce.\n\nAussi belle que savoureuse. ",
+        descriptionLongue: "Cette variété produit de gros fruits jaune striés de rouge, à la chair dense et douce.\n\nAussi belle que savoureuse. ",
         origine: "États-Unis 🇺🇸",
         poids: "300-500g",
         couleur: "Jaune bigarrée",
         note: 4.7,
+        culture: {
+            type: "Tardive",
+            cycle: "85-90 jours",
+            semis: "Mars à Avril",
+            jauge: 3
+        },
         images: [
             "https://i.postimg.cc/gjDMKFk8/IMG_20250914_WA0149.jpg",
             "https://i.postimg.cc/nrgXgMzj/IMG_20250914_WA0174.jpg",
@@ -145,6 +200,12 @@ export const DATA = [
         poids: "150-250g",
         couleur: "Bigarrée",
         note: 4.6,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/2ywHxR8F/IMG_20250914_WA0150.jpg",
             "https://i.postimg.cc/JhvHL7MX/IMG-20251224-WA0075.jpg"
@@ -159,6 +220,12 @@ export const DATA = [
         poids: "120-200g",
         couleur: "Bleue / Noire",
         note: 4.7,
+        culture: {
+            type: "Dwarf / Mi-saison",
+            cycle: "70-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/0jftCR2f/IMG_20250914_WA0151.jpg",
             "https://i.postimg.cc/mD9z2xgh/IMG-20251224-WA0077.jpg",
@@ -174,6 +241,12 @@ export const DATA = [
         poids: "130-200g",
         couleur: "Verte",
         note: 4.8,
+        culture: {
+            type: "Dwarf / Mi-saison",
+            cycle: "70-75 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/brT6RcNL/IMG_20250914_WA0152.jpg",
             "https://i.postimg.cc/rs3D3zmd/IMG_20250914_WA0173.jpg",
@@ -190,6 +263,12 @@ export const DATA = [
         poids: "200-350g",
         couleur: "Rouge bigarrée",
         note: 4.7,
+        culture: {
+            type: "Tardive",
+            cycle: "80-85 jours",
+            semis: "Mars à Avril",
+            jauge: 3
+        },
         images: [
             "https://i.postimg.cc/XvSwX14H/IMG_20250914_WA0153.jpg",
             "https://i.postimg.cc/rp3RkyMm/IMG-20251224-WA0072.jpg"
@@ -204,6 +283,12 @@ export const DATA = [
         poids: "150-250g",
         couleur: "Rouge",
         note: 4.5,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/YCm6rBBw/IMG_20250914_WA0154.jpg",
             "https://i.postimg.cc/Zq2vSY49/IMG-20251224-WA0074.jpg"
@@ -218,6 +303,12 @@ export const DATA = [
         poids: "160-240g",
         couleur: "Jaune bigarrée",
         note: 4.6,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/CKTjdrSr/IMG_20250914_WA0155.jpg",
             "https://i.postimg.cc/HLWwRPWp/IMG_20250914_WA0121.jpg",
@@ -235,6 +326,12 @@ export const DATA = [
         poids: "150-220g",
         couleur: "Verte",
         note: 4.6,
+        culture: {
+            type: "Mi-saison",
+            cycle: "70-75 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/7L8gbtwj/IMG_20250914_WA0156.jpg",
             "https://i.postimg.cc/gjQxQrJF/IMG_20250914_WA0160.jpg",
@@ -251,6 +348,12 @@ export const DATA = [
         poids: "20-40g",
         couleur: "Jaune",
         note: 4.8,
+        culture: {
+            type: "Cerise / Précoce",
+            cycle: "60-65 jours",
+            semis: "Mars à Avril",
+            jauge: 1
+        },
         images: [
             "https://i.postimg.cc/CKTjdrSW/IMG_20250914_WA0157.jpg",
             "https://i.postimg.cc/Lswgp42d/IMG-20251224-WA0067.jpg"
@@ -265,6 +368,12 @@ export const DATA = [
         poids: "180-300g",
         couleur: "Blanche",
         note: 4.9,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/JzBNrCCw/IMG_20250914_WA0158.jpg",
             "https://i.postimg.cc/qqSNSgR0/IMG_20250914_WA0165.jpg",
@@ -283,6 +392,12 @@ export const DATA = [
         poids: "120-180g",
         couleur: "Orange",
         note: 4.6,
+        culture: {
+            type: "Mi-saison",
+            cycle: "65-75 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/pr4m4ydw/IMG_20250914_WA0159.jpg",
             "https://i.postimg.cc/CKXngMYW/IMG-20251224-WA0065.jpg"
@@ -297,6 +412,12 @@ export const DATA = [
         poids: "100-160g",
         couleur: "Bleue",
         note: 4.7,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/brWZWdJj/IMG_20250914_WA0161.jpg",
             "https://i.postimg.cc/zfVH6HZJ/IMG-20251224-WA0064.jpg",
@@ -313,6 +434,12 @@ export const DATA = [
         poids: "150-250g",
         couleur: "Rouge",
         note: 4.5,
+        culture: {
+            type: "Mi-saison",
+            cycle: "70-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/nrgXgMzf/IMG_20250914_WA0162.jpg",
             "https://i.postimg.cc/Kjw1w4zj/IMG_20250914_WA0170.jpg",
@@ -329,6 +456,12 @@ export const DATA = [
         poids: "120-200g",
         couleur: "Bleue",
         note: 4.8,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/Zn2W20RS/IMG_20250914_WA0163.jpg",
             "https://i.postimg.cc/d3phpD1t/IMG_20250914_WA0168.jpg",
@@ -347,6 +480,12 @@ export const DATA = [
         poids: "150-230g",
         couleur: "Jaune bigarrée",
         note: 4.7,
+        culture: {
+            type: "Dwarf / Mi-saison",
+            cycle: "70-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/cC2v26HW/IMG_20250914_WA0164.jpg",
             "https://i.postimg.cc/3NVkVWRR/IMG_20250914_WA0171.jpg",
@@ -364,6 +503,12 @@ export const DATA = [
         poids: "300-500g",
         couleur: "Noire",
         note: 4.8,
+        culture: {
+            type: "Tardive",
+            cycle: "80-90 jours",
+            semis: "Mars à Avril",
+            jauge: 3
+        },
         images: [
             "https://i.postimg.cc/T1FKFhwT/IMG_20250914_WA0166.jpg",
             "https://i.postimg.cc/c4B3nNMV/IMG-20251224-WA0036.jpg",
@@ -379,6 +524,12 @@ export const DATA = [
         poids: "140-220g",
         couleur: "Rouge",
         note: 4.7,
+        culture: {
+            type: "Dwarf / Mi-saison",
+            cycle: "70-75 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/90KDKzMX/IMG_20250914_WA0169.jpg",
             "https://i.postimg.cc/k5BRzRrv/IMG-20251224-WA0058.jpg"
@@ -393,6 +544,12 @@ export const DATA = [
         poids: "300-500g",
         couleur: "Rouge",
         note: 4.6,
+        culture: {
+            type: "Tardive",
+            cycle: "80-90 jours",
+            semis: "Mars à Avril",
+            jauge: 3
+        },
         images: [
             "https://i.postimg.cc/8c979s5j/IMG_20250914_WA0172.jpg",
             "https://i.postimg.cc/JzTBpcFt/IMG-20251224-WA0055.jpg"
@@ -407,6 +564,12 @@ export const DATA = [
         poids: "80-150g",
         couleur: "Verte",
         note: 4.3,
+        culture: {
+            type: "Mi-saison",
+            cycle: "70-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/VNsqpHs1/IMG_20250914_WA0117.jpg",
             "https://i.postimg.cc/Z5YdPDV7/IMG-20251224-WA0040.jpg",
@@ -422,6 +585,12 @@ export const DATA = [
         poids: "50-60g",
         couleur: "Blanche",
         note: 4.6,
+        culture: {
+            type: "Dwarf / Mi-saison",
+            cycle: "65-70 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/Ls4tw04M/IMG_20250914_WA0118.jpg",
             "https://i.postimg.cc/dVQyRS5K/IMG-20251224-WA0045.jpg",
@@ -437,6 +606,12 @@ export const DATA = [
         poids: "200-350g",
         couleur: "Bigarrée",
         note: 4.7,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/6Q6rg16X/IMG_20250914_WA0119.jpg",
             "https://i.postimg.cc/bYbkqnZ3/IMG-20251224-WA0006.jpg",
@@ -453,6 +628,12 @@ export const DATA = [
         poids: "180-300g",
         couleur: "Rouge",
         note: 4.4,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-85 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/8CkR9nkG/IMG_20250914_WA0120.jpg",
             "https://i.postimg.cc/m2y9HGNF/IMG-20251224-WA0028.jpg",
@@ -468,6 +649,12 @@ export const DATA = [
         poids: "90-140g",
         couleur: "Rouge",
         note: 4.2,
+        culture: {
+            type: "Précoce",
+            cycle: "55-65 jours",
+            semis: "Février à Avril",
+            jauge: 1
+        },
         images: [
             "https://i.postimg.cc/HLWwRPWY/IMG_20250914_WA0123.jpg",
             "https://i.postimg.cc/65fZvNL0/IMG-20251224-WA0031.jpg"
@@ -482,6 +669,12 @@ export const DATA = [
         poids: "120-200g",
         couleur: "Blanche",
         note: 4.3,
+        culture: {
+            type: "Mi-saison",
+            cycle: "70-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/4346qF4y/IMG_20250914_WA0124.jpg",
             "https://i.postimg.cc/TYJbDXqJ/IMG-20251224-WA0030.jpg"
@@ -496,6 +689,12 @@ export const DATA = [
         poids: "150-250g",
         couleur: "Rouge",
         note: 4.5,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/bvYxWFYG/IMG_20250914_WA0125.jpg",
             "https://i.postimg.cc/fTfd9hjj/IMG-20251224-WA0029.jpg"
@@ -510,6 +709,12 @@ export const DATA = [
         poids: "250-400g",
         couleur: "Rouge",
         note: 4.6,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-85 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/DzfrHYf4/IMG_20250914_WA0126.jpg",
             "https://i.postimg.cc/65fZvNLd/IMG-20251224-WA0027.jpg",
@@ -526,6 +731,12 @@ export const DATA = [
         poids: "120-180g",
         couleur: "Jaune",
         note: 4.7,
+        culture: {
+            type: "Dwarf / Mi-saison",
+            cycle: "70-75 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/4346qF4h/IMG_20250914_WA0127.jpg",
             "https://i.postimg.cc/8PSWcCWH/IMG-20251224-WA0026.jpg"
@@ -540,6 +751,12 @@ export const DATA = [
         poids: "150-220g",
         couleur: "Noire",
         note: 4.8,
+        culture: {
+            type: "Dwarf / Mi-saison",
+            cycle: "70-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/DzfrHYfX/IMG_20250914_WA0128.jpg",
             "https://i.postimg.cc/zDWKqhyd/IMG-20251224-WA0007.jpg"
@@ -554,6 +771,12 @@ export const DATA = [
         poids: "140-220g",
         couleur: "Bigarrée",
         note: 4.4,
+        culture: {
+            type: "Mi-saison",
+            cycle: "70-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/BvhT0ct6/IMG_20250914_WA0129.jpg",
             "https://i.postimg.cc/8PSWcCWm/IMG-20251224-WA0025.jpg"
@@ -568,6 +791,12 @@ export const DATA = [
         poids: "130-200g",
         couleur: "Rouge",
         note: 4.6,
+        culture: {
+            type: "Dwarf / Mi-saison",
+            cycle: "65-75 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/KY9P2r4Y/IMG_20250914_WA0130.jpg",
             "https://i.postimg.cc/9XTZc94f/IMG-20251224-WA0016.jpg"
@@ -582,6 +811,12 @@ export const DATA = [
         poids: "100-160g",
         couleur: "Orange",
         note: 4.2,
+        culture: {
+            type: "Mi-saison",
+            cycle: "70-75 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/hGCLBbhh/IMG_20250914_WA0131.jpg",
             "https://i.postimg.cc/bNhbrvby/IMG-20251224-WA0019.jpg",
@@ -597,6 +832,12 @@ export const DATA = [
         poids: "150-250g",
         couleur: "Rose",
         note: 4.3,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/HLSwg4jr/IMG_20250914_WA0132.jpg",
             "https://i.postimg.cc/8kWMTvFp/IMG-20251224-WA0014.jpg",
@@ -612,6 +853,12 @@ export const DATA = [
         poids: "120-200g",
         couleur: "Rouge",
         note: 4.5,
+        culture: {
+            type: "Dwarf / Mi-saison",
+            cycle: "70-75 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/0NtYsdrK/IMG_20250914_WA0133.jpg",
             "https://i.postimg.cc/05mD9S6x/IMG-20251224-WA0013.jpg"
@@ -626,6 +873,12 @@ export const DATA = [
         poids: "180-300g",
         couleur: "Rouge",
         note: 4.6,
+        culture: {
+            type: "Mi-saison",
+            cycle: "80-85 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/TPkV6qhW/IMG_20250914_WA0134.jpg"
         ]
@@ -639,6 +892,12 @@ export const DATA = [
         poids: "100-160g",
         couleur: "Rouge",
         note: 4.4,
+        culture: {
+            type: "Précoce",
+            cycle: "58-65 jours",
+            semis: "Février à Avril",
+            jauge: 1
+        },
         images: [
             "https://i.postimg.cc/bv6xhHdt/IMG_20250914_WA0135.jpg",
             "https://i.postimg.cc/ryWxq4DB/IMG-20251224-WA0009.jpg"
@@ -653,6 +912,12 @@ export const DATA = [
         poids: "150-250g",
         couleur: "Bleue",
         note: 4.7,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/1zWGQc4F/IMG_20250914_WA0136.jpg",
             "https://i.postimg.cc/SQ8Cm9X0/IMG-20251224-WA0010.jpg"
@@ -667,6 +932,12 @@ export const DATA = [
         poids: "80-150g",
         couleur: "Bleue / Rouge",
         note: 4.6,
+        culture: {
+            type: "Mi-saison",
+            cycle: "70-75 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/gcR8Ghxs/IMG-20251224-WA0004.jpg"
         ]
@@ -680,6 +951,12 @@ export const DATA = [
         poids: "150-300g",
         couleur: "Noire / Chocolat",
         note: 4.7,
+        culture: {
+            type: "Mi-saison / Tardive",
+            cycle: "75-85 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/44tVXcYw/IMG-20251224-WA0005.jpg"
         ]
@@ -693,6 +970,12 @@ export const DATA = [
         poids: "40-80g",
         couleur: "Rouge",
         note: 4.5,
+        culture: {
+            type: "Dwarf / Mi-saison",
+            cycle: "65-70 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/wxJL9NtY/IMG-20251224-WA0011.jpg"
         ]
@@ -706,6 +989,12 @@ export const DATA = [
         poids: "120-200g",
         couleur: "Rouge",
         note: 4.4,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/44tVXcKT/IMG-20251224-WA0012.jpg"
         ]
@@ -719,6 +1008,12 @@ export const DATA = [
         poids: "15-25g",
         couleur: "Rouge",
         note: 4.5,
+        culture: {
+            type: "Micro-Dwarf / Très Précoce",
+            cycle: "55-60 jours",
+            semis: "Toute l'année (intérieur) ou Mars",
+            jauge: 1
+        },
         images: [
             "https://i.postimg.cc/zXrWvfW5/IMG-20251224-WA0017.jpg"
         ]
@@ -732,6 +1027,12 @@ export const DATA = [
         poids: "80-120g",
         couleur: "Noire",
         note: 4.3,
+        culture: {
+            type: "Mi-saison",
+            cycle: "70-75 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/L6pf5sfq/IMG-20251224-WA0022.jpg"
         ]
@@ -745,6 +1046,12 @@ export const DATA = [
         poids: "100-160g",
         couleur: "Rouge",
         note: 4.4,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/VL8MvNMr/IMG-20251224-WA0023.jpg",
             "https://i.postimg.cc/J0csZbJB/IMG-20251224-WA0110.jpg",
@@ -760,6 +1067,12 @@ export const DATA = [
         poids: "30-60g",
         couleur: "Verte",
         note: 4.8,
+        culture: {
+            type: "Dwarf / Mi-saison",
+            cycle: "65-70 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/5NVvytvF/IMG-20251224-WA0024.jpg",
             "https://i.postimg.cc/SxZzg7Py/IMG-20251224-WA0052.jpg"
@@ -774,6 +1087,12 @@ export const DATA = [
         poids: "40-80g",
         couleur: "Jaune",
         note: 4.7,
+        culture: {
+            type: "Mi-saison",
+            cycle: "70-75 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/J45XkWcT/IMG-20251224-WA0034.jpg",
             "https://i.postimg.cc/90tDZGTC/IMG-20251224-WA0103.jpg"
@@ -788,6 +1107,12 @@ export const DATA = [
         poids: "100-180g",
         couleur: "Pourpre",
         note: 4.6,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/RVLtHzQs/IMG-20251224-WA0035.jpg",
             "https://i.postimg.cc/qRKhMfvw/IMG-20251224-WA0082.jpg"
@@ -802,6 +1127,12 @@ export const DATA = [
         poids: "100-150g",
         couleur: "Rouge",
         note: 4.5,
+        culture: {
+            type: "Dwarf / Mi-saison",
+            cycle: "70-75 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/BQBFKGcr/IMG-20251224-WA0037.jpg"
         ]
@@ -815,6 +1146,12 @@ export const DATA = [
         poids: "120-180g",
         couleur: "Rouge",
         note: 4.4,
+        culture: {
+            type: "Mi-saison",
+            cycle: "70-75 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/rwyrGYQY/IMG-20251224-WA0041.jpg"
         ]
@@ -828,6 +1165,12 @@ export const DATA = [
         poids: "150-250g",
         couleur: "Jaune / Bleue",
         note: 4.9,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/4x49vFWZ/IMG-20251224-WA0047.jpg",
             "https://i.postimg.cc/vTL4fW98/IMG-20251224-WA0104.jpg"
@@ -842,6 +1185,12 @@ export const DATA = [
         poids: "20-40g",
         couleur: "Pourpre",
         note: 4.8,
+        culture: {
+            type: "Mi-saison",
+            cycle: "70-75 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/SxQMLtgj/IMG-20251224-WA0051.jpg",
             "https://i.postimg.cc/hjmzPFt5/IMG-20251224-WA0083.jpg",
@@ -858,6 +1207,12 @@ export const DATA = [
         poids: "10-20g",
         couleur: "Jaune",
         note: 4.7,
+        culture: {
+            type: "Cerise / Mi-saison",
+            cycle: "70-75 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/htC72bYP/IMG-20251224-WA0054.jpg"
         ]
@@ -871,6 +1226,12 @@ export const DATA = [
         poids: "80-120g",
         couleur: "Pourpre",
         note: 4.5,
+        culture: {
+            type: "Dwarf / Mi-saison",
+            cycle: "65-75 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/ZRNBKk5Q/IMG-20251224-WA0084.jpg",
             "https://i.postimg.cc/cCNKvDvj/IMG-20251224-WA0092.jpg"
@@ -885,6 +1246,12 @@ export const DATA = [
         poids: "200-400g",
         couleur: "Rouge",
         note: 4.6,
+        culture: {
+            type: "Tardive",
+            cycle: "80-90 jours",
+            semis: "Mars à Avril",
+            jauge: 3
+        },
         images: [
             "https://i.postimg.cc/BbG8jhj7/IMG-20251224-WA0091.jpg",
             "https://i.postimg.cc/MHbnVyR8/IMG-20251224-WA0100.jpg"
@@ -899,6 +1266,12 @@ export const DATA = [
         poids: "80-120g",
         couleur: "Noire",
         note: 4.4,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/prt9m0m4/IMG-20251224-WA0093.jpg",
             "https://i.postimg.cc/cCNKvDKH/IMG-20251224-WA0101.jpg"
@@ -913,6 +1286,12 @@ export const DATA = [
         poids: "150-250g",
         couleur: "Rouge",
         note: 4.5,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/NFwyKNK3/IMG-20251224-WA0094.jpg",
             "https://i.postimg.cc/7hyC5BCY/IMG-20251224-WA0099.jpg"
@@ -927,6 +1306,12 @@ export const DATA = [
         poids: "15-25g",
         couleur: "Rouge",
         note: 4.6,
+        culture: {
+            type: "Cerise / Précoce",
+            cycle: "60-65 jours",
+            semis: "Mars à Avril",
+            jauge: 1
+        },
         images: [
             "https://i.postimg.cc/KjyK19Kb/IMG-20251224-WA0096.jpg"
         ]
@@ -940,6 +1325,12 @@ export const DATA = [
         poids: "80-150g",
         couleur: "Jaune",
         note: 4.3,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/6qN78H7t/IMG-20251224-WA0097.jpg"
         ]
@@ -953,6 +1344,12 @@ export const DATA = [
         poids: "100-150g",
         couleur: "Rouge",
         note: 4.4,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/2yfq1Hqk/IMG-20251224-WA0098.jpg"
         ]
@@ -966,6 +1363,12 @@ export const DATA = [
         poids: "250-500g",
         couleur: "Bigarrée",
         note: 4.8,
+        culture: {
+            type: "Tardive",
+            cycle: "85-90 jours",
+            semis: "Mars à Avril",
+            jauge: 3
+        },
         images: [
             "https://i.postimg.cc/NF7Km1Tc/IMG-20251224-WA0102.jpg"
         ]
@@ -979,6 +1382,12 @@ export const DATA = [
         poids: "100-180g",
         couleur: "Bigarrée / Bleue",
         note: 4.7,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/kGF2Kx85/IMG-20251224-WA0105.jpg",
             "https://i.postimg.cc/d3mhr8dr/IMG-20251224-WA0112.jpg"
@@ -993,6 +1402,12 @@ export const DATA = [
         poids: "300-600g",
         couleur: "Rouge",
         note: 4.5,
+        culture: {
+            type: "Tardive",
+            cycle: "85-95 jours",
+            semis: "Mars à Avril",
+            jauge: 3
+        },
         images: [
             "https://i.postimg.cc/fyjVmxXy/IMG-20251224-WA0107.jpg",
             "https://i.postimg.cc/v8WgJdKj/IMG-20251224-WA0117.jpg"
@@ -1007,6 +1422,12 @@ export const DATA = [
         poids: "100-150g",
         couleur: "Orange",
         note: 4.4,
+        culture: {
+            type: "Mi-saison",
+            cycle: "70-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/J0csZbJy/IMG-20251224-WA0108.jpg",
             "https://i.postimg.cc/6qL8ndR4/IMG-20251224-WA0109.jpg"
@@ -1021,6 +1442,12 @@ export const DATA = [
         poids: "50-100g",
         couleur: "Blanche",
         note: 4.5,
+        culture: {
+            type: "Dwarf / Mi-saison",
+            cycle: "70-75 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/zvSyKnWg/IMG-20251224-WA0111.jpg"
         ]
@@ -1034,6 +1461,12 @@ export const DATA = [
         poids: "150-250g",
         couleur: "Rouge",
         note: 4.5,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/6qL8ndRh/IMG-20251224-WA0114.jpg",
             "https://i.postimg.cc/jqzwpr9R/IMG-20251224-WA0125.jpg"
@@ -1048,6 +1481,12 @@ export const DATA = [
         poids: "80-150g",
         couleur: "Ocre",
         note: 4.7,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/jqzwpr1F/IMG-20251224-WA0116.jpg",
             "https://i.postimg.cc/ryS0BLbM/IMG-20251224-WA0124.jpg",
@@ -1063,6 +1502,12 @@ export const DATA = [
         poids: "150-250g",
         couleur: "Pourpre",
         note: 4.8,
+        culture: {
+            type: "Dwarf / Mi-saison",
+            cycle: "70-75 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/jqzwpr9V/IMG-20251224-WA0118.jpg"
         ]
@@ -1076,6 +1521,12 @@ export const DATA = [
         poids: "80-150g",
         couleur: "Rouge",
         note: 4.6,
+        culture: {
+            type: "Dwarf / Mi-saison",
+            cycle: "70-75 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/ZYrBGhg5/IMG-20251224-WA0128.jpg"
         ]
@@ -1089,6 +1540,12 @@ export const DATA = [
         poids: "10-20g",
         couleur: "Jaune",
         note: 4.7,
+        culture: {
+            type: "Cerise / Mi-saison",
+            cycle: "70-75 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
         images: [
             "https://i.postimg.cc/2j4bsfJy/IMG-20251224-WA0129.jpg"
         ]
@@ -1102,12 +1559,17 @@ export const DATA = [
         poids: "15-25g",
         couleur: "Terre cuite",
         note: 4.5,
+        culture: {
+            type: "Cerise / Précoce",
+            cycle: "65-70 jours",
+            semis: "Mars à Avril",
+            jauge: 1
+        },
         images: [
             "https://i.postimg.cc/qB8hPdY6/IMG-20251224-WA0130.jpg",
             "https://i.postimg.cc/VsjrxcTb/IMG-20251224-WA0131.jpg"
         ]
     },
-
     {
         id: 78,
         nom: "Ananas Rouge",
@@ -1117,305 +1579,437 @@ export const DATA = [
         poids: "300-600g",
         couleur: "Rouge",
         note: 4.9,
+        culture: {
+            type: "Tardive",
+            cycle: "85-95 jours",
+            semis: "Mars à Avril",
+            jauge: 3
+        },
         images: [
             "https://i.postimg.cc/hPczg5W4/IMG-20251224-WA0133.jpg"
         ]
     },
-	{
-    "id": 79,
-    "nom": "Fred",
-    "descriptionCourte": "Variété naine (Dwarf) aux fruits pourpres striés de vert.",
-    "descriptionLongue": "Issue du Dwarf Tomato Project, cette variété produit des plants compacts idéaux pour la culture en pot. Les fruits sont charnus avec une saveur riche et équilibrée. ",
-    "origine": "États-Unis 🇺🇸",
-    "poids": "100-180g",
-    "couleur": "Pourpre et vert",
-    "note": 4.7,
-    "images": [
-      "https://i.postimg.cc/jdp3y53F/image.jpg",
-      "https://i.postimg.cc/6Q0HshWr/48.jpg",
-      "https://i.postimg.cc/MTp9zjH9/61.jpg"
-    ]
-  },
-  {
-    "id": 80,
-    "nom": "Merc Rockey",
-    "descriptionCourte": "Tomate allongée et pointue, très productive.",
-    "descriptionLongue": "Une variété de type 'paste' excellente pour les conserves. Sa chair est dense, contenant très peu de graines, avec un goût sucré prononcé. ",
-    "origine": "États-Unis 🇺🇸",
-    "poids": "120-150g",
-    "couleur": "Rouge",
-    "note": 4.5,
-    "images": [
-      "https://i.postimg.cc/X7R19J1D/1.jpg",
-      "https://i.postimg.cc/rsdgrXS3/103.jpg",
-      "https://i.postimg.cc/FzfGL5jw/104.jpg",
-      "https://i.postimg.cc/Zn9jdt8h/108.jpg"
-    ]
-  },
-  {
-    "id": 81,
-    "nom": "Ananas bleue",
-    "descriptionCourte": "Superbe fruit bicolore jaune et rouge aux épaules indigo.",
-    "descriptionLongue": "Une tomate visuellement splendide. Sa saveur rappelle la tomate Ananas classique, mais avec une acidité plus marquée apportée par les anthocyanes. ",
-    "origine": "Belgique 🇧🇪",
-    "poids": "150-250g",
-    "couleur": "Jaune et Bleu",
-    "note": 4.8,
-    "images": [
-      "https://i.postimg.cc/9Qy8bhsP/2.jpg",
-      "https://i.postimg.cc/Jzj6xL94/22.jpg",
-      "https://i.postimg.cc/GtZKP7K1/116.jpg"
-    ]
-  },
-  {
-    "id": 82,
-    "nom": "Lampe d’Aladdin",
-    "descriptionCourte": "Tomate en forme de poire orange vif, riche en carotène.",
-    "descriptionLongue": "Variété russe très décorative. Les fruits sont fermes, peu juteux et parfaits pour une consommation en frais ou en salade composée. ",
-    "origine": "Russie 🇷🇺",
-    "poids": "150-200g",
-    "couleur": "Orange",
-    "note": 4.4,
-    "images": [
-      "https://i.postimg.cc/4xpLPgjb/3.jpg",
-      "https://i.postimg.cc/s2yn0LrC/24.jpg"
-    ]
-  },
-  {
-    "id": 83,
-    "nom": "Florentine Beauty",
-    "descriptionCourte": "Grosse tomate jaune très côtelée et aplatie.",
-    "descriptionLongue": "Une merveille d'Italie. Sa chair est très dense, douce, avec très peu d'acidité. Son esthétique en fait la reine des assiettes estivales. ",
-    "origine": "Italie 🇮🇹",
-    "poids": "300-500g",
-    "couleur": "Jaune citron",
-    "note": 4.6,
-    "images": [
-      "https://i.postimg.cc/2SncGDgG/4.jpg"
-    ]
-  },
-  {
-    "id": 84,
-    "nom": "Trenton’s Tiger",
-    "descriptionCourte": "Petite tomate ronde zébrée de rouge et de jaune.",
-    "descriptionLongue": "Variété vigoureuse produisant des fruits très esthétiques. La saveur est équilibrée, à la fois sucrée et légèrement acidulée. ",
-    "origine": "États-Unis 🇺🇸",
-    "poids": "60-100g",
-    "couleur": "Bicolore zébré",
-    "note": 4.3,
-    "images": [
-      "https://i.postimg.cc/YCQnRHT3/5.jpg",
-      "https://i.postimg.cc/sXgT3Zx8/65.jpg"
-    ]
-  },
-  {
-    "id": 85,
-    "nom": "Elf Tears",
-    "descriptionCourte": "Tomate cerise allongée en forme de petite larme.",
-    "descriptionLongue": "Extrêmement productive, cette variété offre des grappes de fruits croquants et très sucrés. Idéale pour l'apéritif au jardin. ",
-    "origine": "Inconnue",
-    "poids": "15-25g",
-    "couleur": "Rouge",
-    "note": 4.9,
-    "images": [
-      "https://i.postimg.cc/NjRJDcZp/6.jpg",
-      "https://i.postimg.cc/g0DM9KzD/50.jpg",
-      "https://i.postimg.cc/V6ZDvLbW/88.jpg"
-    ]
-  },
-  {
-    "id": 86,
-    "nom": "Arrows of Cupid",
-    "descriptionCourte": "Fruit en forme de cœur avec une pointe prononcée.",
-    "descriptionLongue": "Une tomate bicolore rose-rouge avec des stries dorées. Sa chair est fondante et parfumée, parfaite pour les amateurs de tomates douces. ",
-    "origine": "Russie 🇷🇺",
-    "poids": "100-180g",
-    "couleur": "Rose strié jaune",
-    "note": 4.5,
-    "images": [
-      "https://i.postimg.cc/W10W8vx5/7.jpg",
-      "https://i.postimg.cc/5287gVDh/13.jpg"
-    ]
-  },
-  {
-    "id": 87,
-    "nom": "Merveille de Bastogne",
-    "descriptionCourte": "Variété ancienne produisant de gros fruits rouges charnus.",
-    "descriptionLongue": "Tomate rustique très appréciée pour sa résistance. Sa chair est pleine et savoureuse, rappelant les tomates du potager de nos grands-parents. ",
-    "origine": "Belgique 🇧🇪",
-    "poids": "250-400g",
-    "couleur": "Rouge",
-    "note": 4.6,
-    "images": [
-      "https://i.postimg.cc/zGTt7r42/8.jpg"
-    ]
-  },
-  {
-    "id": 88,
-    "nom": "Rainbow Jazz Heart",
-    "descriptionCourte": "Magnifique cœur bicolore aux reflets multicolores.",
-    "descriptionLongue": "Création de Fred Hempel. Un fruit spectaculaire dont la chair marbrée offre une explosion de saveurs fruitées et complexes. ",
-    "origine": "États-Unis 🇺🇸",
-    "poids": "200-350g",
-    "couleur": "Multicolore",
-    "note": 4.9,
-    "images": [
-      "https://i.postimg.cc/RZwsdB2Y/9.jpg",
-      "https://i.postimg.cc/3w7LbqT3/29.jpg",
-      "https://i.postimg.cc/L5qv1Ktp/109.jpg",
-      "https://i.postimg.cc/Vv3g9Ggs/118.jpg"
-    ]
-  },
-  {
-    "id": 89,
-    "nom": "Curtis Cheek",
-    "descriptionCourte": "Gros cœur rouge très dense et peu juteux.",
-    "descriptionLongue": "Variété héritage produisant des cœurs massifs. Sa texture est parfaite pour les tranches de sandwich ou les salades de tomates à l'ancienne. ",
-    "origine": "États-Unis 🇺🇸",
-    "poids": "300-500g",
-    "couleur": "Rouge",
-    "note": 4.7,
-    "images": [
-      "https://i.postimg.cc/0y7WnshB/10.jpg"
-    ]
-  },
-  {
-    "id": 90,
-    "nom": "Black Dragon",
-    "descriptionCourte": "Petite tomate sombre aux reflets bleutés.",
-    "descriptionLongue": "Riche en antioxydants, cette variété produit des fruits foncés dont la saveur devient très sucrée à pleine maturité au soleil. ",
-    "origine": "Inconnue",
-    "poids": "40-70g",
-    "couleur": "Noir / Indigo",
-    "note": 4.2,
-    "images": [
-      "https://i.postimg.cc/vZ5qhsCj/11.jpg"
-    ]
-  },
-  {
-    "id": 91,
-    "nom": "Peach with Antho",
-    "descriptionCourte": "Tomate à peau duveteuse comme une pêche, teintée d'indigo.",
-    "descriptionLongue": "Une curiosité horticole. Sa peau est douce au toucher. Les fruits sont d'une douceur exceptionnelle et très décoratifs sur le plant. ",
-    "origine": "États-Unis 🇺🇸",
-    "poids": "60-90g",
-    "couleur": "Rose et bleu",
-    "note": 4.4,
-    "images": [
-      "https://i.postimg.cc/Jzj6xL9w/12.jpg",
-      "https://i.postimg.cc/j5SMRJ2p/67.jpg"
-    ]
-  },
-  {
-    "id": 92,
-    "nom": "Fox Nose",
-    "descriptionCourte": "Variété russe en forme de cœur pointu orange.",
-    "descriptionLongue": "Appelée 'Liskin Nos' en Russie. Elle est réputée pour sa chair charnue, presque sans graines, et sa saveur très douce. ",
-    "origine": "Russie 🇷🇺",
-    "poids": "200-350g",
-    "couleur": "Orange",
-    "note": 4.8,
-    "images": [
-      "https://i.postimg.cc/pLKGCHgH/14.jpg",
-      "https://i.postimg.cc/0y7WnsLk/21.jpg"
-    ]
-  },
-  {
-    "id": 93,
-    "nom": "Huge Tulip Festival",
-    "descriptionCourte": "Forme unique rappelant une fleur de tulipe fermée.",
-    "descriptionLongue": "Une variété rare dont les fruits sont magnifiquement nervurés. Très bon équilibre sucre/acidité pour cette tomate de collection. ",
-    "origine": "Inconnue",
-    "poids": "150-250g",
-    "couleur": "Rouge rose",
-    "note": 4.5,
-    "images": [
-      "https://i.postimg.cc/jSygcbGT/15.jpg",
-      "https://i.postimg.cc/kGksN1sP/114.jpg"
-    ]
-  },
-  {
-    "id": 94,
-    "nom": "Yellow Striped Boar",
-    "descriptionCourte": "Tomate ronde jaune zébrée de blanc et de crème.",
-    "descriptionLongue": "Création de Wild Boar Farms. Un fruit croquant à la saveur vive et rafraîchissante. Très résistant aux maladies. ",
-    "origine": "États-Unis 🇺🇸",
-    "poids": "80-120g",
-    "couleur": "Jaune zébré",
-    "note": 4.6,
-    "images": [
-      "https://i.postimg.cc/vZ5qhspM/16.jpg",
-      "https://i.postimg.cc/ZqZfDQS3/38.jpg",
-      "https://i.postimg.cc/FRHThJ1N/72.jpg"
-    ]
-  },
-  {
-    "id": 95,
-    "nom": "Leprechaun Gosha",
-    "descriptionCourte": "Tomate verte à maturité, très sucrée et épicée.",
-    "descriptionLongue": "Variété rare produisant des fruits qui restent verts mais deviennent souples à maturité. La saveur est complexe avec des notes de fruits exotiques. ",
-    "origine": "Russie 🇷🇺",
-    "poids": "100-150g",
-    "couleur": "Vert",
-    "note": 4.7,
-    "images": [
-      "https://i.postimg.cc/W10W8vQT/17.jpg",
-      "https://i.postimg.cc/cJZD5zSL/30.jpg"
-    ]
-  },
-  {
-    "id": 96,
-    "nom": "Zolotye Gory Medeo",
-    "descriptionCourte": "Gros cœur bicolore jaune et rose, très charnu.",
-    "descriptionLongue": "Originaire du Kazakhstan, cette variété produit des fruits massifs à la chair fondante et très sucrée. Une référence pour les collectionneurs. ",
-    "origine": "Kazakhstan 🇰🇿",
-    "poids": "300-600g",
-    "couleur": "Jaune et Rose",
-    "note": 4.9,
-    "images": [
-      "https://i.postimg.cc/bw1CghKq/18.jpg",
-      "https://i.postimg.cc/zf5dPQrw/41.jpg"
-    ]
-  },
-  {
-    "id": 97,
-    "nom": "Malachite Box",
-    "descriptionCourte": "Tomate verte russe réputée pour sa saveur exceptionnelle.",
-    "descriptionLongue": "Produit des fruits de taille moyenne à grosse. La chair est vert émeraude, très juteuse et possède un goût de melon sucré. ",
-    "origine": "Russie 🇷🇺",
-    "poids": "200-400g",
-    "couleur": "Vert olive",
-    "note": 4.8,
-    "images": [
-      "https://i.postimg.cc/RZwsdBjM/19.jpg"
-    ]
-  },
-  {
-    "id": 98,
-    "nom": "Striped Oxheart",
-    "descriptionCourte": "Cœur de bœuf zébré, à la fois beau et savoureux.",
-    "descriptionLongue": "Combine la forme classique du cœur de bœuf avec des zébrures dorées. Chair dense, peu de graines, goût très doux. ",
-    "origine": "États-Unis 🇺🇸",
-    "poids": "250-400g",
-    "couleur": "Rouge zébré jaune",
-    "note": 4.6,
-    "images": [
-      "https://i.postimg.cc/mg7Xjs0Z/20.jpg"
-    ]
-  },
-  {
-    "id": 99,
-    "nom": "Dwarf Metallica",
-    "descriptionCourte": "Variété naine produisant des fruits pourpres zébrés de vert.",
-    "descriptionLongue": "Un plant compact parfait pour les petits espaces. Le goût est intense, riche, typique des tomates sombres. ",
-    "origine": "États-Unis 🇺🇸",
-    "poids": "100-150g",
-    "couleur": "Pourpre et Vert",
-    "note": 4.5,
-    "images": [
-      "https://i.postimg.cc/mrRd6nsf/23.jpg"
-    ]
-  },
+    {
+        id: 79,
+        nom: "Fred",
+        descriptionCourte: "Variété naine (Dwarf) aux fruits pourpres striés de vert.",
+        descriptionLongue: "Issue du Dwarf Tomato Project, cette variété produit des plants compacts idéaux pour la culture en pot. Les fruits sont charnus avec une saveur riche et équilibrée. ",
+        origine: "États-Unis 🇺🇸",
+        poids: "100-180g",
+        couleur: "Pourpre et vert",
+        note: 4.7,
+        culture: {
+            type: "Dwarf / Mi-saison",
+            cycle: "70-75 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
+        images: [
+            "https://i.postimg.cc/jdp3y53F/image.jpg",
+            "https://i.postimg.cc/6Q0HshWr/48.jpg",
+            "https://i.postimg.cc/MTp9zjH9/61.jpg"
+        ]
+    },
+    {
+        id: 80,
+        nom: "Merc Rockey",
+        descriptionCourte: "Tomate allongée et pointue, très productive.",
+        descriptionLongue: "Une variété de type 'paste' excellente pour les conserves. Sa chair est dense, contenant très peu de graines, avec un goût sucré prononcé. ",
+        origine: "États-Unis 🇺🇸",
+        poids: "120-150g",
+        couleur: "Rouge",
+        note: 4.5,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
+        images: [
+            "https://i.postimg.cc/X7R19J1D/1.jpg",
+            "https://i.postimg.cc/rsdgrXS3/103.jpg",
+            "https://i.postimg.cc/FzfGL5jw/104.jpg",
+            "https://i.postimg.cc/Zn9jdt8h/108.jpg"
+        ]
+    },
+    {
+        id: 81,
+        nom: "Ananas bleue",
+        descriptionCourte: "Superbe fruit bicolore jaune et rouge aux épaules indigo.",
+        descriptionLongue: "Une tomate visuellement splendide. Sa saveur rappelle la tomate Ananas classique, mais avec une acidité plus marquée apportée par les anthocyanes. ",
+        origine: "Belgique 🇧🇪",
+        poids: "150-250g",
+        couleur: "Jaune et Bleu",
+        note: 4.8,
+        culture: {
+            type: "Mi-saison",
+            cycle: "80-85 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
+        images: [
+            "https://i.postimg.cc/9Qy8bhsP/2.jpg",
+            "https://i.postimg.cc/Jzj6xL94/22.jpg",
+            "https://i.postimg.cc/GtZKP7K1/116.jpg"
+        ]
+    },
+    {
+        id: 82,
+        nom: "Lampe d’Aladdin",
+        descriptionCourte: "Tomate en forme de poire orange vif, riche en carotène.",
+        descriptionLongue: "Variété russe très décorative. Les fruits sont fermes, peu juteux et parfaits pour une consommation en frais ou en salade composée. ",
+        origine: "Russie 🇷🇺",
+        poids: "150-200g",
+        couleur: "Orange",
+        note: 4.4,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
+        images: [
+            "https://i.postimg.cc/4xpLPgjb/3.jpg",
+            "https://i.postimg.cc/s2yn0LrC/24.jpg"
+        ]
+    },
+    {
+        id: 83,
+        nom: "Florentine Beauty",
+        descriptionCourte: "Grosse tomate jaune très côtelée et aplatie.",
+        descriptionLongue: "Une merveille d'Italie. Sa chair est très dense, douce, avec très peu d'acidité. Son esthétique en fait la reine des assiettes estivales. ",
+        origine: "Italie 🇮🇹",
+        poids: "300-500g",
+        couleur: "Jaune citron",
+        note: 4.6,
+        culture: {
+            type: "Tardive",
+            cycle: "85-90 jours",
+            semis: "Mars à Avril",
+            jauge: 3
+        },
+        images: [
+            "https://i.postimg.cc/2SncGDgG/4.jpg"
+        ]
+    },
+    {
+        id: 84,
+        nom: "Trenton’s Tiger",
+        descriptionCourte: "Petite tomate ronde zébrée de rouge et de jaune.",
+        descriptionLongue: "Variété vigoureuse produisant des fruits très esthétiques. La saveur est équilibrée, à la fois sucrée et légèrement acidulée. ",
+        origine: "États-Unis 🇺🇸",
+        poids: "60-100g",
+        couleur: "Bicolore zébré",
+        note: 4.3,
+        culture: {
+            type: "Mi-saison",
+            cycle: "70-75 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
+        images: [
+            "https://i.postimg.cc/YCQnRHT3/5.jpg",
+            "https://i.postimg.cc/sXgT3Zx8/65.jpg"
+        ]
+    },
+    {
+        id: 85,
+        nom: "Elf Tears",
+        descriptionCourte: "Tomate cerise allongée en forme de petite larme.",
+        descriptionLongue: "Extrêmement productive, cette variété offre des grappes de fruits croquants et très sucrés. Idéale pour l'apéritif au jardin. ",
+        origine: "Inconnue",
+        poids: "15-25g",
+        couleur: "Rouge",
+        note: 4.9,
+        culture: {
+            type: "Cerise / Précoce",
+            cycle: "60-65 jours",
+            semis: "Mars à Avril",
+            jauge: 1
+        },
+        images: [
+            "https://i.postimg.cc/NjRJDcZp/6.jpg",
+            "https://i.postimg.cc/g0DM9KzD/50.jpg",
+            "https://i.postimg.cc/V6ZDvLbW/88.jpg"
+        ]
+    },
+    {
+        id: 86,
+        nom: "Arrows of Cupid",
+        descriptionCourte: "Fruit en forme de cœur avec une pointe prononcée.",
+        descriptionLongue: "Une tomate bicolore rose-rouge avec des stries dorées. Sa chair est fondante et parfumée, parfaite pour les amateurs de tomates douces. ",
+        origine: "Russie 🇷🇺",
+        poids: "100-180g",
+        couleur: "Rose strié jaune",
+        note: 4.5,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
+        images: [
+            "https://i.postimg.cc/W10W8vx5/7.jpg",
+            "https://i.postimg.cc/5287gVDh/13.jpg"
+        ]
+    },
+    {
+        id: 87,
+        nom: "Merveille de Bastogne",
+        descriptionCourte: "Variété ancienne produisant de gros fruits rouges charnus.",
+        descriptionLongue: "Tomate rustique très appréciée pour sa résistance. Sa chair est pleine et savoureuse, rappelant les tomates du potager de nos grands-parents. ",
+        origine: "Belgique 🇧🇪",
+        poids: "250-400g",
+        couleur: "Rouge",
+        note: 4.6,
+        culture: {
+            type: "Tardive",
+            cycle: "80-90 jours",
+            semis: "Mars à Avril",
+            jauge: 3
+        },
+        images: [
+            "https://i.postimg.cc/zGTt7r42/8.jpg"
+        ]
+    },
+    {
+        id: 88,
+        nom: "Rainbow Jazz Heart",
+        descriptionCourte: "Magnifique cœur bicolore aux reflets multicolores.",
+        descriptionLongue: "Création de Fred Hempel. Un fruit spectaculaire dont la chair marbrée offre une explosion de saveurs fruitées et complexes. ",
+        origine: "États-Unis 🇺🇸",
+        poids: "200-350g",
+        couleur: "Multicolore",
+        note: 4.9,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-85 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
+        images: [
+            "https://i.postimg.cc/RZwsdB2Y/9.jpg",
+            "https://i.postimg.cc/3w7LbqT3/29.jpg",
+            "https://i.postimg.cc/L5qv1Ktp/109.jpg",
+            "https://i.postimg.cc/Vv3g9Ggs/118.jpg"
+        ]
+    },
+    {
+        id: 89,
+        nom: "Curtis Cheek",
+        descriptionCourte: "Gros cœur rouge très dense et peu juteux.",
+        descriptionLongue: "Variété héritage produisant des cœurs massifs. Sa texture est parfaite pour les tranches de sandwich ou les salades de tomates à l'ancienne. ",
+        origine: "États-Unis 🇺🇸",
+        poids: "300-500g",
+        couleur: "Rouge",
+        note: 4.7,
+        culture: {
+            type: "Tardive",
+            cycle: "85-90 jours",
+            semis: "Mars à Avril",
+            jauge: 3
+        },
+        images: [
+            "https://i.postimg.cc/0y7WnshB/10.jpg"
+        ]
+    },
+    {
+        id: 90,
+        nom: "Black Dragon",
+        descriptionCourte: "Petite tomate sombre aux reflets bleutés.",
+        descriptionLongue: "Riche en antioxydants, cette variété produit des fruits foncés dont la saveur devient très sucrée à pleine maturité au soleil. ",
+        origine: "Inconnue",
+        poids: "40-70g",
+        couleur: "Noir / Indigo",
+        note: 4.2,
+        culture: {
+            type: "Mi-saison",
+            cycle: "70-75 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
+        images: [
+            "https://i.postimg.cc/vZ5qhsCj/11.jpg"
+        ]
+    },
+    {
+        id: 91,
+        nom: "Peach with Antho",
+        descriptionCourte: "Tomate à peau duveteuse comme une pêche, teintée d'indigo.",
+        descriptionLongue: "Une curiosité horticole. Sa peau est douce au toucher. Les fruits sont d'une douceur exceptionnelle et très décoratifs sur le plant. ",
+        origine: "États-Unis 🇺🇸",
+        poids: "60-90g",
+        couleur: "Rose et bleu",
+        note: 4.4,
+        culture: {
+            type: "Mi-saison",
+            cycle: "70-75 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
+        images: [
+            "https://i.postimg.cc/Jzj6xL9w/12.jpg",
+            "https://i.postimg.cc/j5SMRJ2p/67.jpg"
+        ]
+    },
+    {
+        id: 92,
+        nom: "Fox Nose",
+        descriptionCourte: "Variété russe en forme de cœur pointu orange.",
+        descriptionLongue: "Appelée 'Liskin Nos' en Russie. Elle est réputée pour sa chair charnue, presque sans graines, et sa saveur très douce. ",
+        origine: "Russie 🇷🇺",
+        poids: "200-350g",
+        couleur: "Orange",
+        note: 4.8,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
+        images: [
+            "https://i.postimg.cc/pLKGCHgH/14.jpg",
+            "https://i.postimg.cc/0y7WnsLk/21.jpg"
+        ]
+    },
+    {
+        id: 93,
+        nom: "Huge Tulip Festival",
+        descriptionCourte: "Forme unique rappelant une fleur de tulipe fermée.",
+        descriptionLongue: "Une variété rare dont les fruits sont magnifiquement nervurés. Très bon équilibre sucre/acide pour cette tomate de collection. ",
+        origine: "Inconnue",
+        poids: "150-250g",
+        couleur: "Rouge rose",
+        note: 4.5,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-85 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
+        images: [
+            "https://i.postimg.cc/jSygcbGT/15.jpg",
+            "https://i.postimg.cc/kGksN1sP/114.jpg"
+        ]
+    },
+    {
+        id: 94,
+        nom: "Yellow Striped Boar",
+        descriptionCourte: "Tomate ronde jaune zébrée de blanc et de crème.",
+        descriptionLongue: "Création de Wild Boar Farms. Un fruit croquant à la saveur vive et rafraîchissante. Très résistant aux maladies. ",
+        origine: "États-Unis 🇺🇸",
+        poids: "80-120g",
+        couleur: "Jaune zébré",
+        note: 4.6,
+        culture: {
+            type: "Mi-saison",
+            cycle: "70-75 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
+        images: [
+            "https://i.postimg.cc/vZ5qhspM/16.jpg",
+            "https://i.postimg.cc/ZqZfDQS3/38.jpg",
+            "https://i.postimg.cc/FRHThJ1N/72.jpg"
+        ]
+    },
+    {
+        id: 95,
+        nom: "Leprechaun Gosha",
+        descriptionCourte: "Tomate verte à maturité, très sucrée et épicée.",
+        descriptionLongue: "Variété rare produisant des fruits qui restent verts mais deviennent souples à maturité. La saveur est complexe avec des notes de fruits exotiques. ",
+        origine: "Russie 🇷🇺",
+        poids: "100-150g",
+        couleur: "Vert",
+        note: 4.7,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
+        images: [
+            "https://i.postimg.cc/W10W8vQT/17.jpg",
+            "https://i.postimg.cc/cJZD5zSL/30.jpg"
+        ]
+    },
+    {
+        id: 96,
+        nom: "Zolotye Gory Medeo",
+        descriptionCourte: "Gros cœur bicolore jaune et rose, très charnu.",
+        descriptionLongue: "Originaire du Kazakhstan, cette variété produit des fruits massifs à la chair fondante et très sucrée. Une référence pour les collectionneurs. ",
+        origine: "Kazakhstan 🇰🇿",
+        poids: "300-600g",
+        couleur: "Jaune et Rose",
+        note: 4.9,
+        culture: {
+            type: "Tardive",
+            cycle: "85-95 jours",
+            semis: "Mars à Avril",
+            jauge: 3
+        },
+        images: [
+            "https://i.postimg.cc/bw1CghKq/18.jpg",
+            "https://i.postimg.cc/zf5dPQrw/41.jpg"
+        ]
+    },
+    {
+        id: 97,
+        nom: "Malachite Box",
+        descriptionCourte: "Tomate verte russe réputée pour sa saveur exceptionnelle.",
+        descriptionLongue: "Produit des fruits de taille moyenne à grosse. La chair est vert émeraude, très juteuse et possède un goût de melon sucré. ",
+        origine: "Russie 🇷🇺",
+        poids: "200-400g",
+        couleur: "Vert olive",
+        note: 4.8,
+        culture: {
+            type: "Mi-saison",
+            cycle: "75-80 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
+        images: [
+            "https://i.postimg.cc/RZwsdBjM/19.jpg"
+        ]
+    },
+    {
+        id: 98,
+        nom: "Striped Oxheart",
+        descriptionCourte: "Cœur de bœuf zébré, à la fois beau et savoureux.",
+        descriptionLongue: "Combine la forme classique du cœur de bœuf avec des zébrures dorées. Chair dense, peu de graines, goût très doux. ",
+        origine: "États-Unis 🇺🇸",
+        poids: "250-400g",
+        couleur: "Rouge zébré jaune",
+        note: 4.6,
+        culture: {
+            type: "Mi-saison / Tardive",
+            cycle: "80-85 jours",
+            semis: "Mars à Avril",
+            jauge: 3
+        },
+        images: [
+            "https://i.postimg.cc/mg7Xjs0Z/20.jpg"
+        ]
+    },
+    {
+        id: 99,
+        nom: "Dwarf Metallica",
+        descriptionCourte: "Variété naine produisant des fruits pourpres zébrés de vert.",
+        descriptionLongue: "Un plant compact parfait pour les petits espaces. Le goût est intense, riche, typique des tomates sombres. ",
+        origine: "États-Unis 🇺🇸",
+        poids: "100-150g",
+        couleur: "Pourpre et Vert",
+        note: 4.5,
+        culture: {
+            type: "Dwarf / Mi-saison",
+            cycle: "70-75 jours",
+            semis: "Mars à Avril",
+            jauge: 2
+        },
+        images: [
+            "https://i.postimg.cc/mrRd6nsf/23.jpg"
+        ]
+    },
   {
     "id": 100,
     "nom": "Bangladesh Heart",

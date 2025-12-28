@@ -1,4 +1,3 @@
-// data.js
 export const DATA = [
   {
     "id": 0,
@@ -59,7 +58,7 @@ export const DATA = [
       "jauge": 2
     },
     "images": [
-      "https:
+      "https://i.postimg.cc/LspHJLwH/IMG_20250914_WA0143.jpg",
       "https://i.postimg.cc/GhxDy1x0/IMG-20251224-WA0038.jpg",
       "https://i.postimg.cc/0QSM2gy3/IMG-20251224-WA0085.jpg"
     ]

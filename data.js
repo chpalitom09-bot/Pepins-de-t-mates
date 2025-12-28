@@ -3490,17 +3490,23 @@ export const DATA = [
     ]
   },
   {
-    "id": 253,
-    "nom": "Serdtse Ashkabada",
-    "descriptionCourte": "Cœur d'Ashkabat, magnifique tomate cœur orange.",
-    "descriptionLongue": "Fruit très charnu, aucune acidité. Un bonbon orange. ",
-    "origine": "Turkménistan 🇹🇲",
-    "poids": "200-400g",
-    "couleur": "Orange",
-    "note": 4.9,
-    "images": [
+    id: 253,
+    nom: "Serdtse Ashkabada",
+    descriptionCourte: "Cœur d'Ashkabat, magnifique tomate cœur orange.",
+    descriptionLongue: "Fruit très charnu, aucune acidité. Un bonbon orange. ",
+    origine: "Turkménistan 🇹🇲",
+    poids: "200-400g",
+    couleur: "Orange",
+    note: 4.9,
+    culture: {
+        type: "Mi-saison",
+        cycle: "65-80 jours",
+        semis: "Mars à Avril",
+        jauge: 2 // 1=Précoce, 2=Mi-saison, 3=Tardive
+    },
+    images: [
       "https://i.postimg.cc/8C6W5bWZ/1766767759790-063716.jpg"
     ]
-  }          
+}
 
         ];

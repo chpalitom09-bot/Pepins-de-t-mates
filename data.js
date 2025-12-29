@@ -2023,10 +2023,10 @@ export const DATA = [
       "https://i.postimg.cc/qqtQ3VsH/107.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Tardive",
+      "cycle": "85-90 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 3
     }
   },
   {
@@ -2043,10 +2043,10 @@ export const DATA = [
       "https://i.postimg.cc/d1N43tTt/76.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80  jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2062,10 +2062,10 @@ export const DATA = [
       "https://i.postimg.cc/nLZdwWJV/27.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2084,10 +2084,10 @@ export const DATA = [
       "https://i.postimg.cc/wMtFm8hf/101.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2105,10 +2105,10 @@ export const DATA = [
       "https://i.postimg.cc/MHh50P5K/121.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2124,10 +2124,10 @@ export const DATA = [
       "https://i.postimg.cc/wBHWbrp7/32.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2144,10 +2144,10 @@ export const DATA = [
       "https://i.postimg.cc/0NftgCkL/60.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2164,10 +2164,10 @@ export const DATA = [
       "https://i.postimg.cc/yd8L7SxG/63.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2183,10 +2183,10 @@ export const DATA = [
       "https://i.postimg.cc/jjK8k1bn/35.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2203,10 +2203,10 @@ export const DATA = [
       "https://i.postimg.cc/xCpt8TbX/80.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Précoce",
+      "cycle": "60-65 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 1
     }
   },
   {
@@ -2222,10 +2222,10 @@ export const DATA = [
       "https://i.postimg.cc/DzFCYNTG/37.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Précoce",
+      "cycle": "60-65 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 1
     }
   },
   {
@@ -2241,10 +2241,10 @@ export const DATA = [
       "https://i.postimg.cc/W4j9fyvM/40.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2260,10 +2260,10 @@ export const DATA = [
       "https://i.postimg.cc/k5cjryJ2/42.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Précoce",
+      "cycle": "65  jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 1
     }
   },
   {
@@ -2279,10 +2279,10 @@ export const DATA = [
       "https://i.postimg.cc/tg5r0zqZ/43.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2298,10 +2298,10 @@ export const DATA = [
       "https://i.postimg.cc/3wBLMZ80/44.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "70-75 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2317,10 +2317,10 @@ export const DATA = [
       "https://i.postimg.cc/6Q0HshWG/45.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80  jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2336,10 +2336,10 @@ export const DATA = [
       "https://i.postimg.cc/25wHpxkZ/46.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2355,10 +2355,10 @@ export const DATA = [
       "https://i.postimg.cc/KYN9X5Gt/47.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Tardive",
+      "cycle": "85 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 3
     }
   },
   {
@@ -2375,10 +2375,10 @@ export const DATA = [
       "https://i.postimg.cc/vT1XVFWP/100.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2394,10 +2394,10 @@ export const DATA = [
       "https://i.postimg.cc/q7LmfGJQ/51.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2413,10 +2413,10 @@ export const DATA = [
       "https://i.postimg.cc/YS3XcxrR/52.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Précoce",
+      "cycle": "65 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 1
     }
   },
   {
@@ -2433,10 +2433,10 @@ export const DATA = [
       "https://i.postimg.cc/bJwmq2rF/62.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Précoce",
+      "cycle": "60-65 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 1
     }
   },
   {
@@ -2452,10 +2452,10 @@ export const DATA = [
       "https://i.postimg.cc/LsTydV9Q/54.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2471,10 +2471,10 @@ export const DATA = [
       "https://i.postimg.cc/CKNvy4hQ/55.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2491,10 +2491,10 @@ export const DATA = [
       "https://i.postimg.cc/BvghWCSR/59.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2511,10 +2511,10 @@ export const DATA = [
       "https://i.postimg.cc/x8kgzDKm/91.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2531,10 +2531,10 @@ export const DATA = [
       "https://i.postimg.cc/2yqTZR4Z/90.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Tardive",
+      "cycle": "85 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 3
     }
   },
   {
@@ -2550,10 +2550,10 @@ export const DATA = [
       "https://i.postimg.cc/NMjdQrFz/64.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2570,10 +2570,10 @@ export const DATA = [
       "https://i.postimg.cc/5yZg573D/113.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2591,10 +2591,10 @@ export const DATA = [
       "https://i.postimg.cc/yxwjhQP5/112.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2611,10 +2611,10 @@ export const DATA = [
       "https://i.postimg.cc/8cq4dK4Q/115.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Précoce",
+      "cycle": "65 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 1
     }
   },
   {
@@ -2630,10 +2630,10 @@ export const DATA = [
       "https://i.postimg.cc/ZR5wJy0Z/70.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2649,10 +2649,10 @@ export const DATA = [
       "https://i.postimg.cc/wvjw9s3x/71.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "70-75 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2668,10 +2668,10 @@ export const DATA = [
       "https://i.postimg.cc/XJYsnyXv/73.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2687,10 +2687,10 @@ export const DATA = [
       "https://i.postimg.cc/gJtNjk6d/74.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Précoce",
+      "cycle": "55-60 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 1
     }
   },
   {
@@ -2706,10 +2706,10 @@ export const DATA = [
       "https://i.postimg.cc/QtY0CxWh/75.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Précoce",
+      "cycle": "65 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 1
     }
   },
   {
@@ -2725,10 +2725,10 @@ export const DATA = [
       "https://i.postimg.cc/1t7JX5Nz/77.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2744,10 +2744,10 @@ export const DATA = [
       "https://i.postimg.cc/j53Z2dJ5/78.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2763,10 +2763,10 @@ export const DATA = [
       "https://i.postimg.cc/V6ZDvLb5/79.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2782,10 +2782,10 @@ export const DATA = [
       "https://i.postimg.cc/rmZQsFtd/81.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2801,10 +2801,10 @@ export const DATA = [
       "https://i.postimg.cc/76tmhYTT/82.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2823,10 +2823,10 @@ export const DATA = [
       "https://i.postimg.cc/WzDSkLMS/98.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Précoce",
+      "cycle": "60-65 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 1
     }
   },
   {
@@ -2844,10 +2844,10 @@ export const DATA = [
       "https://i.postimg.cc/mkcVHfQw/97.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-85 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2863,10 +2863,10 @@ export const DATA = [
       "https://i.postimg.cc/2692y8Bn/85.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2882,10 +2882,10 @@ export const DATA = [
       "https://i.postimg.cc/W3YXzbJ6/87.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2901,10 +2901,10 @@ export const DATA = [
       "https://i.postimg.cc/VvS4CQjj/93.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2921,10 +2921,10 @@ export const DATA = [
       "https://i.postimg.cc/Fz2pbWp9/120.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2943,10 +2943,10 @@ export const DATA = [
       "https://i.postimg.cc/Rhjd1sdq/124.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -2964,7 +2964,7 @@ export const DATA = [
     ],
     "culture": {
       "type": "Mi-saison",
-      "cycle": "70-75 jours",
+      "cycle": "75-85 jours",
       "semis": "Mars à Avril",
       "jauge": 2
     }
@@ -2983,10 +2983,10 @@ export const DATA = [
       "https://i.postimg.cc/gjfsySsw/125.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3002,10 +3002,10 @@ export const DATA = [
       "https://i.postimg.cc/C5W7CP7h/119.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3021,10 +3021,10 @@ export const DATA = [
       "https://i.postimg.cc/zv97wt7y/122.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3041,10 +3041,10 @@ export const DATA = [
       "https://i.postimg.cc/0Q7ptCyM/1766767757979-061700.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3060,10 +3060,10 @@ export const DATA = [
       "https://i.postimg.cc/yxFvZHZg/1766767755176-055021.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3081,10 +3081,10 @@ export const DATA = [
       "https://i.postimg.cc/3Jt2bNY3/1766767758972-062828.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "70-75 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3103,10 +3103,10 @@ export const DATA = [
       "https://i.postimg.cc/CLhjNkTY/1766767758661-062508.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "70-75 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3123,10 +3123,10 @@ export const DATA = [
       "https://i.postimg.cc/L87L2Wqh/1766767759572-063446.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Précoce",
+      "cycle": "70-75 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 1
     }
   },
   {
@@ -3144,10 +3144,10 @@ export const DATA = [
       "https://i.postimg.cc/Kztn958Z/1766767757923-061630.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3163,10 +3163,10 @@ export const DATA = [
       "https://i.postimg.cc/v89PjWNm/1766767755318-055208.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3182,10 +3182,10 @@ export const DATA = [
       "https://i.postimg.cc/gcRM5vTZ/1766767755347-055227.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Précoce",
+      "cycle": "65 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 1
     }
   },
   {
@@ -3203,10 +3203,10 @@ export const DATA = [
       "https://i.postimg.cc/x1qLrQdV/1766767759296-063153.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "70-75 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3223,10 +3223,10 @@ export const DATA = [
       "https://i.postimg.cc/rFVSJxXk/1766767758628-062453.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3242,10 +3242,10 @@ export const DATA = [
       "https://i.postimg.cc/1R6WTpjM/1766767755433-055334.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3261,10 +3261,10 @@ export const DATA = [
       "https://i.postimg.cc/MKSs8vCb/1766767755477-055353.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "65-75 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3282,10 +3282,10 @@ export const DATA = [
       "https://i.postimg.cc/cCZfP8v3/1766767758075-061813.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3302,10 +3302,10 @@ export const DATA = [
       "https://i.postimg.cc/vZmtQ93g/1766767757298-061110.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3323,10 +3323,10 @@ export const DATA = [
       "https://i.postimg.cc/Bnt2W3nc/1766767759080-062926.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3344,10 +3344,10 @@ export const DATA = [
       "https://i.postimg.cc/nhLGH705/1766767757353-061140.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3364,10 +3364,10 @@ export const DATA = [
       "https://i.postimg.cc/15mpHwht/1766767758818-062652.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Précoce",
+      "cycle": "60 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 1
     }
   },
   {
@@ -3386,10 +3386,10 @@ export const DATA = [
       "https://i.postimg.cc/J7cNZKF6/1766767758327-062138.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3405,10 +3405,10 @@ export const DATA = [
       "https://i.postimg.cc/VLWKsz1J/1766767755678-055654.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3424,10 +3424,10 @@ export const DATA = [
       "https://i.postimg.cc/3xrndzJJ/1766767755706-055710.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Précoce",
+      "cycle": "65 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 1
     }
   },
   {
@@ -3446,10 +3446,10 @@ export const DATA = [
       "https://i.postimg.cc/KcnNQm10/1766767757009-060840.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3465,10 +3465,10 @@ export const DATA = [
       "https://i.postimg.cc/t4R2Y8C2/1766767755786-055759.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3484,10 +3484,10 @@ export const DATA = [
       "https://i.postimg.cc/mgZ8tK2j/1766767755814-055816.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Tardive",
+      "cycle": "85 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 3
     }
   },
   {
@@ -3505,10 +3505,10 @@ export const DATA = [
       "https://i.postimg.cc/JhfNcFmg/1766767757774-061522.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3524,10 +3524,10 @@ export const DATA = [
       "https://i.postimg.cc/NjNbTb5p/1766767755870-055853.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3543,10 +3543,10 @@ export const DATA = [
       "https://i.postimg.cc/HkS353VN/1766767755901-055916.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3563,10 +3563,10 @@ export const DATA = [
       "https://i.postimg.cc/kgZKqH2Z/1766767759357-063228.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3584,10 +3584,10 @@ export const DATA = [
       "https://i.postimg.cc/KvGnNBS4/1766767758850-062711.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3603,10 +3603,10 @@ export const DATA = [
       "https://i.postimg.cc/Z5fj3jWb/1766767755984-060015.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3622,10 +3622,10 @@ export const DATA = [
       "https://i.postimg.cc/FK7pxcSQ/1766767756012-060034.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Tardive",
+      "cycle": "85 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 3
     }
   },
   {
@@ -3641,10 +3641,10 @@ export const DATA = [
       "https://i.postimg.cc/cJrhcY30/1766767756038-060047.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3661,10 +3661,10 @@ export const DATA = [
       "https://i.postimg.cc/8P4bQwBG/1766767757155-060957.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Tardive",
+      "cycle": "85 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 3
     }
   },
   {
@@ -3681,10 +3681,10 @@ export const DATA = [
       "https://i.postimg.cc/hvgVN7Xv/1766767758009-061721.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3700,10 +3700,10 @@ export const DATA = [
       "https://i.postimg.cc/7Lf9N7zb/1766767756121-060131.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3720,10 +3720,10 @@ export const DATA = [
       "https://i.postimg.cc/hjm0kBMC/1766767756488-060423.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3739,10 +3739,10 @@ export const DATA = [
       "https://i.postimg.cc/7LdVt613/1766767756350-060320.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3759,10 +3759,10 @@ export const DATA = [
       "https://i.postimg.cc/t4fWpcsK/1766767759421-063302.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3778,10 +3778,10 @@ export const DATA = [
       "https://i.postimg.cc/GpVQg2PS/1766767756406-060345.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3797,10 +3797,10 @@ export const DATA = [
       "https://i.postimg.cc/9fKpgMP8/1766767756434-060400.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3816,10 +3816,10 @@ export const DATA = [
       "https://i.postimg.cc/0NFfXQGV/1766767756460-060411.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3835,10 +3835,10 @@ export const DATA = [
       "https://i.postimg.cc/sXWJkrK6/1766767756515-060435.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3855,10 +3855,10 @@ export const DATA = [
       "https://i.postimg.cc/t4mt7TcT/1766767757464-061240.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Tardive",
+      "cycle": "85 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 3
     }
   },
   {
@@ -3874,10 +3874,10 @@ export const DATA = [
       "https://i.postimg.cc/G2DjWCzS/1766767756569-060500.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3894,10 +3894,10 @@ export const DATA = [
       "https://i.postimg.cc/wMVDzTJd/1766767758200-061959.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3916,10 +3916,10 @@ export const DATA = [
       "https://i.postimg.cc/vH05STb4/1766767759046-062906.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3937,10 +3937,10 @@ export const DATA = [
       "https://i.postimg.cc/SNSWrC0g/1766767758460-062310.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3957,10 +3957,10 @@ export const DATA = [
       "https://i.postimg.cc/bYHxkL57/1766767758429-062249.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Précoce",
+      "cycle": "65 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 1
     }
   },
   {
@@ -3976,10 +3976,10 @@ export const DATA = [
       "https://i.postimg.cc/J0c5h5fp/1766767756805-060655.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -3995,10 +3995,10 @@ export const DATA = [
       "https://i.postimg.cc/tJtNgNKr/1766767756889-060739.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4016,10 +4016,10 @@ export const DATA = [
       "https://i.postimg.cc/63CdHhps/1766767757836-061551.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4036,10 +4036,10 @@ export const DATA = [
       "https://i.postimg.cc/wT2k8FcB/1766767757213-061029.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Tardive",
+      "cycle": "90 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 3
     }
   },
   {
@@ -4055,10 +4055,10 @@ export const DATA = [
       "https://i.postimg.cc/yYsTb2Rj/1766767757040-060857.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4074,10 +4074,10 @@ export const DATA = [
       "https://i.postimg.cc/c40cbP3T/1766767757069-060913.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4093,10 +4093,10 @@ export const DATA = [
       "https://i.postimg.cc/NfBxzZTY/1766767757126-060939.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Tardive",
+      "cycle": "85 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 3
     }
   },
   {
@@ -4112,10 +4112,10 @@ export const DATA = [
       "https://i.postimg.cc/QxmqGSkK/1766767757242-061041.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4131,10 +4131,10 @@ export const DATA = [
       "https://i.postimg.cc/GmpxcYqs/1766767757269-061056.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4150,10 +4150,10 @@ export const DATA = [
       "https://i.postimg.cc/nhLGH705/1766767757353-061140.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4169,10 +4169,10 @@ export const DATA = [
       "https://i.postimg.cc/K8sr4zHp/1766767757382-061154.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4188,10 +4188,10 @@ export const DATA = [
       "https://i.postimg.cc/bwFHdJ5j/1766767757409-061209.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4207,10 +4207,10 @@ export const DATA = [
       "https://i.postimg.cc/FHng1R67/1766767757437-061226.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4226,10 +4226,10 @@ export const DATA = [
       "https://i.postimg.cc/MprbXTLX/1766767757493-061254.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4246,10 +4246,10 @@ export const DATA = [
       "https://i.postimg.cc/DwDLnNW4/1766767759635-063531.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4265,10 +4265,10 @@ export const DATA = [
       "https://i.postimg.cc/5tY5zJcY/1766767757578-061339.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4285,10 +4285,10 @@ export const DATA = [
       "https://i.postimg.cc/t47F0b48/1766767759207-063051.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4304,10 +4304,10 @@ export const DATA = [
       "https://i.postimg.cc/5thBqr1v/1766767757691-061435.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "70-75 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4324,10 +4324,10 @@ export const DATA = [
       "https://i.postimg.cc/FsrjZ35h/1766767758726-062547.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4343,10 +4343,10 @@ export const DATA = [
       "https://i.postimg.cc/9f6dtkV1/1766767757747-061506.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4362,10 +4362,10 @@ export const DATA = [
       "https://i.postimg.cc/1zkGcdsx/1766767757805-061538.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4381,10 +4381,10 @@ export const DATA = [
       "https://i.postimg.cc/ZR6rfL5m/1766767757865-061603.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4400,10 +4400,10 @@ export const DATA = [
       "https://i.postimg.cc/Y9Q1XxCM/1766767757895-061619.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Tardive",
+      "cycle": "85 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 3
     }
   },
   {
@@ -4420,10 +4420,10 @@ export const DATA = [
       "https://i.postimg.cc/CLhjNkTR/1766767758940-062809.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4439,10 +4439,10 @@ export const DATA = [
       "https://i.postimg.cc/Y0kQTmvx/1766767758107-061840.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4459,10 +4459,10 @@ export const DATA = [
       "https://i.postimg.cc/9Qzy32QY/1766767759115-062946.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4480,10 +4480,10 @@ export const DATA = [
       "https://i.postimg.cc/8z3MNY7x/1766767759388-063248.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4499,10 +4499,10 @@ export const DATA = [
       "https://i.postimg.cc/brT1PNbP/1766767758233-062016.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4518,10 +4518,10 @@ export const DATA = [
       "https://i.postimg.cc/G3JFGzfG/1766767758261-062036.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4537,10 +4537,10 @@ export const DATA = [
       "https://i.postimg.cc/FFgy3G6B/1766767758362-062207.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4556,10 +4556,10 @@ export const DATA = [
       "https://i.postimg.cc/59qBLprT/1766767758394-062229.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4575,10 +4575,10 @@ export const DATA = [
       "https://i.postimg.cc/wTqhVLKb/1766767758492-062333.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4594,10 +4594,10 @@ export const DATA = [
       "https://i.postimg.cc/FsrjZ3tM/1766767758528-062352.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4613,10 +4613,10 @@ export const DATA = [
       "https://i.postimg.cc/15mpHwxb/1766767758564-062415.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4632,10 +4632,10 @@ export const DATA = [
       "https://i.postimg.cc/3J8gBm5H/1766767758597-062435.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Précoce",
+      "cycle": "65 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 1
     }
   },
   {
@@ -4651,10 +4651,10 @@ export const DATA = [
       "https://i.postimg.cc/gkzvD8Fp/1766767758693-062526.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Tardive",
+      "cycle": "85 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 3
     }
   },
   {
@@ -4670,10 +4670,10 @@ export const DATA = [
       "https://i.postimg.cc/ncFvkBbV/1766767758755-062612.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4689,10 +4689,10 @@ export const DATA = [
       "https://i.postimg.cc/BQSxgH9n/1766767758787-062633.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4708,10 +4708,10 @@ export const DATA = [
       "https://i.postimg.cc/Dyx1Y0nn/1766767758912-062750.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4727,10 +4727,10 @@ export const DATA = [
       "https://i.postimg.cc/Wb50fzTr/1766767759013-062846.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4746,10 +4746,10 @@ export const DATA = [
       "https://i.postimg.cc/NjLRhtjd/1766767759147-063005.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4765,10 +4765,10 @@ export const DATA = [
       "https://i.postimg.cc/3xW2MhxL/1766767759177-063033.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4784,10 +4784,10 @@ export const DATA = [
       "https://i.postimg.cc/FH10tvH2/1766767759235-063109.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Tardive",
+      "cycle": "85 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 3
     }
   },
   {
@@ -4803,10 +4803,10 @@ export const DATA = [
       "https://i.postimg.cc/y8W0qKNq/1766767759264-063129.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "70-75 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4822,10 +4822,10 @@ export const DATA = [
       "https://i.postimg.cc/FH10tvKQ/1766767759329-063208.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4841,10 +4841,10 @@ export const DATA = [
       "https://i.postimg.cc/RZ8K4Y3r/1766767759452-063316.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Précoce",
+      "cycle": "60-65 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 1
     }
   },
   {
@@ -4860,10 +4860,10 @@ export const DATA = [
       "https://i.postimg.cc/DwDLnNW7/1766767759480-063337.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Précoce",
+      "cycle": "55-60 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 1
     }
   },
   {
@@ -4879,10 +4879,10 @@ export const DATA = [
       "https://i.postimg.cc/pL7zRS92/1766767759510-063401.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Précoce",
+      "cycle": "60-65 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 1
     }
   },
   {
@@ -4898,10 +4898,10 @@ export const DATA = [
       "https://i.postimg.cc/cLjw0zKK/1766767759542-063426.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "70-75 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4917,10 +4917,10 @@ export const DATA = [
       "https://i.postimg.cc/0y3DP46M/1766767759603-063506.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4936,10 +4936,10 @@ export const DATA = [
       "https://i.postimg.cc/52GLbrHz/1766767759666-063552.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Précoce",
+      "cycle": "50-55 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 1
     }
   },
   {
@@ -4955,10 +4955,10 @@ export const DATA = [
       "https://i.postimg.cc/439td1t9/1766767759698-063613.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4974,10 +4974,10 @@ export const DATA = [
       "https://i.postimg.cc/KYMLz5LL/1766767759731-063633.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -4993,10 +4993,10 @@ export const DATA = [
       "https://i.postimg.cc/JhkJnQJP/1766767759761-063654.jpg"
     ],
     "culture": {
-      "type": "",
-      "cycle": "",
+      "type": "Mi-saison",
+      "cycle": "75-80 jours",
       "semis": "Mars à Avril",
-      "jauge": 0
+      "jauge": 2
     }
   },
   {
@@ -5009,10 +5009,10 @@ export const DATA = [
     "couleur": "Orange",
     "note": 4.9,
     "culture": {
-      "type": "Mi-saison",
-      "cycle": "65-80 jours",
+      "type": "",
+      "cycle": "",
       "semis": "Mars à Avril",
-      "jauge": 2
+      "jauge": 0
     },
     "images": [
       "https://i.postimg.cc/8C6W5bWZ/1766767759790-063716.jpg"

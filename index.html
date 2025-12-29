@@ -558,6 +558,35 @@
             #cookie-banner { flex-direction: row; align-items: center; justify-content: space-between; }
         }
         .cookie-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+		
+		.color-select-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--card-bg);
+    padding: 10px 16px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.color-select-wrapper label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+#color-select {
+    appearance: none;
+    border: none;
+    background: transparent;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    color: var(--text-main);
+}
+
     </style>
 </head>
 <body>
@@ -784,39 +813,39 @@
             },
 
             renderFilters() {
-                // Filtres Catégories
-                const counts = { 'Tous': DATA.length };
-                const origins = new Set();
-                DATA.forEach(t => { origins.add(t.origine); });
-                origins.forEach(org => { counts[org] = DATA.filter(t => t.origine === org).length; });
-                const filters = ['Tous', ...Array.from(origins).sort()];
-                
-                let html = `<button class="filter-chip ${this.currentCategory === 'Favoris' ? 'active' : ''}" onclick="app.setCategory('Favoris')">❤️ Favoris</button>`;
-                html += filters.map(f => `
-                    <button class="filter-chip ${this.currentCategory === f ? 'active' : ''}" onclick="app.setCategory('${f}')">
-                        ${f} <span class="filter-count">${counts[f] || 0}</span>
-                    </button>
-                `).join('');
-                this.filtersContainer.innerHTML = html;
+                // --- FILTRE COULEUR (VERSION SELECT PROPRE) ---
+const colors = new Set();
+DATA.forEach(t => { if (t.couleur) colors.add(t.couleur); });
 
-                // Filtres Couleurs
-                const colors = new Set();
-                DATA.forEach(t => { if(t.couleur) colors.add(t.couleur); });
-                // Mapping couleur nom -> code CSS
-                const colorMap = {
-                    'Rouge': '#d63031', 'Jaune': '#f1c40f', 'Orange': '#e67e22', 'Noire': '#2d3436', 
-                    'Verte': '#27ae60', 'Blanche': '#dfe6e9', 'Rose': '#fd79a8', 'Bigarrée': 'linear-gradient(45deg, #d63031, #f1c40f)',
-                    'Bleue': '#0984e3', 'Violette': '#6c5ce7'
-                };
+const colorMap = {
+    'Rouge': '#d63031',
+    'Jaune': '#f1c40f',
+    'Orange': '#e67e22',
+    'Noire': '#2d3436',
+    'Verte': '#27ae60',
+    'Blanche': '#dfe6e9',
+    'Rose': '#fd79a8',
+    'Bigarrée': '#b33939',
+    'Bleue': '#0984e3',
+    'Violette': '#6c5ce7'
+};
 
-                let colorHtml = `<div class="color-dot ${this.currentColor === 'Tous' ? 'active' : ''}" style="background:linear-gradient(135deg, white, black);" onclick="app.setColor('Tous')" title="Toutes"></div>`;
-                
-                Array.from(colors).sort().forEach(c => {
-                    const bg = colorMap[c] || '#ccc';
-                    colorHtml += `<div class="color-dot ${this.currentColor === c ? 'active' : ''}" style="background:${bg};" onclick="app.setColor('${c}')" title="${c}"></div>`;
-                });
-                this.colorFiltersContainer.innerHTML = colorHtml;
-            },
+let colorSelectHTML = `
+    <div class="color-select-wrapper">
+        <label for="color-select">🎨 Couleur</label>
+        <select id="color-select" onchange="app.setColor(this.value)">
+            <option value="Tous">Toutes les couleurs</option>
+            ${Array.from(colors).sort().map(c => `
+                <option value="${c}" ${this.currentColor === c ? 'selected' : ''}>
+                    ${c}
+                </option>
+            `).join('')}
+        </select>
+    </div>
+`;
+
+this.colorFiltersContainer.innerHTML = colorSelectHTML;
+
 
             async getAllLikes() {
                 return new Promise(res => {

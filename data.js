@@ -6,7 +6,7 @@ export const DATA = [
     "descriptionLongue": "L'Emerald Brocade est une variété de type 'Dwarf' (naine) remarquable. Ses fruits offrent une robe vert émeraude marbrée de teintes plus sombres à maturité. \n\nSa chair est incroyablement fondante, équilibrant parfaitement douceur et acidité. Idéale pour les petits jardins ou la culture en pot grâce à son port compact. ",
     "origine": "Australie",
     "poids": "100-180g",
-    "couleur": "Verte",
+    "couleur": "Verte Bigarrée",
     "note": 4.8,
     "culture": {
       "type": "Dwarf / Mi-saison",
@@ -28,7 +28,7 @@ export const DATA = [
     "descriptionLongue": "La Kryptonite est une variété moderne à fruits verts à maturité. Sa chair dense et juteuse développe une saveur riche et équilibrée, mêlant douceur et légère acidité.\n\nElle séduit les amateurs de tomates originales par sa couleur inhabituelle. ",
     "origine": "États-Unis 🇺🇸",
     "poids": "150-250g",
-    "couleur": "Verte",
+    "couleur": "Verte Bigarrée",
     "note": 4.6,
     "culture": {
       "type": "Mi-saison",
@@ -49,7 +49,7 @@ export const DATA = [
     "descriptionLongue": "Vecherny Almaty est une tomate traditionnelle originaire de la région d'Almaty. Elle produit des fruits foncés à la chair dense et savoureuse.\n\nTrès appréciée pour sa profondeur aromatique. ",
     "origine": "Kazakhstan 🇰🇿",
     "poids": "180-300g",
-    "couleur": "Noire",
+    "couleur": "Rouge",
     "note": 4.7,
     "culture": {
       "type": "Mi-saison",
@@ -70,7 +70,7 @@ export const DATA = [
     "descriptionLongue": "Candy Sweet Icicle produit de nombreux fruits allongés, croquants et extrêmement sucrés.\n\nParfaite pour l'apéritif et le grignotage. ",
     "origine": "États-Unis 🇺🇸",
     "poids": "30-60g",
-    "couleur": "Rose bigarrée",
+    "couleur": "Orange Bigarrée",
     "note": 4.8,
     "culture": {
       "type": "Précoce",
@@ -91,7 +91,7 @@ export const DATA = [
     "descriptionLongue": "Chio Chio San est une tomate élégante et peu commune offrant des fruits réguliers à la saveur douce et équilibrée.\n\nAppréciée pour son port harmonieux. ",
     "origine": "Japon 🇯🇵",
     "poids": "120-180g",
-    "couleur": "Rose",
+    "couleur": "Rouge",
     "note": 4.5,
     "culture": {
       "type": "Mi-saison",
@@ -132,7 +132,7 @@ export const DATA = [
     "descriptionLongue": "Mahogany Dwarf (parfois appelée Mattogany) est une tomate de type 'Dwarf' produisant des fruits sombres aux reflets acajou.\n\nParfaite pour la culture en pot. ",
     "origine": "Australie 🇦🇺",
     "poids": "120-200g",
-    "couleur": "Noire / Acajou",
+    "couleur": "Rouge",
     "note": 4.7,
     "culture": {
       "type": "Dwarf / Mi-saison",
@@ -174,7 +174,7 @@ export const DATA = [
     "descriptionLongue": "Cette variété produit de gros fruits jaune striés de rouge, à la chair dense et douce.\n\nAussi belle que savoureuse. ",
     "origine": "États-Unis 🇺🇸",
     "poids": "300-500g",
-    "couleur": "Jaune bigarrée",
+    "couleur": "Orange Bigarrée",
     "note": 4.7,
     "culture": {
       "type": "Tardive",
@@ -216,7 +216,7 @@ export const DATA = [
     "descriptionLongue": "Shadow Boxing Dwarf est une variété compacte produisant des fruits foncés et savoureux.\n\nTrès robuste. ",
     "origine": "Australie 🇦🇺",
     "poids": "120-200g",
-    "couleur": "Bleue / Noire",
+    "couleur": "Noire Bigarrée",
     "note": 4.7,
     "culture": {
       "type": "Dwarf / Mi-saison",
@@ -237,7 +237,7 @@ export const DATA = [
     "descriptionLongue": "Mint Streak Dwarf se distingue par ses fruits verts striés de jaune.\n\nSaveur douce et fraîche. ",
     "origine": "Australie 🇦🇺",
     "poids": "130-200g",
-    "couleur": "Verte",
+    "couleur": "Verte Bigarrée",
     "note": 4.8,
     "culture": {
       "type": "Dwarf / Mi-saison",
@@ -299,7 +299,7 @@ export const DATA = [
     "descriptionLongue": "Yelena's Ibiza produit des fruits savoureux et parfumés.\n\nIdéale pour l'été. ",
     "origine": "Espagne 🇪🇸",
     "poids": "160-240g",
-    "couleur": "Jaune bigarrée",
+    "couleur": "Rouge",
     "note": 4.6,
     "culture": {
       "type": "Mi-saison",
@@ -364,7 +364,7 @@ export const DATA = [
     "descriptionLongue": "Création paysanne française à la chair douce et peu acide.\n\nTrès originale. ",
     "origine": "France 🇫🇷",
     "poids": "180-300g",
-    "couleur": "Blanche",
+    "couleur": "Rouge",
     "note": 4.9,
     "culture": {
       "type": "Mi-saison",
@@ -388,7 +388,7 @@ export const DATA = [
     "descriptionLongue": "Clémentine séduit par sa couleur vive et sa douceur.\n\nParfaite en salade. ",
     "origine": "France 🇫🇷",
     "poids": "120-180g",
-    "couleur": "Orange",
+    "couleur": "Jaune",
     "note": 4.6,
     "culture": {
       "type": "Mi-saison",
@@ -408,7 +408,7 @@ export const DATA = [
     "descriptionLongue": "Variété riche en anthocyanes aux reflets bleus.\n\nSaveur douce et complexe. ",
     "origine": "États-Unis 🇺🇸",
     "poids": "100-160g",
-    "couleur": "Bleue",
+    "couleur": "Rouge",
     "note": 4.7,
     "culture": {
       "type": "Mi-saison",
@@ -430,7 +430,7 @@ export const DATA = [
     "descriptionLongue": "DSA est reconnue pour sa fiabilité et sa bonne production.\n\nFruits savoureux. ",
     "origine": "États-Unis 🇺🇸",
     "poids": "150-250g",
-    "couleur": "Rouge",
+    "couleur": "Orange bigarrée",
     "note": 4.5,
     "culture": {
       "type": "Mi-saison",
@@ -452,7 +452,7 @@ export const DATA = [
     "descriptionLongue": "Sunshine Blue Natalis développe une belle coloration bleue au soleil et distingue par ses reflets dus à l’anthocyane.\n\nSa chair reste douce et équilibrée, idéale pour apporter couleur et originalité au potager. ",
     "origine": "États-Unis 🇺🇸",
     "poids": "120-200g",
-    "couleur": "Bleue",
+    "couleur": "Orange Bigarrée",
     "note": 4.8,
     "culture": {
       "type": "Mi-saison",
@@ -476,7 +476,7 @@ export const DATA = [
     "descriptionLongue": "Awesome Dwarf combine port compact et fruits généreux.\n\nIdéale pour petits espaces. ",
     "origine": "Australie 🇦🇺",
     "poids": "150-230g",
-    "couleur": "Jaune bigarrée",
+    "couleur": "Orange ",
     "note": 4.7,
     "culture": {
       "type": "Dwarf / Mi-saison",
@@ -520,7 +520,7 @@ export const DATA = [
     "descriptionLongue": "Clare Valley Dwarf offre des fruits savoureux sur un plant compact.\n\nTrès régulière. ",
     "origine": "Australie 🇦🇺",
     "poids": "140-220g",
-    "couleur": "Rouge",
+    "couleur": "Rose",
     "note": 4.7,
     "culture": {
       "type": "Dwarf / Mi-saison",
@@ -560,7 +560,7 @@ export const DATA = [
     "descriptionLongue": "La Prune verte est une variété traditionnelle appréciée pour ses fruits ronds à la robe verte et à la chair juteuse.\n\nSa saveur douce et légèrement acidulée en fait une excellente tomate de table, idéale en salade ou en dégustation nature. ",
     "origine": "France 🇫🇷",
     "poids": "80-150g",
-    "couleur": "Verte",
+    "couleur": "Verte Bigarrée",
     "note": 4.3,
     "culture": {
       "type": "Mi-saison",
@@ -581,7 +581,7 @@ export const DATA = [
     "descriptionLongue": "Le Bendigo Moon Dwarf est une variété naine issue du Dwarf Tomato Project.\n\nElle produit des fruits savoureux, bien équilibrés, sur un plant compact et robuste, parfaitement adapté aux petits espaces. ",
     "origine": "Australie 🇦🇺",
     "poids": "50-60g",
-    "couleur": "Blanche",
+    "couleur": "Jaune",
     "note": 4.6,
     "culture": {
       "type": "Dwarf / Mi-saison",
@@ -602,7 +602,7 @@ export const DATA = [
     "descriptionLongue": "La Kozula 203 est une variété rare aux fruits marbrés de vert, jaune et rouge.\n\nSa chair dense offre une explosion de saveurs complexes, très appréciée des amateurs de tomates originales. ",
     "origine": "Croatie 🇭🇷",
     "poids": "200-350g",
-    "couleur": "Bigarrée",
+    "couleur": "Rouge ",
     "note": 4.7,
     "culture": {
       "type": "Mi-saison",
@@ -624,7 +624,7 @@ export const DATA = [
     "descriptionLongue": "Kalvados est une variété vigoureuse produisant de beaux fruits charnus.\n\nSa saveur franche et légèrement sucrée la rend idéale pour les sauces, coulis et plats cuisinés. ",
     "origine": "France 🇫🇷",
     "poids": "180-300g",
-    "couleur": "Rouge",
+    "couleur": "Noire ",
     "note": 4.4,
     "culture": {
       "type": "Mi-saison",
@@ -663,9 +663,9 @@ export const DATA = [
     "nom": "Lilian Marie",
     "descriptionCourte": "Une variété délicate aux saveurs douces.",
     "descriptionLongue": "Lilian Marie produit des fruits harmonieux à la chair fondante.\n\nElle est appréciée pour sa douceur et sa polyvalence en cuisine. ",
-    "origine": "France 🇫🇷",
+    "origine": "USA 🇺🇸",
     "poids": "120-200g",
-    "couleur": "Blanche",
+    "couleur": "Verte ",
     "note": 4.3,
     "culture": {
       "type": "Mi-saison",
@@ -685,7 +685,7 @@ export const DATA = [
     "descriptionLongue": "Scarlet Starfire séduit par sa couleur rouge éclatante et sa chair juteuse.\n\nSon goût vif et légèrement acidulé est parfait pour relever les salades estivales. ",
     "origine": "États-Unis 🇺🇸",
     "poids": "150-250g",
-    "couleur": "Rouge",
+    "couleur": "Orange Bigarée",
     "note": 4.5,
     "culture": {
       "type": "Mi-saison",
@@ -705,7 +705,7 @@ export const DATA = [
     "descriptionLongue": "Mila's Heart est une variété généreuse produisant de gros fruits en forme de cœur.\n\nSa chair dense et sucrée est idéale pour les plats cuisinés et les sauces. ",
     "origine": "Europe de l'Est 🇪🇺",
     "poids": "250-400g",
-    "couleur": "Rouge",
+    "couleur": "Orange Bigarrée",
     "note": 4.6,
     "culture": {
       "type": "Mi-saison",
@@ -747,7 +747,7 @@ export const DATA = [
     "descriptionLongue": "Velvet Night Dwarf est une variété naine remarquable par sa couleur foncée.\n\nElle offre une saveur profonde et légèrement fumée, très appréciée des connaisseurs. ",
     "origine": "Australie 🇦🇺",
     "poids": "150-220g",
-    "couleur": "Noire",
+    "couleur": "Noire Bigarée",
     "note": 4.8,
     "culture": {
       "type": "Dwarf / Mi-saison",
@@ -767,7 +767,7 @@ export const DATA = [
     "descriptionLongue": "Cookie Select se distingue par son goût équilibré et sa belle production.\n\nElle est idéale pour une culture familiale polyvalente. ",
     "origine": "États-Unis 🇺🇸",
     "poids": "140-220g",
-    "couleur": "Bigarrée",
+    "couleur": "Noire Bigarrée",
     "note": 4.4,
     "culture": {
       "type": "Mi-saison",
@@ -787,7 +787,7 @@ export const DATA = [
     "descriptionLongue": "Round Robin Dwarf produit une abondance de fruits ronds et savoureux.\n\nSon port compact et sa robustesse en font une valeur sûre. ",
     "origine": "Australie 🇦🇺",
     "poids": "130-200g",
-    "couleur": "Rouge",
+    "couleur": "Noire Bigarrée",
     "note": 4.6,
     "culture": {
       "type": "Dwarf / Mi-saison",
@@ -802,10 +802,10 @@ export const DATA = [
   },
   {
     "id": 39,
-    "nom": "Duckling",
+    "nom": "Duckling (utyonock)",
     "descriptionCourte": "Une variété atypique et rustique.",
     "descriptionLongue": "Duckling est une tomate originale, appréciée pour sa robustesse et son goût franc.\n\nElle s’adapte bien à des conditions de culture variées. ",
-    "origine": "Europe 🇪🇺",
+    "origine": "Russie 🇷🇺",
     "poids": "100-160g",
     "couleur": "Orange",
     "note": 4.2,
@@ -826,9 +826,9 @@ export const DATA = [
     "nom": "Jipaulia",
     "descriptionCourte": "Une variété rare et savoureuse.",
     "descriptionLongue": "Jipaulia est appréciée pour ses fruits équilibrés et sa belle régularité.\n\nElle offre une chair juteuse, idéale pour la consommation fraîche. ",
-    "origine": "Europe de l'Est 🇪🇺",
+    "origine": "France 🇫🇷",
     "poids": "150-250g",
-    "couleur": "Rose",
+    "couleur": "Noire Bigarrée",
     "note": 4.3,
     "culture": {
       "type": "Mi-saison",
@@ -849,7 +849,7 @@ export const DATA = [
     "descriptionLongue": "Polish Dwarf est une tomate compacte produisant des fruits savoureux.\n\nElle est idéale pour les cultures en espace réduit. ",
     "origine": "Pologne 🇵🇱",
     "poids": "120-200g",
-    "couleur": "Rouge",
+    "couleur": "Orange",
     "note": 4.5,
     "culture": {
       "type": "Dwarf / Mi-saison",
@@ -867,7 +867,7 @@ export const DATA = [
     "nom": "Bulgarie (Alifirov)",
     "descriptionCourte": "Une variété traditionnelle aux saveurs riches.",
     "descriptionLongue": "Cette variété bulgare est réputée pour son goût intense et authentique.\n\nElle produit des fruits charnus parfaits pour la cuisine. ",
-    "origine": "Bulgarie 🇧🇬",
+    "origine": "Kazakhstan 🇰🇿",
     "poids": "180-300g",
     "couleur": "Rouge",
     "note": 4.6,
@@ -926,7 +926,7 @@ export const DATA = [
     "nom": "Bleu Feu",
     "descriptionCourte": "Tomate spectaculaire aux reflets 'feu'.",
     "descriptionLongue": "Bleu Feu porte bien son nom avec des nuances rouges et bleues intenses.Sa chair est marbrée, offrant une saveur fruitée et sucrée.\n\nUne variété visuellement époustouflante. ",
-    "origine": "France 🇫🇷",
+    "origine": "USA 🇺🇸",
     "poids": "80-150g",
     "couleur": "Bleue / Rouge",
     "note": 4.6,
@@ -2252,7 +2252,7 @@ export const DATA = [
     "nom": "Magic Bullet",
     "descriptionCourte": "Tomate allongée de petite taille, très productive.",
     "descriptionLongue": "Petits fruits en forme de balles, parfaits pour les salades. Très résistante aux éclatements en fin de saison. ",
-    "origine": "Inconnue",
+    "origine": "Anglais 🇬🇧",
     "poids": "30-50g",
     "couleur": "Rouge",
     "note": 4.4,
@@ -2521,10 +2521,10 @@ export const DATA = [
     "id": 126,
     "nom": "Poire Mémé Rochefoucault",
     "descriptionCourte": "Variété héritage française en forme de grosse poire.",
-    "descriptionLongue": "Gros fruits rouges côtelés. Chair pleine, idéale pour faire des sauces épaisses et savoureuses. ",
+    "descriptionLongue": "Gros fruits Jaunes côtelés. Chair pleine, idéale pour faire des sauces épaisses et savoureuses. ",
     "origine": "France 🇫🇷",
     "poids": "250-400g",
-    "couleur": "Rouge",
+    "couleur": "Jaune",
     "note": 4.6,
     "images": [
       "https://i.postimg.cc/1zHWxKm2/58.jpg",
@@ -3071,7 +3071,7 @@ export const DATA = [
     "nom": "Kumato Cherry",
     "descriptionCourte": "Version cerise de la célèbre tomate brune, très sucrée et croquante.",
     "descriptionLongue": "Cette petite tomate se distingue par sa couleur sombre tirant sur le chocolat et le vert foncé. Elle est particulièrement appréciée pour son taux de sucre élevé et sa texture croquante, ce qui en fait une favorite pour les dégustations nature. ",
-    "origine": "Espagne 🇪🇸",
+    "origine": "Suisse  🇨🇭 ",
     "poids": "15-25g",
     "couleur": "Brun chocolat",
     "note": 4.8,
@@ -4354,7 +4354,7 @@ export const DATA = [
     "nom": "King Aramis",
     "descriptionCourte": "Grosse tomate rouge royale, charnue et imposante.",
     "descriptionLongue": "Fruit de type beefsteak, rouge profond. Chair pleine, peu de graines, saveur équilibrée. ",
-    "origine": "France 🇫🇷",
+    "origine": "USA 🇺🇸",
     "poids": "300-500g",
     "couleur": "Rouge",
     "note": 4.5,

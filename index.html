@@ -137,14 +137,16 @@
         #logo .logo-bottom { font-size: 2.8rem; }
 
         .search-area {
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
             display: flex;
-            gap: 12px;
+            gap: 10px;
             align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
-        .search-container { flex: 1; position: relative; }
+        .search-container { flex: 1; min-width: 200px; position: relative; }
 
         #search-input {
             width: 100%;
@@ -171,7 +173,32 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             font-size: 1.2rem;
+            flex-shrink: 0;
         }
+
+        /* NOUVEAU STYLE MENU DÉROULANT COULEUR */
+        #color-select {
+            height: 55px;
+            padding: 0 35px 0 15px;
+            border-radius: 16px;
+            border: 1px solid rgba(0,0,0,0.05);
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-main);
+            cursor: pointer;
+            appearance: none; /* Cache la flèche par défaut */
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23636e72' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M6 9l6 6 6-6'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 16px;
+            transition: var(--transition);
+            min-width: 140px;
+            flex-shrink: 0;
+        }
+        #color-select:hover { transform: translateY(-2px); border-color: var(--accent); }
+        #color-select:focus { outline: none; border-color: var(--accent); }
 
         .filters-container {
             max-width: 1200px;
@@ -186,28 +213,6 @@
             padding-bottom: 10px;
         }
         .filters-container::-webkit-scrollbar { display: none; }
-
-        /* NOUVEAU : Barre de filtres couleurs */
-        .color-filters-container {
-            max-width: 1200px;
-            margin: 10px auto;
-            padding: 0 1rem;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        
-        .color-dot {
-            width: 30px; height: 30px;
-            border-radius: 50%;
-            border: 2px solid rgba(0,0,0,0.1);
-            cursor: pointer;
-            transition: var(--transition);
-            position: relative;
-        }
-        .color-dot:hover { transform: scale(1.2); }
-        .color-dot.active { border-color: var(--text-main); transform: scale(1.1); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 
         .filter-chip {
             padding: 8px 16px;
@@ -558,35 +563,6 @@
             #cookie-banner { flex-direction: row; align-items: center; justify-content: space-between; }
         }
         .cookie-btns { display: flex; gap: 10px; flex-wrap: wrap; }
-		
-		.color-select-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--card-bg);
-    padding: 10px 16px;
-    border-radius: 16px;
-    box-shadow: var(--shadow);
-    border: 1px solid rgba(0,0,0,0.05);
-}
-
-.color-select-wrapper label {
-    font-weight: 700;
-    font-size: 0.9rem;
-    color: var(--text-light);
-}
-
-#color-select {
-    appearance: none;
-    border: none;
-    background: transparent;
-    font-size: 0.95rem;
-    font-weight: 700;
-    cursor: pointer;
-    outline: none;
-    color: var(--text-main);
-}
-
     </style>
 </head>
 <body>
@@ -618,9 +594,13 @@
             <div class="search-container">
                 <input type="text" id="search-input" placeholder="Rechercher une variété...">
             </div>
+            
+            <select id="color-select" onchange="app.setColor(this.value)">
+                <option value="Tous">🎨 Couleur...</option>
+                </select>
+
             <button class="sort-btn" onclick="app.toggleModal('sort-modal')">📑</button>
         </div>
-        <div id="color-filters" class="color-filters-container"></div>
         <div id="filters-container" class="filters-container"></div>
     </header>
 
@@ -663,7 +643,6 @@
             <div id="sort-options">
                 <div class="sort-option selected" onclick="app.setSort('nom', this)">Nom (A - Z)</div>
                 <div class="sort-option" onclick="app.setSort('nom_desc', this)">Nom (Z - A)</div>
-                <div class="sort-option" onclick="app.setSort('couleur', this)">Par Couleur</div>
                 <div class="sort-option" onclick="app.setSort('note_desc', this)">Les mieux notées ★</div>
                 <div class="sort-option" onclick="app.setSort('note_asc', this)">Les moins bien notées ★</div>
                 <div class="sort-option" onclick="app.setSort('poids_desc', this)">Taille / Poids (Gros fruits)</div>
@@ -701,7 +680,7 @@
             viewport: document.getElementById('view-port'),
             searchInput: document.getElementById('search-input'),
             filtersContainer: document.getElementById('filters-container'),
-            colorFiltersContainer: document.getElementById('color-filters'),
+            colorSelect: document.getElementById('color-select'),
             currentSort: 'nom',
             currentCategory: 'Tous',
             currentColor: 'Tous',
@@ -808,44 +787,35 @@
 
             setColor(col) {
                 this.currentColor = col;
-                this.renderFilters();
                 this.handleFilter();
             },
 
             renderFilters() {
-                // --- FILTRE COULEUR (VERSION SELECT PROPRE) ---
-const colors = new Set();
-DATA.forEach(t => { if (t.couleur) colors.add(t.couleur); });
+                // Filtres Catégories (Origine)
+                const counts = { 'Tous': DATA.length };
+                const origins = new Set();
+                DATA.forEach(t => { origins.add(t.origine); });
+                origins.forEach(org => { counts[org] = DATA.filter(t => t.origine === org).length; });
+                const filters = ['Tous', ...Array.from(origins).sort()];
+                
+                let html = `<button class="filter-chip ${this.currentCategory === 'Favoris' ? 'active' : ''}" onclick="app.setCategory('Favoris')">❤️ Favoris</button>`;
+                html += filters.map(f => `
+                    <button class="filter-chip ${this.currentCategory === f ? 'active' : ''}" onclick="app.setCategory('${f}')">
+                        ${f} <span class="filter-count">${counts[f] || 0}</span>
+                    </button>
+                `).join('');
+                this.filtersContainer.innerHTML = html;
 
-const colorMap = {
-    'Rouge': '#d63031',
-    'Jaune': '#f1c40f',
-    'Orange': '#e67e22',
-    'Noire': '#2d3436',
-    'Verte': '#27ae60',
-    'Blanche': '#dfe6e9',
-    'Rose': '#fd79a8',
-    'Bigarrée': '#b33939',
-    'Bleue': '#0984e3',
-    'Violette': '#6c5ce7'
-};
-
-let colorSelectHTML = `
-    <div class="color-select-wrapper">
-        <label for="color-select">🎨 Couleur</label>
-        <select id="color-select" onchange="app.setColor(this.value)">
-            <option value="Tous">Toutes les couleurs</option>
-            ${Array.from(colors).sort().map(c => `
-                <option value="${c}" ${this.currentColor === c ? 'selected' : ''}>
-                    ${c}
-                </option>
-            `).join('')}
-        </select>
-    </div>
-`;
-
-this.colorFiltersContainer.innerHTML = colorSelectHTML;
-
+                // Peuplement du Select Couleurs
+                const colors = new Set();
+                DATA.forEach(t => { if(t.couleur) colors.add(t.couleur); });
+                let colorOptions = '<option value="Tous">🎨 Couleur...</option>';
+                Array.from(colors).sort().forEach(c => {
+                    colorOptions += `<option value="${c}">${c}</option>`;
+                });
+                this.colorSelect.innerHTML = colorOptions;
+                this.colorSelect.value = this.currentColor;
+            },
 
             async getAllLikes() {
                 return new Promise(res => {
@@ -1052,7 +1022,6 @@ this.colorFiltersContainer.innerHTML = colorSelectHTML;
             async renderList(items) {
                 document.getElementById('search-box').style.display = 'flex';
                 document.getElementById('filters-container').style.display = 'flex';
-                document.getElementById('color-filters').style.display = 'flex';
                 let html = '<div class="tomatoes-grid">';
                 for(let t of items) {
                     html += `
@@ -1082,7 +1051,6 @@ this.colorFiltersContainer.innerHTML = colorSelectHTML;
                 const t = DATA.find(i => i.id === id);
                 document.getElementById('search-box').style.display = 'none';
                 document.getElementById('filters-container').style.display = 'none';
-                document.getElementById('color-filters').style.display = 'none';
                 const liked = await this.getLike(id);
                 
                 let cultureHTML = '';
@@ -1269,7 +1237,6 @@ this.colorFiltersContainer.innerHTML = colorSelectHTML;
             async renderCartPage() {
                 document.getElementById('search-box').style.display = 'none';
                 document.getElementById('filters-container').style.display = 'none';
-                document.getElementById('color-filters').style.display = 'none';
                 
                 const items = await this.getCartItems();
                 const userNom = localStorage.getItem('user_nom') || "";

@@ -9,8 +9,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
     
     <script>
-        // Fonction pour charger Analytics uniquement après consentement
+        // Gestion immédiate de la police et du thème avant le chargement
+        (function() {
+            const savedSize = localStorage.getItem('fontSize');
+            if(savedSize) document.documentElement.style.fontSize = savedSize;
+            if(localStorage.getItem('darkMode') === 'true') document.documentElement.classList.add('dark-mode');
+        })();
+
+        // Fonction pour charger Analytics uniquement après consentement explicite
         function loadGoogleAnalytics() {
+            if(localStorage.getItem('cookie_analytics') !== 'true') return;
+            
             var script = document.createElement('script');
             script.async = true;
             script.src = "https://www.googletagmanager.com/gtag/js?id=G-GWXLC7PKH1";
@@ -33,7 +42,6 @@
             --card-bg: #ffffff;
             --shadow: 0 10px 30px rgba(0,0,0,0.05);
             --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            --dwarf-color: #6c5ce7;
             
             /* Couleurs Jauge Semis */
             --precoce: #00b894;
@@ -47,7 +55,6 @@
             --text-light: #a0a0a0;
             --card-bg: #1e1e1e;
             --shadow: 0 10px 30px rgba(0,0,0,0.4);
-            --dwarf-color: #a29bfe;
         }
 
         body.reduce-animations * { animation: none !important; transition: none !important; }
@@ -61,7 +68,7 @@
             line-height: 1.6;
             overflow-x: hidden;
             transition: background-color 0.3s;
-            padding-bottom: 60px; /* Espace pour le bandeau cookies */
+            padding-bottom: 60px;
         }
 
         .top-nav {
@@ -77,26 +84,7 @@
             z-index: 100;
         }
 
-        /* AJOUT UTILISATEUR : Style bouton profil */
-        .profile-btn {
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--card-bg);
-            border-radius: 50%;
-            box-shadow: var(--shadow);
-            cursor: pointer;
-            transition: var(--transition);
-            font-size: 1.2rem;
-            border: 2px solid rgba(0,0,0,0.05);
-            color: var(--text-main);
-            margin-bottom: 5px;
-        }
-        .profile-btn:hover { border-color: var(--accent); color: var(--accent); }
-
-        .settings-btn, .cart-trigger-btn {
+        .profile-btn, .settings-btn, .cart-trigger-btn {
             width: 45px;
             height: 45px;
             display: flex;
@@ -110,10 +98,14 @@
             font-size: 1.2rem;
             border: 1px solid rgba(0,0,0,0.05);
             position: relative;
+            margin-bottom: 5px;
+            color: var(--text-main);
         }
+        
+        .profile-btn { border-radius: 50%; }
 
-        .settings-btn:hover, .cart-trigger-btn:hover { transform: scale(1.1); color: var(--accent); }
-        .settings-btn svg, .cart-trigger-btn svg { width: 20px; height: 20px; fill: currentColor; transition: var(--transition); }
+        .settings-btn:hover, .cart-trigger-btn:hover, .profile-btn:hover { transform: scale(1.1); color: var(--accent); }
+        .settings-btn svg, .cart-trigger-btn svg, .profile-btn svg { width: 20px; height: 20px; fill: currentColor; transition: var(--transition); }
         .settings-btn:hover svg { transform: rotate(90deg); }
 
         .cart-badge {
@@ -194,6 +186,28 @@
             padding-bottom: 10px;
         }
         .filters-container::-webkit-scrollbar { display: none; }
+
+        /* NOUVEAU : Barre de filtres couleurs */
+        .color-filters-container {
+            max-width: 1200px;
+            margin: 10px auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .color-dot {
+            width: 30px; height: 30px;
+            border-radius: 50%;
+            border: 2px solid rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+        .color-dot:hover { transform: scale(1.2); }
+        .color-dot.active { border-color: var(--text-main); transform: scale(1.1); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 
         .filter-chip {
             padding: 8px 16px;
@@ -299,55 +313,6 @@
             position: relative;
         }
 
-        .setting-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .setting-select {
-            padding: 8px 12px;
-            border-radius: 12px;
-            border: 1px solid rgba(0,0,0,0.1);
-            background: var(--bg-color);
-            color: var(--text-main);
-            font-family: inherit;
-            font-size: 0.9rem;
-        }
-
-        .team-section {
-            margin-top: 2rem;
-            border-top: 2px solid rgba(0,0,0,0.05);
-            padding-top: 1.5rem;
-        }
-        .team-header { font-size: 1.1rem; font-weight: 800; margin-bottom: 1rem; }
-        .team-member {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            background: rgba(0,0,0,0.02);
-            padding: 10px;
-            border-radius: 16px;
-        }
-        .team-badge {
-            width: 45px;
-            height: 45px;
-            border-radius: 14px;
-            background: var(--text-main);
-            color: var(--bg-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 1rem;
-        }
-        .team-info { display: flex; flex-direction: column; }
-        .team-role { font-size: 0.8rem; color: var(--text-light); }
-
         .sort-option {
             padding: 1rem;
             margin: 0.5rem 0;
@@ -396,7 +361,6 @@
 
         footer { padding: 3rem; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); margin-top: 4rem; font-weight: 600; color: var(--text-light); }
 
-        /* Nouvaux styles pour la page panier dédiée */
         .order-id-display {
             background: rgba(0,0,0,0.05);
             padding: 1rem;
@@ -417,17 +381,7 @@
             cursor: pointer;
             font-size: 0.8rem;
         }
-        .qr-container {
-            text-align: center;
-            margin: 1.5rem 0;
-            padding: 1rem;
-            background: white;
-            border-radius: 16px;
-            display: none;
-        }
-        .qr-container.visible { display: block; }
 
-        /* Styles supplémentaires pour les nouveautés */
         .order-summary-box {
             background: rgba(214, 48, 49, 0.05);
             border-left: 4px solid var(--accent);
@@ -452,7 +406,6 @@
             font-family: inherit;
         }
 
-        /* Style pour bouton report (nouveau) */
         .btn-report {
             display: inline-block;
             margin-top: 2rem;
@@ -468,9 +421,6 @@
 
         @media (max-width: 850px) { .details-grid { grid-template-columns: 1fr; } }
 
-        /* --- AJOUTS CSS DEMANDÉS --- */
-        
-        /* 1. Lottie Overlay */
         #lottie-loader-overlay {
             position: fixed; top:0; left:0; width:100%; height:100%;
             background: var(--bg-color); z-index: 9999;
@@ -482,7 +432,6 @@
             z-index: 2000; pointer-events: none;
         }
 
-        /* 2. Scroll to Top */
         .scroll-top-btn {
             position: fixed; bottom: 30px; right: 30px;
             width: 50px; height: 50px; border-radius: 50%;
@@ -495,7 +444,6 @@
         .scroll-top-btn.visible { opacity: 1; transform: translateY(0); }
         .scroll-top-btn:hover { background: var(--accent); }
 
-        /* 3. Button Vider */
         .btn-clear-cart {
             background: transparent; color: var(--text-light);
             border: 1px dashed rgba(0,0,0,0.2);
@@ -504,14 +452,12 @@
         }
         .btn-clear-cart:hover { color: var(--accent); border-color: var(--accent); }
 
-        /* 4. Easter Egg Ketchup */
         .falling-tomato {
             position: fixed; top: -50px; font-size: 2rem; z-index: 9999;
             animation: fall linear forwards; pointer-events: none;
         }
         @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
 
-        /* 5. STYLE POUR LA JAUGE DE CULTURE (NOUVEAU) */
         .culture-card { 
             background: rgba(0,0,0,0.03); 
             border-radius: 16px; 
@@ -556,7 +502,6 @@
             display:flex; align-items:center; gap:5px;
         }
 		
-        /* Styles pour la légalité et modales */
         .legal-footer {
             text-align: center;
             padding: 2rem;
@@ -583,18 +528,20 @@
             background: var(--card-bg);
             padding: 2rem;
             border-radius: 20px;
-            max-width: 600px;
+            max-width: 800px;
             max-height: 80vh;
             overflow-y: auto;
             text-align: left;
             box-shadow: var(--shadow);
             color: var(--text-main);
         }
-        .modal-legal-content h3 { margin-bottom: 1rem; color: var(--accent); }
-        .modal-legal-content h4 { margin-top: 1rem; margin-bottom: 0.5rem; font-size: 1rem; }
-        .modal-legal-content p { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-light); }
-        
-        /* BANDEAU COOKIES */
+        .modal-legal-content h3 { margin-bottom: 1rem; color: var(--accent); border-bottom: 2px solid rgba(0,0,0,0.1); padding-bottom: 10px; }
+        .modal-legal-content h4 { margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.1rem; color: var(--text-main); font-weight: 800; }
+        .modal-legal-content p, .modal-legal-content li { font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--text-light); line-height: 1.6; }
+        .modal-legal-content ul { margin-left: 20px; margin-bottom: 10px; }
+        .modal-legal-content strong { color: var(--text-main); }
+        .modal-legal-content a { color: var(--accent); }
+
         #cookie-banner {
             position: fixed;
             bottom: 0; left: 0; width: 100%;
@@ -602,7 +549,7 @@
             box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
             padding: 1.5rem;
             z-index: 99999;
-            display: none; /* Masqué par défaut */
+            display: none;
             flex-direction: column;
             gap: 1rem;
             border-top: 1px solid var(--accent);
@@ -610,7 +557,7 @@
         @media(min-width: 768px) {
             #cookie-banner { flex-direction: row; align-items: center; justify-content: space-between; }
         }
-        .cookie-btns { display: flex; gap: 10px; }
+        .cookie-btns { display: flex; gap: 10px; flex-wrap: wrap; }
     </style>
 </head>
 <body>
@@ -622,9 +569,9 @@
 
     <div class="top-nav">
         <div class="profile-btn" onclick="window.location.href='user.html'" title="Mon Profil">
-            <svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
         </div>
-        <div class="settings-btn" onclick="app.toggleModal('settings-modal')" title="Paramètres">
+        <div class="settings-btn" onclick="window.location.href='set.html'" title="Paramètres">
             <svg viewBox="0 0 24 24"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.81,11.69,4.81,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></svg>
         </div>
         <div class="cart-trigger-btn" onclick="app.renderCartPage()" title="Ma Liste">
@@ -644,6 +591,7 @@
             </div>
             <button class="sort-btn" onclick="app.toggleModal('sort-modal')">📑</button>
         </div>
+        <div id="color-filters" class="color-filters-container"></div>
         <div id="filters-container" class="filters-container"></div>
     </header>
 
@@ -653,82 +601,13 @@
         <div>
             <strong>🍪 Cookies & Vie Privée</strong><br>
             <span style="font-size:0.85rem; color:var(--text-light)">
-                Nous utilisons des cookies uniquement pour analyser le trafic de manière anonyme. Aucune donnée n'est vendue à des tiers.
+                Nous respectons votre vie privée. Choisissez vos préférences ci-dessous.
             </span>
         </div>
         <div class="cookie-btns">
-            <button class="btn btn-cart" style="font-size:0.8rem; padding: 0.5rem 1rem;" onclick="app.acceptCookies()">Accepter</button>
-            <button class="btn" style="font-size:0.8rem; padding: 0.5rem 1rem; border:1px solid var(--text-main);" onclick="app.refuseCookies()">Refuser</button>
-        </div>
-    </div>
-
-    <div id="settings-modal" class="modal" onclick="if(event.target == this) app.toggleModal('settings-modal')">
-        <div class="modal-content">
-            <h2 style="margin-bottom:2rem">Paramètres de l'application</h2>
-            
-            <div class="setting-row">
-                <div>
-                    <strong>Mode Sombre</strong><br>
-                    <small>Réduit la fatigue oculaire</small>
-                </div>
-                <input type="checkbox" id="theme-toggle" onchange="app.toggleTheme()" style="width:22px; height:22px;">
-            </div>
-
-            <div class="setting-row">
-                <div>
-                    <strong>Animations réduites</strong><br>
-                    <small>Pour plus de rapidité</small>
-                </div>
-                <input type="checkbox" id="anim-toggle" onchange="app.toggleAnim()" style="width:22px; height:22px;">
-            </div>
-
-            <div class="setting-row">
-                <div>
-                    <strong>Compact Mode</strong><br>
-                    <small>Affiche plus de cartes (Auto)</small>
-                </div>
-                <input type="checkbox" id="compact-toggle" onchange="app.updateGrid()" style="width:22px; height:22px;">
-            </div>
-
-            <div class="setting-row">
-                <div>
-                    <strong>Largeur de Grille</strong><br>
-                    <small>Colonnes forcées</small>
-                </div>
-                <select id="grid-cols" class="setting-select" onchange="app.updateGrid()">
-                    <option value="auto">Auto (Défaut)</option>
-                    <option value="1">1 Colonne</option>
-                    <option value="2">2 Colonnes</option>
-                    <option value="3">3 Colonnes</option>
-                    <option value="4">4 Colonnes</option>
-                </select>
-            </div>
-
-            <div class="setting-row" style="border-bottom:none">
-                <button class="btn btn-cart" style="width:100%" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLScTtprM--v4bhtzgIGKnv2JoGiJNK69XAj19IEIbsEN-09j_A/viewform?usp=publish-editor', '_blank')">
-                    💡 Avis et suggestions
-                </button>
-            </div>
-
-            <div class="team-section">
-                <div class="team-header">Contributions / Équipe</div>
-                <div class="team-member">
-                    <div class="team-badge">CD</div>
-                    <div class="team-info">
-                        <strong>Christophe Duval</strong>
-                        <span class="team-role">Administrateur</span>
-                    </div>
-                </div>
-                <div class="team-member">
-                    <div class="team-badge">TD</div>
-                    <div class="team-info">
-                        <strong>Tom Duval</strong>
-                        <span class="team-role">Développeur</span>
-                    </div>
-                </div>
-            </div>
-
-            <button class="btn btn-order" style="width:100%; margin-top: 1.5rem;" onclick="app.toggleModal('settings-modal')">Fermer</button>
+            <button class="btn btn-cart" style="font-size:0.8rem; padding: 0.5rem 1rem;" onclick="app.acceptCookies('all')">Tout Accepter</button>
+            <button class="btn" style="font-size:0.8rem; padding: 0.5rem 1rem; border:1px solid var(--text-main);" onclick="app.acceptCookies('none')">Tout Refuser</button>
+            <button class="btn" style="font-size:0.8rem; padding: 0.5rem 1rem; background:transparent; text-decoration:underline;" onclick="window.location.href='set.html'">Personnaliser</button>
         </div>
     </div>
 
@@ -769,7 +648,6 @@
     </footer>
 
     <script type="module">
-    // 1. On importe la base de données depuis le fichier externe
     import { DATA } from './data.js';
 	
         const dbName = "TomatoDB";
@@ -778,9 +656,6 @@
         const GOOGLE_ORDER_FORM = "https://docs.google.com/forms/d/e/1FAIpQLSci4D60ZDRPsN8EVhFiZeTmWyJHq5gXCUz6Ahm1d6ZFxfgVzQ/viewform?usp=pp_url&entry.1384065666=";
         const REPORT_FORM = "https://docs.google.com/forms/d/e/1FAIpQLSezgx91JDNljtb1TvW5YDKV_gbehMeDAqxNZaFcXrFg5d_dhw/viewform?usp=header";
         
-        // AJOUT UTILISATEUR : URL du Script Google
-        const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzuVPT191_d7VvmGOi5DpX722Wmm4cwp9CoDodFWzgN91_64NPUQx-xRnTUUFoW22-b7A/exec";
-
         const request = indexedDB.open(dbName, 1);
         request.onupgradeneeded = (e) => {
             db = e.target.result;
@@ -797,44 +672,43 @@
             viewport: document.getElementById('view-port'),
             searchInput: document.getElementById('search-input'),
             filtersContainer: document.getElementById('filters-container'),
+            colorFiltersContainer: document.getElementById('color-filters'),
             currentSort: 'nom',
             currentCategory: 'Tous',
+            currentColor: 'Tous',
             lottieLoader: null,
             lottieCart: null,
-            savedScroll: 0, // Ajout pour gestion scroll
+            savedScroll: 0, 
 
             init() {
-                this.renderFilters();
-                this.handleFilter(); // Ceci va re-render la liste
-                this.searchInput.oninput = () => this.handleFilter();
                 this.loadSettings();
+                this.renderFilters();
+                this.handleFilter(); 
+                this.searchInput.oninput = () => this.handleFilter();
                 this.updateCartBadge();
-                this.checkCookieConsent(); // Vérification cookies au démarrage
+                this.checkCookieConsent(); 
                 
-                // Init Lottie Loader
                 this.lottieLoader = lottie.loadAnimation({
                     container: document.getElementById('lottie-loading-anim'),
                     renderer: 'svg',
                     loop: true,
                     autoplay: true,
-                    path: 'https://lottie.host/99d3002a-9a99-4467-a48e-677a2846904e/PzYt7J5Z5t.json' // Animation plante/tomate
+                    path: 'https://lottie.host/99d3002a-9a99-4467-a48e-677a2846904e/PzYt7J5Z5t.json'
                 });
-                // Masquer le loader après chargement
+                
                 setTimeout(() => {
                     document.getElementById('lottie-loader-overlay').style.opacity = '0';
                     setTimeout(() => document.getElementById('lottie-loader-overlay').style.display = 'none', 500);
                 }, 1200);
 
-                // Init Lottie Cart Feedback (Hidden by default)
                 this.lottieCart = lottie.loadAnimation({
                     container: document.getElementById('lottie-cart-feedback'),
                     renderer: 'svg',
                     loop: false,
                     autoplay: false,
-                    path: 'https://lottie.host/575a74f4-523e-4614-a384-5f560c5a3233/yW2a5v7J5t.json' // Animation Check/Panier
+                    path: 'https://lottie.host/575a74f4-523e-4614-a384-5f560c5a3233/yW2a5v7J5t.json'
                 });
 
-                // Scroll to top Logic
                 window.addEventListener('scroll', () => {
                     const btn = document.getElementById('scroll-top');
                     if(window.scrollY > 300) btn.classList.add('visible');
@@ -842,45 +716,42 @@
                 });
             },
 
-            /* GESTION CONSENTEMENT COOKIES (Légal) */
             checkCookieConsent() {
-                const consent = localStorage.getItem('cookieConsent');
-                if (consent === 'true') {
+                const consent = localStorage.getItem('cookie_consent_status');
+                if (consent === 'accepted') {
                     loadGoogleAnalytics();
-                } else if (consent === null) {
+                } else if (!consent) {
                     document.getElementById('cookie-banner').style.display = 'flex';
                 }
             },
             
-            acceptCookies() {
-                localStorage.setItem('cookieConsent', 'true');
+            acceptCookies(type) {
+                if(type === 'all') {
+                    localStorage.setItem('cookie_consent_status', 'accepted');
+                    localStorage.setItem('cookie_analytics', 'true');
+                    localStorage.setItem('cookie_functional', 'true');
+                    loadGoogleAnalytics();
+                } else if(type === 'none') {
+                    localStorage.setItem('cookie_consent_status', 'refused');
+                    localStorage.setItem('cookie_analytics', 'false');
+                    localStorage.setItem('cookie_functional', 'false');
+                }
                 document.getElementById('cookie-banner').style.display = 'none';
-                loadGoogleAnalytics();
-            },
-            
-            refuseCookies() {
-                localStorage.setItem('cookieConsent', 'false');
-                document.getElementById('cookie-banner').style.display = 'none';
-                // On ne charge pas Google Analytics
             },
 
             loadSettings() {
-                if(localStorage.getItem('darkMode') === 'true') { document.body.classList.add('dark-mode'); document.getElementById('theme-toggle').checked = true; }
-                if(localStorage.getItem('noAnim') === 'true') { document.body.classList.add('reduce-animations'); document.getElementById('anim-toggle').checked = true; }
-                if(localStorage.getItem('compact') === 'true') { document.getElementById('compact-toggle').checked = true; }
-                const gridCols = localStorage.getItem('gridCols');
-                if(gridCols) { document.getElementById('grid-cols').value = gridCols; }
+                if(localStorage.getItem('darkMode') === 'true') { document.body.classList.add('dark-mode'); }
+                if(localStorage.getItem('noAnim') === 'true') { document.body.classList.add('reduce-animations'); }
+                const savedSize = localStorage.getItem('fontSize');
+                if(savedSize) document.documentElement.style.fontSize = savedSize;
                 this.updateGrid(true);
             },
 
-            toggleTheme() { let dark = document.body.classList.toggle('dark-mode'); localStorage.setItem('darkMode', dark); },
-            toggleAnim() { let anim = document.body.classList.toggle('reduce-animations'); localStorage.setItem('noAnim', anim); },
             updateGrid(init = false) {
                 const grid = document.querySelector('.tomatoes-grid');
                 if(!grid) return;
-                const isCompact = document.getElementById('compact-toggle').checked;
-                const colsVal = document.getElementById('grid-cols').value;
-                if (!init) { localStorage.setItem('compact', isCompact); localStorage.setItem('gridCols', colsVal); }
+                const isCompact = localStorage.getItem('compact') === 'true';
+                const colsVal = localStorage.getItem('gridCols') || 'auto';
                 if (colsVal !== 'auto') { grid.style.gridTemplateColumns = `repeat(${colsVal}, 1fr)`; } 
                 else { grid.style.gridTemplateColumns = isCompact ? 'repeat(auto-fill, minmax(180px, 1fr))' : ''; }
             },
@@ -906,22 +777,45 @@
                 this.handleFilter();
             },
 
+            setColor(col) {
+                this.currentColor = col;
+                this.renderFilters();
+                this.handleFilter();
+            },
+
             renderFilters() {
+                // Filtres Catégories
                 const counts = { 'Tous': DATA.length };
                 const origins = new Set();
                 DATA.forEach(t => { origins.add(t.origine); });
                 origins.forEach(org => { counts[org] = DATA.filter(t => t.origine === org).length; });
                 const filters = ['Tous', ...Array.from(origins).sort()];
                 
-                // Ajout bouton Favoris + Origins
                 let html = `<button class="filter-chip ${this.currentCategory === 'Favoris' ? 'active' : ''}" onclick="app.setCategory('Favoris')">❤️ Favoris</button>`;
-                
                 html += filters.map(f => `
                     <button class="filter-chip ${this.currentCategory === f ? 'active' : ''}" onclick="app.setCategory('${f}')">
                         ${f} <span class="filter-count">${counts[f] || 0}</span>
                     </button>
                 `).join('');
                 this.filtersContainer.innerHTML = html;
+
+                // Filtres Couleurs
+                const colors = new Set();
+                DATA.forEach(t => { if(t.couleur) colors.add(t.couleur); });
+                // Mapping couleur nom -> code CSS
+                const colorMap = {
+                    'Rouge': '#d63031', 'Jaune': '#f1c40f', 'Orange': '#e67e22', 'Noire': '#2d3436', 
+                    'Verte': '#27ae60', 'Blanche': '#dfe6e9', 'Rose': '#fd79a8', 'Bigarrée': 'linear-gradient(45deg, #d63031, #f1c40f)',
+                    'Bleue': '#0984e3', 'Violette': '#6c5ce7'
+                };
+
+                let colorHtml = `<div class="color-dot ${this.currentColor === 'Tous' ? 'active' : ''}" style="background:linear-gradient(135deg, white, black);" onclick="app.setColor('Tous')" title="Toutes"></div>`;
+                
+                Array.from(colors).sort().forEach(c => {
+                    const bg = colorMap[c] || '#ccc';
+                    colorHtml += `<div class="color-dot ${this.currentColor === c ? 'active' : ''}" style="background:${bg};" onclick="app.setColor('${c}')" title="${c}"></div>`;
+                });
+                this.colorFiltersContainer.innerHTML = colorHtml;
             },
 
             async getAllLikes() {
@@ -930,7 +824,6 @@
                     const store = trans.objectStore("likes");
                     const req = store.getAllKeys();
                     req.onsuccess = () => {
-                        // Check values to see if true (store contains true/false)
                         const keys = req.result;
                         const validIds = [];
                         let processed = 0;
@@ -950,8 +843,6 @@
 
             async handleFilter() {
                 const q = this.searchInput.value.toLowerCase();
-                
-                // Easter Egg Ketchup
                 if (q === "ketchup") { this.triggerKetchup(); }
 
                 let likedIds = [];
@@ -961,14 +852,22 @@
 
                 let f = DATA.filter(t => {
                     const matchesSearch = t.nom.toLowerCase().includes(q);
+                    
                     let matchesCategory = true;
                     if (this.currentCategory === 'Favoris') {
                         matchesCategory = likedIds.includes(t.id);
                     } else {
                         matchesCategory = this.currentCategory === 'Tous' ? true : t.origine === this.currentCategory;
                     }
-                    return matchesSearch && matchesCategory;
+
+                    let matchesColor = true;
+                    if (this.currentColor !== 'Tous') {
+                        matchesColor = t.couleur === this.currentColor;
+                    }
+
+                    return matchesSearch && matchesCategory && matchesColor;
                 });
+
                 f.sort((a, b) => {
                     switch(this.currentSort) {
                         case 'nom_desc': return b.nom.localeCompare(a.nom);
@@ -1017,7 +916,6 @@
                 const store = trans.objectStore("cart");
                 store.put({ id: t.id, nom: t.nom, image: t.images[0], origine: t.origine });
                 
-                // Trigger Lottie
                 if(this.lottieCart) {
                     this.lottieCart.stop();
                     this.lottieCart.play();
@@ -1038,7 +936,6 @@
                 const trans = db.transaction("cart", "readwrite");
                 trans.objectStore("cart").delete(id);
                 trans.oncomplete = () => {
-                    // Si on est sur la page panier dédiée, on rafraîchit la page
                     if(document.querySelector('.details-view h1')?.innerText === "Ma Liste d'échange 🧺") {
                         this.renderCartPage();
                     } else {
@@ -1117,8 +1014,6 @@
                     varietyString = items.map(i => i.nom).join(', ');
                 }
                 const url = GOOGLE_ORDER_FORM + encodeURIComponent(varietyString);
-                
-                // MODIFICATION LEGALE : Afficher la modale d'avertissement au lieu d'ouvrir directement
                 const modal = document.getElementById('form-modal');
                 const btn = document.getElementById('confirm-redirect');
                 btn.onclick = () => window.open(url, '_blank');
@@ -1128,6 +1023,7 @@
             async renderList(items) {
                 document.getElementById('search-box').style.display = 'flex';
                 document.getElementById('filters-container').style.display = 'flex';
+                document.getElementById('color-filters').style.display = 'flex';
                 let html = '<div class="tomatoes-grid">';
                 for(let t of items) {
                     html += `
@@ -1145,45 +1041,34 @@
                 this.viewport.innerHTML = html + '</div>';
                 this.updateGrid(true);
 
-                // --- NOUVEAU: RESTAURATION SCROLL ---
                 if (this.savedScroll > 0) {
                     window.scrollTo(0, this.savedScroll);
-                    this.savedScroll = 0; // Reset après utilisation
+                    this.savedScroll = 0; 
                 }
             },
 
             async renderDetail(id) {
-                // --- NOUVEAU: SAUVEGARDE SCROLL ---
                 this.savedScroll = window.scrollY;
 
                 const t = DATA.find(i => i.id === id);
                 document.getElementById('search-box').style.display = 'none';
                 document.getElementById('filters-container').style.display = 'none';
+                document.getElementById('color-filters').style.display = 'none';
                 const liked = await this.getLike(id);
                 
-                // --- LOGIQUE D'AFFICHAGE DE LA JAUGE DE CULTURE (NOUVEAU) ---
                 let cultureHTML = '';
                 if (t.culture) {
-                    // Valeurs par défaut (si jamais)
                     let width = '50%';
                     let color = 'var(--accent)';
                     let label = t.culture.type;
                     
-                    // Logique Jauge (1, 2 ou 3)
                     if (t.culture.jauge === 1) { 
-                        width = '33%'; 
-                        color = 'var(--precoce)';
-                        label = label || 'Précoce';
+                        width = '33%'; color = 'var(--precoce)'; label = label || 'Précoce';
                     } else if (t.culture.jauge === 2) {
-                        width = '66%'; 
-                        color = 'var(--mi-saison)';
-                        label = label || 'Mi-saison';
+                        width = '66%'; color = 'var(--mi-saison)'; label = label || 'Mi-saison';
                     } else if (t.culture.jauge === 3) {
-                        width = '100%'; 
-                        color = 'var(--tardive)';
-                        label = label || 'Tardive';
+                        width = '100%'; color = 'var(--tardive)'; label = label || 'Tardive';
                     } else {
-                        // Fallback sur le texte si pas de chiffre jauge
                          if(label && label.toLowerCase().includes('précoce')) { width='33%'; color='var(--precoce)'; }
                          else if(label && label.toLowerCase().includes('mi')) { width='66%'; color='var(--mi-saison)'; }
                          else if(label && label.toLowerCase().includes('tard')) { width='100%'; color='var(--tardive)'; }
@@ -1233,14 +1118,11 @@
                                 </div>
                                 <div style="text-align:right;">
                                     <a href="${REPORT_FORM}" target="_blank" class="btn-report">Signaler une erreur sur cette carte</a>
-                                    <p style="font-size:0.7rem; color:var(--text-light); margin-top:5px;">
-                                        Note : Les données (origine, cycle, etc.) peuvent ne pas être correctes.
-                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>`;
-                    window.scrollTo(0, 0); // Force le haut de page pour le détail
+                    window.scrollTo(0, 0); 
             },
 
             switchImg(el, src) {
@@ -1249,122 +1131,29 @@
                 el.classList.add('active');
             },
 
-            /* --- NOUVELLES FONCTIONS PANIER DÉDIÉ --- */
-
             async generateOrderNumber() {
                 const items = await this.getCartItems();
                 if(items.length === 0) return "";
                 const alphabet = "abcdefghijklmnopqrstuvwxyz";
                 const num = items.map(item => item.id).join(alphabet[Math.floor(Math.random() * alphabet.length)]);
-                localStorage.setItem('lastOrderNumber', num);
                 return num;
             },
 
             copyOrderNumber(btn) {
                 const num = document.getElementById('order-num-text').innerText;
-                
-                // Méthode moderne
                 if (navigator.clipboard && navigator.clipboard.writeText) {
                     navigator.clipboard.writeText(num).then(() => {
                         const originalText = btn.innerText;
                         btn.innerText = "Copié ✔";
                         setTimeout(() => btn.innerText = originalText, 2000);
                     });
-                } else {
-                    // Méthode de repli (Fallback) pour Mobile/Vieux navigateurs
-                    const textArea = document.createElement("textarea");
-                    textArea.value = num;
-                    textArea.style.position = "fixed";
-                    textArea.style.left = "-9999px";
-                    textArea.style.top = "0";
-                    document.body.appendChild(textArea);
-                    textArea.focus();
-                    textArea.select();
-                    try {
-                        document.execCommand('copy');
-                        const originalText = btn.innerText;
-                        btn.innerText = "Copié ✔";
-                        setTimeout(() => btn.innerText = originalText, 2000);
-                    } catch (err) {
-                        console.error('Erreur de copie', err);
-                    }
-                    document.body.removeChild(textArea);
                 }
-            },
-
-            showQRCode() {
-                const num = document.getElementById('order-num-text').innerText;
-                const container = document.getElementById('qr-container');
-                const img = document.getElementById('qr-img');
-                // Utilisation de l'API QuickChart pour un QR Code fonctionnel et fiable
-                img.src = `https://quickchart.io/qr?text=${encodeURIComponent(num)}&size=200&margin=1`;
-                container.classList.add('visible');
-            },
-
-            async processOrder() {
-                // AJOUT UTILISATEUR : Vérification de l'utilisateur
-                const userNom = localStorage.getItem('user_nom');
-                const userPrenom = localStorage.getItem('user_prenom');
-
-                if (!userNom || !userPrenom) {
-                    window.location.href = 'user.html';
-                    return;
-                }
-
-                const num = await this.generateOrderNumber();
-                const items = await this.getCartItems();
-                const varietiesNames = items.map(i => i.nom).join(' • ');
-                // SUPPRESSION PRIX : plus de calcul de total
-                
-                // AJOUT UTILISATEUR : Envoi automatique vers Google Sheet
-                const orderData = {
-                    client: `${userPrenom} ${userNom}`,
-                    reference: num,
-                    varietes: varietiesNames,
-                    total: "-" // On met un tiret à la place du prix
-                };
-                
-                // On lance l'envoi en tâche de fond (sans await bloquant pour l'UI, mais on log l'erreur)
-                // NOTE LEGALE: L'utilisateur a été prévenu via la Politique RGPD que ces données partent vers un script externe.
-                fetch(APPS_SCRIPT_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(orderData)
-                }).catch(err => console.error("Erreur envoi Sheet:", err));
-
-                document.getElementById('order-display-area').innerHTML = `
-                    <div class="order-summary-box">
-                        <strong>Liste : ${items.length} variétés</strong><br>
-                        • ${varietiesNames}
-                    </div>
-                    <div class="order-id-display">
-                        <span id="order-num-text">${num}</span>
-                        <button class="btn-copy" onclick="app.copyOrderNumber(this)">📋 Copier</button>
-                    </div>
-                    <div class="action-row" style="margin-top:1rem; gap:10px; flex-wrap:wrap;">
-                        <button class="btn btn-like" style="flex:1; min-width:200px" onclick="app.showQRCode()">QR code de la liste</button>
-                        <button class="btn btn-order" style="flex:1; min-width:200px" onclick="window.open('https://m.me/christophe.duval.31149', '_blank')">Finaliser l'échange via Messenger</button>
-                    </div>
-                    
-                    <div class="pdf-form-container">
-                        <h3 style="margin-bottom:1rem">📄 Exporter ma liste</h3>
-                        <input type="text" id="pdf-nom" class="pdf-input" placeholder="Votre Nom" value="${userNom}">
-                        <input type="text" id="pdf-prenom" class="pdf-input" placeholder="Votre Prénom" value="${userPrenom}">
-                        <button class="btn btn-cart" style="width:100%; background: #2d3436;" onclick="app.generatePDF()">Télécharger le PDF de la liste</button>
-                    </div>
-
-                    <div id="qr-container" class="qr-container">
-                        <p style="margin-bottom:10px; font-weight:bold;">Votre QR Code :</p>
-                        <img id="qr-img" src="" alt="QR Code">
-                    </div>
-                `;
             },
 
             async generatePDF() {
                 const { jsPDF } = window.jspdf;
                 const doc = new jsPDF();
                 
-                // Helper pour supprimer les émojis
                 const stripEmojis = (str) => {
                     return str.replace(/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{1F700}-\u{1F77F}\u{1F780}-\u{1F7FF}\u{1F800}-\u{1F8FF}\u{1F900}-\u{1F9FF}\u{1FA00}-\u{1FA6F}\u{1FA70}-\u{1FAFF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{1F1E6}-\u{1F1FF}]/gu, '');
                 };
@@ -1374,13 +1163,11 @@
                 const orderNum = document.getElementById('order-num-text').innerText;
                 const items = await this.getCartItems();
                 const date = new Date().toLocaleString('fr-FR');
-                // SUPPRESSION PRIX
                 
                 const pageWidth = 210;
                 const pageHeight = 297;
                 const margin = 20;
 
-                // --- HEADER ---
                 const drawHeader = () => {
                     doc.setFillColor(214, 48, 49);
                     doc.rect(0, 0, pageWidth, 40, 'F');
@@ -1391,7 +1178,6 @@
                 };
                 drawHeader();
 
-                // --- INFO CLIENT ---
                 doc.setTextColor(45, 52, 54);
                 doc.setFontSize(10);
                 doc.setFont("helvetica", "normal");
@@ -1402,7 +1188,6 @@
                 doc.setDrawColor(220, 220, 220);
                 doc.line(margin, 70, pageWidth - margin, 70);
 
-                // --- LISTE ---
                 doc.setFontSize(14);
                 doc.setFont("helvetica", "bold");
                 doc.setTextColor(214, 48, 49);
@@ -1434,7 +1219,6 @@
                     y += 12;
                 });
 
-                // --- TOTAL & FOOTER ---
                 if (y > pageHeight - 60) {
                     doc.addPage();
                     drawHeader();
@@ -1446,55 +1230,24 @@
                 doc.setLineWidth(0.5);
                 doc.line(margin, y, pageWidth - margin, y);
                 
-                // SUPPRESSION PRIX : Plus d'affichage de total
-
-                // QR Code
-                const qrUrl = `https://quickchart.io/qr?text=${encodeURIComponent(orderNum)}&size=150`;
-                const img = new Image();
-                img.crossOrigin = "Anonymous";
-                img.src = qrUrl;
-                
-                img.onload = function() {
-                    doc.addImage(img, 'PNG', (pageWidth/2) - 25, y + 10, 50, 50);
-                    doc.setFontSize(9);
-                    doc.setTextColor(100, 100, 100);
-                    doc.setFont("helvetica", "italic");
-                    doc.text("Merci de votre confiance !", pageWidth/2, y + 70, { align: "center" });
-                    doc.save(`Liste_${nom.replace(/\s/g, '_')}.pdf`);
-                };
-            },
-
-            async reloadLastOrder() {
-                const lastNum = localStorage.getItem('lastOrderNumber');
-                if(!lastNum) {
-                    alert("Aucune liste récente trouvée.");
-                    return;
-                }
-                // Extraire les IDs (tout ce qui est numérique)
-                const ids = lastNum.split(/[a-z]/).filter(x => x !== "").map(Number);
-                
-                // Vider le panier actuel et re-remplir
-                const trans = db.transaction("cart", "readwrite");
-                const store = trans.objectStore("cart");
-                store.clear();
-                
-                ids.forEach(id => {
-                    const t = DATA.find(item => item.id === id);
-                    if(t) store.put({ id: t.id, nom: t.nom, image: t.images[0], origine: t.origine });
-                });
-
-                trans.oncomplete = () => {
-                    this.updateCartBadge();
-                    this.renderCartPage();
-                };
+                doc.setFontSize(9);
+                doc.setTextColor(100, 100, 100);
+                doc.setFont("helvetica", "italic");
+                doc.text("Merci de votre confiance !", pageWidth/2, y + 20, { align: "center" });
+                doc.save(`Liste_${nom.replace(/\s/g, '_')}.pdf`);
             },
 
             async renderCartPage() {
                 document.getElementById('search-box').style.display = 'none';
                 document.getElementById('filters-container').style.display = 'none';
+                document.getElementById('color-filters').style.display = 'none';
                 
                 const items = await this.getCartItems();
-                const lastNum = localStorage.getItem('lastOrderNumber');
+                const userNom = localStorage.getItem('user_nom') || "";
+                const userPrenom = localStorage.getItem('user_prenom') || "";
+                
+                // Générer un ID local pour le PDF
+                const num = await this.generateOrderNumber();
 
                 let html = `
                     <div class="details-view">
@@ -1509,7 +1262,6 @@
                     html += `
                         <div style="text-align:center; padding: 3rem; background:rgba(0,0,0,0.02); border-radius:24px;">
                             <p style="font-size:1.2rem; color:var(--text-light); margin-bottom:2rem;">Votre liste est vide.</p>
-                            ${lastNum ? `<button class="btn btn-cart" onclick="app.reloadLastOrder()">Recharger ma dernière liste</button>` : ''}
                         </div>
                     `;
                 } else {
@@ -1528,9 +1280,22 @@
                         </div>
                         
                         <div id="order-display-area" style="margin-top:2rem; border-top:1px solid rgba(0,0,0,0.1); padding-top:2rem;">
-                            <p style="font-size:0.8rem; color:var(--accent); margin-bottom:1rem;">⚠️ En validant cette liste, vos informations seront transmises à Google Sheets pour traiter l'échange.</p>
-                            <button class="btn btn-order" style="width:100%" onclick="app.processOrder()">Valider la liste</button>
-                            ${lastNum ? `<button class="btn btn-cart" style="width:100%; margin-top:10px; background:transparent; color:var(--text-main); border:1px solid var(--text-main);" onclick="app.reloadLastOrder()">Recharger ma dernière liste</button>` : ''}
+                            <div class="order-id-display">
+                                <span id="order-num-text">${num}</span>
+                                <small style="font-size:0.7rem;">Réf locale</small>
+                            </div>
+
+                            <div class="pdf-form-container">
+                                <h3 style="margin-bottom:1rem">📄 Exporter ma liste</h3>
+                                <p style="font-size:0.8rem; color:var(--text-light); margin-bottom:10px;">Ces informations ne sont stockées que sur votre appareil pour générer le PDF.</p>
+                                <input type="text" id="pdf-nom" class="pdf-input" placeholder="Votre Nom" value="${userNom}">
+                                <input type="text" id="pdf-prenom" class="pdf-input" placeholder="Votre Prénom" value="${userPrenom}">
+                                <button class="btn btn-cart" style="width:100%; background: #2d3436;" onclick="app.generatePDF()">Télécharger le PDF de la liste</button>
+                            </div>
+                            
+                            <div style="margin-top:1rem;">
+                                 <button class="btn btn-order" style="width:100%" onclick="window.open('https://m.me/christophe.duval.31149', '_blank')">Finaliser l'échange via Messenger</button>
+                            </div>
                         </div>
                     `;
                 }
@@ -1539,15 +1304,15 @@
                 this.viewport.innerHTML = html;
             }
         };
-    window.app = app; // <--- AJOUTE CETTE LIGNE ICI
+    window.app = app; 
 </script>
 
 <footer class="legal-footer">
-    <p>© 2024 Pépins de Tomates - Christophe Duval - Projet amateur à but non lucratif</p>
+    <p>© 2026 Pépins de Tomates - Christophe Duval - Projet amateur à but non lucratif</p>
     <p>
         <span class="legal-link" onclick="document.getElementById('modal-ml').style.display='flex'">Mentions Légales</span> | 
         <span class="legal-link" onclick="document.getElementById('modal-rgpd').style.display='flex'">Politique de Confidentialité (RGPD)</span> |
-        <span class="legal-link" onclick="document.getElementById('cookie-banner').style.display='flex'">Gérer les cookies</span>
+        <span class="legal-link" onclick="document.getElementById('modal-cookies').style.display='flex'">Cookies</span>
     </p>
 </footer>
 
@@ -1556,17 +1321,20 @@
         <h3>Mentions Légales</h3>
         <h4>1. Éditeur du site</h4>
         <p>Le présent site est édité à titre personnel par :</p>
-        <p><strong>Monsieur Christophe Duval</strong></p>
-        <p>Contact : chpalito77@gmail.com</p>
-        <p>Ce site n'a pas de vocation commerciale. Il s'agit d'une liste d'échange entre amateurs.</p>
+        <p><strong>Christophe Duval (chpalito77)</strong></p>
+        <p>Ce site est une initiative amateur à but non lucratif et ne revêt aucun caractère commercial.</p>
 
-        <h4>2. Hébergement</h4>
-        <p>Le site est hébergé par :</p>
+        <h4>2. Développement & Technique</h4>
+        <p>Développeur : <strong>Tom Duval</strong></p>
+        <p>Contact technique : <a href="mailto:chpalitom09@gmail.com">chpalitom09@gmail.com</a></p>
+
+        <h4>3. Hébergement</h4>
+        <p>Ce site est hébergé gratuitement par :</p>
         <p><strong>GitHub Inc.</strong></p>
         <p>88 Colin P Kelly Jr St, San Francisco, CA 94107, États-Unis.</p>
         
-        <h4>3. Propriété Intellectuelle</h4>
-        <p>L'ensemble de ce site (images, textes, code) relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Toute reproduction est interdite sans autorisation expresse de l'auteur.</p>
+        <h4>4. Propriété Intellectuelle</h4>
+        <p>L'ensemble de ce site (images, textes, code, structure) relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Toute reproduction, modification ou diffusion est interdite sans autorisation expresse de l'auteur.</p>
         
         <button class="btn btn-order" style="width:100%; margin-top:20px;" onclick="document.getElementById('modal-ml').style.display='none'">Fermer</button>
     </div>
@@ -1576,38 +1344,64 @@
     <div class="modal-legal-content">
         <h3>Politique de Confidentialité & RGPD</h3>
         
-        <h4>1. Collecte des données</h4>
-        <p>Nous collectons les informations que vous nous fournissez volontairement via le formulaire de profil (Nom, Prénom) et vos actions sur le site (constitution de liste d'échange).</p>
-        
-        <h4>2. Utilisation des données</h4>
-        <p>Ces données sont utilisées uniquement pour :</p>
-        <ul style="margin-left:20px; font-size:0.9rem; color:var(--text-light); margin-bottom:10px;">
-            <li>Générer votre liste d'échange au format PDF.</li>
-            <li>Transmettre votre demande d'échange à Christophe Duval via Google Sheets.</li>
-            <li>Analyser l'audience du site (Google Analytics) si vous l'avez accepté.</li>
+        <p>La protection de vos données personnelles est notre priorité. Cette politique vise à vous informer de manière transparente, conformément au Règlement Général sur la Protection des Données (RGPD).</p>
+
+        <h4>1. Responsable du traitement</h4>
+        <p>Christophe Duval. Contact : <a href="mailto:chpalitom09@gmail.com">chpalitom09@gmail.com</a></p>
+
+        <h4>2. Données collectées & Finalités</h4>
+        <ul>
+            <li><strong>Données de profil (Nom, Prénom) :</strong> Saisies volontairement par l'utilisateur. <br><em>Finalité :</em> Uniquement utilisées pour personnaliser l'interface et générer vos PDF de liste d'échange.</li>
+            <li><strong>Liste d'envies (Panier) :</strong> Variétés sélectionnées.<br><em>Finalité :</em> Permettre la création de votre liste d'échange.</li>
+            <li><strong>Préférences (Mode sombre, taille police) :</strong><br><em>Finalité :</em> Confort de navigation.</li>
+            <li><strong>Données de navigation (Cookies Analytics) :</strong> Uniquement si consenti.<br><em>Finalité :</em> Analyser la fréquentation du site de manière anonyme.</li>
         </ul>
 
-        <h4>3. Transfert de données (Google)</h4>
-        <p>En utilisant les fonctions d'échange, vous acceptez que vos données (Nom, Prénom, Liste) soient transférées et stockées sur les serveurs de <strong>Google LLC</strong> (Google Forms et Google Sheets) situés aux États-Unis. Google adhère aux clauses contractuelles types de la Commission Européenne.</p>
+        <h4>3. Stockage et Sécurité</h4>
+        <p><strong>Absence de base de données serveur :</strong> Contrairement à la majorité des sites, nous ne disposons d'aucune base de données centrale stockant vos noms ou listes. </p>
+        <p><strong>Stockage Local (LocalStorage) :</strong> Vos données (Nom, Prénom, Panier, Préférences) sont stockées <strong>exclusivment sur votre appareil</strong> (dans le navigateur de votre téléphone ou ordinateur). Nous n'y avons pas accès directement.</p>
 
-        <h4>4. Vos droits</h4>
-        <p>Conformément à la loi "Informatique et Libertés", vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour l'exercer, contactez l'éditeur à chpalito77@gmail.com.</p>
-        
-        <h4>5. Cookies</h4>
-        <p>Ce site utilise un cookie local ("LocalStorage") pour sauvegarder vos préférences (mode sombre, panier). Un cookie tiers (Google Analytics) est utilisé pour les statistiques uniquement si vous donnez votre consentement.</p>
+        <h4>4. Pas de revente</h4>
+        <p>Aucune donnée n'est vendue, louée ou cédée à des tiers.</p>
+
+        <h4>5. Vos Droits</h4>
+        <p>Conformément à la réglementation, vous disposez des droits suivants :</p>
+        <ul>
+            <li><strong>Droit d'accès et de rectification :</strong> Vous pouvez voir et modifier vos données directement dans la page "Profil" ou "Paramètres".</li>
+            <li><strong>Droit à l'effacement :</strong> Un bouton "Supprimer toutes mes données" est disponible dans les Paramètres. Cela efface instantanément tout le stockage local de l'application.</li>
+            <li><strong>Droit d'opposition :</strong> Vous pouvez refuser les cookies d'analyse à tout moment.</li>
+        </ul>
+        <p>Pour toute question ou réclamation, vous pouvez contacter la CNIL (<a href="https://www.cnil.fr" target="_blank">www.cnil.fr</a>).</p>
 
         <button class="btn btn-order" style="width:100%; margin-top:20px;" onclick="document.getElementById('modal-rgpd').style.display='none'">Fermer</button>
+    </div>
+</div>
+
+<div id="modal-cookies" class="modal-overlay" onclick="if(event.target == this) this.style.display='none'">
+    <div class="modal-legal-content">
+        <h3>Politique de Cookies</h3>
+        
+        <h4>Qu'est-ce qu'un cookie ?</h4>
+        <p>Un cookie est un petit fichier texte déposé sur votre terminal lors de la visite du site.</p>
+
+        <h4>Types de cookies utilisés</h4>
+        <ul>
+            <li><strong>Cookies Fonctionnels (Obligatoires) :</strong> Nécessaires pour mémoriser votre choix de thème (sombre/clair), votre taille de police, et le contenu de votre panier d'échange. Ils ne nécessitent pas de consentement car ils sont essentiels au service demandé.</li>
+            <li><strong>Cookies d'Analyse (Google Analytics) :</strong> Nous permettent de mesurer l'audience (nombre de visiteurs). Ces cookies ne sont déposés que si vous cliquez sur "Accepter" ou activez l'option dans les paramètres.</li>
+        </ul>
+
+        <h4>Gestion du consentement</h4>
+        <p>Vous pouvez modifier vos choix à tout moment via la page <a href="set.html" style="text-decoration:underline;">Paramètres</a>.</p>
+
+        <button class="btn btn-order" style="width:100%; margin-top:20px;" onclick="document.getElementById('modal-cookies').style.display='none'">Fermer</button>
     </div>
 </div>
 
 <div id="form-modal" class="modal-overlay">
     <div class="modal-legal-content" style="text-align:center;">
         <h3>🌱 Redirection vers Google Forms</h3>
-        <p>Vous allez quitter ce site pour finaliser votre liste sur un formulaire Google sécurisé.</p>
-        <p style="font-size:0.8rem; color:var(--text-light); margin-bottom:1rem;">
-            En cliquant sur "Continuer", vous acceptez les conditions d'utilisation de Google Forms. Christophe Duval ne contrôle pas l'infrastructure de Google.
-        </p>
-        <button class="btn btn-order" id="confirm-redirect" style="width:100%">Continuer vers Google Forms</button>
+        <p>Vous allez quitter ce site pour finaliser votre liste sur un formulaire Google.</p>
+        <button class="btn btn-order" id="confirm-redirect" style="width:100%">Continuer</button>
         <button onclick="document.getElementById('form-modal').style.display='none'" style="margin-top:15px; background:none; border:none; cursor:pointer; text-decoration:underline;">Annuler</button>
     </div>
 </div>

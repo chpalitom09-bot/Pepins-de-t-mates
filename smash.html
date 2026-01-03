@@ -6,255 +6,282 @@
     <title>Pépins de t🍅mates | Smash</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        /* REPRISE DES VARIABLES ET STYLES DE INDEX.HTML */
+        /* RÉCUPÉRATION STRICTE DU DESIGN SYSTEM DE INDEX.HTML */
         :root {
-            --primary: #d63031;
-            --primary-dark: #b32626;
-            --bg: #fdfdfc;
-            --card: #ffffff;
-            --text: #2d3436;
+            --bg-color: #fdfdfc;
+            --text-main: #2d3436;
             --text-light: #636e72;
-            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --accent: #d63031;
+            --card-bg: #ffffff;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         body.dark-mode {
-            --bg: #121212;
-            --card: #1e1e1e;
-            --text: #e0e0e0;
+            --bg-color: #121212;
+            --text-main: #e0e0e0;
             --text-light: #a0a0a0;
+            --card-bg: #1e1e1e;
+            --shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            margin: 0;
+            background-color: var(--bg-color);
+            color: var(--text-main);
             height: 100vh;
             display: flex;
             flex-direction: column;
-            overflow: hidden; /* Feeling App */
+            overflow: hidden;
+            transition: background-color 0.3s;
         }
 
-        /* HEADER AVEC TES BOUTONS */
-        .header-nav {
-            padding: 20px;
+        /* HEADER ALIGNÉ SUR INDEX */
+        .top-nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1.5rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
             width: 100%;
         }
 
         .btn-ui {
-            background: var(--card);
-            border: none;
-            padding: 12px;
-            border-radius: 15px;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-            text-decoration: none;
-            color: var(--text);
-            font-size: 1.2rem;
-            transition: transform 0.2s;
-        }
-
-        .btn-ui:hover { transform: scale(1.1); }
-
-        /* ZONE SMASH */
-        .smash-area {
-            flex: 1;
+            width: 45px;
+            height: 45px;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            padding: 20px;
-        }
-
-        /* FLÈCHES MODERNES SANS CONTOURS */
-        .nav-arrow {
-            background: none;
-            border: none;
-            font-size: 3rem;
-            color: var(--text);
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
             cursor: pointer;
-            padding: 20px;
-            opacity: 0.3;
-            transition: 0.3s;
-            z-index: 10;
+            transition: var(--transition);
+            text-decoration: none;
+            color: var(--text-main);
+            border: 1px solid rgba(0,0,0,0.05);
         }
-        .nav-arrow:hover { opacity: 1; transform: scale(1.2); }
 
-        /* CARTE STYLE INDEX.HTML */
-        .card-container {
-            width: 100%;
-            max-width: 380px;
-            height: 550px;
+        .btn-ui:hover { transform: scale(1.1); color: var(--accent); }
+
+        /* ZONE SMASH DYNAMIQUE */
+        .smash-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
             position: relative;
+        }
+
+        .card-wrapper {
+            width: 100%;
+            max-width: 400px;
+            height: 60vh;
             perspective: 1000px;
+            position: relative;
         }
 
         .tomato-card {
             width: 100%;
             height: 100%;
-            background: var(--card);
+            background: var(--card-bg);
             border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            box-shadow: var(--shadow);
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.4s;
+            position: absolute;
+            transition: var(--transition);
+            transform-origin: bottom center;
         }
 
-        .img-container {
+        .card-img {
             width: 100%;
-            height: 60%;
-            position: relative;
-        }
-
-        .img-container img {
-            width: 100%;
-            height: 100%;
+            height: 65%;
             object-fit: cover;
         }
 
-        .info {
-            padding: 25px;
+        .card-info {
+            padding: 1.5rem;
             text-align: center;
-        }
-
-        .info h2 { font-weight: 800; margin: 0 0 10px 0; font-size: 1.6rem; }
-        .info p { color: var(--text-light); font-size: 0.95rem; line-height: 1.4; }
-
-        /* BOUTONS ACTIONS (REPRISE STYLE INDEX.HTML) */
-        .actions {
+            flex: 1;
             display: flex;
-            gap: 20px;
+            flex-direction: column;
             justify-content: center;
-            padding-bottom: 40px;
         }
 
-        .btn-action {
-            width: 70px;
-            height: 70px;
+        .card-info h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .card-info p { color: var(--text-light); font-size: 0.95rem; }
+
+        /* BOUTONS D'ACTION STYLE MOBILE-FIRST */
+        .actions-bar {
+            display: flex;
+            gap: 25px;
+            padding: 2rem;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .btn-smash {
+            width: 75px;
+            height: 75px;
             border-radius: 50%;
             border: none;
             cursor: pointer;
-            font-size: 1.5rem;
-            color: white;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
         }
 
-        .btn-pass { background: #eb4d4b; } /* Rouge Tomate */
-        .btn-keep { background: #6ab04c; } /* Vert Feuille */
-        
-        .btn-action:hover { transform: translateY(-5px) scale(1.1); box-shadow: 0 15px 25px rgba(0,0,0,0.2); }
+        .btn-pass { background: white; color: #ff7675; border: 2px solid #ff7675; }
+        .btn-keep { background: var(--accent); color: white; }
 
-        /* ANIMATIONS SWIPE */
-        .swipe-right { transform: translateX(200%) rotate(30deg) !important; opacity: 0; }
-        .swipe-left { transform: translateX(-200%) rotate(-30deg) !important; opacity: 0; }
+        .btn-smash:active { transform: scale(0.9); }
+        .btn-smash:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.15); }
+
+        /* ANIMATIONS DE SWIPE */
+        .swipe-left { transform: translateX(-150%) rotate(-20deg) !important; opacity: 0; }
+        .swipe-right { transform: translateX(150%) rotate(20deg) !important; opacity: 0; }
+
+        .cart-badge {
+            position: absolute;
+            top: -5px; right: -5px;
+            background: var(--accent);
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-weight: 800;
+        }
     </style>
 </head>
 <body>
 
-    <div class="header-nav">
-        <a href="menu.html" class="btn-ui">🏠</a>
-        <div style="display: flex; gap: 10px;">
-            <a href="user.html" class="btn-ui">👤</a>
-            <a href="set.html" class="btn-ui">⚙️</a>
-            <a href="index.html" class="btn-ui">🛒 <span id="cart-count">0</span></a>
+    <div class="top-nav">
+        <a href="menu.html" class="btn-ui" title="Menu">🏠</a>
+        <div style="font-weight: 800; font-size: 1.2rem;">🍅 SMASH</div>
+        <div class="btn-ui" onclick="window.location.href='index.html#cart'" style="position:relative;">
+            🛒 <span id="cart-count" class="cart-badge">0</span>
         </div>
     </div>
 
-    <div class="smash-area">
-        <button class="nav-arrow" onclick="changeTomato(-1)">&lt;</button>
-        
-        <div class="card-container" id="cardStack">
+    <div class="smash-container">
+        <div class="card-wrapper" id="card-viewport">
             </div>
-
-        <button class="nav-arrow" onclick="changeTomato(1)">&gt;</button>
     </div>
 
-    <div class="actions">
-        <button class="btn-action btn-pass" onclick="handleSwipe('left')">✖</button>
-        <button class="btn-action btn-keep" onclick="handleSwipe('right')">✔</button>
+    <div class="actions-bar">
+        <button class="btn-smash btn-pass" onclick="handleAction('pass')">✕</button>
+        <button class="btn-smash btn-keep" onclick="handleAction('keep')">❤</button>
     </div>
 
     <script type="module">
         import { DATA } from './data.js';
 
-        let currentIndex = Math.floor(Math.random() * DATA.length);
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        let history = [currentIndex];
+        // CONNEXION À LA BASE DE DONNÉES UNIFIÉE (IndexedDB)
+        const dbName = "TomatoDB";
+        let db;
+        let currentIndex = 0;
+        let history = [];
 
-        function init() {
-            if(localStorage.getItem('darkMode') === 'true') document.body.classList.add('dark-mode');
+        const request = indexedDB.open(dbName, 1);
+        request.onsuccess = (e) => {
+            db = e.target.result;
             updateCartCount();
-            renderCard();
+            initSmash();
+        };
+
+        // Application du mode sombre si activé sur index.html
+        if(localStorage.getItem('darkMode') === 'true') document.body.classList.add('dark-mode');
+
+        function initSmash() {
+            renderNewCard();
         }
 
-        function renderCard() {
-            const container = document.getElementById('cardStack');
-            const item = DATA[currentIndex];
+        function renderNewCard() {
+            const viewport = document.getElementById('card-viewport');
             
-            container.innerHTML = `
-                <div class="tomato-card" id="activeCard">
-                    <div class="img-container">
-                        <img src="${item.images[0]}" alt="${item.nom}">
-                    </div>
-                    <div class="info">
-                        <h2>${item.nom}</h2>
-                        <p>${item.descriptionCourte}</p>
-                        <div style="margin-top:10px; font-weight:600; color:var(--primary)">${item.origine}</div>
+            // Choisir une tomate au hasard qui n'est pas dans l'historique récent
+            let nextIndex;
+            do {
+                nextIndex = Math.floor(Math.random() * DATA.length);
+            } while (history.includes(nextIndex) && history.length < DATA.length);
+
+            currentIndex = nextIndex;
+            history.push(currentIndex);
+            if(history.length > 10) history.shift();
+
+            const tomato = DATA[currentIndex];
+            
+            viewport.innerHTML = `
+                <div class="tomato-card" id="active-card">
+                    <img src="${tomato.images[0]}" class="card-img" alt="${tomato.nom}">
+                    <div class="card-info">
+                        <h2>${tomato.nom}</h2>
+                        <p>📍 ${tomato.origine} • ⚖️ ${tomato.poids}</p>
+                        <p style="margin-top:10px; font-style:italic;">${tomato.description.substring(0, 80)}...</p>
                     </div>
                 </div>
             `;
         }
 
-        window.handleSwipe = function(direction) {
-            const card = document.getElementById('activeCard');
-            if(direction === 'right') {
+        window.handleAction = function(type) {
+            const card = document.getElementById('active-card');
+            if(!card) return;
+
+            if(type === 'keep') {
                 card.classList.add('swipe-right');
-                addToCart(DATA[currentIndex].id);
+                addToCart(DATA[currentIndex]);
             } else {
                 card.classList.add('swipe-left');
             }
 
             setTimeout(() => {
-                nextRandom();
+                renderNewCard();
             }, 400);
         };
 
-        function addToCart(id) {
-            if(!cart.includes(id)) {
-                cart.push(id);
-                localStorage.setItem('cart', JSON.stringify(cart));
+        // AJOUT AU PANIER RÉEL (IndexedDB)
+        function addToCart(tomato) {
+            const tx = db.transaction("cart", "readwrite");
+            const store = tx.objectStore("cart");
+            store.put({
+                id: tomato.id,
+                nom: tomato.nom,
+                image: tomato.images[0],
+                origine: tomato.origine,
+                dateAdded: new Date().toISOString()
+            });
+            tx.oncomplete = () => {
                 updateCartCount();
-            }
+            };
         }
 
         function updateCartCount() {
-            document.getElementById('cart-count').innerText = cart.length;
+            const tx = db.transaction("cart", "readonly");
+            const store = tx.objectStore("cart");
+            const countRequest = store.count();
+            countRequest.onsuccess = () => {
+                document.getElementById('cart-count').innerText = countRequest.result;
+            };
         }
 
-        function nextRandom() {
-            let next;
-            do {
-                next = Math.floor(Math.random() * DATA.length);
-            } while (history.includes(next) && history.length < DATA.length);
-            
-            currentIndex = next;
-            history.push(currentIndex);
-            renderCard();
-        }
-
-        window.changeTomato = function(step) {
-            currentIndex = (currentIndex + step + DATA.length) % DATA.length;
-            renderCard();
-        };
-
-        init();
+        // Support du Swipe Tactile
+        let startX = 0;
+        document.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+        document.addEventListener('touchend', e => {
+            const diff = e.changedTouches[0].clientX - startX;
+            if (diff > 100) handleAction('keep');
+            else if (diff < -100) handleAction('pass');
+        });
     </script>
 </body>
 </html>

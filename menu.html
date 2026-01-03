@@ -3,285 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pépins de t🍅mates | Smash</title>
+    <title>Pépins de t🍅mates | Accueil</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        /* RÉCUPÉRATION STRICTE DU DESIGN SYSTEM DE INDEX.HTML */
         :root {
-            --bg-color: #fdfdfc;
-            --text-main: #2d3436;
+            --primary: #d63031;
+            --primary-dark: #b32626;
+            --bg: #fdfdfc;
+            --card: #ffffff;
+            --text: #2d3436;
             --text-light: #636e72;
-            --accent: #d63031;
-            --card-bg: #ffffff;
-            --shadow: 0 10px 30px rgba(0,0,0,0.05);
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         body.dark-mode {
-            --bg-color: #121212;
-            --text-main: #e0e0e0;
+            --bg: #121212;
+            --card: #1e1e1e;
+            --text: #e0e0e0;
             --text-light: #a0a0a0;
-            --card-bg: #1e1e1e;
-            --shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            transition: background-color 0.3s;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            transition: background 0.3s ease;
         }
 
-        /* HEADER ALIGNÉ SUR INDEX */
-        .top-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        .btn-ui {
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--card-bg);
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            cursor: pointer;
-            transition: var(--transition);
-            text-decoration: none;
-            color: var(--text-main);
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .btn-ui:hover { transform: scale(1.1); color: var(--accent); }
-
-        /* ZONE SMASH DYNAMIQUE */
-        .smash-container {
-            flex: 1;
+        /* Hero Section */
+        .hero {
+            height: 90vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 20px;
-            position: relative;
-        }
-
-        .card-wrapper {
-            width: 100%;
-            max-width: 400px;
-            height: 60vh;
-            perspective: 1000px;
-            position: relative;
-        }
-
-        .tomato-card {
-            width: 100%;
-            height: 100%;
-            background: var(--card-bg);
-            border-radius: 30px;
-            box-shadow: var(--shadow);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            transition: var(--transition);
-            transform-origin: bottom center;
-        }
-
-        .card-img {
-            width: 100%;
-            height: 65%;
-            object-fit: cover;
-        }
-
-        .card-info {
-            padding: 1.5rem;
             text-align: center;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .card-info h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 0.5rem; }
-        .card-info p { color: var(--text-light); font-size: 0.95rem; }
-
-        /* BOUTONS D'ACTION STYLE MOBILE-FIRST */
-        .actions-bar {
-            display: flex;
-            gap: 25px;
-            padding: 2rem;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .btn-smash {
-            width: 75px;
-            height: 75px;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .btn-pass { background: white; color: #ff7675; border: 2px solid #ff7675; }
-        .btn-keep { background: var(--accent); color: white; }
-
-        .btn-smash:active { transform: scale(0.9); }
-        .btn-smash:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.15); }
-
-        /* ANIMATIONS DE SWIPE */
-        .swipe-left { transform: translateX(-150%) rotate(-20deg) !important; opacity: 0; }
-        .swipe-right { transform: translateX(150%) rotate(20deg) !important; opacity: 0; }
-
-        .cart-badge {
-            position: absolute;
-            top: -5px; right: -5px;
-            background: var(--accent);
+            padding: 20px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover;
+            background-position: center;
             color: white;
-            font-size: 0.7rem;
-            padding: 2px 6px;
-            border-radius: 10px;
-            font-weight: 800;
+            border-radius: 0 0 60px 60px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 800; margin-bottom: 1rem; letter-spacing: -1px; }
+        .hero p { font-size: 1.2rem; max-width: 700px; margin-bottom: 2.5rem; opacity: 0.9; }
+
+        .btn-main {
+            padding: 18px 45px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s transform;
+            box-shadow: 0 10px 25px rgba(214, 48, 49, 0.4);
+        }
+
+        .btn-main:hover { transform: scale(1.05); background: var(--primary-dark); }
+
+        /* Section Features (Bento Grid) */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            padding: 100px 10%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--card);
+            padding: 45px;
+            border-radius: 35px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.03);
+            height: 100%;
+        }
+
+        .feature-card:hover { transform: translateY(-15px); box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
+
+        .feature-card.locked::after {
+            content: "BIENTÔT";
+            position: absolute;
+            top: 25px;
+            right: -35px;
+            background: #f1c40f;
+            color: #000;
+            padding: 8px 45px;
+            transform: rotate(45deg);
+            font-size: 0.75rem;
+            font-weight: 900;
+        }
+
+        .icon { font-size: 4rem; margin-bottom: 25px; display: block; filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1)); }
+        .feature-card h3 { margin-bottom: 15px; font-size: 1.6rem; font-weight: 700; }
+        .feature-card p { color: var(--text-light); }
+
+        /* Footer & Mentions Légales */
+        footer {
+            margin-top: 50px;
+            padding: 80px 10%;
+            background: var(--card);
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-section h4 { margin-bottom: 25px; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; color: var(--primary); }
+        .footer-section p, .footer-section li { font-size: 0.95rem; color: var(--text-light); margin-bottom: 10px; list-style: none; }
+        .footer-section a { color: inherit; text-decoration: none; transition: color 0.2s; }
+        .footer-section a:hover { color: var(--primary); }
+
+        @media (max-width: 768px) {
+            .features { padding: 60px 5%; }
+            .hero { border-radius: 0 0 30px 30px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="top-nav">
-        <a href="menu.html" class="btn-ui" title="Menu">🏠</a>
-        <div style="font-weight: 800; font-size: 1.2rem;">🍅 SMASH</div>
-        <div class="btn-ui" onclick="window.location.href='index.html#cart'" style="position:relative;">
-            🛒 <span id="cart-count" class="cart-badge">0</span>
+    <section class="hero">
+        <h1>Pépins de t🍅mates</h1>
+        <p>Explorez une collection vibrante de variétés anciennes. Trouvez la perle rare pour votre jardin et gérez vos échanges en toute simplicité.</p>
+        <a href="index.html" class="btn-main">Ouvrir le Catalogue</a>
+    </section>
+
+    <div class="features">
+        <a href="index.html" style="text-decoration: none; color: inherit;">
+            <div class="feature-card">
+                <span class="icon">📖</span>
+                <h3>La Bibliothèque</h3>
+                <p>Consultez les fiches détaillées de plus de 250 variétés. Photos, conseils de culture et origines.</p>
+            </div>
+        </a>
+
+        <a href="smash.html" style="text-decoration: none; color: inherit;">
+            <div class="feature-card">
+                <span class="icon">🔥</span>
+                <h3>Tomato Smash</h3>
+                <p>Le Meetic de la tomate. Swipez vos coups de cœur et découvrez quelles variétés sont faites pour vous.</p>
+            </div>
+        </a>
+
+        <div class="feature-card locked">
+            <span class="icon">🤖</span>
+            <h3>IA Horticole</h3>
+            <p>Un assistant intelligent pour vous aider à choisir vos graines selon votre climat et votre espace.</p>
         </div>
     </div>
 
-    <div class="smash-container">
-        <div class="card-wrapper" id="card-viewport">
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h4>À propos</h4>
+                <p>Pépins de Tomates est un projet passionné visant à préserver et partager la biodiversité des tomates anciennes.</p>
+                <p>© 2024 - Tous droits réservés.</p>
             </div>
-    </div>
-
-    <div class="actions-bar">
-        <button class="btn-smash btn-pass" onclick="handleAction('pass')">✕</button>
-        <button class="btn-smash btn-keep" onclick="handleAction('keep')">❤</button>
-    </div>
-
-    <script type="module">
-        import { DATA } from './data.js';
-
-        // CONNEXION À LA BASE DE DONNÉES UNIFIÉE (IndexedDB)
-        const dbName = "TomatoDB";
-        let db;
-        let currentIndex = 0;
-        let history = [];
-
-        const request = indexedDB.open(dbName, 1);
-        request.onsuccess = (e) => {
-            db = e.target.result;
-            updateCartCount();
-            initSmash();
-        };
-
-        // Application du mode sombre si activé sur index.html
-        if(localStorage.getItem('darkMode') === 'true') document.body.classList.add('dark-mode');
-
-        function initSmash() {
-            renderNewCard();
-        }
-
-        function renderNewCard() {
-            const viewport = document.getElementById('card-viewport');
             
-            // Choisir une tomate au hasard qui n'est pas dans l'historique récent
-            let nextIndex;
-            do {
-                nextIndex = Math.floor(Math.random() * DATA.length);
-            } while (history.includes(nextIndex) && history.length < DATA.length);
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Catalogue des tomates</a></li>
+                    <li><a href="smash.html">Mode Smash</a></li>
+                    <li><a href="user.html">Mon Profil</a></li>
+                    <li><a href="set.html">Paramètres & Thème</a></li>
+                </ul>
+            </div>
 
-            currentIndex = nextIndex;
-            history.push(currentIndex);
-            if(history.length > 10) history.shift();
+            <div class="footer-section">
+                <h4>Mentions Légales & Cookies</h4>
+                <p><strong>Cookies :</strong> Ce site utilise des cookies techniques pour mémoriser votre thème et votre panier. Aucun cookie publicitaire n'est utilisé sans votre accord.</p>
+                <p><strong>Données :</strong> Vos listes sont stockées localement sur votre navigateur. La finalisation se fait via Google Forms.</p>
+                <p><a href="set.html" style="text-decoration: underline;">Gérer mes préférences</a></p>
+            </div>
+        </div>
+    </footer>
 
-            const tomato = DATA[currentIndex];
-            
-            viewport.innerHTML = `
-                <div class="tomato-card" id="active-card">
-                    <img src="${tomato.images[0]}" class="card-img" alt="${tomato.nom}">
-                    <div class="card-info">
-                        <h2>${tomato.nom}</h2>
-                        <p>📍 ${tomato.origine} • ⚖️ ${tomato.poids}</p>
-                        <p style="margin-top:10px; font-style:italic;">${tomato.description.substring(0, 80)}...</p>
-                    </div>
-                </div>
-            `;
-        }
-
-        window.handleAction = function(type) {
-            const card = document.getElementById('active-card');
-            if(!card) return;
-
-            if(type === 'keep') {
-                card.classList.add('swipe-right');
-                addToCart(DATA[currentIndex]);
-            } else {
-                card.classList.add('swipe-left');
+    <script>
+        (function() {
+            if(localStorage.getItem('darkMode') === 'true') {
+                document.body.classList.add('dark-mode');
             }
-
-            setTimeout(() => {
-                renderNewCard();
-            }, 400);
-        };
-
-        // AJOUT AU PANIER RÉEL (IndexedDB)
-        function addToCart(tomato) {
-            const tx = db.transaction("cart", "readwrite");
-            const store = tx.objectStore("cart");
-            store.put({
-                id: tomato.id,
-                nom: tomato.nom,
-                image: tomato.images[0],
-                origine: tomato.origine,
-                dateAdded: new Date().toISOString()
-            });
-            tx.oncomplete = () => {
-                updateCartCount();
-            };
-        }
-
-        function updateCartCount() {
-            const tx = db.transaction("cart", "readonly");
-            const store = tx.objectStore("cart");
-            const countRequest = store.count();
-            countRequest.onsuccess = () => {
-                document.getElementById('cart-count').innerText = countRequest.result;
-            };
-        }
-
-        // Support du Swipe Tactile
-        let startX = 0;
-        document.addEventListener('touchstart', e => startX = e.touches[0].clientX);
-        document.addEventListener('touchend', e => {
-            const diff = e.changedTouches[0].clientX - startX;
-            if (diff > 100) handleAction('keep');
-            else if (diff < -100) handleAction('pass');
-        });
+        })();
     </script>
 </body>
 </html>

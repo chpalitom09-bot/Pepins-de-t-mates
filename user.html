@@ -86,7 +86,7 @@
             </div>
             <button type="submit">Enregistrer et Continuer</button>
         </form>
-        <a href="index.html" class="back-link">Annuler et retourner à l'accueil</a>
+        <a href="list.html" class="back-link">Retour à la liste</a>
     </div>
 
     <script>
@@ -110,7 +110,7 @@
                 localStorage.setItem('user_created_at', new Date().toISOString());
                 
                 // Redirection vers index.html (qui gère l'état du panier via localStorage)
-                window.location.href = 'index.html';
+                window.location.href = 'list.html';
             }
         });
     </script>

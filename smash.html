@@ -6,27 +6,25 @@
     <title>Pépins de t🍅mates | Smash</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        /* RÉCUPÉRATION STRICTE DU DESIGN SYSTEM DE INDEX.HTML */
         :root {
             --bg-color: #fdfdfc;
             --text-main: #2d3436;
             --text-light: #636e72;
             --accent: #d63031;
             --card-bg: #ffffff;
-            --shadow: 0 10px 30px rgba(0,0,0,0.05);
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --shadow: 0 15px 35px rgba(0,0,0,0.1);
+            --transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
-        body.dark-mode {
+        .dark-mode {
             --bg-color: #121212;
             --text-main: #e0e0e0;
             --text-light: #a0a0a0;
             --card-bg: #1e1e1e;
-            --shadow: 0 10px 30px rgba(0,0,0,0.4);
+            --shadow: 0 15px 40px rgba(0,0,0,0.4);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
@@ -38,13 +36,13 @@
             transition: background-color 0.3s;
         }
 
-        /* HEADER ALIGNÉ SUR INDEX */
+        /* HEADER */
         .top-nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 2rem;
-            max-width: 1200px;
+            padding: 1rem 1.5rem;
+            max-width: 600px;
             margin: 0 auto;
             width: 100%;
         }
@@ -56,231 +54,216 @@
             align-items: center;
             justify-content: center;
             background: var(--card-bg);
-            border-radius: 12px;
+            border-radius: 15px;
             box-shadow: var(--shadow);
             cursor: pointer;
-            transition: var(--transition);
             text-decoration: none;
             color: var(--text-main);
             border: 1px solid rgba(0,0,0,0.05);
+            font-size: 1.2rem;
         }
 
-        .btn-ui:hover { transform: scale(1.1); color: var(--accent); }
-
-        /* ZONE SMASH DYNAMIQUE */
-        .smash-container {
+        /* CARD CONTAINER */
+        .smash-zone {
             flex: 1;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 20px;
             position: relative;
+            padding: 10px;
         }
 
-        .card-wrapper {
+        .card-container {
             width: 100%;
-            max-width: 400px;
-            height: 60vh;
-            perspective: 1000px;
+            max-width: 380px;
+            height: 75vh;
             position: relative;
+            perspective: 1000px;
         }
 
         .tomato-card {
             width: 100%;
             height: 100%;
             background: var(--card-bg);
-            border-radius: 30px;
+            border-radius: 35px;
             box-shadow: var(--shadow);
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
             position: absolute;
             transition: var(--transition);
-            transform-origin: bottom center;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
         .card-img {
             width: 100%;
             height: 65%;
             object-fit: cover;
+            background-color: #eee; /* Fond gris si l'image charge mal */
         }
 
-        .card-info {
-            padding: 1.5rem;
+        .card-content {
+            padding: 2rem 1.5rem;
             text-align: center;
             flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
 
-        .card-info h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 0.5rem; }
-        .card-info p { color: var(--text-light); font-size: 0.95rem; }
+        .card-content h2 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; color: var(--accent); }
+        .card-content p { color: var(--text-light); line-height: 1.5; }
 
-        /* BOUTONS D'ACTION STYLE MOBILE-FIRST */
-        .actions-bar {
+        /* ACTIONS */
+        .actions {
             display: flex;
-            gap: 25px;
-            padding: 2rem;
+            gap: 30px;
             justify-content: center;
-            width: 100%;
+            padding: 20px 0 40px;
         }
 
-        .btn-smash {
-            width: 75px;
-            height: 75px;
+        .btn-action {
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             border: none;
             cursor: pointer;
+            font-size: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
         }
 
-        .btn-pass { background: white; color: #ff7675; border: 2px solid #ff7675; }
-        .btn-keep { background: var(--accent); color: white; }
+        .btn-dislike { background: #fff; color: #ff7675; border: 2px solid #ff7675; }
+        .btn-like { background: var(--accent); color: white; }
+        .btn-action:hover { transform: scale(1.1) translateY(-5px); }
+        .btn-action:active { transform: scale(0.9); }
 
-        .btn-smash:active { transform: scale(0.9); }
-        .btn-smash:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.15); }
+        /* ANIMATIONS SWIPE */
+        .swipe-left { transform: translateX(-200%) rotate(-30deg) !important; opacity: 0; }
+        .swipe-right { transform: translateX(200%) rotate(30deg) !important; opacity: 0; }
 
-        /* ANIMATIONS DE SWIPE */
-        .swipe-left { transform: translateX(-150%) rotate(-20deg) !important; opacity: 0; }
-        .swipe-right { transform: translateX(150%) rotate(20deg) !important; opacity: 0; }
-
-        .cart-badge {
+        .cart-count {
             position: absolute;
             top: -5px; right: -5px;
             background: var(--accent);
             color: white;
-            font-size: 0.7rem;
-            padding: 2px 6px;
-            border-radius: 10px;
-            font-weight: 800;
+            font-size: 10px;
+            padding: 3px 7px;
+            border-radius: 50%;
+            font-weight: bold;
         }
     </style>
 </head>
-<body>
+<body class="dark-mode-check">
 
     <div class="top-nav">
-        <a href="menu.html" class="btn-ui" title="Menu">🏠</a>
-        <div style="font-weight: 800; font-size: 1.2rem;">🍅 SMASH</div>
-        <div class="btn-ui" onclick="window.location.href='index.html#cart'" style="position:relative;">
-            🛒 <span id="cart-count" class="cart-badge">0</span>
+        <a href="index.html" class="btn-ui">←</a>
+        <div style="font-weight: 800; letter-spacing: -1px; font-size: 1.4rem;">TOMATO SMASH</div>
+        <div class="btn-ui" style="position:relative;" onclick="window.location.href='index.html#cart'">
+            🛒 <span id="cart-badge" class="cart-count">0</span>
         </div>
     </div>
 
-    <div class="smash-container">
-        <div class="card-wrapper" id="card-viewport">
+    <div class="smash-zone">
+        <div class="card-container" id="viewport">
             </div>
     </div>
 
-    <div class="actions-bar">
-        <button class="btn-smash btn-pass" onclick="handleAction('pass')">✕</button>
-        <button class="btn-smash btn-keep" onclick="handleAction('keep')">❤</button>
+    <div class="actions">
+        <button class="btn-action btn-dislike" onclick="decide('pass')">✕</button>
+        <button class="btn-action btn-like" onclick="decide('keep')">❤</button>
     </div>
 
     <script type="module">
         import { DATA } from './data.js';
 
-        // CONNEXION À LA BASE DE DONNÉES UNIFIÉE (IndexedDB)
-        const dbName = "TomatoDB";
         let db;
         let currentIndex = 0;
-        let history = [];
+        const viewport = document.getElementById('viewport');
 
-        const request = indexedDB.open(dbName, 1);
+        // Initialisation de la Base de Données (Même structure que index.html)
+        const request = indexedDB.open("TomatoDB", 1);
+        request.onupgradeneeded = (e) => {
+            const db = e.target.result;
+            if (!db.objectStoreNames.contains("cart")) {
+                db.createObjectStore("cart", { keyPath: "id" });
+            }
+        };
         request.onsuccess = (e) => {
             db = e.target.result;
-            updateCartCount();
-            initSmash();
+            updateBadge();
+            loadNext();
         };
 
-        // Application du mode sombre si activé sur index.html
-        if(localStorage.getItem('darkMode') === 'true') document.body.classList.add('dark-mode');
+        // Thème
+        if(localStorage.getItem('darkMode') === 'true') document.documentElement.classList.add('dark-mode');
 
-        function initSmash() {
-            renderNewCard();
-        }
-
-        function renderNewCard() {
-            const viewport = document.getElementById('card-viewport');
-            
-            // Choisir une tomate au hasard qui n'est pas dans l'historique récent
-            let nextIndex;
-            do {
-                nextIndex = Math.floor(Math.random() * DATA.length);
-            } while (history.includes(nextIndex) && history.length < DATA.length);
-
-            currentIndex = nextIndex;
-            history.push(currentIndex);
-            if(history.length > 10) history.shift();
-
+        function loadNext() {
+            // Sélection aléatoire
+            currentIndex = Math.floor(Math.random() * DATA.length);
             const tomato = DATA[currentIndex];
-            
+
+            // Vérification du champ image (s'adapte à ton data.js)
+            const imgUrl = tomato.image || (tomato.images && tomato.images[0]) || 'https://via.placeholder.com/400x500?text=Image+Indisponible';
+
             viewport.innerHTML = `
                 <div class="tomato-card" id="active-card">
-                    <img src="${tomato.images[0]}" class="card-img" alt="${tomato.nom}">
-                    <div class="card-info">
+                    <img src="${imgUrl}" class="card-img" onerror="this.src='https://via.placeholder.com/400x500?text=Tomate'">
+                    <div class="card-content">
                         <h2>${tomato.nom}</h2>
-                        <p>📍 ${tomato.origine} • ⚖️ ${tomato.poids}</p>
-                        <p style="margin-top:10px; font-style:italic;">${tomato.description.substring(0, 80)}...</p>
+                        <p><strong>Origine:</strong> ${tomato.origine}</p>
+                        <p style="margin-top:10px; opacity:0.8; font-size:0.9rem;">${tomato.description.slice(0, 100)}...</p>
                     </div>
                 </div>
             `;
         }
 
-        window.handleAction = function(type) {
+        window.decide = function(choice) {
             const card = document.getElementById('active-card');
             if(!card) return;
 
-            if(type === 'keep') {
+            if(choice === 'keep') {
                 card.classList.add('swipe-right');
-                addToCart(DATA[currentIndex]);
+                saveToCart(DATA[currentIndex]);
             } else {
                 card.classList.add('swipe-left');
             }
 
+            // Charger la suivante après l'animation
             setTimeout(() => {
-                renderNewCard();
-            }, 400);
-        };
+                loadNext();
+            }, 450);
+        }
 
-        // AJOUT AU PANIER RÉEL (IndexedDB)
-        function addToCart(tomato) {
-            const tx = db.transaction("cart", "readwrite");
-            const store = tx.objectStore("cart");
+        function saveToCart(tomato) {
+            const transaction = db.transaction("cart", "readwrite");
+            const store = transaction.objectStore("cart");
             store.put({
                 id: tomato.id,
                 nom: tomato.nom,
-                image: tomato.images[0],
+                image: tomato.image || tomato.images[0],
                 origine: tomato.origine,
-                dateAdded: new Date().toISOString()
+                addedAt: Date.now()
             });
-            tx.oncomplete = () => {
-                updateCartCount();
+            transaction.oncomplete = () => updateBadge();
+        }
+
+        function updateBadge() {
+            const transaction = db.transaction("cart", "readonly");
+            const store = transaction.objectStore("cart");
+            const count = store.count();
+            count.onsuccess = () => {
+                document.getElementById('cart-badge').innerText = count.result;
             };
         }
 
-        function updateCartCount() {
-            const tx = db.transaction("cart", "readonly");
-            const store = tx.objectStore("cart");
-            const countRequest = store.count();
-            countRequest.onsuccess = () => {
-                document.getElementById('cart-count').innerText = countRequest.result;
-            };
-        }
-
-        // Support du Swipe Tactile
-        let startX = 0;
-        document.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+        // Swipe Tactile (Mobile)
+        let touchStartX = 0;
+        document.addEventListener('touchstart', e => touchStartX = e.touches[0].clientX);
         document.addEventListener('touchend', e => {
-            const diff = e.changedTouches[0].clientX - startX;
-            if (diff > 100) handleAction('keep');
-            else if (diff < -100) handleAction('pass');
+            const touchEndX = e.changedTouches[0].clientX;
+            if (touchStartX - touchEndX > 80) decide('pass');
+            if (touchEndX - touchStartX > 80) decide('keep');
         });
     </script>
 </body>

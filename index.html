@@ -563,30 +563,37 @@
             #cookie-banner { flex-direction: row; align-items: center; justify-content: space-between; }
         }
         .cookie-btns { display: flex; gap: 10px; flex-wrap: wrap; }
-		/* Style pour le bouton Menu flottant ou dans la barre */
+		/* Style épuré pour le bouton Menu */
 .btn-menu-home {
     position: fixed;
     top: 20px;
     left: 20px;
     z-index: 1001;
-    background: var(--accent);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 25px;
+    background: transparent; /* Suppression du fond rouge */
+    color: var(--text-main);  /* Utilise la couleur du texte du thème */
+    padding: 10px;
     text-decoration: none;
-    font-weight: 600;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    font-size: 1.5rem;        /* Taille de l'icône */
     display: flex;
     align-items: center;
-    gap: 8px;
-    transition: transform 0.2s;
+    justify-content: center;
+    transition: transform 0.2s, opacity 0.2s;
+    opacity: 0.6;             /* Semi-transparent pour la discrétion */
 }
-.btn-menu-home:hover { transform: scale(1.05); }
+
+.btn-menu-home:hover { 
+    transform: scale(1.1); 
+    opacity: 1;               /* S'illumine au survol */
+}
+
+.btn-menu-home span {
+    display: block;           /* Assure que l'emoji s'affiche bien */
+}
     </style>
 </head>
 <body>
-<a href="menu.html" class="btn-menu-home">
-    <span>🏠</span> Menu Principal
+<a href="menu.html" class="btn-menu-home" title="Retour au menu principal">
+    <span>🏠</span>
 </a>
 
     <button id="scroll-top" class="scroll-top-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</button>

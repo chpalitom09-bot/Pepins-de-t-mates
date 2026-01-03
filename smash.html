@@ -6,17 +6,22 @@
     <title>Pépins de t🍅mates | Smash</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
+        /* REPRISE DES VARIABLES ET STYLES DE INDEX.HTML */
         :root {
             --primary: #d63031;
-            --success: #2ecc71;
+            --primary-dark: #b32626;
             --bg: #fdfdfc;
             --card: #ffffff;
             --text: #2d3436;
+            --text-light: #636e72;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
+
         body.dark-mode {
             --bg: #121212;
             --card: #1e1e1e;
             --text: #e0e0e0;
+            --text-light: #a0a0a0;
         }
 
         body {
@@ -24,228 +29,232 @@
             background-color: var(--bg);
             color: var(--text);
             margin: 0;
-            overflow: hidden; /* Empêche le scroll pour le feeling app */
+            height: 100vh;
             display: flex;
             flex-direction: column;
-            height: 100vh;
+            overflow: hidden; /* Feeling App */
         }
 
-        /* Header avec bouton retour et icônes */
-        .header {
-            padding: 15px;
+        /* HEADER AVEC TES BOUTONS */
+        .header-nav {
+            padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
         }
 
-        .btn-back {
+        .btn-ui {
+            background: var(--card);
+            border: none;
+            padding: 12px;
+            border-radius: 15px;
+            cursor: pointer;
+            box-shadow: var(--shadow);
             text-decoration: none;
             color: var(--text);
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .nav-icons {
-            display: flex;
-            gap: 15px;
             font-size: 1.2rem;
+            transition: transform 0.2s;
         }
 
-        .nav-icons a { text-decoration: none; color: var(--text); }
+        .btn-ui:hover { transform: scale(1.1); }
 
-        /* Conteneur principal du Smash */
-        .smash-container {
+        /* ZONE SMASH */
+        .smash-area {
             flex: 1;
-            position: relative;
             display: flex;
-            justify-content: center;
             align-items: center;
-            perspective: 1000px;
+            justify-content: center;
+            position: relative;
+            padding: 20px;
         }
 
-        .card-wrapper {
-            width: 90%;
-            max-width: 400px;
-            height: 70vh;
+        /* FLÈCHES MODERNES SANS CONTOURS */
+        .nav-arrow {
+            background: none;
+            border: none;
+            font-size: 3rem;
+            color: var(--text);
+            cursor: pointer;
+            padding: 20px;
+            opacity: 0.3;
+            transition: 0.3s;
+            z-index: 10;
+        }
+        .nav-arrow:hover { opacity: 1; transform: scale(1.2); }
+
+        /* CARTE STYLE INDEX.HTML */
+        .card-container {
+            width: 100%;
+            max-width: 380px;
+            height: 550px;
             position: relative;
-            cursor: grab;
+            perspective: 1000px;
         }
 
         .tomato-card {
             width: 100%;
             height: 100%;
             background: var(--card);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
             overflow: hidden;
-            position: absolute;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s;
             display: flex;
             flex-direction: column;
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.4s;
         }
 
-        .tomato-img {
+        .img-container {
             width: 100%;
             height: 60%;
+            position: relative;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
         }
 
-        .tomato-info {
-            padding: 20px;
-            flex: 1;
+        .info {
+            padding: 25px;
+            text-align: center;
         }
 
-        .tomato-info h2 { font-size: 1.5rem; margin-bottom: 5px; }
-        .tomato-info p { font-size: 0.9rem; color: #636e72; }
+        .info h2 { font-weight: 800; margin: 0 0 10px 0; font-size: 1.6rem; }
+        .info p { color: var(--text-light); font-size: 0.95rem; line-height: 1.4; }
 
-        /* Boutons de contrôle */
-        .controls {
-            padding: 20px;
+        /* BOUTONS ACTIONS (REPRISE STYLE INDEX.HTML) */
+        .actions {
             display: flex;
-            justify-content: space-around;
-            align-items: center;
+            gap: 20px;
+            justify-content: center;
+            padding-bottom: 40px;
         }
 
-        .arrow-btn {
-            background: none;
-            border: none;
-            font-size: 2rem;
-            color: var(--text);
-            cursor: pointer;
-            opacity: 0.5;
-            transition: opacity 0.2s;
-        }
-        .arrow-btn:hover { opacity: 1; }
-
-        .action-btn {
+        .btn-action {
             width: 70px;
             height: 70px;
             border-radius: 50%;
             border: none;
-            color: white;
-            font-size: 1.5rem;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: transform 0.2s;
+            font-size: 1.5rem;
+            color: white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
         }
 
-        .action-btn:active { transform: scale(0.9); }
-        .btn-pass { background-color: var(--primary); }
-        .btn-keep { background-color: var(--success); }
+        .btn-pass { background: #eb4d4b; } /* Rouge Tomate */
+        .btn-keep { background: #6ab04c; } /* Vert Feuille */
+        
+        .btn-action:hover { transform: translateY(-5px) scale(1.1); box-shadow: 0 15px 25px rgba(0,0,0,0.2); }
 
-        /* Classes d'animation */
-        .swipe-left { transform: translateX(-150%) rotate(-20deg) !important; opacity: 0; }
-        .swipe-right { transform: translateX(150%) rotate(20deg) !important; opacity: 0; }
+        /* ANIMATIONS SWIPE */
+        .swipe-right { transform: translateX(200%) rotate(30deg) !important; opacity: 0; }
+        .swipe-left { transform: translateX(-200%) rotate(-30deg) !important; opacity: 0; }
     </style>
 </head>
-<body class="">
+<body>
 
-    <header class="header">
-        <a href="menu.html" class="btn-back">⬅ Menu</a>
-        <div class="nav-icons">
-            <a href="user.html">👤</a>
-            <a href="set.html">⚙️</a>
-            <a href="index.html">🛒</a>
+    <div class="header-nav">
+        <a href="menu.html" class="btn-ui">🏠</a>
+        <div style="display: flex; gap: 10px;">
+            <a href="user.html" class="btn-ui">👤</a>
+            <a href="set.html" class="btn-ui">⚙️</a>
+            <a href="index.html" class="btn-ui">🛒 <span id="cart-count">0</span></a>
         </div>
-    </header>
+    </div>
 
-    <div class="smash-container" id="cardContainer">
-        </div>
+    <div class="smash-area">
+        <button class="nav-arrow" onclick="changeTomato(-1)">&lt;</button>
+        
+        <div class="card-container" id="cardStack">
+            </div>
 
-    <div class="controls">
-        <button class="arrow-btn" onclick="prevTomato()">&lt;</button>
-        <button class="action-btn btn-pass" onclick="handleAction('pass')">✖</button>
-        <button class="action-btn btn-keep" onclick="handleAction('keep')">✔</button>
-        <button class="arrow-btn" onclick="nextTomato()">&gt;</button>
+        <button class="nav-arrow" onclick="changeTomato(1)">&gt;</button>
+    </div>
+
+    <div class="actions">
+        <button class="btn-action btn-pass" onclick="handleSwipe('left')">✖</button>
+        <button class="btn-action btn-keep" onclick="handleSwipe('right')">✔</button>
     </div>
 
     <script type="module">
         import { DATA } from './data.js';
 
-        let currentIndex = 0;
-        let deck = [];
-        let panier = JSON.parse(localStorage.getItem('cart')) || [];
+        let currentIndex = Math.floor(Math.random() * DATA.length);
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let history = [currentIndex];
 
-        // Initialisation : Mélanger les tomates et filtrer celles déjà au panier
-        function initSmash() {
-            // Appliquer le thème
+        function init() {
             if(localStorage.getItem('darkMode') === 'true') document.body.classList.add('dark-mode');
-            
-            // Mélange aléatoire (Fisher-Yates)
-            deck = [...DATA].sort(() => Math.random() - 0.5);
-            
-            // On peut optionnellement filtrer les tomates déjà dans le panier
-            // deck = deck.filter(t => !panier.includes(t.id));
-
+            updateCartCount();
             renderCard();
         }
 
         function renderCard() {
-            const container = document.getElementById('cardContainer');
-            const tomato = deck[currentIndex];
-
-            if (!tomato) {
-                container.innerHTML = "<h2>Plus de tomates à découvrir ! 🍅</h2>";
-                return;
-            }
-
+            const container = document.getElementById('cardStack');
+            const item = DATA[currentIndex];
+            
             container.innerHTML = `
-                <div class="card-wrapper" id="currentCard">
-                    <div class="tomato-card">
-                        <img src="${tomato.images[0]}" class="tomato-img" alt="${tomato.nom}">
-                        <div class="tomato-info">
-                            <h2>${tomato.nom}</h2>
-                            <p><strong>Origine:</strong> ${tomato.origine}</p>
-                            <p>${tomato.descriptionCourte}</p>
-                        </div>
+                <div class="tomato-card" id="activeCard">
+                    <div class="img-container">
+                        <img src="${item.images[0]}" alt="${item.nom}">
+                    </div>
+                    <div class="info">
+                        <h2>${item.nom}</h2>
+                        <p>${item.descriptionCourte}</p>
+                        <div style="margin-top:10px; font-weight:600; color:var(--primary)">${item.origine}</div>
                     </div>
                 </div>
             `;
         }
 
-        window.handleAction = function(type) {
-            const card = document.getElementById('currentCard');
-            const tomato = deck[currentIndex];
-
-            if (type === 'keep') {
+        window.handleSwipe = function(direction) {
+            const card = document.getElementById('activeCard');
+            if(direction === 'right') {
                 card.classList.add('swipe-right');
-                addToCart(tomato.id);
+                addToCart(DATA[currentIndex].id);
             } else {
                 card.classList.add('swipe-left');
             }
 
-            // Attendre la fin de l'animation avant de changer
             setTimeout(() => {
-                currentIndex++;
-                renderCard();
-            }, 300);
-        }
+                nextRandom();
+            }, 400);
+        };
 
         function addToCart(id) {
-            if (!panier.includes(id)) {
-                panier.push(id);
-                localStorage.setItem('cart', JSON.stringify(panier));
+            if(!cart.includes(id)) {
+                cart.push(id);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartCount();
             }
         }
 
-        window.nextTomato = () => { currentIndex++; renderCard(); };
-        window.prevTomato = () => { if(currentIndex > 0) { currentIndex--; renderCard(); } };
+        function updateCartCount() {
+            document.getElementById('cart-count').innerText = cart.length;
+        }
 
-        initSmash();
+        function nextRandom() {
+            let next;
+            do {
+                next = Math.floor(Math.random() * DATA.length);
+            } while (history.includes(next) && history.length < DATA.length);
+            
+            currentIndex = next;
+            history.push(currentIndex);
+            renderCard();
+        }
 
-        // Gestion du swipe basique
-        let startX = 0;
-        document.addEventListener('touchstart', e => startX = e.touches[0].clientX);
-        document.addEventListener('touchend', e => {
-            let endX = e.changedTouches[0].clientX;
-            if (startX - endX > 50) handleAction('pass');
-            if (endX - startX > 50) handleAction('keep');
-        });
+        window.changeTomato = function(step) {
+            currentIndex = (currentIndex + step + DATA.length) % DATA.length;
+            renderCard();
+        };
+
+        init();
     </script>
 </body>
 </html>

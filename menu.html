@@ -86,6 +86,7 @@
             position: relative;
             overflow: hidden;
             border: 1px solid rgba(0,0,0,0.03);
+            height: 100%;
         }
 
         .feature-card:hover { transform: translateY(-15px); box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
@@ -151,11 +152,13 @@
             </div>
         </a>
 
-        <div class="feature-card locked">
-            <span class="icon">🔥</span>
-            <h3>Tomato Smash</h3>
-            <p>Le Meetic de la tomate. Swipez vos coups de cœur et découvrez quelles variétés sont faites pour vous.</p>
-        </div>
+        <a href="smash.html" style="text-decoration: none; color: inherit;">
+            <div class="feature-card">
+                <span class="icon">🔥</span>
+                <h3>Tomato Smash</h3>
+                <p>Le Meetic de la tomate. Swipez vos coups de cœur et découvrez quelles variétés sont faites pour vous.</p>
+            </div>
+        </a>
 
         <div class="feature-card locked">
             <span class="icon">🤖</span>
@@ -176,6 +179,7 @@
                 <h4>Navigation</h4>
                 <ul>
                     <li><a href="index.html">Catalogue des tomates</a></li>
+                    <li><a href="smash.html">Mode Smash</a></li>
                     <li><a href="user.html">Mon Profil</a></li>
                     <li><a href="set.html">Paramètres & Thème</a></li>
                 </ul>
@@ -191,7 +195,6 @@
     </footer>
 
     <script>
-        // Synchronisation du thème sombre au chargement
         (function() {
             if(localStorage.getItem('darkMode') === 'true') {
                 document.body.classList.add('dark-mode');

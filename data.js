@@ -1,3 +1,4 @@
+// data.js
 export const DATA = [
   {
     "id": 0,
@@ -5017,5 +5018,254 @@ export const DATA = [
     "images": [
       "https://i.postimg.cc/8C6W5bWZ/1766767759790-063716.jpg"
     ]
+  },
+  [
+  {
+    "id": 254,
+    "nom": "Piennolo Del Vesuvio",
+    "descriptionCourte": "Tomate italienne traditionnelle en grappes pendantes.",
+    "descriptionLongue": "Petite tomate ferme et très savoureuse, réputée pour sa conservation exceptionnelle. Saveur intense, légèrement sucrée et salée.",
+    "origine": "Italie 🇮🇹",
+    "poids": "30-60g",
+    "couleur": "Rouge",
+    "note": 4.8,
+    "culture": {
+      "type": "Indéterminée",
+      "cycle": "Long",
+      "semis": "Mars à Avril",
+      "jauge": 3
+    },
+    "images": [
+      "https://i.postimg.cc/wxWWsDrG/Whats-App-Image-2026-01-04-at-16-24-25.jpg"
+    ]
+  },
+  {
+    "id": 255,
+    "nom": "Jan's",
+    "descriptionCourte": "Tomate ancienne productive et équilibrée.",
+    "descriptionLongue": "Variété robuste donnant des fruits ronds à la chair dense et savoureuse. Très bonne tomate polyvalente.",
+    "origine": "États-Unis 🇺🇸",
+    "poids": "150-250g",
+    "couleur": "Rouge",
+    "note": 4.4,
+    "culture": {
+      "type": "Indéterminée",
+      "cycle": "Moyen",
+      "semis": "Mars à Avril",
+      "jauge": 2
+    },
+    "images": [
+      "https://i.postimg.cc/QxHfgHLq/Whats-App-Image-2026-01-04-at-16-24-26.jpg"
+    ]
+  },
+  {
+    "id": 256,
+    "nom": "Black Vernissage",
+    "descriptionCourte": "Tomate cerise sombre et très décorative.",
+    "descriptionLongue": "Petits fruits brun pourpré, saveur riche et sucrée. Excellente en salade et très productive.",
+    "origine": "Russie 🇷🇺",
+    "poids": "20-40g",
+    "couleur": "Brun pourpré",
+    "note": 4.7,
+    "culture": {
+      "type": "Indéterminée",
+      "cycle": "Moyen",
+      "semis": "Mars à Avril",
+      "jauge": 2
+    },
+    "images": [
+      "https://i.postimg.cc/ZYffy6QD/Whats-App-Image-2026-01-04-at-16-24-26-(1).jpg"
+    ]
+  },
+  {
+    "id": 257,
+    "nom": "Big Sungold Select",
+    "descriptionCourte": "Version plus grosse de la célèbre Sungold.",
+    "descriptionLongue": "Tomate orange très sucrée, explosive en bouche. Chair juteuse, idéale pour grignotage et salades.",
+    "origine": "États-Unis 🇺🇸",
+    "poids": "40-70g",
+    "couleur": "Orange",
+    "note": 4.9,
+    "culture": {
+      "type": "Indéterminée",
+      "cycle": "Précoce",
+      "semis": "Mars à Avril",
+      "jauge": 1
+    },
+    "images": [
+      "https://i.postimg.cc/7PBBTSRR/Whats-App-Image-2026-01-04-at-16-24-26-(2).jpg"
+    ]
+  },
+  {
+    "id": 258,
+    "nom": "Rainbow Big Cherry",
+    "descriptionCourte": "Grosse tomate cerise multicolore.",
+    "descriptionLongue": "Fruits striés rouge, jaune et orange. Saveur douce et fruitée, très esthétique.",
+    "origine": "États-Unis 🇺🇸",
+    "poids": "30-60g",
+    "couleur": "Multicolore",
+    "note": 4.6,
+    "culture": {
+      "type": "Indéterminée",
+      "cycle": "Moyen",
+      "semis": "Mars à Avril",
+      "jauge": 2
+    },
+    "images": [
+      "https://i.postimg.cc/v8PP65K2/Whats-App-Image-2026-01-04-at-16-24-26-(3).jpg"
+    ]
+  },
+  {
+    "id": 259,
+    "nom": "Frog Princess",
+    "descriptionCourte": "Tomate verte surprenante et savoureuse.",
+    "descriptionLongue": "Chair verte, goût sucré et exotique. Très originale, excellente en salade.",
+    "origine": "Russie 🇷🇺",
+    "poids": "120-200g",
+    "couleur": "Vert",
+    "note": 4.5,
+    "culture": {
+      "type": "Indéterminée",
+      "cycle": "Moyen",
+      "semis": "Mars à Avril",
+      "jauge": 2
+    },
+    "images": [
+      "https://i.postimg.cc/65yMVysD/Whats-App-Image-2026-01-04-at-16-24-27.jpg"
+    ]
+  },
+  {
+    "id": 260,
+    "nom": "Bison Rouge",
+    "descriptionCourte": "Grosse tomate charnue de type beefsteak.",
+    "descriptionLongue": "Fruit volumineux, chair dense et juteuse, goût équilibré. Parfaite pour les tomates farcies.",
+    "origine": "France 🇫🇷",
+    "poids": "300-600g",
+    "couleur": "Rouge",
+    "note": 4.6,
+    "culture": {
+      "type": "Indéterminée",
+      "cycle": "Tardif",
+      "semis": "Mars à Avril",
+      "jauge": 3
+    },
+    "images": [
+      "https://i.postimg.cc/qMz1czfD/Whats-App-Image-2026-01-04-at-16-24-27-(1).jpg"
+    ]
+  },
+  {
+    "id": 261,
+    "nom": "Banded Amazon",
+    "descriptionCourte": "Tomate striée spectaculaire.",
+    "descriptionLongue": "Fruits larges vert et rouge, chair juteuse et douce. Très décorative au potager.",
+    "origine": "États-Unis 🇺🇸",
+    "poids": "250-400g",
+    "couleur": "Vert strié rouge",
+    "note": 4.7,
+    "culture": {
+      "type": "Indéterminée",
+      "cycle": "Tardif",
+      "semis": "Mars à Avril",
+      "jauge": 3
+    },
+    "images": [
+      "https://i.postimg.cc/hPf28fFC/Whats-App-Image-2026-01-04-at-16-24-27-(2).jpg"
+    ]
+  },
+  {
+    "id": 262,
+    "nom": "Arbuznyi",
+    "descriptionCourte": "Tomate ancienne russe à chair douce.",
+    "descriptionLongue": "Fruits ronds et réguliers, chair juteuse et peu acide. Très agréable en salade.",
+    "origine": "Russie 🇷🇺",
+    "poids": "150-250g",
+    "couleur": "Rouge",
+    "note": 4.3,
+    "culture": {
+      "type": "Indéterminée",
+      "cycle": "Moyen",
+      "semis": "Mars à Avril",
+      "jauge": 2
+    },
+    "images": [
+      "https://i.postimg.cc/dtL5RLMH/Whats-App-Image-2026-01-04-at-16-24-27-(3).jpg"
+    ]
+  },
+  {
+    "id": 263,
+    "nom": "Abracazebra",
+    "descriptionCourte": "Tomate zébrée très originale.",
+    "descriptionLongue": "Fruits rouges striés de jaune, chair parfumée et sucrée. Très décorative.",
+    "origine": "États-Unis 🇺🇸",
+    "poids": "80-120g",
+    "couleur": "Rouge strié jaune",
+    "note": 4.6,
+    "culture": {
+      "type": "Indéterminée",
+      "cycle": "Moyen",
+      "semis": "Mars à Avril",
+      "jauge": 2
+    },
+    "images": [
+      "https://i.postimg.cc/RVNg1N5m/Whats-App-Image-2026-01-04-at-16-24-28.jpg"
+    ]
+  },
+  {
+    "id": 264,
+    "nom": "Homer's German Oxheart",
+    "descriptionCourte": "Grande tomate cœur ancienne.",
+    "descriptionLongue": "Chair dense, très peu de graines. Saveur douce et riche, idéale en tranches.",
+    "origine": "Allemagne 🇩🇪",
+    "poids": "300-700g",
+    "couleur": "Rouge rosé",
+    "note": 4.8,
+    "culture": {
+      "type": "Indéterminée",
+      "cycle": "Tardif",
+      "semis": "Mars à Avril",
+      "jauge": 3
+    },
+    "images": [
+      "https://i.postimg.cc/ZKCwPCtt/Whats-App-Image-2026-01-04-at-16-24-28-(1).jpg"
+    ]
+  },
+  {
+    "id": 265,
+    "nom": "Ananas Verte",
+    "descriptionCourte": "Tomate verte à saveur fruitée.",
+    "descriptionLongue": "Chair verte marbrée, goût sucré et tropical. Excellente variété de dégustation.",
+    "origine": "France 🇫🇷",
+    "poids": "250-400g",
+    "couleur": "Vert",
+    "note": 4.7,
+    "culture": {
+      "type": "Indéterminée",
+      "cycle": "Tardif",
+      "semis": "Mars à Avril",
+      "jauge": 3
+    },
+    "images": [
+      "https://i.postimg.cc/rFKfGKX2/Whats-App-Image-2026-01-04-at-16-24-28-(2).jpg"
+    ]
+  },
+  {
+    "id": 266,
+    "nom": "Artisan Blush Tiger",
+    "descriptionCourte": "Tomate allongée striée très élégante.",
+    "descriptionLongue": "Fruits rose strié jaune, chair ferme et sucrée. Parfaite en salade et en apéritif.",
+    "origine": "États-Unis 🇺🇸",
+    "poids": "30-50g",
+    "couleur": "Rose strié jaune",
+    "note": 4.9,
+    "culture": {
+      "type": "Indéterminée",
+      "cycle": "Précoce",
+      "semis": "Mars à Avril",
+      "jauge": 1
+    },
+    "images": [
+      "https://i.postimg.cc/BQXm5X9Z/Whats-App-Image-2026-01-04-at-16-25-28.jpg"
+    ]
   }
-];
+
+];;

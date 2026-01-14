@@ -5019,7 +5019,6 @@ export const DATA = [
       "https://i.postimg.cc/8C6W5bWZ/1766767759790-063716.jpg"
     ]
   },
-  [
   {
     "id": 254,
     "nom": "Piennolo Del Vesuvio",
